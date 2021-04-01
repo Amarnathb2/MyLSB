@@ -1,0 +1,10 @@
+﻿@model string
+
+<aside class="cookie-notice" aria-label="Cookie Notice">
+    <div class="container d-flex flex-column flex-md-row justify-content-center align-items-center">
+        <div class="cookie-notice__text">
+            @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model))
+        </div>
+        <button class="btn btn-tertiary cookie-notice__dismiss">I Understand</button>
+    </div>
+</aside>

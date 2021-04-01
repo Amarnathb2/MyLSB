@@ -1,0 +1,330 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.login {
+
+    &__toggle {
+        background: $secondary;
+        border: none;
+        color: $white;
+        font-size: 1.8rem;
+        font-weight: $font-weight-bold;
+        padding: 1.25rem;
+        position: relative;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            margin-right: $grid-gutter-width/2;
+            padding: 1.65rem 2.3rem;
+            width: auto;
+        }
+
+        @include hover-focus {
+            background: $primary;
+
+            > div {
+                text-decoration: underline;
+            }
+        }
+
+        &:focus {
+            outline: 2px solid !important;
+            outline-offset: -5px;
+        }
+
+        .fa-lock,
+        .fa-times {
+            display: inline-block;
+            margin-right: 1.5rem;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+                margin: 0;
+            }
+        }
+
+        .fa-times {
+            display: none;
+        }
+
+        &--open {
+            .fa-times {
+                display: inline-block;
+
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                }
+            }
+
+            .fa-lock {
+                display: none;
+            }
+        }
+    }
+
+    &__close {
+        align-items: center;
+        background: none;
+        border: 2px solid transparent;
+        color: $white;
+        cursor: pointer;
+        display: none;
+        height: 2.6rem;
+        justify-content: center;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 2.6rem;
+
+        @include media-breakpoint-up(lg) {
+            display: flex
+        }
+
+        &:hover,
+        &:focus {
+            border-color: $white;
+            outline: none;
+            text-decoration: none;
+        }
+    }
+
+    &__panel {
+        background: $secondary;
+        color: $white;
+        display: none;
+        left: 0;
+        margin: auto;
+        padding: 1.2rem $grid-gutter-width/2 3.7rem;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 100%;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            box-shadow: 0 0 23.22px 3.78px rgba($black, 0.15);
+            max-width: 73rem;
+            padding: 8rem 7rem 7rem;
+            text-align: left;
+            top: calc(100% + 2rem);
+        }
+
+        &-label {
+            color: $white;
+            display: none;
+            font-size: 3rem;
+            font-weight: $font-weight-bold;
+            margin-bottom: 3rem;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        input.form-control {
+            background: $white;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: $font-weight-bold;
+            height: calc(5.2rem + 2px);
+            padding: 1.6rem 2.8rem;
+            text-align: left;
+            width: 100%;
+
+            &:focus {
+                box-shadow: inset 2px 2px 0 $primary, inset -2px -2px 0 $primary;
+            }
+        }
+
+        .form button[type=submit],
+        a.btn {
+            font-size: 1.8rem;
+            margin: 0;
+            max-width: none;
+            padding: 1.1rem 1rem;
+            width: 100%;
+        }
+    }
+
+    &__links {
+        margin: 2.4rem 0 0;
+        @include separated-list($font-size: 1.2rem, $font-weight: $font-weight-bold, $color: $white);
+
+        a {
+            color: $white;
+        }
+    }
+
+    &__select {
+        background-color: $white;
+        border: none;
+        color: $secondary;
+        font-size: 1.8rem;
+        font-weight: $font-weight-bold;
+        height: 5.4rem;
+        text-align: left;
+        width: 100%;
+
+        option {
+            color: $body-color;
+        }
+
+        &:focus {
+            box-shadow: inset 2px 2px 0 $primary, inset -2px -2px 0 $primary;
+        }
+    }
+
+    &__accounts {
+        max-width: 23rem;
+        margin: 0 auto;
+
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+            max-width: none;
+        }
+    }
+
+    &__divider {
+        background: $white;
+        display: none;
+        margin: 0 5rem;
+        min-width: 2px;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+    }
+    /*    &__promo {
+        align-self: center;
+        background: $white;
+        border-top: 2px solid $bright-green;
+        box-shadow: 0 8px 16.56px 1.44px rgba($black, 0.16);
+        color: $secondary;
+        display: block;
+        flex-direction: column;
+        font-size: 1.8rem;
+        font-weight: $font-weight-bold;
+        margin: 3rem auto 0;
+        max-width: 17.2rem;
+        text-align: center;
+        text-decoration: none;
+
+        @include media-breakpoint-up(lg) {
+            border-top: none;
+            display: flex;
+            flex: 1;
+            font-size: 2.4rem;
+            margin: 0;
+            max-width: none;
+        }
+
+        @include hover-focus {
+            color: $primary;
+            text-decoration: underline;
+        }
+
+        &-title {
+            padding: 3rem 2rem;
+        }
+
+        &-img {
+            display: block;
+            width: 100%;
+        }
+    }*/
+    &__promo {
+        background: $white;
+        border-top: 2px solid $bright-green;
+        box-shadow: 0 8px 16.56px 1.44px rgba($black, 0.16);
+        color: $secondary;
+        display: flex;
+        flex-basis: 100%;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 17.2rem;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+
+        @include media-breakpoint-up(lg) {
+            max-width: 25.2rem;
+        }
+
+        @include hover-focus {
+            .login__promo-hover {
+                display: flex;
+            }
+        }
+
+        &:first-child {
+            margin-right: .9rem;
+        }
+
+        &:last-child {
+            margin-left: .9rem;
+        }
+
+        &-title,
+        &-hover-title {
+            font-size: 1.4rem;
+            font-weight: $font-weight-bold;
+            padding: 3rem 2rem;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2.4rem;
+            }
+        }
+
+        &-img {
+            display: block;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        &-hover {
+            background: $white;
+            color: $secondary;
+            display: flex;
+            flex-direction: column;
+            font-size: 1.2rem;
+            font-weight: $font-weight-semibold;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 1.6rem;
+            }
+
+            &-title {
+                padding-bottom: 0;
+            }
+
+            &-txt {
+                margin-top: auto;
+                padding: 0 1.5rem 1.5rem;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 0 3rem 3rem;
+                }
+            }
+
+            .btn {
+                margin-top: 1.5rem;
+
+                @include media-breakpoint-up(lg) {
+                    margin-top: 3rem;
+                }
+            }
+        }
+    }
+}

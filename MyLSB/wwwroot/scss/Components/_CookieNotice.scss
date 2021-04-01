@@ -1,0 +1,43 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.cookie-notice {
+    background: $secondary;
+    bottom: 0;
+    color: $white;
+    font-size: 1.6rem;
+    left: 0;
+    padding: 3rem 0;
+    position: fixed;
+    right: 0;
+    transition: $transition-base;
+    z-index: 20;
+
+
+    &__text {
+        padding-right: 30px;
+        width: 100%;
+
+        a {
+            color: $white;
+        }
+
+        p {
+            margin-bottom: 2rem;
+
+            @include media-breakpoint-up(md) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__dismiss {
+        white-space: nowrap;
+    }
+
+    &--dismissed {
+        transform: translateY(100%);
+    }
+}

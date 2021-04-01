@@ -1,0 +1,153 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.resources {
+    padding: 4.5rem 0 2rem;
+    position: relative;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        padding: 9rem 0;
+    }
+
+    &--has-bg {
+                background: $light;
+
+        @include media-breakpoint-up(lg) {
+            background: none;
+            margin-bottom: 6rem;
+            &::before {
+                content: '';
+                background: $light;
+                background-image: linear-gradient( 174.5deg,rgba($white, 0) 0,rgba($white,0) calc(78% - 1px), rgba($white, 1) 78%, rgba($white, 1) 100%), linear-gradient( 7.5deg,rgba($white, 0) 0,rgba($white,0) calc(72% - 1px), rgba($white, 1) 72%, rgba($white, 1) 100%);
+                bottom: -5rem;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: -11.4rem;
+                z-index: -2;
+            }
+        }
+/*        > svg {
+            left: 0;
+            margin: auto;
+            max-height: 47rem;
+            position: absolute;
+            right: 0;
+            top: -11rem;
+        }*/
+    }
+
+    &__heading {
+        color: $secondary;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 30%;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        &::before {
+            background: $bright-green;
+            content: '';
+            height: 2px;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 6.5rem;
+
+            @include media-breakpoint-up(lg) {
+                left: calc(-6.5rem - #{$grid-gutter-width});
+                right: auto;
+                top: 2.25rem;
+            }
+        }
+
+        strong {
+            color: $primary;
+            display: block;
+            font-weight: $font-weight-extrabold;
+        }
+    }
+
+    &__list {
+        align-items: flex-start;
+        display: inline-flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        list-style-type: none;
+        max-width: 25rem;
+        margin: 0 auto;
+        padding: 0;
+        text-align: left;
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: none;
+            text-align: center;
+        }
+
+        li::before {
+            content: none;
+        }
+    }
+
+    .resource {
+        display: flex;
+        margin-bottom: 2.5rem;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 100%;
+            margin: 0 1rem;
+        }
+
+        a {
+            align-items: center;
+            display: inline-flex;
+            font-weight: $font-weight-bold;
+            margin: auto;
+            text-decoration: none;
+
+            @include hover-focus {
+                text-decoration: underline;
+
+                .resource__icon {
+                    transform: translateX(.3rem);
+
+                    @include media-breakpoint-up(lg) {
+                        transform: translateY(-.3rem);
+                    }
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+                display: inline-block;
+            }
+        }
+
+        &__icon {
+            display: inline-block;
+            margin: 0 1rem 0 0;
+            transition: transform .25s ease-in-out;
+            width: 3.2rem;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+                margin: 0 auto 1rem;
+                width: 5.5rem;
+            }
+        }
+    }
+}

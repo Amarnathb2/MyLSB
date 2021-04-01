@@ -1,0 +1,97 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+
+.table {
+    border: none;
+    margin: 3rem 0;
+
+    caption {
+        caption-side: top;
+        margin-bottom: 2rem;
+    }
+
+    > thead,
+    > tfoot,
+    > tbody {
+        > tr {
+            > th,
+            > td {
+                border: $table-border-width solid $table-border-color;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            > th:first-child,
+            > td:first-child {
+                border-left: none;
+            }
+
+            > th:last-child,
+            > td:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    > thead {
+        > tr {
+            > th,
+            > td {
+                color: $table-head-color;
+                font-size: 1.8rem;
+                font-weight: $font-weight-extrabold;
+                vertical-align: top;
+            }
+        }
+
+        > tr:first-child {
+            > th,
+            > td {
+                border-top: none;
+            }
+        }
+
+        > tr:last-child {
+            > th,
+            > td {
+                border-bottom: none;
+            }
+        }
+    }
+
+    > tbody {
+        > tr {
+            > td {
+                font-size: 1.2rem;
+            }
+
+            > th {
+                font-size: 1.4rem;
+                padding-left: 0;
+                text-align: left;
+            }
+        }
+
+        > tr:first-child {
+            > td,
+            > th {
+                border-top: none;
+            }
+        }
+
+        > tr:last-child {
+            > td,
+            > th {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .fas {
+        color: $primary;
+        font-size: 2rem;
+    }
+}

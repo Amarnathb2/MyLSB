@@ -1,0 +1,95 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.site-alert {
+    background: $primary;
+    color: $white;
+    font-size: 1.4rem;
+    padding: 3rem 0;
+    position: relative;
+    z-index: 10;
+
+    &__text {
+        padding-right: 3rem;
+        width: 100%;
+
+        &__title {
+            font-size: 1.8rem;
+            margin-right: 2.2rem;
+        }
+
+        a {
+            color: $white;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__dismiss {
+        align-items: center;
+        background: none;
+        border: 2px solid transparent;
+        color: $white;
+        cursor: pointer;
+        display: flex;
+        height: 2.6rem;
+        justify-content: center;
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        width: 2.6rem;
+
+        @include media-breakpoint-up(lg) {
+            margin: 0 0 0 auto;
+            position: static;
+        }
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            border-color: $white;
+            outline: none;
+        }
+    }
+
+
+    &--secondary {
+        background: $secondary;
+    }
+
+
+    &--tertiary {
+        background: $light;
+        color: $body-color;
+
+        .site-alert__text {
+            &__title {
+                color: $primary;
+            }
+
+            a {
+                color: $link-color;
+            }
+        }
+
+        .site-alert__dismiss {
+            color: $link-color;
+
+            &:hover,
+            &:focus,
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled).active {
+                border-color: $link-color;
+            }
+        }
+    }
+}

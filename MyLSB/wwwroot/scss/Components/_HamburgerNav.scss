@@ -1,0 +1,234 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.hamburger-nav {
+    align-items: center;
+    display: flex;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    &__toggle {
+        align-items: center;
+        background: none;
+        border: none;
+        border-left: 2px solid #e7e7e7;
+        color: $secondary;
+        display: flex;
+        flex-direction: column;
+        font-size: 0;
+        justify-content: center;
+        min-width: 5.2rem;
+        padding: 2rem 1.4rem;
+        text-decoration: none;
+
+        @include hover-focus {
+            color: $primary;
+            outline-offset: -2px;
+
+            > div {
+                color: $secondary;
+                text-decoration: underline;
+            }
+        }
+
+        .fas {
+            font-size: 2.5rem;
+        }
+
+        .fa-times {
+            display: none;
+        }
+
+        &--open {
+            .fa-bars {
+                display: none;
+            }
+
+            .fa-times {
+                display: inline;
+            }
+        }
+    }
+
+    &__menu {
+        background-color: $primary;
+        box-shadow: 0px 8px 16.56px 1.44px rgba($black, 0.31);
+        color: $white;
+        display: none;
+        left: 0;
+        font-size: 1.3rem;
+        margin: auto;
+        padding: 2rem 0 3rem;
+        position: absolute;
+        right: 0;
+        top: calc(100% - 5.2rem);
+        width: 100%;
+        z-index: $zindex-modal + 1;
+
+        a {
+            color: $white;
+            font-weight: $font-weight-bold;
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__auxiliary-nav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            &::before {
+                content: none;
+            }
+
+            & + li {
+                margin-top: .7rem;
+            }
+        }
+    }
+
+    &__level-1 {
+        border-top: 2px solid $bright-green;
+        list-style-type: none;
+        margin: 2rem 0 0;
+        padding: 0;
+
+        &-item {
+            border-bottom: 2px solid $bright-green;
+            padding: 1rem 0;
+            position: relative;
+
+            &::before {
+                content: none;
+            }
+
+            > button {
+                background: none;
+                border: none;
+                color: $white;
+                font-size: 2.4rem;
+                font-weight: $font-weight-bold;
+                outline-offset: -2px;
+                padding: .55rem 3.5rem .55rem .5rem;
+                position: relative;
+                text-align: left;
+                text-decoration: none;
+                width: 100%;
+
+                @include hover-focus {
+                    text-decoration: underline;
+                }
+
+                &:focus {
+                    outline: 2px solid;
+                }
+            }
+
+            &--has-children {
+                > button {
+                    &::after {
+                        content: '\f067';
+                        font-family: $font-awesome;
+                        font-weight: $font-weight-normal;
+                        position: absolute;
+                        right: .5rem;
+                    }
+                }
+            }
+
+            &.open {
+                > button {
+                    &::after {
+                        content: '\f068';
+                    }
+                }
+            }
+        }
+    }
+
+    &__level-2 {
+        display: none;
+        margin-bottom: 0;
+        padding: 0 0 0 2.5rem;
+
+        &-item {
+            margin: 1rem 0;
+            position: relative;
+
+            > a,
+            > button {
+                background: none;
+                border: none;
+                color: $white;
+                display: block;
+                font-size: 1.8rem;
+                font-weight: $font-weight-bold;
+                padding: 0;
+                position: relative;
+                text-align: left;
+                text-decoration: none;
+                width: 100%;
+
+                @include hover-focus {
+                    text-decoration: underline;
+                }
+
+                &:focus {
+                    outline: 2px solid;
+                }
+            }
+
+            &--has-children {
+                > button {
+                    &::after {
+                        content: '\f067';
+                        font-family: $font-awesome;
+                        font-weight: $font-weight-normal;
+                        position: absolute;
+                        right: .5rem;
+                    }
+                }
+            }
+
+            &.open {
+                > button {
+                    &::after {
+                        content: '\f068';
+                    }
+                }
+            }
+        }
+    }
+
+    &__level-3 {
+        display: none;
+        margin-bottom: 0;
+        padding: 0 0 0 2.5rem;
+
+        &-item {
+            margin-top: .7rem;
+
+            > a {
+                color: $white;
+                font-size: 1.3rem;
+                font-weight: $font-weight-bold;
+                text-decoration: none;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

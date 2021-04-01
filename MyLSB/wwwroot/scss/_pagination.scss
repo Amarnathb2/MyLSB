@@ -1,0 +1,72 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+.pagination {
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    margin: 3rem auto;
+
+    .page-item {
+        margin: 0;
+        padding-left: 0;
+
+        &::before {
+            content: none;
+        }
+
+        &.active {
+            .page-link {
+                cursor: default;
+                font-weight: $font-weight-bold;
+
+                &:hover,
+                &:focus {
+                    color: $pagination-active-color;
+                    background-color: $pagination-active-bg;
+                    border-color: $pagination-active-border-color;
+                }
+            }
+        }
+
+        &:first-child,
+        &:last-child {
+            .page-link {
+                padding: 0 1.8rem;
+            }
+        }
+
+        & + .page-item {
+            margin-left: 0;
+            margin-top: 0;
+        }
+
+        &.disabled {
+        }
+    }
+
+    .page-link {
+        align-items: center;
+        display: inline-flex;
+        font-weight: $font-weight-bold;
+        height: 4rem;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        width: 5rem;
+
+        &:hover,
+        &:focus {
+            background: $pagination-hover-bg;
+            border-color: $pagination-hover-border-color;
+            color: $pagination-hover-color;
+        }
+
+        &--prev,
+        &--next {
+            width: auto;
+        }
+    }
+}

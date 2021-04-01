@@ -1,0 +1,136 @@
+using Kentico.Content.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.Forms.Web.Mvc;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
+
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using MyLSB;
+using MyLSB.FormBuilder.FormBuilderCustomizations;
+
+namespace MyLSB
+{
+    public class Startup
+    {
+        public IWebHostEnvironment Environment { get; }
+
+        public Startup(IWebHostEnvironment environment)
+        {
+            Environment = environment;
+
+            FormBuilderFilters.FormComponents.Add(new FormComponentsFilter());
+            FormBuilderStaticMarkupConfiguration.SetGlobalRenderingConfigurations();
+            FormWidgetMarkupInjection.RegisterEventHandlers();
+            FormFieldMarkupInjection.RegisterEventHandlers();
+        }
+
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Enable desired Kentico Xperience features
+            var kenticoServiceCollection = services.AddKentico(features =>
+            {
+                features.UsePageBuilder();
+                // features.UseActivityTracking();
+                // features.UseABTesting();
+                // features.UseWebAnalytics();
+                // features.UseEmailTracking();
+                // features.UseCampaignLogger();
+                // features.UseScheduler();
+                features.UsePageRouting(new PageRoutingOptions
+                {
+                    EnableAlternativeUrls = true
+                });
+            });
+
+            // By default, Xperience sends cookies using SameSite=Lax. If the administration and live site applications
+            // are hosted on separate domains, this ensures cookies are set with SameSite=None and Secure. The configuration
+            // only applies when communicating with the Xperience administration via preview links. Both applications also need 
+            // to use a secure connection (HTTPS) to ensure cookies are not rejected by the client.
+            kenticoServiceCollection.SetAdminCookiesSameSiteNone();
+
+            if (Environment.IsDevelopment())
+            {
+                // By default, Xperience requires a secure connection (HTTPS) if administration and live site applications
+                // are hosted on separate domains. This configuration simplifies the initial setup of the development
+                // or evaluation environment without a the need for secure connection. The system ignores authentication
+                // cookies and this information is taken from the URL.
+                kenticoServiceCollection.DisableVirtualContextSecurityForLocalhost();
+            }
+
+            services.AddAuthentication();
+            // services.AddAuthorization();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            services.AddMyLSBServices();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app)
+        {
+            if (Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            // standard static files
+            app.UseStaticFiles();
+
+            // custom static files mappings
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".webmanifest"] = "application/manifest+json";
+            app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = provider });
+
+            app.UseKentico();
+
+            app.UseCookiePolicy();
+
+            app.UseCors();
+
+            app.UseAuthentication();
+            // app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "XmlSitemap",
+                    pattern: "sitemap.xml",
+                    defaults: new { controller = "XmlSitemap", action = "Index" }
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "Admin",
+                    pattern: "/Admin",
+                    defaults: new { controller = "CustomRoutes", action = "Admin" }
+                );
+
+                endpoints.Kentico().MapRoutes();
+
+                endpoints.MapControllerRoute(
+                    name: "Redirect",
+                    pattern: "{*path}",
+                    defaults: new { controller = "CustomRoutes", action = "Redirect" }
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "Error",
+                    pattern: "/Error",
+                    defaults: new { controller = "CustomRoutes", action = "Error" }
+                );
+
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("The site has not been configured yet.");
+                //});
+            });
+        }
+    }
+}

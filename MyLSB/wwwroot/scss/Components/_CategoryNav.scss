@@ -1,0 +1,102 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+
+.category-nav {
+    margin: 1.5rem 0 3.5rem;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.4rem;
+        margin: 4.5rem 0 8.5rem;
+        text-align: left;
+    }
+
+    &__item {
+        background: $white;
+        border-top: 2px solid $bright-green;
+        box-shadow: 0 8px 16.56px 1.44px rgba($black, 0.16);
+        color: $body-color;
+        display: block;
+        margin-bottom: 2.8rem;
+        padding: 1.8rem 2.5rem 2rem;
+        position: relative;
+        text-decoration: none;
+
+        @include hover-focus {
+            color: $white;
+            background: $primary;
+
+            &::after {
+                color: $white;
+                transform: translateX(.3rem);
+            }
+
+            .category-nav__item-heading {
+                color: $white;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 5rem;
+            padding: 3rem 3.5rem 4rem;
+        }
+
+        &::after {
+            bottom: .3rem;
+            color: $primary;
+            content: '\f061';
+            display: inline-block;
+            font-size: 1.4rem;
+            font-family: $font-awesome;
+            line-height: 1;
+            position: absolute;
+            right: .7rem;
+            transition: transform .25s ease-in-out;
+        }
+
+        &-decoration {
+            bottom: -.7rem;
+            height: 4.5rem;
+            position: absolute;
+            right: -.7rem;
+            width: auto;
+
+            @include media-breakpoint-up(lg) {
+                bottom: -1rem;
+                height: 6.7rem;
+                right: -1rem;
+            }
+        }
+
+        &-heading {
+            font-weight: $font-weight-extrabold;
+            margin: 0 0 1rem;
+            padding-bottom: 1.2rem;
+            position: relative;
+
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 1.8rem;
+                padding-bottom: 2.5rem;
+            }
+
+            &::after {
+                background: $bright-green;
+                bottom: 0;
+                content: '';
+                height: 2px;
+                left: 0;
+                margin: auto;
+                position: absolute;
+                right: 0;
+                width: 6.5rem;
+
+                @include media-breakpoint-up(lg) {
+                    right: auto;
+                }
+            }
+        }
+    }
+}
