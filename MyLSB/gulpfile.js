@@ -18,6 +18,11 @@ var sassPaths = [
     'wwwroot/scss/**/*.scss'
 ];
 
+var adminSassPaths = [
+    '../CMS/App_Themes/Default/Custom/*.scss',
+    '../CMS/CMSAdminControls/CKEditor/*.scss'
+];
+
 var jsPaths = [
     'wwwroot/lib/jquery/jquery.js',
     'wwwroot/lib/popper.js/umd/popper.js',
@@ -33,9 +38,13 @@ var jsPaths = [
     'wwwroot/scripts/ZAGFramework-plugins-after.js',
 ];
 
+var generatedModelsSrc = '../CMS/Old_App_Code/CMSClasses/Pages/Custom/*.cs';
+var generatedModelsDest = 'Models/Generated';
+
 gulp.task('watch', done => {
     gulp.watch(jsPaths, gulp.parallel('pack-js'));
     gulp.watch(sassPaths, gulp.parallel('sass'));
+    gulp.watch(generatedModelsSrc, gulp.parallel('copy-generated-models'));
     done();
 });
 
@@ -53,6 +62,19 @@ gulp.task('sass', done => {
     done();
 });
 
+gulp.task('admin-sass', done => {
+    gulp.src(adminSassPaths)
+        .pipe(filter(['**', '!**/_*.scss']))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(gulp.dest(function (f) {
+            return f.base;
+        }));
+    done();
+});
+
 gulp.task('pack-js', done => {
     gulp.src(jsPaths)
         .pipe(concat('base.js'))
@@ -60,6 +82,12 @@ gulp.task('pack-js', done => {
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('wwwroot/assets'));
+    done();
+});
+
+gulp.task('copy-generated-models', done => {
+    gulp.src(generatedModelsSrc)
+        .pipe(gulp.dest(generatedModelsDest));
     done();
 });
 

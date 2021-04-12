@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Repository\AlertRepository.cs" />
-    <Compile Remove="Repository\PartialRepository.cs" />
+    <Compile Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <Compile Remove="Components\ViewComponents\Search\**" />
+    <Content Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <Content Remove="Components\ViewComponents\Search\**" />
+    <EmbeddedResource Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <EmbeddedResource Remove="Components\ViewComponents\Search\**" />
+    <None Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <None Remove="Components\ViewComponents\Search\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Components\ViewComponents\Login\Login.cshtml" />
+    <None Include="Components\ViewComponents\Partials\Partials.cshtml" />
+    <None Include="Components\ViewComponents\PrimaryNav\PrimaryNav.cshtml" />
     <None Include="Components\ViewComponents\Speedbump\Speedbump.cshtml" />
     <None Include="web.config" />
     <None Include="wwwroot\images\cross-promo-bg.svg" />
@@ -113,6 +122,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Custom\Custom.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\ViewComponents\NewFolder\" />
+    <Folder Include="Models\Generated\" />
   </ItemGroup>
 
 </Project>

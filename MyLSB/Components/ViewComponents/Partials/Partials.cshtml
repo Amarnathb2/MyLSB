@@ -1,0 +1,7 @@
+﻿@model IEnumerable<TreeNode>
+
+@foreach (var node in Model)
+{
+    var name = $"{node.ClassName.Split('.')[1]}";
+    @await Component.InvokeAsync(name, new { node = node })
+} 

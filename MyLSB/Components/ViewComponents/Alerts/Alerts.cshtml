@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Alert>
+
+@if (Model.Any())
+{
+    foreach (var alert in Model)
+    {
+        <aside class="site-alert site-alert--@alert.Fields.Style.ToLower()" aria-label="Important Information@(Html.Raw(!String.IsNullOrEmpty(alert.Fields.Title) ? $": {alert.Fields.Title}" : ""))" data-alertid="@alert.AlertID">
+            <div class="container d-flex justify-content-center align-items-start">
+                <div class="site-alert__text">
+                    <strong class="site-alert__title"><span class="far fa-exclamation-triangle" aria-hidden="true"></span> @Html.Raw(alert.Fields.Title)</strong>
+                    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(alert.Fields.Text))
+                </div>
+                <button class="site-alert__dismiss" aria-label="Dismiss this message"><span class="far fa-times" aria-hidden="true"></span></button>
+            </div>
+        </aside>
+    }
+}

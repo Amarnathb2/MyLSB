@@ -1,6 +1,7 @@
 ﻿using MyLSB.Repository;
 
 using Microsoft.Extensions.DependencyInjection;
+using MyLSB.Infrastructure;
 
 namespace MyLSB
 {
@@ -12,17 +13,17 @@ namespace MyLSB
 
             AddRepositories(services);
 
-            //services.AddSingleton<RepositoryCacheHelper>();
+            services.AddSingleton<RepositoryCacheHelper>();
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
-            //services.AddSingleton<AlertRepository>();
-            //services.AddSingleton<NavigationRepository>();
-            //services.AddSingleton<LinkRepository>();
-            //services.AddSingleton<PageRepository>();
+            services.AddSingleton<AlertRepository>();
+            services.AddSingleton<NavigationRepository>();
+            services.AddSingleton<LinkRepository>();
+            services.AddSingleton<PageRepository>();
             services.AddSingleton<SettingsRepository>();
-            //services.AddSingleton<PartialsRepository>();
+            services.AddSingleton<PartialsRepository>();
             //services.AddSingleton<PanelRepository>();
             //services.AddSingleton<BlogPostRepository>();
             //services.AddSingleton<CategoryRepository>();

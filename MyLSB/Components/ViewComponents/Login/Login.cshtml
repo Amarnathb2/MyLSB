@@ -1,0 +1,75 @@
+﻿<button type="button" class="login__toggle" id="login" aria-expanded="false">
+    <span class="far fa-times" aria-hidden="true"></span>
+    <span class="far fa-lock" aria-hidden="true"></span>Login
+</button>
+<div class="login__panel" id="loginPanel" tabindex="-1" role="dialog" aria-labelledby="loginPanelLabel" aria-hidden="true">
+    <div class="panel-dialog" role="document">
+        <button type="button" class="login__close">
+            <span class="far fa-times" aria-hidden="true"></span><span class="sr-only">Close</span>
+        </button>
+        <div class="d-lg-flex align-items-stretch">
+            <div class="login__accounts">
+                <div class="login__panel-label" id="loginPanelLabel"><span class="far fa-lock" aria-hidden="true"></span> Login</div>
+                <div class="form-group">
+                    <label for="loginSelect" class="sr-only">Select an account type</label>
+                    <select id="loginSelect" class="custom-select login__select">
+                        <option value="OnlineBanking">Online Banking</option>
+                        <option value="LSBPlus">LSB+ Portal</option>
+                        <option value="Shareholder">Shareholder Login</option>
+                        <option value="LPL">LPL Account View</option>
+                        <option value="Wealth">Wealth Vision</option>
+                        <option value="Trust">Trust Client Portal</option>
+                        <option value="Elan">Elan Credit Cards</option>
+                    </select>
+                </div>
+                <div class="login__account" data-account="OnlineBanking">
+                    <form class="form" action="https://secure8.onlineaccess1.com/lincolnsavingsbankonline/uux.aspx" method="post">
+                        <div class="form-group form-group--required">
+                            <label for="user_id" class="sr-only">Login ID</label>
+                            <input type="text" id="user_id" name="user_id" class="form-control" required placeholder="Login ID" autocomplete="off" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </form>
+                    <ul class="list-inline login__links">
+                        <li class="list-inline-item"><a href="#">Enroll Now</a></li>
+                        <li class="list-inline-item"><a href="#" aria-label="Learn more about online banking">Learn More</a></li>
+                    </ul>
+                </div>
+                <div class="login__account d-none" data-account="LSBPlus">
+                    <a href="http://www.lsbplus.com" class="btn btn-primary" target="_blank">Log in<span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+                <div class="login__account d-none" data-account="Shareholder">
+                    <a href="https://shareholder.mylsb.com/Login.aspx?ReturnUrl=%2fDefault.aspx" class="btn btn-primary" target="_blank">Log in<span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+                <div class="login__account d-none" data-account="LPL">
+                    <a href="https://myaccountviewonline.com/AccountView/" class="btn btn-primary" target="_blank">Log in<span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+                <div class="login__account d-none" data-account="Wealth">
+                    <a href="https://www.myaccountviewonline.com" class="btn btn-primary" target="_blank">Log in<span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+                <div class="login__account d-none" data-account="Trust">
+                    <a href="https://icp.infovisa.com/0305" class="btn btn-primary" target="_blank">Log in<span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+                <div class="login__account d-none" data-account="Elan">
+                    <a href="https://www.myaccountaccess.com/onlineCard/login.do" class="btn btn-primary" target="_blank">Log in<span class="sr-only"> (opens in a new tab)</span></a>
+                </div>
+            </div>
+            <div class="login__divider"></div>
+            <a href="#" class="login__promo">
+                <div class="login__promo-title">
+                    Simply Free Checking
+                </div>
+                <img src="~/images/fpo/checking-promo.jpg" alt="" class="login__promo-img" />
+                <div class="login__promo-hover">
+                    <div class="login__promo-hover-title">
+                        Simply Free Checking
+                    </div>
+                    <div class="login__promo-hover-txt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        <span class="btn btn-primary">Learn More</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

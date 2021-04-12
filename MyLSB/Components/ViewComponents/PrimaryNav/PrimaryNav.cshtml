@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MenuItemViewModel>
+
+<nav class="primary-nav" id="PrimaryNav" aria-label="Main">
+    <ul class="primary-nav__level-1">
+        @foreach (var level1Item in Model)
+        {
+            <li class="primary-nav__level-1-item @Html.Raw(level1Item.Children.Any() ? "primary-nav__level-1-item--has-children" : "")">
+                <a href="@Url.Content(level1Item.Url)" id="primaryNav_@level1Item.NodeID" @Html.Raw(level1Item.Children.Any() ? "aria-haspopup=\"true\" aria-expanded=\"false\"" : "") @Html.Raw(level1Item.NewTab ? "target=\"_blank\"" : "") @Html.Raw(level1Item.IsActive ? "class=\"active\"" : "")>
+                    @Html.Raw(level1Item.Text)@Html.Raw(level1Item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                </a>
+                @if (level1Item.Children.Any())
+                {
+                    <div class="primary-nav__menu">
+                        <div class="container">
+                            <div class="row">
+                                @foreach (var level2Item in level1Item.Children.Where(x => x.ClassName == PageGroup.CLASS_NAME).Take(3))
+                                {
+                                    <div class="col-3">
+                                        <ul class="primary-nav__level-2 list-unstyled" aria-labelledby="primaryNav_@level1Item.NodeID">
+                                            <li class="primary-nav__level-2-item">
+                                                <div id="primaryNav_@level2Item.NodeID">@Html.Raw(level2Item.Text)</div>
+                                                @if (level2Item.Children.Any())
+                                                {
+                                                    <ul class="primary-nav__level-3 list-unstyled" aria-labelledby="primaryNav_@level2Item.NodeID">
+                                                        @foreach (var level3Item in level2Item.Children)
+                                                        {
+                                                            <li class="primary-nav__level-3-item">
+                                                                <a href="@Url.Content(level3Item.Url)" @Html.Raw(level3Item.NewTab ? "target=\"_blank\"" : "")>
+                                                                    @Html.Raw(level3Item.Text)@Html.Raw(level3Item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                                @if (level1Item.Resources.Any())
+                                {
+                                    var offset = $"offset-{9 - (level1Item.Children.Count() * 3)}";
+                                    <div class="col-3 @offset">
+                                        <ul class="quick-links" aria-label="@Html.Raw(level1Item.Text) Quick Links">
+                                            @foreach (var link in level1Item.Resources)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Content(link.Url)" class="quick-link" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
+                                                        <img src="@Url.Content(link.IconImage)" class="quick-link__icon" alt="" aria-hidden="true" />
+                                                        @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </li>
+        }
+    </ul>
+</nav>

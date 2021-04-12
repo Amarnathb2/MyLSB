@@ -44,6 +44,40 @@ CKEDITOR.editorConfig = function( config ) {
         ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'InsertLink', 'Unlink']
     ];
 
+	config.toolbar_Custom = [
+        [sourceName, '-'],
+        ['PasteText', 'PasteFromWord', 'Scayt', '-'],
+        ['Undo', 'Redo', 'Find', 'Replace', 'RemoveFormat', '-'],
+        ['Styles'],
+        ['Bold', 'Italic', 'Subscript', 'Superscript', '-'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', '-'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'],
+        ['InsertLink', 'Unlink', 'Anchor', '-'],
+        ['InsertImageOrMedia', 'Table', 'HorizontalRule', 'SpecialChar', '-'],
+        ['InsertMacro', '-'],
+        ['Maximize', 'ShowBlocks']
+    ];
+
+    config.toolbar_CustomBasic = [
+        [sourceName, '-'],
+        ['Styles'],
+        ['Bold', 'Italic', 'Subscript', 'Superscript', '-'],
+        ['NumberedList', 'BulletedList'],
+        ['InsertLink', 'Unlink'],
+        ['InsertImageOrMedia'],
+        ['SpecialChar'],
+        ['InsertMacro', '-'],
+        ['ShowBlocks']
+    ];
+
+    config.toolbar_CustomMinimum = [
+        [sourceName, '-'],
+        ['Bold', 'Italic', 'Subscript', 'Superscript', '-'],
+        ['SpecialChar'],
+        ['InsertMacro', '-'],
+        ['ShowBlocks']
+    ];
+
     config.toolbar_BizForm = [
         ['Source', '-'],
         ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-'],

@@ -63,6 +63,108 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// SettingsName.
+		/// </summary>
+		[DatabaseField]
+		public string SettingsName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("SettingsName"), @"Settings");
+			}
+			set
+			{
+				SetValue("SettingsName", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Phone number.
+		/// </summary>
+		[DatabaseField]
+		public string PhoneNumber
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PhoneNumber"), @"");
+			}
+			set
+			{
+				SetValue("PhoneNumber", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Contact page URL.
+		/// </summary>
+		[DatabaseField]
+		public string ContactPageUrl
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ContactPageUrl"), @"");
+			}
+			set
+			{
+				SetValue("ContactPageUrl", value);
+			}
+		}
+
+
+		/// <summary>
+		/// SEO Heading.
+		/// </summary>
+		[DatabaseField]
+		public string FooterSEOHeading
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FooterSEOHeading"), @"");
+			}
+			set
+			{
+				SetValue("FooterSEOHeading", value);
+			}
+		}
+
+
+		/// <summary>
+		/// SEO Text.
+		/// </summary>
+		[DatabaseField]
+		public string FooterSEOText
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FooterSEOText"), @"");
+			}
+			set
+			{
+				SetValue("FooterSEOText", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Privileged Status URL.
+		/// </summary>
+		[DatabaseField]
+		public string FooterPrivilegedStatusUrl
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FooterPrivilegedStatusUrl"), @"");
+			}
+			set
+			{
+				SetValue("FooterPrivilegedStatusUrl", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Cookie notice.
 		/// </summary>
 		[DatabaseField]
@@ -80,7 +182,7 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
-		/// SpeedbumpTitle.
+		/// Heading.
 		/// </summary>
 		[DatabaseField]
 		public string SpeedbumpTitle
@@ -182,6 +284,102 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
+			/// SettingsName.
+			/// </summary>
+			public string Name
+			{
+				get
+				{
+					return mInstance.SettingsName;
+				}
+				set
+				{
+					mInstance.SettingsName = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Phone number.
+			/// </summary>
+			public string PhoneNumber
+			{
+				get
+				{
+					return mInstance.PhoneNumber;
+				}
+				set
+				{
+					mInstance.PhoneNumber = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Contact page URL.
+			/// </summary>
+			public string ContactPageUrl
+			{
+				get
+				{
+					return mInstance.ContactPageUrl;
+				}
+				set
+				{
+					mInstance.ContactPageUrl = value;
+				}
+			}
+
+
+			/// <summary>
+			/// SEO Heading.
+			/// </summary>
+			public string FooterSEOHeading
+			{
+				get
+				{
+					return mInstance.FooterSEOHeading;
+				}
+				set
+				{
+					mInstance.FooterSEOHeading = value;
+				}
+			}
+
+
+			/// <summary>
+			/// SEO Text.
+			/// </summary>
+			public string FooterSEOText
+			{
+				get
+				{
+					return mInstance.FooterSEOText;
+				}
+				set
+				{
+					mInstance.FooterSEOText = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Privileged Status URL.
+			/// </summary>
+			public string FooterPrivilegedStatusUrl
+			{
+				get
+				{
+					return mInstance.FooterPrivilegedStatusUrl;
+				}
+				set
+				{
+					mInstance.FooterPrivilegedStatusUrl = value;
+				}
+			}
+
+
+			/// <summary>
 			/// Cookie notice.
 			/// </summary>
 			public string CookieNotice
@@ -198,7 +396,7 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
-			/// SpeedbumpTitle.
+			/// Heading.
 			/// </summary>
 			public string SpeedbumpTitle
 			{

@@ -3,6 +3,7 @@ using CMS.DocumentEngine.Types.Custom;
 using CMS.Helpers;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Routing;
+using MyLSB.Repository;
 using System.Collections.Generic;
 
 namespace MyLSB.Models.Pages
@@ -23,14 +24,21 @@ namespace MyLSB.Models.Pages
         public string OpenGraphUrl { get; set; }
         public string Schema { get; set; }
         public string BodyClass { get; set; }
+        public string PartialsPath { get; set; }
 
-        public PageBaseViewModel(TreeNode node)
+        //Settings
+        public string ContactPageUrl { get; set; }
+        public string PhoneNumber { get; set; }
+        public string PhoneNumberTelLink { get; set; }
+        public string PrivilegedStatusUrl { get; set; }
+
+        public PageBaseViewModel(TreeNode node, Settings settings, PageRepository pageRepository, PartialsRepository partialsRepository)
         {
             ClassName = node.ClassName;
             NodeID = node.NodeID;
             PageUrl = DocumentURLProvider.GetUrl(node);
             NodeAliasPath = node.NodeAliasPath;
-            //LinkedNodeAliasPath = node.IsLink ? pageRepository.GetNodeAliasPath(node.NodeLinkedNodeID) : null;
+            LinkedNodeAliasPath = node.IsLink ? pageRepository.GetNodeAliasPath(node.NodeLinkedNodeID) : null;
             OpenGraphTitle = node.GetStringValue("OpenGraphTitle", node.DocumentName);
             OpenGraphType = node.GetStringValue("OpenGraphType", "website");
             OpenGraphDescription = node.GetStringValue("OpenGraphDescription", node.DocumentPageDescription);
@@ -38,6 +46,16 @@ namespace MyLSB.Models.Pages
             OpenGraphImageAlt = node.GetStringValue("OpenGraphImageAlt", "Lincoln Savings Bank");
             OpenGraphUrl = DocumentURLProvider.GetAbsoluteUrl(node);
             Schema = node.GetStringValue("Schema", "");
+            PartialsPath = partialsRepository.GetPartialsContainerPath(node);
+
+            ContactPageUrl = settings.Fields.ContactPageUrl;
+            PhoneNumber = settings.Fields.PhoneNumber;
+            PhoneNumberTelLink = settings.Fields.PhoneNumber
+                .Replace("(", "")
+                .Replace(")", "")
+                .Replace("-", "")
+                .Replace(" ", "");
+            PrivilegedStatusUrl = settings.Fields.FooterPrivilegedStatusUrl;
         }
     }
 }

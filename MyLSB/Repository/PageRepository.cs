@@ -85,5 +85,19 @@ namespace MyLSB.Repository
 
             return searchResults;
         }
+
+        public string GetNodeAliasPath(int nodeId)
+        {
+            return pageRetriever.Retrieve<TreeNode>(
+                  query => query
+                       .Column("NodeAliasPath")
+                       .WhereEquals("NodeID", nodeId)
+                       .TopN(1),
+                  cache => cache
+                      .Key($"{nameof(PageRepository)}|{nameof(GetNodeAliasPath)}|{nodeId}")
+                      .Dependencies((_, builder) => builder.Custom($"nodeid|{nodeId}")))
+                .FirstOrDefault()
+                .NodeAliasPath;
+        }
     }
 }
