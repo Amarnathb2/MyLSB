@@ -1,11 +1,12 @@
 ﻿using CMS;
+using CMS.Base;
 using CMS.DataEngine;
 using CMS.MacroEngine;
-using Custom.CustomMacros;
+using Custom;
 
 // Registers the custom module into the system
 [assembly: RegisterModule(typeof(CustomMacroModule))]
-namespace Custom.CustomMacros
+namespace Custom
 {
     public class CustomMacroModule : Module
     {

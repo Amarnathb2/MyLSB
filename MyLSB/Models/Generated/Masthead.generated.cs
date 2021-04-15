@@ -63,6 +63,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// MastheadName.
+		/// </summary>
+		[DatabaseField]
+		public string MastheadName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("MastheadName"), @"Masthead");
+			}
+			set
+			{
+				SetValue("MastheadName", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Heading (H1).
 		/// </summary>
 		[DatabaseField]
@@ -70,7 +87,7 @@ namespace CMS.DocumentEngine.Types.Custom
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("MastheadHeading"), @"{% EditedObject.Parent.Parent.DocumentName |(identity)GlobalAdministrator|(hash)14b18ec44a2e4ddcd0cb4054ea95157ba48677724000daae3806973f75438b80%}");
+				return ValidationHelper.GetString(GetValue("MastheadHeading"), @"");
 			}
 			set
 			{
@@ -279,6 +296,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.MastheadID = value;
+				}
+			}
+
+
+			/// <summary>
+			/// MastheadName.
+			/// </summary>
+			public string Name
+			{
+				get
+				{
+					return mInstance.MastheadName;
+				}
+				set
+				{
+					mInstance.MastheadName = value;
 				}
 			}
 

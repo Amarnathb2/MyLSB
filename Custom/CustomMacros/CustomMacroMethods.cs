@@ -5,7 +5,6 @@ using CMS.DocumentEngine;
 using CMS.Helpers;
 using CMS.MacroEngine;
 using Custom;
-using Custom.CustomMacros;
 using Newtonsoft.Json;
 using System;
 using System.Data;
@@ -31,7 +30,10 @@ namespace Custom
             return DateTime.Now.ToString(Format);
         }
 
-        [MacroMethod(typeof(string), "Returns selected value from JSON Table", 3)]
+        [MacroMethod(typeof(CustomMacro), "Returns selected value from JSON Table", 3)]
+        [MacroMethodParam(0, "Table ID", typeof(int), "Indicate the integer ID of the table from which you want to pull data")]
+        [MacroMethodParam(1, "Table Row", typeof(int), "Indicate the integer value of the row from which you want to pull data")]
+        [MacroMethodParam(2, "Table Column", typeof(string), "Indicate the string NAME of the column from which you want to pull data")]
         public static object JsonTableData(EvaluationContext context, params object[] parameters)
         {
             // 113, 1, "Rate"
@@ -46,7 +48,7 @@ namespace Custom
             }
         }
 
-        static string GetJsonTableItem(params object[] parameters)
+        public static string GetJsonTableItem(params object[] parameters)
         {
             string cellValue = string.Empty;
 
@@ -67,6 +69,12 @@ namespace Custom
                 if (jsonData != "")
                 {
                     DataTable dt = (DataTable)JsonConvert.DeserializeObject(jsonData, (typeof(DataTable)));
+                    // get column number from column name
+                    var columnNames = dt.Columns.Cast<DataColumn>()
+                                                    .Select(x => x.ColumnName)
+                                                    .ToList();
+                    int col = columnNames.IndexOf(columnName);
+                    var percentCol = ValidationHelper.GetString(page.GetValue("JSONPercentCol"), "").Split(',');
                     try
                     {
                         cellValue = System.Net.WebUtility.UrlDecode(dt.Rows[row][columnName].ToString());
@@ -81,6 +89,10 @@ namespace Custom
                         {
                             cellValue = "N/A";
                         }
+                    }
+                    if (cellValue != "N/A" && percentCol.Contains(col.ToString()))
+                    {
+                        cellValue = cellValue + "%";
                     }
                 }
             }

@@ -24,6 +24,7 @@ namespace MyLSB
             services.AddSingleton<PageRepository>();
             services.AddSingleton<SettingsRepository>();
             services.AddSingleton<PartialsRepository>();
+            services.AddSingleton<FeatureRepository>();
             //services.AddSingleton<PanelRepository>();
             //services.AddSingleton<BlogPostRepository>();
             //services.AddSingleton<CategoryRepository>();

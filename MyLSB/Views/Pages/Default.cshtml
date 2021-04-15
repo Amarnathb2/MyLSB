@@ -39,7 +39,7 @@
     </div>
 </header>
 <main id="mainContent">
-    <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
+    <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
         <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
         <vc:partials path="@Model.PartialsPath" get-container="false" />
     </cache>  

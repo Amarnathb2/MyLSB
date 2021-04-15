@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Components\ViewComponents\Disclosure\ContainerDisclosure.cshtml" />
+    <Content Remove="Components\ViewComponents\Disclosure\Disclosure.cshtml" />
+    <Content Remove="Components\ViewComponents\RichText\ContainerRichText.cshtml" />
     <Content Remove="web.config" />
   </ItemGroup>
 
@@ -30,9 +33,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Components\ViewComponents\Disclosure\ContainerDisclosure.cshtml" />
+    <None Include="Components\ViewComponents\Disclosure\Disclosure.cshtml" />
     <None Include="Components\ViewComponents\Login\Login.cshtml" />
     <None Include="Components\ViewComponents\Partials\Partials.cshtml" />
     <None Include="Components\ViewComponents\PrimaryNav\PrimaryNav.cshtml" />
+    <None Include="Components\ViewComponents\RichText\ContainerRichText.cshtml" />
+    <None Include="Components\ViewComponents\RichText\RichText.cshtml" />
     <None Include="Components\ViewComponents\Speedbump\Speedbump.cshtml" />
     <None Include="web.config" />
     <None Include="wwwroot\images\cross-promo-bg.svg" />
@@ -99,7 +106,7 @@
     <None Include="wwwroot\scss\Components\_PositioningText.scss" />
     <None Include="wwwroot\scss\Components\_PrimaryNav.scss" />
     <None Include="wwwroot\scss\Components\_ProductsServices.scss" />
-    <None Include="wwwroot\scss\Components\_RelatedPromo.scss" />
+    <None Include="wwwroot\scss\Components\_PromoBand.scss" />
     <None Include="wwwroot\scss\Components\_Resources.scss" />
     <None Include="wwwroot\scss\Components\_Search.scss" />
     <None Include="wwwroot\scss\Components\_SectionNav.scss" />
@@ -125,7 +132,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\ViewComponents\NewFolder\" />
     <Folder Include="Models\Generated\" />
   </ItemGroup>
 

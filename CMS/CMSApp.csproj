@@ -859,6 +859,8 @@
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.newsletter.report.less" />
     <None Include="App_Themes\Default\CMSModules\cms.membership.less" />
     <None Include="App_Themes\Default\CMSModules\cms.objecttypegraph.less" />
+    <Content Include="App_Themes\Default\Custom\Styles.scss" />
+    <Content Include="CMSAdminControls\CKeditor\contents.scss" />
     <None Include="Old_App_WebReferences\WS\WebService.discomap" />
     <None Include="Old_App_WebReferences\WS\WebService.wsdl" />
     <Content Include="Admin\Default.aspx" />
@@ -980,6 +982,7 @@
     <Content Include="App_Themes\Default\Bootstrap\close.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.ecommerce\cms.ecommerce.discount.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.content\cms.content.documentflags.less" />
+    <Content Include="App_Themes\Default\Custom\styles.css" />
     <Content Include="App_Themes\Default\DesignMode.less" />
     <Content Include="App_Themes\Default\Fonts\Core-icons.svg" />
     <Content Include="App_Themes\Default\bootstrap.css" />
@@ -1388,6 +1391,10 @@
     <Content Include="CMSAdminControls\UI\UniGrid\Controls\MassActions.ascx" />
     <Content Include="CMSAdminControls\UI\UniGrid\Pages\MassDelete.aspx" />
     <Content Include="CMSAdminControls\UI\FontIconSelector.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTableData.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTableEditor.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTablePicker.ascx" />
     <Content Include="CMSInstall\Controls\WizardSteps\CollationDialog.ascx" />
     <Content Include="CMSModules\AdminControls\Controls\UIControls\SmartTipPlaceholder.ascx" />
     <Content Include="CMSModules\BizForms\FormControls\FormFieldSelector.ascx" />
@@ -4229,6 +4236,34 @@
     </Compile>
     <Compile Include="CMSAdminControls\UI\FontIconSelector.ascx.designer.cs">
       <DependentUpon>FontIconSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.cs">
+      <DependentUpon>JsonTableCellPicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.designer.cs">
+      <DependentUpon>JsonTableCellPicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableData.ascx.cs">
+      <DependentUpon>JsonTableData.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableData.ascx.designer.cs">
+      <DependentUpon>JsonTableData.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableEditor.ascx.cs">
+      <DependentUpon>JsonTableEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableEditor.ascx.designer.cs">
+      <DependentUpon>JsonTableEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTablePicker.ascx.cs">
+      <DependentUpon>JsonTablePicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTablePicker.ascx.designer.cs">
+      <DependentUpon>JsonTablePicker.ascx</DependentUpon>
     </Compile>
     <Compile Include="CMSFormControls\SQL\SqlQueryTextbox.ascx.cs">
       <DependentUpon>SqlQueryTextbox.ascx</DependentUpon>

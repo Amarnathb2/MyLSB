@@ -7211,3 +7211,6 @@ readers do not read off random characters that represent icons */
   max-width: 500px; }
   .media-selector-image img {
     max-width: 100%; }
+
+.m_c_l_fileEdit_pnlPrew img {
+  max-height: 200px; }

@@ -1,0 +1,51 @@
+﻿//Required
+@import "wwwroot/lib/twitter-bootstrap/scss/functions";
+@import "wwwroot/lib/twitter-bootstrap/scss/variables";
+@import "wwwroot/lib/twitter-bootstrap/scss/mixins";
+
+// Variable Overrides & Custom Mixins
+@import "wwwroot/scss/variables";
+@import "wwwroot/scss/mixins";
+
+//Optional - Comment out unused components
+@import "wwwroot/lib/twitter-bootstrap/scss/root";
+@import "wwwroot/lib/twitter-bootstrap/scss/reboot";
+@import "wwwroot/lib/twitter-bootstrap/scss/type";
+@import "wwwroot/lib/twitter-bootstrap/scss/images";
+@import "wwwroot/lib/twitter-bootstrap/scss/utilities";
+
+//-----------------------------------------
+// Custom Styles
+//-----------------------------------------
+
+// General
+@import "wwwroot/scss/general";
+
+// Typography
+$fa-font-path: "/App_Themes/Default/Fonts/fontawesome-pro/webfonts";
+@import "wwwroot/fonts/fontawesome-pro/scss/brands.scss";
+@import "wwwroot/fonts/fontawesome-pro/scss/light.scss";
+@import "wwwroot/fonts/fontawesome-pro/scss/regular.scss";
+@import "wwwroot/fonts/fontawesome-pro/scss/solid.scss";
+@import "wwwroot/fonts/fontawesome-pro/scss/fontawesome.scss";
+@import "wwwroot/scss/typography";
+
+body.cke_editable {
+    color: black;
+} 
+
+.list--2-col {
+    column-count: 2;
+    column-gap: 40px;
+
+    li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+.cke_panel_list {
+    li:before {
+        content: none;
+    }
+}

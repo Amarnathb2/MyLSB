@@ -17,7 +17,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Undo', 'Redo', '-'],
         ['Bold', 'Italic', 'Underline', 'TextColor', '-'],
         ['Styles'],
-        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', '-'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', '-'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'],
         ['InsertLink', 'Unlink', '-'],
         ['InsertImageOrMedia', 'QuicklyInsertImage', 'Table', 'InsertMacro', '-'],

@@ -1,0 +1,48 @@
+﻿@model FeaturesViewModel
+
+<section class="features" aria-label="Features & Benefits">
+    <div class="container d-lg-flex">
+        <div class="row flex-lg-grow-1">
+            <div class="col-lg-11 offset-lg-1 d-lg-flex">
+                <h2 class="features__heading">
+                    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.Heading))
+                </h2>
+                @if (Model.Features.Any())
+                {
+                    <ul class="features__list staggered-animation-container">
+                        @for (int i = 0; i < Model.Features.Count(); i++)
+                        {
+                            var feature = Model.Features.ElementAt(i);
+                            <li class="feature staggered-animation" data-os-animation="animate__fadeInUp" data-os-animation-delay="@(i * .3)s">
+                                <img src="~/images/icons/feature.svg" class="feature__icon" alt="" aria-hidden="true" />
+                                @if (feature.Fields.IsRate && !String.IsNullOrEmpty(feature.Fields.Rate))
+                                {
+                                    var rateValues = feature.Fields.Rate.Split(';');
+                                    var formattedRate = "";
+
+                                    if (rateValues.Length == 3)
+                                    {    
+                                        try
+                                        {
+                                            formattedRate = HttpUtility.UrlDecode(CustomMacroMethods.GetJsonTableItem((object[])rateValues));
+                                        }
+                                        catch
+                                        {
+                                            formattedRate = CustomMacroMethods.GetJsonTableItem((object[])rateValues);
+                                        }
+                                    }
+
+                                    @formattedRate @Html.Raw($" {feature.Fields.RateLabel}")
+                                }
+                                else
+                                {
+                                    @Html.Raw(feature.DocumentName)
+                                }
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</section>

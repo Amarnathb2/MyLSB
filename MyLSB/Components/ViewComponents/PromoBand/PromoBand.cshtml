@@ -1,0 +1,26 @@
+﻿@model PromoBand
+<div class="container">
+    <aside class="promo-band" aria-label="You may also like">
+        <div class="row">
+            <div class="col-lg-11 offset-lg-1 d-lg-flex justify-content-between align-items-center">
+                @if (!String.IsNullOrEmpty(Model.Fields.Icon))
+                {
+                    <img src="@Url.Content(Model.Fields.Icon)" class="promo-band__icon" alt="" aria-hidden="true" />
+                }
+                @if (!String.IsNullOrEmpty(Model.Fields.Heading))
+                {
+                    <h3 class="promo-band__heading">@Html.Raw(Model.Fields.Heading)</h3>
+                }
+                <div class="promo-band__sub">
+                    @Html.Raw(Model.Fields.Subtext)
+                </div>
+                @if (!String.IsNullOrEmpty(Model.Fields.LinkText) && !String.IsNullOrEmpty(Model.Fields.LinkUrl))
+                {
+                    <a href="@Url.Content(Model.Fields.LinkUrl)" class="btn btn-tertiary promo-band__cta" @Html.Raw(Model.Fields.LinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Fields.LinkAriaLabel) ? $"aria-label=\"{Model.Fields.LinkAriaLabel}\"" : "")>
+                        @Html.Raw(Model.Fields.LinkText)@Html.Raw(Model.Fields.LinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+            </div>
+        </div>
+    </aside>
+</div>

@@ -301,8 +301,8 @@ CMS/DancingGoatCore
 CMS/DancingGoatMvc
 
 # Project media libraries (recommend shared file storage)
-CMS/BlackHillsFCU/media
-MyLSB/BlackHillsFCU/media
+CMS/MyLSB/media
+MyLSB/MyLSB/media
 
 # Project form uploads
 # TBD

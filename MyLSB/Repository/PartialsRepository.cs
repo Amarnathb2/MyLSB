@@ -64,8 +64,9 @@ namespace MyLSB.Repository
         public string GetPartialsContainerPath(TreeNode node)
         {
             var path = node.IsLink ? pageRepository.GetNodeAliasPath(node.NodeLinkedNodeID) : node.NodeAliasPath;
+            var container = GetPartialsContainer(path);
 
-            return GetPartialsContainer(path).NodeAliasPath;
+            return container.NodeAliasPath;
         }
     }
 }

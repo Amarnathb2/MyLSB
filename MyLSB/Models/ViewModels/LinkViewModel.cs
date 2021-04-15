@@ -18,13 +18,14 @@ namespace MyLSB.Models
         public string IconImage { get; set; }
         public IEnumerable<LinkViewModel> Children { get; set; }
 
-        protected LinkViewModel(Link link)
+
+        protected LinkViewModel()
         {
         }
 
         public static LinkViewModel GetViewModel(Link link)
         {
-            return new LinkViewModel(link)
+            return new LinkViewModel()
             {
                 Text = link.Fields.Text,
                 Url = link.Fields.Url,
@@ -35,9 +36,25 @@ namespace MyLSB.Models
             };
         }
 
+        public static LinkViewModel GetViewModel(string text, string url, bool newTab = false, string ariaLabel = null)
+        {
+            if (String.IsNullOrEmpty(text) || String.IsNullOrEmpty(url))
+            {
+                return null;
+            }
+
+            return new LinkViewModel()
+            {
+                Text = text,
+                Url = url,
+                NewTab = newTab,
+                AriaLabel = ariaLabel
+            };
+        }
+
         public static LinkViewModel GetViewModel(Link link, LinkRepository linkRepository)
         {
-            return new LinkViewModel(link)
+            return new LinkViewModel()
             {
                 Text = link.Fields.Text,
                 Url = link.Fields.Url,

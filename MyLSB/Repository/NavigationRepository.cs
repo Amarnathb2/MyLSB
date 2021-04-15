@@ -5,6 +5,7 @@ using CMS.SiteProvider;
 using Kentico.Content.Web.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using MyLSB.Infrastructure;
 
 namespace MyLSB.Repository
 {
@@ -12,15 +13,17 @@ namespace MyLSB.Repository
     {
         private readonly IPageRetriever pageRetriever;
         private readonly IPageDataContextRetriever pageDataContextRetriever;
+        private readonly RepositoryCacheHelper repositoryCacheHelper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NavigationRepository"/> class.
         /// </summary>
         /// <param name="pageRetriever">The page retriever.</param>
-        public NavigationRepository(IPageRetriever pageRetriever, IPageDataContextRetriever pageDataContextRetriever)
+        public NavigationRepository(IPageRetriever pageRetriever, IPageDataContextRetriever pageDataContextRetriever, RepositoryCacheHelper repositoryCacheHelper)
         {
             this.pageRetriever = pageRetriever;
             this.pageDataContextRetriever = pageDataContextRetriever;
+            this.repositoryCacheHelper = repositoryCacheHelper;
         }
 
         /// <summary>
@@ -59,16 +62,16 @@ namespace MyLSB.Repository
         /// <summary>
         /// Returns an enumerable collection of pages on the same path as the current page.
         /// </summary>
-        //public IEnumerable<MenuItemViewModel> GetBreadcrumbItems(TreeNode node)
-        //{
-        //    return repositoryCacheHelper.CachePages(() =>
-        //    {
-        //        return node.DocumentsOnPath.Skip(1);
-        //    }, $"{nameof(NavigationRepository)}|{nameof(GetBreadcrumbItems)}|{node.NodeID}", new[]
-        //    {
-        //        $"node|{SiteContext.CurrentSiteName}|{node.NodeID}"
-        //    }).Select(node => MenuItemViewModel.GetViewModel(node)) ?? Enumerable.Empty<MenuItemViewModel>();
-        //}
+        public IEnumerable<MenuItemViewModel> GetBreadcrumbItems(TreeNode node)
+        {
+            return repositoryCacheHelper.CachePages(() =>
+            {
+                return node.DocumentsOnPath.Skip(1);
+            }, $"{nameof(NavigationRepository)}|{nameof(GetBreadcrumbItems)}|{node.NodeID}", new[]
+            {
+                $"node|{SiteContext.CurrentSiteName}|{node.NodeID}"
+            }).Select(node => MenuItemViewModel.GetViewModel(node)) ?? Enumerable.Empty<MenuItemViewModel>();
+        }
 
         public IEnumerable<TreeNode> GetSiteMapItems(string path)
         {
