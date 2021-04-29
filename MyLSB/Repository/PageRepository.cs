@@ -33,7 +33,6 @@ namespace MyLSB.Repository
                     .Path(path, PathTypeEnum.Children)
                     .NestingLevel(1)
                     .MenuItems()
-                    //.Columns("ClassName", "NodeGUID", "NodeAliasPath", "DocumentName")
                     .OrderBy("NodeOrder")
                     .PublishedVersion()
                     .Published()

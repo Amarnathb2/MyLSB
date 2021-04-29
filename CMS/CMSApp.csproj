@@ -859,6 +859,8 @@
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.newsletter.report.less" />
     <None Include="App_Themes\Default\CMSModules\cms.membership.less" />
     <None Include="App_Themes\Default\CMSModules\cms.objecttypegraph.less" />
+    <None Include="App_Themes\Default\Custom\FontAwesome.scss" />
+    <Content Include="App_Themes\Default\Custom\FontAwesome.css" />
     <Content Include="App_Themes\Default\Custom\Styles.scss" />
     <Content Include="CMSAdminControls\CKeditor\contents.scss" />
     <None Include="Old_App_WebReferences\WS\WebService.discomap" />

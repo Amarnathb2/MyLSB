@@ -6,7 +6,7 @@ using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using System.Collections.Generic;
 using System.Linq;
-using BHFCU.Models;
+using MyLSB.Models;
 
 namespace MyLSB.Models
 {

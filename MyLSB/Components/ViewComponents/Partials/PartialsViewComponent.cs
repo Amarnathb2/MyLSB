@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BHFCU.Components.ViewComponents
+namespace MyLSB.Components.ViewComponents
 {
     public class PartialsViewComponent : ViewComponent
     {

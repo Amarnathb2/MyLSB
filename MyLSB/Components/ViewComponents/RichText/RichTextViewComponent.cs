@@ -19,9 +19,9 @@ namespace MyLSB.Components
         {
             if (node.Parent.ClassName == Partials.CLASS_NAME)
             {
-                return View("~/Components/ViewComponents/RichText/ContainerRichText.cshtml", node);
+                return View("~/Components/ViewComponents/RichText/RichTextContainer.cshtml", node.Fields.Text);
             }
-            return View("~/Components/ViewComponents/RichText/RichText.cshtml", node);
+            return View("~/Components/ViewComponents/RichText/RichText.cshtml", node.Fields.Text);
         }
     }
 }

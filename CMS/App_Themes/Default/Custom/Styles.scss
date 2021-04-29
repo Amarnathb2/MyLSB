@@ -1,9 +1,4 @@
-﻿$fa-font-path: '/App_Themes/Default/Fonts/fontawesome-pro/webfonts';
-@import "../Fonts/fontawesome-pro/scss/brands.scss";
-@import "../Fonts/fontawesome-pro/scss/light.scss";
-@import "../Fonts/fontawesome-pro/scss/regular.scss";
-@import "../Fonts/fontawesome-pro/scss/solid.scss";
-@import "../Fonts/fontawesome-pro/scss/fontawesome.scss";
+﻿@import 'FontAwesome.scss';
 
 .cms-bootstrap {
     [class^="icon-"], [class*=" icon-"] {
@@ -26,6 +21,10 @@
             font-family: "Font Awesome 5 Pro";
             font-weight: 300;
         }
+    }
+
+    a > div.icon-label:before {
+        content: none;
     }
 }
 

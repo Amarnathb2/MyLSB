@@ -10259,6 +10259,12 @@ ol:not(.breadcrumb) {
   font-size: 1.2rem;
   line-height: 1.333; }
 
+blockquote > h3::before {
+  content: '\f10d';
+  display: inline-block;
+  font-family: "Font Awesome 5 Pro";
+  margin-right: .5rem; }
+
 body.cke_editable {
   color: black; }
 

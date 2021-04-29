@@ -12799,30 +12799,3 @@ readers do not read off random characters that represent icons */
   overflow: visible;
   position: static;
   width: auto; }
-
-.cms-bootstrap [class^="icon-"].fab, .cms-bootstrap [class*=" icon-"].fab {
-  font-family: "Font Awesome 5 Brands";
-  font-weight: 900; }
-
-.cms-bootstrap [class^="icon-"].fas, .cms-bootstrap [class*=" icon-"].fas {
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 900; }
-
-.cms-bootstrap [class^="icon-"].far, .cms-bootstrap [class*=" icon-"].far {
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 400; }
-
-.cms-bootstrap [class^="icon-"].fal, .cms-bootstrap [class*=" icon-"].fal {
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 300; }
-
-.cms-bootstrap a > div.icon-label:before {
-  content: none; }
-
-.media-selector-image {
-  max-width: 500px; }
-  .media-selector-image img {
-    max-width: 100%; }
-
-.m_c_l_fileEdit_pnlPrew img {
-  max-height: 200px; }

@@ -1,0 +1,22 @@
+﻿@model CrossPromo
+
+<aside class="cross-promo" aria-labelledby="crossPromoHeading_@Model.NodeID">
+    <div class="cross-promo__bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-lg-flex flex-column align-items-end">
+                <img src="@Url.Content(Model.Fields.Image)" alt="" aria-hidden="true" class="cross-promo__img" />
+            </div>
+            <div class="col-lg-5 offset-lg-1 d-lg-flex flex-column justify-content-end align-items-start">
+                <h2 id="crossPromoHeading_@Model.NodeID" class="cross-promo__heading">@Html.Raw(Model.Fields.Name)</h2>
+                <div class="cross-promo__sub">@Html.Raw(Model.Fields.Subtext)</div>
+                @if (!String.IsNullOrEmpty(Model.Fields.ButtonText) && !String.IsNullOrEmpty(Model.Fields.ButtonUrl))
+                {
+                    <a href="@Url.Content(Model.Fields.ButtonUrl)" class="btn btn-secondary cross-promo__cta" @Html.Raw(Model.Fields.ButtonNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Fields.ButtonAriaLabel) ? $"aria-label=\"{Model.Fields.ButtonAriaLabel}\"" : "")>
+                        @Html.Raw(Model.Fields.ButtonText)@Html.Raw(Model.Fields.ButtonNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</aside>

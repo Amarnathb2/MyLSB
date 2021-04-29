@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Components\ViewComponents\Disclosure\ContainerDisclosure.cshtml" />
     <Content Remove="Components\ViewComponents\Disclosure\Disclosure.cshtml" />
-    <Content Remove="Components\ViewComponents\RichText\ContainerRichText.cshtml" />
+    <Content Remove="Components\ViewComponents\Disclosure\DisclosureContainer.cshtml" />
+    <Content Remove="Components\ViewComponents\RichText\RichTextContainer.cshtml" />
     <Content Remove="web.config" />
   </ItemGroup>
 
@@ -33,12 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Components\ViewComponents\Disclosure\ContainerDisclosure.cshtml" />
+    <None Include="Components\ViewComponents\Disclosure\DisclosureContainer.cshtml" />
     <None Include="Components\ViewComponents\Disclosure\Disclosure.cshtml" />
     <None Include="Components\ViewComponents\Login\Login.cshtml" />
     <None Include="Components\ViewComponents\Partials\Partials.cshtml" />
     <None Include="Components\ViewComponents\PrimaryNav\PrimaryNav.cshtml" />
-    <None Include="Components\ViewComponents\RichText\ContainerRichText.cshtml" />
+    <None Include="Components\ViewComponents\RichText\RichTextContainer.cshtml" />
     <None Include="Components\ViewComponents\RichText\RichText.cshtml" />
     <None Include="Components\ViewComponents\Speedbump\Speedbump.cshtml" />
     <None Include="web.config" />

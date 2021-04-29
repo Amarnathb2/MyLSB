@@ -5,9 +5,12 @@
 
 CKEDITOR.editorConfig = function( config ) {
     config.allowedContent = true; // To disable CKEditor ACF
-    config.enterMode = CKEDITOR.ENTER_BR;
-    config.shiftEnterMode = CKEDITOR.ENTER_P;
+    config.enterMode = CKEDITOR.ENTER_P;
+    config.shiftEnterMode = CKEDITOR.ENTER_BR;
     config.entities_latin = false;
+
+    config.plugins += ',fontawesome5';
+    config.fontawesome = { 'path': '/App_Themes/Default/Custom/FontAwesome.css', 'version': '5.15.0', 'edition': 'pro', 'element': 'span' };
 
     var sourceName = config.useInlineMode ? 'Sourcedialog' : 'Source';
 
@@ -17,7 +20,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Undo', 'Redo', '-'],
         ['Bold', 'Italic', 'Underline', 'TextColor', '-'],
         ['Styles'],
-        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', '-'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'fontawesome5', '-'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'],
         ['InsertLink', 'Unlink', '-'],
         ['InsertImageOrMedia', 'QuicklyInsertImage', 'Table', 'InsertMacro', '-'],
@@ -50,7 +53,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Undo', 'Redo', 'Find', 'Replace', 'RemoveFormat', '-'],
         ['Styles'],
         ['Bold', 'Italic', 'Subscript', 'Superscript', '-'],
-        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', '-'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'fontawesome5', '-'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'],
         ['InsertLink', 'Unlink', 'Anchor', '-'],
         ['InsertImageOrMedia', 'Table', 'HorizontalRule', 'SpecialChar', '-'],
@@ -171,3 +174,5 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.scayt_customerid = '1:vhwPv1-GjUlu4-PiZbR3-lgyTz1-uLT5t-9hGBg2-rs6zY-qWz4Z3-ujfLE3-lheru4-Zzxzv-kq4';
 };
+
+CKEDITOR.dtd.$removeEmpty['span'] = false;

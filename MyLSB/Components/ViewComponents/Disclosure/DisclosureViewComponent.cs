@@ -19,7 +19,7 @@ namespace MyLSB.Components
         {
             if (node.Parent.ClassName == Partials.CLASS_NAME)
             {
-                return View("~/Components/ViewComponents/Disclosure/ContainerDisclosure.cshtml", node);
+                return View("~/Components/ViewComponents/Disclosure/DisclosureContainer.cshtml", node);
             }
             return View("~/Components/ViewComponents/Disclosure/Disclosure.cshtml", node);
         }
