@@ -1,0 +1,17 @@
+﻿@model IEnumerable<LinkViewModel>
+
+@if (Model.Any())
+{
+    <nav class="auxiliary-nav" id="AuxiliaryNav" aria-label="Auxiliary">
+        <ul class="list-inline">
+            @foreach (var link in Model)
+            {
+                <li class="list-inline-item auxiliary-nav__item">
+                    <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
+                        @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

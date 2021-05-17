@@ -1,0 +1,34 @@
+﻿@model CTABand
+@{
+    var delay = .3;
+}
+
+<aside class="cta-band" aria-labelledby="ctaBandTitle_@Model.NodeID">
+    <div class="container">
+        <img src="~/images/triangle-tl-bg.svg" alt="" aria-hidden="true" class="cta-band__decoration-top os-animation" data-os-animation="animate__slideInLeft" />
+        <div class="row">
+            <div class="col-lg-11 col-xl-10 offset-lg-1 d-lg-flex align-items-center">
+                <h2 id="ctaBandTitle_@Model.NodeID" class="cta-band__heading os-animation" data-os-animation="animate__fadeInUp">
+                    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.CTABandHeading))
+                </h2>
+                <div class="cta-band__ctas staggered-animation-container">
+                    @if (!String.IsNullOrEmpty(Model.CTABandButton1Text) && !String.IsNullOrEmpty(Model.CTABandButton1Url))
+                    {
+                        delay += .3;
+                        <a href="@Url.Content(Model.CTABandButton1Url)" class="btn btn-tertiary cta-band__cta staggered-animation" @Html.Raw(Model.CTABandButton1NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.CTABandButton1AriaLabel) ? $"aria-label=\"{Model.CTABandButton1AriaLabel}\"" : "") data-os-animation="animate__fadeInUp" data-os-animation-delay="@(delay)s">
+                            @Html.Raw(Model.CTABandButton1Text)@Html.Raw(Model.CTABandButton1NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        </a>
+                    }
+                    @if (!String.IsNullOrEmpty(Model.CTABandButton2Text) && !String.IsNullOrEmpty(Model.CTABandButton2Url))
+                    {
+                        delay += .3;
+                        <a href="@Url.Content(Model.CTABandButton2Url)" class="btn btn-tertiary cta-band__cta staggered-animation" @Html.Raw(Model.CTABandButton2NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.CTABandButton2AriaLabel) ? $"aria-label=\"{Model.CTABandButton2AriaLabel}\"" : "") data-os-animation="animate__fadeInUp" data-os-animation-delay="@(delay)s">
+                            @Html.Raw(Model.CTABandButton2Text)@Html.Raw(Model.CTABandButton2NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+        <img src="~/images/triangle-br-g.svg" alt="" aria-hidden="true" class="cta-band__decoration-bottom os-animation" data-os-animation="animate__slideInRight" />
+    </div>
+</aside>

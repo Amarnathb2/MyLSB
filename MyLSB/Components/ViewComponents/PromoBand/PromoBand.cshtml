@@ -1,0 +1,26 @@
+﻿@model PromoBand
+<div class="container">
+    <aside class="promo-band" aria-label="You may also like">
+        <div class="row">
+            <div class="col-lg-11 offset-lg-1 d-lg-flex justify-content-between align-items-center">
+                @if (!String.IsNullOrEmpty(Model.PromoBandIcon))
+                {
+                    <img src="@Url.Content(Model.PromoBandIcon)" class="promo-band__icon" alt="" aria-hidden="true" />
+                }
+                @if (!String.IsNullOrEmpty(Model.PromoBandHeading))
+                {
+                    <h3 class="promo-band__heading">@Html.Raw(Model.PromoBandHeading)</h3>
+                }
+                <div class="promo-band__sub">
+                    @Html.Raw(Model.PromoBandSubtext)
+                </div>
+                @if (!String.IsNullOrEmpty(Model.PromoBandLinkText) && !String.IsNullOrEmpty(Model.PromoBandLinkUrl))
+                {
+                    <a href="@Url.Content(Model.PromoBandLinkUrl)" class="btn btn-tertiary promo-band__cta" @Html.Raw(Model.PromoBandLinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.PromoBandLinkAriaLabel) ? $"aria-label=\"{Model.PromoBandLinkAriaLabel}\"" : "")>
+                        @Html.Raw(Model.PromoBandLinkText)@Html.Raw(Model.PromoBandLinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+            </div>
+        </div>
+    </aside>
+</div>

@@ -1,0 +1,19 @@
+﻿<button type="button" class="search__toggle" id="searchToggle" aria-expanded="false">
+    <span class="fas fa-search" aria-hidden="true"></span>
+    <span class="fas fa-times" aria-hidden="true"></span>
+    <span class="search__toggle-label">Search</span>
+</button>
+<div class="search__panel" id="searchPanel" tabindex="-1" role="dialog" aria-label="Search our site" aria-hidden="true">
+    <div class="panel-dialog" role="document">
+        <button type="button" class="search__close">
+            <span class="far fa-times" aria-hidden="true"></span><span class="sr-only">Close</span>
+        </button>
+        <form class="form" action="/Search-Results" method="get" role="search">
+            <div class="form-group form-group--required">
+                <label for="search" class="sr-only">Search</label>
+                <input type="search" id="search" name="searchtext" class="form-control" required placeholder="What are you looking for?" />
+            </div>
+            <button type="submit" class="btn btn-primary"><span class="fas fa-search" aria-hidden="true"></span><span class="sr-only">Submit search</span></button>
+        </form>
+    </div>
+</div>

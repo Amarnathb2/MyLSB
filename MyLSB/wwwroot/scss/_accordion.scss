@@ -1,0 +1,99 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+.accordion {
+    margin: 3rem 0;
+
+    > .card {
+        border: 0;
+
+        & + .card {
+            margin-top: .7rem;
+        }
+    }
+
+    .card-header {
+        background: $light;
+        border-bottom: none;
+        margin-bottom: 0;
+        padding: 0;
+        position: relative;
+
+        .btn-link {
+            align-items: center;
+            border: none;
+            color: $primary;
+            display: flex;
+            font-size: 1.6rem;
+            font-weight: $font-weight-bold;
+            margin: 0;
+            padding: 1.5rem 7.5rem 1.5rem 3rem;
+            text-align: left;
+            width: 100%;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2rem;
+            }
+
+            &.collapsed {
+                &::after {
+                    content: '\f067';
+                }
+            }
+
+            &::after {
+                align-items: center;
+                content: "\f068";
+                display: flex;
+                font-family: $font-awesome;
+                font-weight: $font-weight-bold;
+                height: 3rem;
+                justify-content: center;
+                position: absolute;
+                right: 3rem;
+                top: 50%;
+                transform: translateY(-50%);
+
+                @include media-breakpoint-up(lg) {
+                    font-size: 1.8rem;
+                }
+            }
+
+            @include hover-focus() {
+                color: $secondary;
+                text-decoration: none;
+
+                .fal {
+                    color: $secondary;
+                }
+            }
+
+            &:focus {
+                outline: 2px solid;
+                outline-offset: -3px;
+            }
+
+            .fal {
+                color: $primary;
+                margin-right: 5px;
+
+                @include media-breakpoint-up(lg) {
+                    font-size: 2.6rem;
+                    line-height: 1.2;
+                }
+            }
+        }
+    }
+
+    .card-body {
+        @include media-breakpoint-up(lg) {
+            padding: 2rem 3rem;
+        }
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+}

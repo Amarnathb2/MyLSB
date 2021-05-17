@@ -1,0 +1,30 @@
+﻿@import "../lib/twitter-bootstrap/scss/functions";
+@import "../lib/twitter-bootstrap/scss/variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+
+@import "variables";
+
+@mixin separated-list($separator: '|', $font-size: $font-size-base, $font-weight: inherit, $padding: 0 5px, $color: $body-color) {
+    font-size: 0;
+    margin-left: 0;
+
+    .list-inline-item {
+        color: $color;
+        font-size: $font-size;
+        font-weight: $font-weight;
+        padding: 0;
+
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+
+        &::after {
+            content: $separator;
+            padding: $padding;
+        }
+
+        &:last-child::after {
+            content: none;
+        }
+    }
+}

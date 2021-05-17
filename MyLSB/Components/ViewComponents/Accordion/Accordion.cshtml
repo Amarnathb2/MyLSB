@@ -1,0 +1,20 @@
+﻿@model AccordionViewModel
+
+<div class="accordion" id="accordion_@Model.NodeID">
+    @foreach (var panel in Model.Panels)
+    {
+        <div class="card">
+            <div class="card-header" id="cardHeader_@panel.NodeID">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_@panel.NodeID" aria-expanded="false" aria-controls="collapse_@panel.NodeID">
+                    @Html.Raw(panel.PanelName)
+                </button>
+            </div>
+
+            <div id="collapse_@panel.NodeID" class="collapse" aria-labelledby="cardHeader_@panel.NodeID" data-parent="#accordion_@Model.NodeID">
+                <div class="card-body">
+                    <vc:partials path="@panel.NodeAliasPath" get-container="false" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

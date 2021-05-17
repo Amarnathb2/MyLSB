@@ -1,0 +1,15 @@
+﻿@model IntroText
+
+<div class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                @if (!String.IsNullOrEmpty(Model.IntroTextHeading))
+                {
+                    <h2 class="intro__heading">@Html.Raw(Model.IntroTextHeading)</h2>
+                }
+                @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.IntroTextText))
+            </div>
+        </div>
+    </div>
+</div>

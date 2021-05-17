@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SectionSubpageGroupViewModel>
+
+<div class="section-nav">
+    <div class="container">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var pageGroup = Model.ElementAt(i);
+
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-nav__category @(i == 0 ? "section-nav__category--first" : "") @(i % 2 == 1 ? "section-nav__category--alt" : "")">
+                        <div>
+                            <h3 class="section-nav__category-heading">
+                                @if (!String.IsNullOrEmpty(pageGroup.Icon))
+                                {
+                                    <img src="@Url.Content(pageGroup.Icon)" alt="" aria-hidden="true" class="section-nav__category-icon" />
+                                }
+                                @Html.Raw(pageGroup.Heading)
+                            </h3>
+                            @if (pageGroup.Children.Any())
+                            {
+                                <ul class="list-unstyled section-nav__category-list">
+                                    @foreach (var child in pageGroup.Children)
+                                    {
+                                        <li>
+                                            <a href="@Url.Content(child.Url)" @Html.Raw(child.NewTab ? "target=\"_blank\"" : "")>
+                                                @Html.Raw(child.Text)@Html.Raw(child.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+                        @*<img src="~/images/fpo/cross-promo.jpg" class="section-nav__category-img" alt="" aria-hidden="true" />
+                            <div class="section-nav__category-promo os-animation" data-os-animation="animate__fadeInRight">
+                                <a href="#">
+                                    Earn interest and receive a reliable return.
+                                    <div>Certificates of Deposit</div>
+                                </a>
+                                <img src="~/images/triangle-br-bg-2.svg" class="section-nav__category-promo-decoration" alt="" aria-hidden="true" />
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-nav__category section-nav__category--first">
+                        <div>
+                            <h3 class="section-nav__category-heading">
+                                <img src="~/images/icons/personal.svg" alt="" aria-hidden="true" class="section-nav__category-icon" />
+                                Personal
+                            </h3>
+                            <ul class="list-unstyled section-nav__category-list">
+                                <li><a href="#">Checking Accounts</a></li>
+                                <li><a href="#">Savings &amp; CDs</a></li>
+                                <li><a href="#">Credit Cards</a></li>
+                                <li><a href="#">Abe Advantage Rewards</a></li>
+                                <li><a href="#">Account Rates</a></li>
+                                <li><a href="#">Open an Account</a></li>
+                            </ul>
+                        </div>
+                        <img src="~/images/fpo/cross-promo.jpg" class="section-nav__category-img" alt="" aria-hidden="true" />
+                        <div class="section-nav__category-promo os-animation" data-os-animation="animate__fadeInRight">
+                            <a href="#">
+                                Earn interest and receive a reliable return.
+                                <div>Certificates of Deposit</div>
+                            </a>
+                            <img src="~/images/triangle-br-bg-2.svg" class="section-nav__category-promo-decoration" alt="" aria-hidden="true" />
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+    <img src="~/images/triangle-l-bg.svg" class="section-nav__decoration-left" alt="" aria-hidden="true" />
+    <img src="~/images/triangle-r-lg.svg" class="section-nav__decoration-right" alt="" aria-hidden="true" />
+</div>

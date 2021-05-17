@@ -1,0 +1,43 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.internal-nav {
+    border-bottom: 2px solid #e7e7e7;
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        border-bottom: none;
+        padding: 1.75rem 0;
+        text-align: left;
+    }
+
+    .dropdown-toggle {
+        color: $body-color;
+        text-decoration: none;
+
+        .fa-chevron-down {
+            color: $primary;
+            margin-left: .5rem;
+        }
+
+        @include hover-focus {
+            .fa-chevron-down,
+            .internal-nav__parent {
+                color: $secondary;
+            }
+
+            .internal-nav__parent {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__parent {
+        color: $primary;
+        font-weight: $font-weight-bold;
+    }
+}

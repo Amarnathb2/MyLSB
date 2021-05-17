@@ -1,0 +1,205 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.search {
+
+    &__toggle {
+        align-items: center;
+        background: none;
+        border: none;
+        border-left: 2px solid #e7e7e7;
+        color: $secondary;
+        display: flex;
+        flex-direction: column;
+        font-size: 0;
+        font-weight: $font-weight-semibold;
+        justify-content: center;
+        min-width: 4.8rem;
+        padding: 2rem 1.4rem;
+        text-decoration: none;
+
+        @include hover-focus {
+            color: $primary;
+            outline-offset: -2px;
+
+            .search__toggle-label {
+                color: $secondary;
+                text-decoration: underline;
+            }
+        }
+
+        &:focus {
+            outline: 2px solid;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: 1.1rem 1.4rem;
+        }
+
+        .fas {
+            font-size: 1.8rem;
+        }
+
+        .fa-times {
+            display: none;
+        }
+
+        &-label {
+            color: #565b5c;
+            font-size: 0;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+                font-size: 1.3rem;
+                margin-top: 1.1rem;
+            }
+        }
+
+        &--open {
+            .fa-search {
+                display: none;
+            }
+
+            .fa-times {
+                display: inline;
+            }
+        }
+    }
+
+    &__close {
+        align-items: center;
+        background: none;
+        border: 2px solid transparent;
+        color: $white;
+        cursor: pointer;
+        display: none;
+        height: 2.6rem;
+        justify-content: center;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 2.6rem;
+
+        @include media-breakpoint-up(lg) {
+            display: flex
+        }
+
+        &:hover,
+        &:focus {
+            border-color: $white;
+            outline: none;
+            text-decoration: none;
+        }
+    }
+
+    &__panel {
+        background: $secondary;
+        color: $white;
+        display: none;
+        left: 0;
+        margin: auto;
+        padding: 3.7rem $grid-gutter-width/2 3.7rem;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: calc(100% - 5.2rem);
+        width: 100%;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            box-shadow: 0 0 23.22px 3.78px rgba($black, 0.15);
+            max-width: 73rem;
+            padding: 8rem 7rem 7rem;
+            text-align: left;
+            top: calc(100% + 2rem);
+        }
+
+        &-label {
+            color: $white;
+            display: none;
+            font-size: 3rem;
+            font-weight: $font-weight-bold;
+            margin-bottom: 3rem;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+        }
+
+        .form {
+            align-items: stretch;
+            display: flex;
+        }
+
+        .form-group {
+            margin: 0;
+            width: 100%;
+        }
+
+        input.form-control {
+            background: $white;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: $font-weight-bold;
+            height: calc(5.2rem + 2px);
+            margin: 0;
+            padding: 1.6rem 2.8rem;
+            text-align: left;
+            width: 100%;
+
+            &:focus {
+                box-shadow: inset 2px 2px 0 $primary, inset -2px -2px 0 $primary;
+            }
+        }
+
+        .form button[type=submit],
+        a.btn {
+            font-size: 1.8rem;
+            margin: 0;
+            max-width: none;
+            min-width: 7rem;
+            padding: 1.1rem 1rem;
+        }
+    }
+    /*    align-items: center;
+    border-left: 2px solid #e7e7e7;
+    color: $secondary;
+    display: flex;
+    flex-direction: column;
+    font-size: 0;
+    justify-content: center;
+    padding: 2.5rem 1.4rem;
+    text-decoration: none;
+
+    @include hover-focus {
+        color: $primary;
+        outline-offset: -2px;
+
+        > div {
+            color: $secondary;
+            text-decoration: underline;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 1.2rem 1.4rem;
+    }
+
+    .fas {
+        font-size: 1.8rem;
+    }
+
+    > div {
+        color: #565b5c;
+        font-size: 0;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+            font-size: 1.3rem;
+            margin-top: 1.1rem;
+        }
+    }
+*/
+}

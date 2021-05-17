@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "twitter-bootstrap@4.6.0",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "popper.js@1.16.1",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "animate.css@4.1.1",
+      "destination": "wwwroot/lib/animate.css/"
+    },
+    {
+      "library": "waypoints@4.0.1",
+      "destination": "wwwroot/lib/waypoints/"
+    },
+    {
+      "library": "flickity@2.2.2",
+      "destination": "wwwroot/lib/flickity/"
+    },
+    {
+      "library": "odometer.js@0.4.8",
+      "destination": "wwwroot/lib/odometer.js/",
+      "files": [
+        "odometer.min.js",
+        "odometer.js",
+        "themes/odometer-theme-default.css",
+        "themes/odometer-theme-default.min.css"
+      ]
+    }
+  ]
+}

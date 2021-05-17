@@ -1,0 +1,52 @@
+﻿@model BreadcrumbViewModel
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/">Home</a></li>
+        @foreach (var breadcrumbItem in Model.BreadcrumbItems)
+        {
+            if (breadcrumbItem.ClassName == PageGroup.CLASS_NAME)
+            {
+                <li class="breadcrumb-item">@Html.Raw(breadcrumbItem.Text)</li>
+                continue;
+            }
+
+            if (breadcrumbItem.Url == Model.CurrentPageUrl)
+            {
+                <li class="breadcrumb-item active" aria-current="page">@Html.Raw(breadcrumbItem.Text)</li>
+                continue;
+            }
+            <li class="breadcrumb-item"><a href="@Url.Content(breadcrumbItem.Url)">@Html.Raw(breadcrumbItem.Text)</a></li>
+        }
+    </ol>
+</nav>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": {
+    "@@id": "@Url.AbsoluteContent("~/")",
+    "name": "Home"
+    }
+    }
+    @{
+        int pos = 2;
+
+        foreach (var breadcrumbItem in Model.BreadcrumbItems.Where(x=> x.ClassName != PageGroup.CLASS_NAME))
+        {
+            @Html.Raw("," +
+           "{\"@type\": \"ListItem\"," +
+           "\"position\":" + pos++ + "," +
+           "\"item\": {" +
+           "\"@id\": \"" + Url.AbsoluteContent(breadcrumbItem.Url) + "\"," +
+           "\"name\": \"" + Html.Raw(breadcrumbItem.Text) + "\"" +
+           "}" +
+           "}");
+        }
+    }
+    ]}
+</script>
