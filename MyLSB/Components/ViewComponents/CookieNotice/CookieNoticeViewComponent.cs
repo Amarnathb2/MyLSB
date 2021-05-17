@@ -20,7 +20,7 @@ namespace MyLSB.Components
         {
             var settings = settingsRepository.GetSettings();
 
-            return View("~/Components/ViewComponents/CookieNotice/CookieNotice.cshtml", settings.Fields.CookieNotice);
+            return View("~/Components/ViewComponents/CookieNotice/CookieNotice.cshtml", settings.CookieNotice);
         }
     }
 }

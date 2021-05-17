@@ -3,21 +3,21 @@
     <aside class="promo-band" aria-label="You may also like">
         <div class="row">
             <div class="col-lg-11 offset-lg-1 d-lg-flex justify-content-between align-items-center">
-                @if (!String.IsNullOrEmpty(Model.Fields.Icon))
+                @if (!String.IsNullOrEmpty(Model.PromoBandIcon))
                 {
-                    <img src="@Url.Content(Model.Fields.Icon)" class="promo-band__icon" alt="" aria-hidden="true" />
+                    <img src="@Url.Content(Model.PromoBandIcon)" class="promo-band__icon" alt="" aria-hidden="true" />
                 }
-                @if (!String.IsNullOrEmpty(Model.Fields.Heading))
+                @if (!String.IsNullOrEmpty(Model.PromoBandHeading))
                 {
-                    <h3 class="promo-band__heading">@Html.Raw(Model.Fields.Heading)</h3>
+                    <h3 class="promo-band__heading">@Html.Raw(Model.PromoBandHeading)</h3>
                 }
                 <div class="promo-band__sub">
-                    @Html.Raw(Model.Fields.Subtext)
+                    @Html.Raw(Model.PromoBandSubtext)
                 </div>
-                @if (!String.IsNullOrEmpty(Model.Fields.LinkText) && !String.IsNullOrEmpty(Model.Fields.LinkUrl))
+                @if (!String.IsNullOrEmpty(Model.PromoBandLinkText) && !String.IsNullOrEmpty(Model.PromoBandLinkUrl))
                 {
-                    <a href="@Url.Content(Model.Fields.LinkUrl)" class="btn btn-tertiary promo-band__cta" @Html.Raw(Model.Fields.LinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Fields.LinkAriaLabel) ? $"aria-label=\"{Model.Fields.LinkAriaLabel}\"" : "")>
-                        @Html.Raw(Model.Fields.LinkText)@Html.Raw(Model.Fields.LinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    <a href="@Url.Content(Model.PromoBandLinkUrl)" class="btn btn-tertiary promo-band__cta" @Html.Raw(Model.PromoBandLinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.PromoBandLinkAriaLabel) ? $"aria-label=\"{Model.PromoBandLinkAriaLabel}\"" : "")>
+                        @Html.Raw(Model.PromoBandLinkText)@Html.Raw(Model.PromoBandLinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
                     </a>
                 }
             </div>

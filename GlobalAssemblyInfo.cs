@@ -6,5 +6,5 @@ using System.Reflection;
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyVersion("13.0.13.0")]
-[assembly: AssemblyFileVersion("13.0.18.36936")]
-[assembly: AssemblyInformationalVersion("13.0.18")]
+[assembly: AssemblyFileVersion("13.0.24.44072")]
+[assembly: AssemblyInformationalVersion("13.0.24")]

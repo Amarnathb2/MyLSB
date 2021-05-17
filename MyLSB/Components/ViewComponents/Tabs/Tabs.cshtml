@@ -7,7 +7,7 @@
             {
                 <li class="nav-item">
                     <a class="nav-link @(panel == Model.Panels.First() ? "active" : "")" id="tab_@panel.NodeID" data-toggle="tab" href="#panel_@panel.NodeID" role="tab" aria-controls="panel_@panel.NodeID" aria-selected="@((panel == Model.Panels.First()).ToString().ToLower())">
-                        @Html.Raw(panel.Fields.Name)
+                        @Html.Raw(panel.PanelName)
                     </a>
                 </li>
             }
@@ -18,7 +18,7 @@
                 <div id="panel_@panel.NodeID" class="card tab-pane fade @(panel == Model.Panels.First() ? "show active" : "")" role="tabpanel" aria-labelledby="tab_@panel.NodeID">
                     <div class="card-header" role="tab" id="panelHeading_@panel.NodeID">
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_@panel.NodeID" aria-expanded="@((panel == Model.Panels.First()).ToString().ToLower())" aria-controls="collapse_@panel.NodeID">
-                            @Html.Raw(panel.Fields.Name)
+                            @Html.Raw(panel.PanelName)
                         </button>
                     </div>
                     <div id="collapse_@panel.NodeID" class="collapse @(panel == Model.Panels.First() ? "show" : "")" role="tabpanel" aria-labelledby="panelHeading_@panel.NodeID" data-parent="#tabsContent_@Model.NodeID">

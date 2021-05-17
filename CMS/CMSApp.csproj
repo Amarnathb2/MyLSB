@@ -431,9 +431,6 @@
     <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.4.7.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
-    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -849,8 +846,21 @@
       <HintPath>..\Lib\CMS.WorkflowEngine.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Themes\Default\Custom\FontAwesome.scss" />
+    <Content Include="App_Themes\Default\Custom\FontAwesome.css" />
+    <Content Include="App_Themes\Default\Custom\Styles.scss" />
+    <Content Include="CMSAdminControls\CKeditor\contents.scss" />
+    <Content Include="App_Themes\Default\Custom\styles.css" />
+    <Content Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTableData.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTableEditor.ascx" />
+    <Content Include="CMSFormControls\JsonTable\JsonTablePicker.ascx" />
     <None Include="App_Themes\Default\CMSModules\cms.messages.less" />
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.emailproperties.less" />
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.less" />
@@ -859,10 +869,6 @@
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.newsletter.report.less" />
     <None Include="App_Themes\Default\CMSModules\cms.membership.less" />
     <None Include="App_Themes\Default\CMSModules\cms.objecttypegraph.less" />
-    <None Include="App_Themes\Default\Custom\FontAwesome.scss" />
-    <Content Include="App_Themes\Default\Custom\FontAwesome.css" />
-    <Content Include="App_Themes\Default\Custom\Styles.scss" />
-    <Content Include="CMSAdminControls\CKeditor\contents.scss" />
     <None Include="Old_App_WebReferences\WS\WebService.discomap" />
     <None Include="Old_App_WebReferences\WS\WebService.wsdl" />
     <Content Include="Admin\Default.aspx" />
@@ -984,13 +990,14 @@
     <Content Include="App_Themes\Default\Bootstrap\close.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.ecommerce\cms.ecommerce.discount.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.content\cms.content.documentflags.less" />
-    <Content Include="App_Themes\Default\Custom\styles.css" />
     <Content Include="App_Themes\Default\DesignMode.less" />
     <Content Include="App_Themes\Default\Fonts\Core-icons.svg" />
     <Content Include="App_Themes\Default\bootstrap.css" />
     <Content Include="App_Themes\Default\Fonts\icon-css-classes.txt" />
     <Content Include="App_Themes\Default\Images\background.svg" />
     <Content Include="App_Themes\Default\Images\circle-o-notch.svg" />
+    <Content Include="App_Themes\Default\Images\DocumentTypeIcons\48x48\cms_noimage.png" />
+    <Content Include="App_Themes\Default\Images\DocumentTypeIcons\cms_noimage.png" />
     <Content Include="App_Themes\Default\Images\favicon.ico" />
     <Content Include="App_Themes\Default\Images\Kentico.ico" />
     <Content Include="App_Themes\Default\Images\kx-logo-by-kentico.svg" />
@@ -1393,10 +1400,6 @@
     <Content Include="CMSAdminControls\UI\UniGrid\Controls\MassActions.ascx" />
     <Content Include="CMSAdminControls\UI\UniGrid\Pages\MassDelete.aspx" />
     <Content Include="CMSAdminControls\UI\FontIconSelector.ascx" />
-    <Content Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx" />
-    <Content Include="CMSFormControls\JsonTable\JsonTableData.ascx" />
-    <Content Include="CMSFormControls\JsonTable\JsonTableEditor.ascx" />
-    <Content Include="CMSFormControls\JsonTable\JsonTablePicker.ascx" />
     <Content Include="CMSInstall\Controls\WizardSteps\CollationDialog.ascx" />
     <Content Include="CMSModules\AdminControls\Controls\UIControls\SmartTipPlaceholder.ascx" />
     <Content Include="CMSModules\BizForms\FormControls\FormFieldSelector.ascx" />
@@ -1420,6 +1423,7 @@
     <Content Include="CMSModules\Content\CMSDesk\Properties\Urls_AlternativeUrlEdit.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\Properties\Urls.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\MVC\TemplateSelection.aspx" />
+    <Content Include="CMSModules\Content\CMSDesk\Search\CMSDeskSQLSearchResults.ascx" />
     <Content Include="CMSModules\Content\Controls\Attachments\DocumentAttachments\Transformations\Attachment.ascx" />
     <Content Include="CMSModules\Content\Controls\Attachments\DocumentAttachments\Transformations\AttachmentSize.ascx" />
     <Content Include="CMSModules\Content\Controls\Dialogs\Selectors\LinkMediaSelector\ContentListView_LinkSelect.xml" />
@@ -3309,59 +3313,6 @@
     <Content Include="CMSWebParts\Viewers\DateTime.ascx" />
     <Content Include="CMSWebParts\Viewers\DateTime_files\DateTime.js" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Brew-Bar.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Cauca-Farmer.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Cherries.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Region.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Shop.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Triangle.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Colombia-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Kona-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Robusta.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\St-Helena-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Thailand-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Work-And-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
-    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
-    <Content Include="DancingGoatCore\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\banner-default.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\banner2.png" />
-    <Content Include="DancingGoatCore\media\Graphics\colombia-coffee.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\default-image-product.png" />
-    <Content Include="DancingGoatCore\media\Graphics\hero-bg.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\hero-bg3.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\hero_image.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\Logos\logo-dancing-goat.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\aerobie.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\chemex.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Espro.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Hario.png" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Brew-Bar.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Cauca-Farmer.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Cherries.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Region.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Shop.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Triangle.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Colombia-Coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Kona-Coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Robusta.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\St-Helena-Coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Thailand-Coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\CoffeeGallery\Work-And-Coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
-    <Content Include="DancingGoatMvc\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
-    <Content Include="DancingGoatMvc\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
-    <Content Include="DancingGoatMvc\media\Graphics\banner-default.jpg" />
-    <Content Include="DancingGoatMvc\media\Graphics\colombia-coffee.jpg" />
-    <Content Include="DancingGoatMvc\media\Graphics\default-image-product.png" />
-    <Content Include="DancingGoatMvc\media\Graphics\hero-image.jpg" />
-    <Content Include="DancingGoatMvc\media\Graphics\Logos\logo-dancing-goat-inverted.png" />
-    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\aerobie.png" />
-    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\chemex.png" />
-    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\Espro.png" />
-    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\Hario.png" />
     <Content Include="Global.asax" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
@@ -3878,7 +3829,6 @@
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
-    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
@@ -4096,6 +4046,34 @@
     <Content Include="CMSScripts\WebComponents\shadow-css-8a020e34.system.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.cs">
+      <DependentUpon>JsonTableCellPicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.designer.cs">
+      <DependentUpon>JsonTableCellPicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableData.ascx.cs">
+      <DependentUpon>JsonTableData.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableData.ascx.designer.cs">
+      <DependentUpon>JsonTableData.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableEditor.ascx.cs">
+      <DependentUpon>JsonTableEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTableEditor.ascx.designer.cs">
+      <DependentUpon>JsonTableEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTablePicker.ascx.cs">
+      <DependentUpon>JsonTablePicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSFormControls\JsonTable\JsonTablePicker.ascx.designer.cs">
+      <DependentUpon>JsonTablePicker.ascx</DependentUpon>
+    </Compile>
     <Compile Include="CMSAdminControls\UI\SmartTip.ascx.cs">
       <DependentUpon>SmartTip.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4238,34 +4216,6 @@
     </Compile>
     <Compile Include="CMSAdminControls\UI\FontIconSelector.ascx.designer.cs">
       <DependentUpon>FontIconSelector.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.cs">
-      <DependentUpon>JsonTableCellPicker.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.designer.cs">
-      <DependentUpon>JsonTableCellPicker.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTableData.ascx.cs">
-      <DependentUpon>JsonTableData.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTableData.ascx.designer.cs">
-      <DependentUpon>JsonTableData.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTableEditor.ascx.cs">
-      <DependentUpon>JsonTableEditor.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTableEditor.ascx.designer.cs">
-      <DependentUpon>JsonTableEditor.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTablePicker.ascx.cs">
-      <DependentUpon>JsonTablePicker.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSFormControls\JsonTable\JsonTablePicker.ascx.designer.cs">
-      <DependentUpon>JsonTablePicker.ascx</DependentUpon>
     </Compile>
     <Compile Include="CMSFormControls\SQL\SqlQueryTextbox.ascx.cs">
       <DependentUpon>SqlQueryTextbox.ascx</DependentUpon>
@@ -14349,6 +14299,7 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Templates\" />
     <Folder Include="CMSScripts\Custom\" />
   </ItemGroup>
   <ItemGroup>

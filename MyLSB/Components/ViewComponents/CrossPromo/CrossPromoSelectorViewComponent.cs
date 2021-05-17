@@ -1,4 +1,5 @@
 ﻿using CMS.DocumentEngine.Types.Custom;
+using CMS.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,21 @@ namespace MyLSB.Components
 
         public IViewComponentResult Invoke(CrossPromoSelector node)
         {
-            var promo = node.Fields.Promo.OfType<CrossPromo>().FirstOrDefault();
+            var promo = CacheHelper.Cache(cs =>
+            {
+                var promo = node.Fields.Promo.OfType<CrossPromo>().FirstOrDefault();
+                
+                if (cs.Cached)
+                {
+                    cs.CacheDependency = CacheHelper.GetCacheDependency(new string[] {
+                        $"nodeid|{node.NodeID}",
+                        $"nodeid|{promo.NodeID}"
+                    });
+                }
+                
+                return promo;
+
+            }, new CacheSettings(10, $"{nameof(CrossPromoSelector)}|{node.NodeID}"));            
             
             if (promo != null)
             {

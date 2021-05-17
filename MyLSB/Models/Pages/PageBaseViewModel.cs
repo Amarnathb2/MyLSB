@@ -48,14 +48,14 @@ namespace MyLSB.Models.Pages
             Schema = node.GetStringValue("Schema", "");
             PartialsPath = partialsRepository.GetPartialsContainerPath(node);
 
-            ContactPageUrl = settings.Fields.ContactPageUrl;
-            PhoneNumber = settings.Fields.PhoneNumber;
-            PhoneNumberTelLink = settings.Fields.PhoneNumber
+            ContactPageUrl = settings.ContactPageUrl;
+            PhoneNumber = settings.PhoneNumber;
+            PhoneNumberTelLink = settings.PhoneNumber
                 .Replace("(", "")
                 .Replace(")", "")
                 .Replace("-", "")
                 .Replace(" ", "");
-            PrivilegedStatusUrl = settings.Fields.FooterPrivilegedStatusUrl;
+            PrivilegedStatusUrl = settings.FooterPrivilegedStatusUrl;
         }
     }
 }

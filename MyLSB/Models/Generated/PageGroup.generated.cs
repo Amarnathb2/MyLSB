@@ -63,6 +63,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Icon.
+		/// </summary>
+		[DatabaseField]
+		public string PageGroupIcon
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PageGroupIcon"), @"");
+			}
+			set
+			{
+				SetValue("PageGroupIcon", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Show in site map.
 		/// </summary>
 		[DatabaseField]
@@ -138,6 +155,34 @@ namespace CMS.DocumentEngine.Types.Custom
 				get
 				{
 					return mInstance.GetRelatedDocuments("PageGroupResources");
+				}
+			}
+
+
+			/// <summary>
+			/// Icon.
+			/// </summary>
+			public string Icon
+			{
+				get
+				{
+					return mInstance.PageGroupIcon;
+				}
+				set
+				{
+					mInstance.PageGroupIcon = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Promo.
+			/// </summary>
+			public IEnumerable<TreeNode> Promo
+			{
+				get
+				{
+					return mInstance.GetRelatedDocuments("PageGroupPromo");
 				}
 			}
 

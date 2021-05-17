@@ -19,9 +19,9 @@ namespace MyLSB.Components
 
             return new SpeedbumpViewModel
             {
-                Title = new HtmlString(settings.Fields.SpeedbumpTitle),
-                Message = settings.Fields.SpeedbumpMessage,
-                Whitelist = new HtmlString($"[\"{ settings.Fields.SpeedbumpWhitelist.Replace(Environment.NewLine, "\", \"").Replace(" ", "") }\"]")
+                Title = new HtmlString(settings.SpeedbumpTitle),
+                Message = settings.SpeedbumpMessage,
+                Whitelist = new HtmlString($"[\"{ settings.SpeedbumpWhitelist.Replace(Environment.NewLine, "\", \"").Replace(" ", "") }\"]")
             };
         }
     }

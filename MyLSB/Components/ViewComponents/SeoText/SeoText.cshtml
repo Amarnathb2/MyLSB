@@ -1,9 +1,9 @@
 ﻿@model Settings
  
 <div class="site-footer__seo">
-    @if (!String.IsNullOrEmpty(Model.Fields.FooterSEOHeading))
+    @if (!String.IsNullOrEmpty(Model.FooterSEOHeading))
     {
-        <span class="h4 footer__seo-heading">@Html.Raw(Model.Fields.FooterSEOHeading)</span>
+        <span class="h4 footer__seo-heading">@Html.Raw(Model.FooterSEOHeading)</span>
     }
-    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.Fields.FooterSEOText))
+    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.FooterSEOText))
 </div>

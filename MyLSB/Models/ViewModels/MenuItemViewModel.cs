@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Html;
 using System.Collections.Generic;
 using System.Linq;
 using MyLSB.Models;
+using CMS.Helpers;
 
 namespace MyLSB.Models
 {
@@ -31,7 +32,7 @@ namespace MyLSB.Models
                 NodeLevel = node.NodeLevel,
                 Text = node.DocumentName,
                 Url = GetMenuItemUrl(node),
-                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).Fields.NewTab
+                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).PageRedirectNewTab
             };
         }
 
@@ -42,7 +43,7 @@ namespace MyLSB.Models
                 NodeLevel = node.NodeLevel,
                 Text = node.DocumentName,
                 Url = GetMenuItemUrl(node),
-                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).Fields.NewTab,
+                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).PageRedirectNewTab,
                 IsActive = node.NodeAliasPath.StartsWith(currentPath),
             };
         }
@@ -54,28 +55,46 @@ namespace MyLSB.Models
                 NodeLevel = node.NodeLevel,
                 Text = node.DocumentName,
                 Url = GetMenuItemUrl(node),
-                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).Fields.NewTab,
+                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).PageRedirectNewTab,
                 Children = navigationRepository.GetMenuItems(node.NodeAliasPath).Select(node => GetViewModel(node, navigationRepository)) ?? Enumerable.Empty<MenuItemViewModel>()
             };
         }
 
         public static MenuItemViewModel GetViewModel(TreeNode node, string currentPath, NavigationRepository navigationRepository)
         {
-            var resources = node.NodeLevel == 1 && node.ClassName == PageGroup.CLASS_NAME ? (node as PageGroup).Fields.Resources.OfType<Link>().Select(link => LinkViewModel.GetViewModel(link)) : Enumerable.Empty<LinkViewModel>();
+            var resources = CacheHelper.Cache(cs =>
+            {
+                var links = node.NodeLevel == 1 && node.ClassName == PageGroup.CLASS_NAME ? (node as PageGroup).Fields.Resources.OfType<Link>() : Enumerable.Empty<Link>();
+
+                if (cs.Cached)
+                {
+                    var cacheKeys = new string[] { $"nodeid|{node.NodeID}" };
+
+                    foreach (var link in links)
+                    {
+                        cacheKeys.Append($"nodeid|{link.NodeID}");
+                    }
+
+                    cs.CacheDependency = CacheHelper.GetCacheDependency(cacheKeys);
+                }
+
+                return links.Select(link => LinkViewModel.GetViewModel(link));
+
+            }, new CacheSettings(10, $"{nameof(MenuItemViewModel)}|{node.NodeID}"));
 
             return new MenuItemViewModel(node)
             {
                 NodeLevel = node.NodeLevel,
                 Text = node.DocumentName,
                 Url = GetMenuItemUrl(node),
-                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).Fields.NewTab,
+                NewTab = node.ClassName == PageRedirect.CLASS_NAME && ((PageRedirect)node).PageRedirectNewTab,
                 Children = navigationRepository.GetMenuItems(node.NodeAliasPath).Select(node => GetViewModel(node, currentPath, navigationRepository)) ?? Enumerable.Empty<MenuItemViewModel>(),
                 IsActive = currentPath.StartsWith(node.NodeAliasPath),
                 Resources = resources
             };
         }
 
-        private static string GetMenuItemUrl(TreeNode node)
+        protected static string GetMenuItemUrl(TreeNode node)
         {
             switch (node.ClassName)
             {

@@ -1,0 +1,55 @@
+﻿@model JsonTablePickerModel
+
+@if (Model.ColumnNames.Any() && Model.Rows.Any())
+{
+    <div class="comparison">
+        <div class="container">
+            <div class="comparison__table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                @foreach (string ColumnName in Model.ColumnNames)
+                                {
+                                    if (!String.IsNullOrEmpty(ColumnName))
+                                    {
+                                        <th scope="col">@Html.Raw(ColumnName)</th>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (List<string> Row in Model.Rows)
+                            {
+                                <tr>
+                                    @if (!Model.Vc.TableFirstColumn)
+                                    {
+                                        foreach (string Cell in Row)
+                                        {
+                                            <td>@Html.Kentico().ResolveUrls(Cell)</td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (string Cell in Row.Take(1))
+                                        {
+                                            <th scope="row">@Html.Kentico().ResolveUrls(Cell)</th>
+                                        }
+                                        foreach (string Cell in Row.Skip(1))
+                                        {
+                                            <td>@Html.Kentico().ResolveUrls(Cell)</td>
+                                        }
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}

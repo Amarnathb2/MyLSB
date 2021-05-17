@@ -19928,6 +19928,11 @@
             </summary>
             <param name="dr">DataRow with the object data.</param>
         </member>
+        <member name="M:CMS.DocumentEngine.PageUrlPathInfo.GetExistingWhereCondition">
+            <summary>
+            Gets a where condition to find an existing object based on current object
+            </summary>
+        </member>
         <member name="M:CMS.DocumentEngine.PageUrlPathInfo.GetCacheDependenciesInternal">
             <summary>
             Gets collection of dependency keys to be touched when modifying the current object.

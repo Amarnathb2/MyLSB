@@ -14,6 +14,13 @@
         text-align: left;
     }
 
+    .row {
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 5rem;
+        }
+    }
+
     &__item {
         background: $white;
         border-top: 2px solid $bright-green;
@@ -40,7 +47,8 @@
         }
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: 5rem;
+            height: 100%;
+            margin-bottom: 0;
             padding: 3rem 3.5rem 4rem;
         }
 

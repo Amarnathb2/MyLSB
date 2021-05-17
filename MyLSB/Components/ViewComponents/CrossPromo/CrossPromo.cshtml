@@ -5,15 +5,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-lg-flex flex-column align-items-end">
-                <img src="@Url.Content(Model.Fields.Image)" alt="" aria-hidden="true" class="cross-promo__img" />
+                <img src="@Url.Content(Model.CrossPromoImage)" alt="" aria-hidden="true" class="cross-promo__img" />
             </div>
             <div class="col-lg-5 offset-lg-1 d-lg-flex flex-column justify-content-end align-items-start">
-                <h2 id="crossPromoHeading_@Model.NodeID" class="cross-promo__heading">@Html.Raw(Model.Fields.Name)</h2>
-                <div class="cross-promo__sub">@Html.Raw(Model.Fields.Subtext)</div>
-                @if (!String.IsNullOrEmpty(Model.Fields.ButtonText) && !String.IsNullOrEmpty(Model.Fields.ButtonUrl))
+                <h2 id="crossPromoHeading_@Model.NodeID" class="cross-promo__heading">@Html.Raw(Model.CrossPromoName)</h2>
+                <div class="cross-promo__sub">@Html.Raw(Model.CrossPromoSubtext)</div>
+                @if (!String.IsNullOrEmpty(Model.CrossPromoButtonText) && !String.IsNullOrEmpty(Model.CrossPromoButtonUrl))
                 {
-                    <a href="@Url.Content(Model.Fields.ButtonUrl)" class="btn btn-secondary cross-promo__cta" @Html.Raw(Model.Fields.ButtonNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Fields.ButtonAriaLabel) ? $"aria-label=\"{Model.Fields.ButtonAriaLabel}\"" : "")>
-                        @Html.Raw(Model.Fields.ButtonText)@Html.Raw(Model.Fields.ButtonNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    <a href="@Url.Content(Model.CrossPromoButtonUrl)" class="btn btn-secondary cross-promo__cta" @Html.Raw(Model.CrossPromoButtonNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.CrossPromoButtonAriaLabel) ? $"aria-label=\"{Model.CrossPromoButtonAriaLabel}\"" : "")>
+                        @Html.Raw(Model.CrossPromoButtonText)@Html.Raw(Model.CrossPromoButtonNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
                     </a>
                 }
             </div>

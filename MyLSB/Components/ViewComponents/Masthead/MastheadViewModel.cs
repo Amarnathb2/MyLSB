@@ -20,10 +20,10 @@ namespace MyLSB.Components
         {
             return new MastheadViewModel
             {
-                Heading = masthead.Fields.Heading,
-                Image = masthead.Fields.Image,
-                Link1 = LinkViewModel.GetViewModel(masthead.Fields.CTA1Text, masthead.Fields.CTA1Url, masthead.Fields.CTA1NewTab, masthead.Fields.CTA1AriaLabel),
-                Link2 = LinkViewModel.GetViewModel(masthead.Fields.CTA2Text, masthead.Fields.CTA2Url, masthead.Fields.CTA2NewTab, masthead.Fields.CTA2AriaLabel),
+                Heading = masthead.MastheadHeading,
+                Image = masthead.MastheadImage,
+                Link1 = LinkViewModel.GetViewModel(masthead.MastheadCTA1Text, masthead.MastheadCTA1Url, masthead.MastheadCTA1NewTab, masthead.MastheadCTA1AriaLabel),
+                Link2 = LinkViewModel.GetViewModel(masthead.MastheadCTA2Text, masthead.MastheadCTA2Url, masthead.MastheadCTA2NewTab, masthead.MastheadCTA2AriaLabel)
             };
         }
     }

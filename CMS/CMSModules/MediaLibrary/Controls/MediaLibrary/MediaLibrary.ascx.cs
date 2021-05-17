@@ -891,7 +891,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaLibrary 
                     // Get only imported files if required
                     if (DisplayOnlyImportedFiles)
                     {
-                        string normFolderPath = Path.EnsureForwardSlashes(FolderPath).Trim('/');
+                        string normFolderPath = Path.EnsureForwardSlashes(LastFolderPath).Trim('/');
                         normFolderPath = SqlHelper.EscapeLikeText(SqlHelper.EscapeQuotes(normFolderPath));
 
                         // Create WHERE condition

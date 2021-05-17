@@ -16,7 +16,7 @@ namespace MyLSB.Components
         {
             return new FeaturesViewModel
             {
-                Heading = features.Fields.Heading,
+                Heading = features.FeaturesHeading,
                 Features = featureRepository.GetFeatures(features.NodeAliasPath).Take(3)
             };
         }

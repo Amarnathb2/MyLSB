@@ -23,22 +23,32 @@ namespace MyLSB.Repository
             this.pageRetriever = pageRetriever;
         }
 
-        public static List<TreeNode> GetPages(string path)
+        public IEnumerable<TreeNode> GetPages(string path)
         {
-            return CacheHelper.Cache(cs =>
-            {
-                if (cs.Cached) { cs.CacheDependency = CacheHelper.GetCacheDependency($"node|{SiteContext.CurrentSiteName}|{path}|childnodes"); }
-                return DocumentHelper.GetDocuments()
-                    .Types("Custom.PageDefault", "Custom.PageGroup", "Custom.PageRedirect", "Custom.PageBlog", "Custom.PageBio", "Custom.PageLanding")
+            return pageRetriever.Retrieve<TreeNode>(
+                query => query
                     .Path(path, PathTypeEnum.Children)
                     .NestingLevel(1)
-                    .MenuItems()
-                    .OrderBy("NodeOrder")
-                    .PublishedVersion()
-                    .Published()
-                    .ToList();
+                    .OrderByAscending("NodeOrder"),
+                cache => cache
+                    .Key($"{nameof(PageRepository)}|{nameof(GetPages)}|{path}")
+                    .Dependencies((_, builder) => builder.PagePath(path, PathTypeEnum.Children)
+                                                         .PageOrder()));
 
-            }, new CacheSettings(10, $"Pages|{SiteContext.CurrentSiteName}|{path}"));
+            //return CacheHelper.Cache(cs =>
+            //{
+            //    if (cs.Cached) { cs.CacheDependency = CacheHelper.GetCacheDependency($"node|{SiteContext.CurrentSiteName}|{path}|childnodes"); }
+            //    return DocumentHelper.GetDocuments()
+            //        .Types("custom.pagedefault", "custom.pagegroup", "custom.pageredirect")
+            //        .Path(path, PathTypeEnum.Children)
+            //        .NestingLevel(1)
+            //        .MenuItems()
+            //        .OrderBy("NodeOrder")
+            //        .PublishedVersion()
+            //        .Published()
+            //        .ToList();
+
+            //}, new CacheSettings(10, $"Pages|{SiteContext.CurrentSiteName}|{path}"));
         }
 
         public static List<TreeNode> GetPagesSitemap(string path)

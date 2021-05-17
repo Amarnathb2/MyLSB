@@ -31,7 +31,7 @@ namespace MyLSB
             //services.AddSingleton<ColumnRepository>();
             //services.AddSingleton<PersonRepository>();
             //services.AddSingleton<FAQRepository>();
-            //services.AddSingleton<JsonTableRepository>();
+            services.AddSingleton<JsonTableRepository>();
             //services.AddSingleton<BannerRepository>();
             //services.AddSingleton<PropertyRepository>();
             //services.AddSingleton<CustomTableRepository>();

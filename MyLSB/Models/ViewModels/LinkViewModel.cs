@@ -27,12 +27,12 @@ namespace MyLSB.Models
         {
             return new LinkViewModel()
             {
-                Text = link.Fields.Text,
-                Url = link.Fields.Url,
-                NewTab = link.Fields.NewTab,
-                AriaLabel = link.Fields.AriaLabel,
-                IconClass = link.Fields.IconClass,
-                IconImage = link.Fields.IconImage
+                Text = link.LinkText,
+                Url = link.LinkUrl,
+                NewTab = link.LinkNewTab,
+                AriaLabel = link.LinkAriaLabel,
+                IconClass = link.LinkIconClass,
+                IconImage = link.LinkIconImage
             };
         }
 
@@ -56,12 +56,12 @@ namespace MyLSB.Models
         {
             return new LinkViewModel()
             {
-                Text = link.Fields.Text,
-                Url = link.Fields.Url,
-                NewTab = link.Fields.NewTab,
-                AriaLabel = link.Fields.AriaLabel,
-                IconClass = link.Fields.IconClass,
-                IconImage = link.Fields.IconImage,
+                Text = link.LinkText,
+                Url = link.LinkUrl,
+                NewTab = link.LinkNewTab,
+                AriaLabel = link.LinkAriaLabel,
+                IconClass = link.LinkIconClass,
+                IconImage = link.LinkIconImage,
                 Children = linkRepository.GetLinks(link.NodeAliasPath).Select(link => GetViewModel(link, linkRepository)) ?? Enumerable.Empty<LinkViewModel>()
             };
         }
