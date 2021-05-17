@@ -64,7 +64,7 @@ namespace MyLSB.Models
         {
             var resources = CacheHelper.Cache(cs =>
             {
-                var links = node.NodeLevel == 1 && node.ClassName == PageGroup.CLASS_NAME ? (node as PageGroup).Fields.Resources.OfType<Link>() : Enumerable.Empty<Link>();
+                var links = node.NodeLevel == 1 && node.ClassName == PageDefault.CLASS_NAME ? (node as PageDefault).Fields.Resources.OfType<Link>() : Enumerable.Empty<Link>();
 
                 if (cs.Cached)
                 {

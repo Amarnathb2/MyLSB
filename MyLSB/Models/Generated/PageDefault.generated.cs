@@ -63,6 +63,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Page Summary.
+		/// </summary>
+		[DatabaseField]
+		public string Summary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Summary"), @"");
+			}
+			set
+			{
+				SetValue("Summary", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Hide from search engines (noindex).
 		/// </summary>
 		[DatabaseField]
@@ -228,6 +245,34 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.PageDefaultID = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Page Summary.
+			/// </summary>
+			public string Summary
+			{
+				get
+				{
+					return mInstance.Summary;
+				}
+				set
+				{
+					mInstance.Summary = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Resources.
+			/// </summary>
+			public IEnumerable<TreeNode> Resources
+			{
+				get
+				{
+					return mInstance.GetRelatedDocuments("Resources");
 				}
 			}
 
