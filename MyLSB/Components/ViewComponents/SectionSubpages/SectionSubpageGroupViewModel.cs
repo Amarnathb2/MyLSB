@@ -15,13 +15,15 @@ namespace MyLSB.Components
         public string Heading { get; set; }
         public string Icon { get; set; }
         public IEnumerable<MenuItemViewModel> Children { get; set; }
-        public TreeNode Promo { get; set; }
+        public PageGroupPromo Promo { get; set; }
 
         public static SectionSubpageGroupViewModel GetViewModel(PageGroup pageGroup, NavigationRepository navigationRepository)
         {
             return CacheHelper.Cache(cs =>
             {
-                var promo = pageGroup.Fields.Promo.FirstOrDefault();
+                pageGroup.MakeComplete(true);
+
+                var promo = pageGroup.Fields.Promo.OfType<PageGroupPromo>().FirstOrDefault();
 
                 if (cs.Cached)
                 {
