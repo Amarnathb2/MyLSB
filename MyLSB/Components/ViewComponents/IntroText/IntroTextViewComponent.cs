@@ -16,8 +16,8 @@ namespace MyLSB.Components
         }
 
         public IViewComponentResult Invoke(IntroText node)
-        {            
-            return View("~/Components/ViewComponents/IntroText/IntroText.cshtml", node);
+        {
+            return View("/Components/ViewComponents/IntroText/IntroText.cshtml", node);
         }
     }
 }
