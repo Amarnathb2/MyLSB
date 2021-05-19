@@ -1,6 +1,6 @@
 ﻿@model PromoBand
 <div class="container">
-    <aside class="promo-band" aria-label="You may also like">
+    <aside class="promo-band" aria-label="You may also like" id="promo-band_@(Model.NodeID)">
         <div class="row">
             <div class="col-lg-11 offset-lg-1 d-lg-flex justify-content-between align-items-center">
                 @if (!String.IsNullOrEmpty(Model.PromoBandIcon))

@@ -3,6 +3,7 @@ using CMS.DocumentEngine.Types.Custom;
 using CMS.SiteProvider;
 using Kentico.Content.Web.Mvc;
 using MyLSB.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +26,7 @@ namespace MyLSB.Repository
         {
             this.pageRetriever = pageRetriever;
             this.repositoryCacheHelper = repositoryCacheHelper;
-            this.pageRepository = pageRepository; 
+            this.pageRepository = pageRepository;
         }
 
         public IEnumerable<TreeNode> GetPartials(string nodeAliasPath)
@@ -66,6 +67,10 @@ namespace MyLSB.Repository
             var path = node.IsLink ? pageRepository.GetNodeAliasPath(node.NodeLinkedNodeID) : node.NodeAliasPath;
             var container = GetPartialsContainer(path);
 
+            if (container is null)
+            {
+                return String.Empty;
+            }
             return container.NodeAliasPath;
         }
     }

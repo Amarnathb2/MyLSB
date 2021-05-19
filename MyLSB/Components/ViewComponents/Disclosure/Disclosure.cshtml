@@ -1,5 +1,5 @@
 ﻿@model Disclosure
 
-<div class="disclosure">
+<div class="disclosure" id="disclosure_@(Model.NodeID)">
     @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.DisclosureText))
 </div>

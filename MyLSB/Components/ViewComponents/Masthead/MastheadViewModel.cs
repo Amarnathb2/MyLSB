@@ -1,4 +1,5 @@
-﻿using CMS.DocumentEngine.Types.Custom;
+﻿using CMS.DocumentEngine;
+using CMS.DocumentEngine.Types.Custom;
 using Kentico.Content.Web.Mvc;
 using MyLSB.Models;
 using MyLSB.Repository;
@@ -9,16 +10,20 @@ using System.Threading.Tasks;
 
 namespace MyLSB.Components
 {
-    public class MastheadViewModel
+    public class MastheadViewModel : TreeNodeViewModel
     {
         public string Heading { get; set; }
         public string Image { get; set; }
         public LinkViewModel Link1 { get; set; }
         public LinkViewModel Link2 { get; set; }
 
+        protected MastheadViewModel(TreeNode node) : base(node)
+        {
+        }
+
         public static MastheadViewModel GetViewModel(Masthead masthead)
         {
-            return new MastheadViewModel
+            return new MastheadViewModel(masthead)
             {
                 Heading = masthead.MastheadHeading,
                 Image = masthead.MastheadImage,

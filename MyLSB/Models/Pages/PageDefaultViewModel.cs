@@ -7,7 +7,6 @@ namespace MyLSB.Models.Pages
 {
     public class PageDefaultViewModel : PageBaseViewModel
     {
-
         public PageDefaultViewModel(PageDefault page, Settings settings, PageRepository pageRepository, PartialsRepository partialsRepository) : base(page, settings, pageRepository, partialsRepository)
         {            
         }

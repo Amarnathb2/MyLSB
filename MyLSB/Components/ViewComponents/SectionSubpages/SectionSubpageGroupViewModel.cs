@@ -10,12 +10,16 @@ using System.Threading.Tasks;
 
 namespace MyLSB.Components
 {
-    public class SectionSubpageGroupViewModel
-    {
+    public class SectionSubpageGroupViewModel : TreeNodeViewModel
+    {        
         public string Heading { get; set; }
         public string Icon { get; set; }
         public IEnumerable<MenuItemViewModel> Children { get; set; }
         public PageGroupPromo Promo { get; set; }
+
+        protected SectionSubpageGroupViewModel(TreeNode node) : base(node)
+        {
+        }
 
         public static SectionSubpageGroupViewModel GetViewModel(PageGroup pageGroup, NavigationRepository navigationRepository)
         {
@@ -37,7 +41,7 @@ namespace MyLSB.Components
                     cs.CacheDependency = CacheHelper.GetCacheDependency(keys);
                 }
 
-                return new SectionSubpageGroupViewModel
+                return new SectionSubpageGroupViewModel(pageGroup)
                 {
                     Heading = pageGroup.DocumentName,
                     Icon = pageGroup.PageGroupIcon,

@@ -22,21 +22,26 @@ namespace MyLSB.Components.ViewComponents
         {
             var partialsPath = path;
 
-            if (getContainer)
+            if (!String.IsNullOrEmpty(partialsPath))
             {
-                var container = partialRepository.GetPartialsContainer(path);
-
-                if (container == null)
+                if (getContainer)
                 {
-                    return Content(string.Empty);
+                    var container = partialRepository.GetPartialsContainer(path);
+
+                    if (container == null)
+                    {
+                        return Content(string.Empty);
+                    }
+
+                    partialsPath = container.NodeAliasPath;
                 }
 
-                partialsPath = container.NodeAliasPath;
+                var partials = partialRepository.GetPartials(partialsPath);
+
+                return View("~/Components/ViewComponents/Partials/Partials.cshtml", partials);
             }
 
-            var partials = partialRepository.GetPartials(partialsPath);
-
-            return View("~/Components/ViewComponents/Partials/Partials.cshtml", partials);
+            return Content(String.Empty);
         }
     }
 }
