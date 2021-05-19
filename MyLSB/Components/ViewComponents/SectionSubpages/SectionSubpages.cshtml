@@ -7,7 +7,7 @@
             var pageGroup = Model.ElementAt(i);
             var alt = i % 2 == 1;
 
-            <div class="row">
+            <div class="row" id="section-nav_@(pageGroup.NodeID)">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="section-nav__category @(i == 0 ? "section-nav__category--first" : "") @(alt ? "section-nav__category--alt" : "")">
                         <div>

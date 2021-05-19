@@ -2,7 +2,7 @@
 
 @if (Model.ColumnNames.Any() && Model.Rows.Any())
 {
-    <div class="comparison">
+    <div class="comparison" id="table_@(Model.NodeID)">
         <div class="container">
             <div class="comparison__table">
                 <div class="table-responsive">

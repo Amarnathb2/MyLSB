@@ -9,6 +9,7 @@ using MyLSB.Repository;
 
 [assembly: RegisterPageRoute(PageDefault.CLASS_NAME, typeof(PageDefaultController))]
 [assembly: RegisterPageRoute(PageRedirect.CLASS_NAME, typeof(PageRedirectController))]
+[assembly: RegisterPageRoute(PageLocation.CLASS_NAME, typeof(PageLocationController))]
 namespace MyLSB.Controllers
 {
     public class PageDefaultController : Controller
@@ -26,6 +27,7 @@ namespace MyLSB.Controllers
             this.partialsRepository = partialsRepository;
         }
 
+
         public ActionResult Index()
         {
             var pageDefault = pageDataContextRetriever.Retrieve<PageDefault>().Page;
@@ -35,6 +37,29 @@ namespace MyLSB.Controllers
         }
     }
 
+    public class PageLocationController : Controller
+    {
+        private readonly IPageDataContextRetriever pageDataContextRetriever;
+        private readonly SettingsRepository settingsRepository;
+        private readonly PageRepository pageRepository;
+        private readonly PartialsRepository partialsRepository;
+
+        public PageLocationController(IPageDataContextRetriever pageDataContextRetriever, SettingsRepository settingsRepository, PageRepository pageRepository, PartialsRepository partialsRepository)
+        {
+            this.pageDataContextRetriever = pageDataContextRetriever;
+            this.settingsRepository = settingsRepository;
+            this.pageRepository = pageRepository;
+            this.partialsRepository = partialsRepository;
+        }
+
+        public ActionResult Index()
+        {
+            var pageLocation = pageDataContextRetriever.Retrieve<PageLocation>().Page;
+            var settings = settingsRepository.GetSettings();
+            var viewModel = new PageLocationViewModel(pageLocation, settings, pageRepository, partialsRepository);
+            return View("~/Views/Pages/Location.cshtml", viewModel);
+        }
+    }
     public class PageRedirectController : Controller
     {
         private readonly IPageDataContextRetriever pageDataContextRetriever;

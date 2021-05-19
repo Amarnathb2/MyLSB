@@ -63,6 +63,210 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Location name.
+		/// </summary>
+		[DatabaseField]
+		public string LocationTitle
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationTitle"), @"");
+			}
+			set
+			{
+				SetValue("LocationTitle", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Latitude.
+		/// </summary>
+		[DatabaseField]
+		public string LocationLatitude
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationLatitude"), @"");
+			}
+			set
+			{
+				SetValue("LocationLatitude", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Longitude.
+		/// </summary>
+		[DatabaseField]
+		public string LocationLongitude
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationLongitude"), @"");
+			}
+			set
+			{
+				SetValue("LocationLongitude", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Address.
+		/// </summary>
+		[DatabaseField]
+		public string LocationAddress1
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationAddress1"), @"");
+			}
+			set
+			{
+				SetValue("LocationAddress1", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Address 2.
+		/// </summary>
+		[DatabaseField]
+		public string LocationAddress2
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationAddress2"), @"");
+			}
+			set
+			{
+				SetValue("LocationAddress2", value);
+			}
+		}
+
+
+		/// <summary>
+		/// City.
+		/// </summary>
+		[DatabaseField]
+		public string LocationCity
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationCity"), @"");
+			}
+			set
+			{
+				SetValue("LocationCity", value);
+			}
+		}
+
+
+		/// <summary>
+		/// State.
+		/// </summary>
+		[DatabaseField]
+		public string LocationState
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationState"), @"");
+			}
+			set
+			{
+				SetValue("LocationState", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Zip Code.
+		/// </summary>
+		[DatabaseField]
+		public string LocationZipCode
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationZipCode"), @"");
+			}
+			set
+			{
+				SetValue("LocationZipCode", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Phone.
+		/// </summary>
+		[DatabaseField]
+		public string LocationPhone
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationPhone"), @"");
+			}
+			set
+			{
+				SetValue("LocationPhone", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Hours of Operation.
+		/// </summary>
+		[DatabaseField]
+		public string LocationHours
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationHours"), @"");
+			}
+			set
+			{
+				SetValue("LocationHours", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Banking and Financial Services.
+		/// </summary>
+		[DatabaseField]
+		public bool LocationTypeBankingFinancialServices
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("LocationTypeBankingFinancialServices"), false);
+			}
+			set
+			{
+				SetValue("LocationTypeBankingFinancialServices", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Insurance, Trust and Wealth Management.
+		/// </summary>
+		[DatabaseField]
+		public bool LocationTypeInsuranceTrustWealthManagement
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("LocationTypeInsuranceTrustWealthManagement"), false);
+			}
+			set
+			{
+				SetValue("LocationTypeInsuranceTrustWealthManagement", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Hide from search engines (noindex).
 		/// </summary>
 		[DatabaseField]
@@ -182,244 +386,6 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
-		/// Client Visits.
-		/// </summary>
-		[DatabaseField]
-		public bool LocationTypeClients
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("LocationTypeClients"), false);
-			}
-			set
-			{
-				SetValue("LocationTypeClients", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Strategists.
-		/// </summary>
-		[DatabaseField]
-		public bool LocationTypeStrategists
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("LocationTypeStrategists"), false);
-			}
-			set
-			{
-				SetValue("LocationTypeStrategists", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Designers.
-		/// </summary>
-		[DatabaseField]
-		public bool LocationTypeDesigners
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("LocationTypeDesigners"), false);
-			}
-			set
-			{
-				SetValue("LocationTypeDesigners", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Developers.
-		/// </summary>
-		[DatabaseField]
-		public bool LocationTypeDevelopers
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("LocationTypeDevelopers"), false);
-			}
-			set
-			{
-				SetValue("LocationTypeDevelopers", value);
-			}
-		}
-
-
-		/// <summary>
-		/// If different than Page name.
-		/// </summary>
-		[DatabaseField]
-		public string LocationTitle
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationTitle"), @"");
-			}
-			set
-			{
-				SetValue("LocationTitle", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Latitude.
-		/// </summary>
-		[DatabaseField]
-		public string LocationLatitude
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationLatitude"), @"");
-			}
-			set
-			{
-				SetValue("LocationLatitude", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Longitude.
-		/// </summary>
-		[DatabaseField]
-		public string LocationLongitude
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationLongitude"), @"");
-			}
-			set
-			{
-				SetValue("LocationLongitude", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Address.
-		/// </summary>
-		[DatabaseField]
-		public string LocationAddress1
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationAddress1"), @"");
-			}
-			set
-			{
-				SetValue("LocationAddress1", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Address 2.
-		/// </summary>
-		[DatabaseField]
-		public string LocationAddress2
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationAddress2"), @"");
-			}
-			set
-			{
-				SetValue("LocationAddress2", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location City.
-		/// </summary>
-		[DatabaseField]
-		public string LocationCity
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationCity"), @"");
-			}
-			set
-			{
-				SetValue("LocationCity", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location State.
-		/// </summary>
-		[DatabaseField]
-		public string LocationState
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationState"), @"");
-			}
-			set
-			{
-				SetValue("LocationState", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Zip Code.
-		/// </summary>
-		[DatabaseField]
-		public string LocationZipCode
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationZipCode"), @"");
-			}
-			set
-			{
-				SetValue("LocationZipCode", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Phone.
-		/// </summary>
-		[DatabaseField]
-		public string LocationPhone
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationPhone"), @"");
-			}
-			set
-			{
-				SetValue("LocationPhone", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Location Hours of Operation.
-		/// </summary>
-		[DatabaseField]
-		public string LocationHours
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LocationHours"), @"");
-			}
-			set
-			{
-				SetValue("LocationHours", value);
-			}
-		}
-
-
-		/// <summary>
 		/// Gets an object that provides extended API for working with PageLocation fields.
 		/// </summary>
 		[RegisterProperty]
@@ -466,6 +432,198 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.PageLocationID = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Location name.
+			/// </summary>
+			public string LocationTitle
+			{
+				get
+				{
+					return mInstance.LocationTitle;
+				}
+				set
+				{
+					mInstance.LocationTitle = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Latitude.
+			/// </summary>
+			public string LocationLatitude
+			{
+				get
+				{
+					return mInstance.LocationLatitude;
+				}
+				set
+				{
+					mInstance.LocationLatitude = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Longitude.
+			/// </summary>
+			public string LocationLongitude
+			{
+				get
+				{
+					return mInstance.LocationLongitude;
+				}
+				set
+				{
+					mInstance.LocationLongitude = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Address.
+			/// </summary>
+			public string LocationAddress1
+			{
+				get
+				{
+					return mInstance.LocationAddress1;
+				}
+				set
+				{
+					mInstance.LocationAddress1 = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Address 2.
+			/// </summary>
+			public string LocationAddress2
+			{
+				get
+				{
+					return mInstance.LocationAddress2;
+				}
+				set
+				{
+					mInstance.LocationAddress2 = value;
+				}
+			}
+
+
+			/// <summary>
+			/// City.
+			/// </summary>
+			public string LocationCity
+			{
+				get
+				{
+					return mInstance.LocationCity;
+				}
+				set
+				{
+					mInstance.LocationCity = value;
+				}
+			}
+
+
+			/// <summary>
+			/// State.
+			/// </summary>
+			public string LocationState
+			{
+				get
+				{
+					return mInstance.LocationState;
+				}
+				set
+				{
+					mInstance.LocationState = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Zip Code.
+			/// </summary>
+			public string LocationZipCode
+			{
+				get
+				{
+					return mInstance.LocationZipCode;
+				}
+				set
+				{
+					mInstance.LocationZipCode = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Phone.
+			/// </summary>
+			public string LocationPhone
+			{
+				get
+				{
+					return mInstance.LocationPhone;
+				}
+				set
+				{
+					mInstance.LocationPhone = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Hours of Operation.
+			/// </summary>
+			public string LocationHours
+			{
+				get
+				{
+					return mInstance.LocationHours;
+				}
+				set
+				{
+					mInstance.LocationHours = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Banking and Financial Services.
+			/// </summary>
+			public bool LocationTypeBankingFinancialServices
+			{
+				get
+				{
+					return mInstance.LocationTypeBankingFinancialServices;
+				}
+				set
+				{
+					mInstance.LocationTypeBankingFinancialServices = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Insurance, Trust and Wealth Management.
+			/// </summary>
+			public bool LocationTypeInsuranceTrustWealthManagement
+			{
+				get
+				{
+					return mInstance.LocationTypeInsuranceTrustWealthManagement;
+				}
+				set
+				{
+					mInstance.LocationTypeInsuranceTrustWealthManagement = value;
 				}
 			}
 
@@ -578,230 +736,6 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.OpenGraphDescription = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Client Visits.
-			/// </summary>
-			public bool LocationTypeClients
-			{
-				get
-				{
-					return mInstance.LocationTypeClients;
-				}
-				set
-				{
-					mInstance.LocationTypeClients = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Strategists.
-			/// </summary>
-			public bool LocationTypeStrategists
-			{
-				get
-				{
-					return mInstance.LocationTypeStrategists;
-				}
-				set
-				{
-					mInstance.LocationTypeStrategists = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Designers.
-			/// </summary>
-			public bool LocationTypeDesigners
-			{
-				get
-				{
-					return mInstance.LocationTypeDesigners;
-				}
-				set
-				{
-					mInstance.LocationTypeDesigners = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Developers.
-			/// </summary>
-			public bool LocationTypeDevelopers
-			{
-				get
-				{
-					return mInstance.LocationTypeDevelopers;
-				}
-				set
-				{
-					mInstance.LocationTypeDevelopers = value;
-				}
-			}
-
-
-			/// <summary>
-			/// If different than Page name.
-			/// </summary>
-			public string LocationTitle
-			{
-				get
-				{
-					return mInstance.LocationTitle;
-				}
-				set
-				{
-					mInstance.LocationTitle = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Latitude.
-			/// </summary>
-			public string LocationLatitude
-			{
-				get
-				{
-					return mInstance.LocationLatitude;
-				}
-				set
-				{
-					mInstance.LocationLatitude = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Longitude.
-			/// </summary>
-			public string LocationLongitude
-			{
-				get
-				{
-					return mInstance.LocationLongitude;
-				}
-				set
-				{
-					mInstance.LocationLongitude = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Address.
-			/// </summary>
-			public string LocationAddress1
-			{
-				get
-				{
-					return mInstance.LocationAddress1;
-				}
-				set
-				{
-					mInstance.LocationAddress1 = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Address 2.
-			/// </summary>
-			public string LocationAddress2
-			{
-				get
-				{
-					return mInstance.LocationAddress2;
-				}
-				set
-				{
-					mInstance.LocationAddress2 = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location City.
-			/// </summary>
-			public string LocationCity
-			{
-				get
-				{
-					return mInstance.LocationCity;
-				}
-				set
-				{
-					mInstance.LocationCity = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location State.
-			/// </summary>
-			public string LocationState
-			{
-				get
-				{
-					return mInstance.LocationState;
-				}
-				set
-				{
-					mInstance.LocationState = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Zip Code.
-			/// </summary>
-			public string LocationZipCode
-			{
-				get
-				{
-					return mInstance.LocationZipCode;
-				}
-				set
-				{
-					mInstance.LocationZipCode = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Phone.
-			/// </summary>
-			public string LocationPhone
-			{
-				get
-				{
-					return mInstance.LocationPhone;
-				}
-				set
-				{
-					mInstance.LocationPhone = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Location Hours of Operation.
-			/// </summary>
-			public string LocationHours
-			{
-				get
-				{
-					return mInstance.LocationHours;
-				}
-				set
-				{
-					mInstance.LocationHours = value;
 				}
 			}
 		}

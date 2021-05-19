@@ -8,7 +8,7 @@
 
             if (i % 2 == 0)
             {
-                @:<div class="row d-lg-flex flex-wrap align-items-stretch staggered-animation-container">
+                @:<div class="row d-lg-flex flex-wrap align-items-stretch staggered-animation-container" id="category-nav_@(page.NodeID)">
             }
                 <div class="col-lg-5 @(i % 2 == 0 ? "offset-lg-1" : "")">
                     <a href="@Url.Content(page.Url)" class="category-nav__item staggered-animation" @Html.Raw(page.NewTab ? "target=\"_blank\"" : "") data-os-animation="animate__fadeInUp" data-os-animation-delay="@(i % 2 == 0 ? "0" : ".3")s">
@@ -22,7 +22,6 @@
             {
                 @:</div>
             }
-
         }
     </div>
 </div>

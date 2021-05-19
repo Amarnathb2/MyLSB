@@ -24,6 +24,7 @@ namespace MyLSB.Components
         {
             var jsonTablePickerModel = new JsonTablePickerModel()
             {
+                NodeID = node.NodeID,
                 Vc = node,
                 ColumnNames = new List<string>(),
                 Rows = new List<List<string>>(),

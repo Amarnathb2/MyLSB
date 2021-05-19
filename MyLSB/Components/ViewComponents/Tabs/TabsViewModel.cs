@@ -20,6 +20,7 @@ namespace MyLSB.Components{
         {
             return new TabsViewModel(node)
             {
+                NodeID = node.NodeID,
                 Panels = panelRepository.GetPanels(node.NodeAliasPath)
             };
         }
