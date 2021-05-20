@@ -53,6 +53,10 @@ namespace MyLSB.Components
             {
                 string DataDecode = HttpUtility.UrlDecode(Data.Name);
                 string DataMacros = CMS.MacroEngine.MacroResolver.Resolve(DataDecode);
+                if (DataMacros.Length == 2 && DataMacros.Substring(0, 1) == "h")
+                {
+                    DataMacros = "";
+                }
                 ColumnNames.Add(DataMacros);
             }
             return ColumnNames;

@@ -223,6 +223,18 @@ namespace CMSApp.CMSFormControls.JsonTable
                     var columnNames = dt.Columns.Cast<DataColumn>()
                                                 .Select(x => x.ColumnName)
                                                 .ToList();
+                    
+                    // rename any h# column names
+                    foreach (var colName in columnNames)
+                    {
+                        if (colName.Length == 2 && colName.Substring(0, 1) == "h")
+                        {
+                            var colIdx = colName.Substring(1, 1);
+                            var colHeader = $"EmptyHeader{colIdx}";
+                            dt.Columns[colName].ColumnName = colHeader;
+                        }
+                    }
+                    
                     columnNames.Insert(0, "(default)");
                     DataColumn newCol = new DataColumn("Row", typeof(string));
                     dt.Columns.Add(newCol);

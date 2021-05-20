@@ -83,7 +83,7 @@
         }
 
         #DynamicTable .table tr td:first-child,
-        #DynamicTable .table tr th:first-child{
+        #DynamicTable .table tr th:first-child {
             padding-left: 8px;
         }
 
@@ -121,7 +121,7 @@
                 try {
                     var cellValDec = decodeURIComponent(cellValue);
                 }
-                catch(err) {
+                catch (err) {
                     console.log("Cell value not an encoded URI")
                 }
                 if (cellValue == null) cellValue = "";
@@ -136,7 +136,7 @@
             var addRow = '<a class="btn-table-controls" href=\'javascript:buttonClick("insertRow' + i + '");\'><i class="icon-plus" aria-hidden="true"></i></a>';
             var deleteRow = '<a class=" btn-table-controls" href=\'javascript:buttonClick("deleteRow' + i + '");\'><i class="icon-bin" aria-hidden="true"></i></a>';
             var deleteRowDisabled = '<a class=" btn-table-controls disabled" href=\'javascript:buttonClick("deleteRow' + i + '");\'><i class="icon-bin" aria-hidden="true"></i></a>';
-            
+
             if (i === 0) {
                 row$cmsj.append($cmsj('<td/>').html(checkBox + upArrowDisabled));
                 if (myList.length == 1) { row$cmsj.append($cmsj('<td/>').html(downArrowDisabled)); }
@@ -190,6 +190,10 @@
                     catch (err) {
                         keyDecoded = key;
                     }
+                    var cellID = "h" + cell;
+                    if (keyDecoded == cellID) {
+                        keyDecoded = "";
+                    }
                     var textInput = '<span class="resizeable-input"><textarea class="header form-control auto-height" rows="1" id="h' + cell + '" oninput="cellInput(this)" onchange="updateTable(this)">' + keyDecoded + '</textarea>';
                     var textLabel = '<label class="header-label-hidden" id="h' + cell + 'label" for="h' + cell + '" style="color: red;">&nbsp</label>';
                     var checkBox = '<input class="checkbox-hidden" type="checkbox" id="col' + cell + '" value="' + cell + '" name="column" />';
@@ -215,7 +219,7 @@
         }
         var lastRight = "";
         lastRight = '#right' + (columnSet.length - 1).toString();
-        $cmsj(lastRight).addClass('disabled').attr({ 'href': 'javascript:void(0)', 'tabindex' : '-1' });
+        $cmsj(lastRight).addClass('disabled').attr({ 'href': 'javascript:void(0)', 'tabindex': '-1' });
 
 
 
@@ -925,8 +929,8 @@
     $cmsj(document).on('input', 'textarea.auto-height', function () {
         $cmsj(this).height('auto').height(this.scrollHeight);
     });
-    $cmsj('textarea').on( 'input', function(){
-        $cmsj(this).height( 'auto' ).height( this.scrollHeight );
+    $cmsj('textarea').on('input', function () {
+        $cmsj(this).height('auto').height(this.scrollHeight);
     });
 </script>
 <%-- Percent checkbox controls --%>
