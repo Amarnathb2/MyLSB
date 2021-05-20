@@ -19,11 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Components\ViewComponents\Disclosure\Disclosure.cshtml" />
-    <Content Remove="Components\ViewComponents\Disclosure\DisclosureContainer.cshtml" />
-    <Content Remove="Components\ViewComponents\IntroText\IntroText.cshtml" />
-    <Content Remove="Components\ViewComponents\JsonTablePicker\JsonTablePickerComparison.cshtml" />
-    <Content Remove="Components\ViewComponents\RichText\RichTextContainer.cshtml" />
     <Content Remove="web.config" />
   </ItemGroup>
 
@@ -36,18 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Components\ViewComponents\Disclosure\DisclosureContainer.cshtml" />
-    <None Include="Components\ViewComponents\Disclosure\Disclosure.cshtml" />
-    <None Include="Components\ViewComponents\JsonTableCellPicker\JsonTableCellPicker.cshtml" />
-    <None Include="Components\ViewComponents\JsonTablePicker\JsonTablePickerComparison.cshtml" />
-    <None Include="Components\ViewComponents\JsonTablePicker\JsonTablePicker.cshtml" />
-    <None Include="Components\ViewComponents\Login\Login.cshtml" />
-    <None Include="Components\ViewComponents\Partials\Partials.cshtml" />
-    <None Include="Components\ViewComponents\PrimaryNav\PrimaryNav.cshtml" />
-    <None Include="Components\ViewComponents\IntroText\IntroText.cshtml" />
-    <None Include="Components\ViewComponents\RichText\RichTextContainer.cshtml" />
-    <None Include="Components\ViewComponents\RichText\RichText.cshtml" />
-    <None Include="Components\ViewComponents\Speedbump\Speedbump.cshtml" />
     <None Include="web.config" />
     <None Include="wwwroot\images\cross-promo-bg.svg" />
     <None Include="wwwroot\images\ehl.svg" />
