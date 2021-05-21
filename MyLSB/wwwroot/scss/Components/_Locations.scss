@@ -1,0 +1,260 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+
+.locations {
+
+    .locationsModule {
+
+        &.map-updating {
+
+            .locations__results {
+
+                &:before {
+                    display: block;
+                }
+
+                &:after {
+                    display: block;
+                }
+            }
+        }
+
+        .locations__form {
+
+            &.kentico-form {
+                margin: 0 0 1.5rem 0;
+            }
+
+            .locations__form-layout {
+
+                @include media-breakpoint-up(md) {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin: 0 -10px;
+
+                    > .form-group {
+                        padding: 0 10px;
+
+                        &.form-group-required {
+
+                            > label {
+                                &:after {
+                                    content: "";
+                                    display: none;
+                                }
+                            }
+                        }
+
+
+                        &.address {
+                            width: 75%;
+                        }
+
+                        &.radius {
+                            width: 25%;
+                        }
+
+                        &.form-group-submit {
+                            align-self: stretch;
+                            display: flex;
+
+                            .btn {
+                                height: calc(4.7rem + 2px);
+                                margin: 2.4rem 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .locations__results {
+            position: relative;
+            padding-top: 25px;
+
+            &:before, &:after {
+                display: none;
+                content: "";
+            }
+
+            &:before {
+                position: absolute;
+                z-index: 9;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: $light;
+                border: 1px solid $dark;
+            }
+
+            &:after {
+                position: absolute;
+                z-index: 9;
+                top: 50%;
+                left: 50%;
+                width: 60px;
+                height: 60px;
+                background: url(/images/loading.gif) center no-repeat;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            .locations__results-layout {
+
+                @include media-breakpoint-up(lg) {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: stretch;
+                    margin: 0 -10px;
+                }
+
+                > div {
+
+                    @include media-breakpoint-up(lg) {
+                        padding: 0 10px;
+                    }
+
+                    &.locations__results-list {
+                        height: 500px;
+
+                        @include media-breakpoint-up(lg) {
+                            width: 25%;
+                        }
+
+                        @include media-breakpoint-down(md) {
+                            height: 250px;
+                        }
+
+                        > div {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            padding: 0;
+                        }
+
+                        > ul {
+                            position: relative;
+                            margin: 0;
+                            padding: 0;
+                            list-style-type: none;
+                            height: 100%;
+                            border: 1px solid $dark;
+                            overflow: auto;
+                            font-size: 1.2rem;
+
+                            > li {
+                                margin: 0;
+                                padding: 6px 10px;
+                                cursor: pointer;
+                                border-top: 1px solid $dark;
+
+                                &:focus {
+                                    outline: 2px solid;
+                                    outline-offset: -2px;
+                                    outline-color: $primary;
+                                    -moz-box-shadow: none;
+                                    -webkit-box-shadow: none;
+                                    box-shadow: none;
+                                }
+
+                                &:first-child {
+                                    border-top: none;
+                                }
+
+                                &:hover {
+                                    background: $light;
+                                }
+
+                                > div {
+                                    margin: 8px 0;
+                                    line-height: 1.4;
+
+                                    &.info {
+
+                                        > div {
+                                            margin: 5px 0;
+                                            line-height: 1.2;
+
+                                            &.name {
+                                                color: $dark-teal;
+                                                font-size: 1.4rem;
+                                                font-weight: 700;
+                                            }
+
+                                            &.types {
+
+                                                > ul {
+                                                    margin: 0;
+                                                    padding: 0;
+                                                    list-style-type: none;
+
+                                                    > li {
+                                                        display: inline-block;
+
+                                                        &:after {
+                                                            content: ", ";
+                                                        }
+
+                                                        &:last-child {
+                                                            &:after {
+                                                                content: "";
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.address {
+                                    }
+
+                                    &.links {
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.locations__results-map {
+
+                        @include media-breakpoint-up(lg) {
+                            margin: 0;
+                            width: 75%;
+                            height: 500px;
+                        }
+
+                        @include media-breakpoint-down(md) {
+                            margin: 1rem 0 0 0;
+                            height: 500px;
+                        }
+
+                        #map {
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid $dark;
+                        }
+
+                        .gm-style {
+                            @include border-top-radius(0);
+                            @include border-bottom-radius(0);
+                        }
+
+                        .infowindow {
+                            line-height: 1.4;
+
+                            .name {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

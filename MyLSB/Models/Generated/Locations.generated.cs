@@ -18,27 +18,27 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.DocumentEngine.Types.Custom;
 
-[assembly: RegisterDocumentType(VcLocations.CLASS_NAME, typeof(VcLocations))]
+[assembly: RegisterDocumentType(Locations.CLASS_NAME, typeof(Locations))]
 
 namespace CMS.DocumentEngine.Types.Custom
 {
 	/// <summary>
-	/// Represents a content item of type VcLocations.
+	/// Represents a content item of type Locations.
 	/// </summary>
-	public partial class VcLocations : TreeNode
+	public partial class Locations : TreeNode
 	{
 		#region "Constants and variables"
 
 		/// <summary>
 		/// The name of the data class.
 		/// </summary>
-		public const string CLASS_NAME = "custom.VcLocations";
+		public const string CLASS_NAME = "custom.Locations";
 
 
 		/// <summary>
-		/// The instance of the class that provides extended API for working with VcLocations fields.
+		/// The instance of the class that provides extended API for working with Locations fields.
 		/// </summary>
-		private readonly VcLocationsFields mFields;
+		private readonly LocationsFields mFields;
 
 		#endregion
 
@@ -148,10 +148,10 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
-		/// Gets an object that provides extended API for working with VcLocations fields.
+		/// Gets an object that provides extended API for working with Locations fields.
 		/// </summary>
 		[RegisterProperty]
-		public VcLocationsFields Fields
+		public LocationsFields Fields
 		{
 			get
 			{
@@ -161,22 +161,22 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
-		/// Provides extended API for working with VcLocations fields.
+		/// Provides extended API for working with Locations fields.
 		/// </summary>
 		[RegisterAllProperties]
-		public partial class VcLocationsFields : AbstractHierarchicalObject<VcLocationsFields>
+		public partial class LocationsFields : AbstractHierarchicalObject<LocationsFields>
 		{
 			/// <summary>
-			/// The content item of type VcLocations that is a target of the extended API.
+			/// The content item of type Locations that is a target of the extended API.
 			/// </summary>
-			private readonly VcLocations mInstance;
+			private readonly Locations mInstance;
 
 
 			/// <summary>
-			/// Initializes a new instance of the <see cref="VcLocationsFields" /> class with the specified content item of type VcLocations.
+			/// Initializes a new instance of the <see cref="LocationsFields" /> class with the specified content item of type Locations.
 			/// </summary>
-			/// <param name="instance">The content item of type VcLocations that is a target of the extended API.</param>
-			public VcLocationsFields(VcLocations instance)
+			/// <param name="instance">The content item of type Locations that is a target of the extended API.</param>
+			public LocationsFields(Locations instance)
 			{
 				mInstance = instance;
 			}
@@ -185,7 +185,7 @@ namespace CMS.DocumentEngine.Types.Custom
 			/// <summary>
 			/// PartialRichTextID.
 			/// </summary>
-			public int ID
+			public int VcLocationsID
 			{
 				get
 				{
@@ -201,7 +201,7 @@ namespace CMS.DocumentEngine.Types.Custom
 			/// <summary>
 			/// LocationsName.
 			/// </summary>
-			public string LocationsName
+			public string Name
 			{
 				get
 				{
@@ -284,11 +284,11 @@ namespace CMS.DocumentEngine.Types.Custom
 		#region "Constructors"
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="VcLocations" /> class.
+		/// Initializes a new instance of the <see cref="Locations" /> class.
 		/// </summary>
-		public VcLocations() : base(CLASS_NAME)
+		public Locations() : base(CLASS_NAME)
 		{
-			mFields = new VcLocationsFields(this);
+			mFields = new LocationsFields(this);
 		}
 
 		#endregion

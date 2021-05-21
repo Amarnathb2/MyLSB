@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Content Remove="web.config" />
+    <Content Remove="wwwroot\scss\Components\_LocationDetails.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -71,6 +72,9 @@
     <None Include="wwwroot\scripts\components\PrimaryNav.js" />
     <None Include="wwwroot\scripts\components\Search.js" />
     <None Include="wwwroot\scripts\cookies.js" />
+    <None Include="wwwroot\scripts\locations\Locations_App.js" />
+    <None Include="wwwroot\scripts\locations\Locations_Ctl.js" />
+    <None Include="wwwroot\scripts\locations\Locations_Svc.js" />
     <None Include="wwwroot\scripts\rotaterator.js" />
     <None Include="wwwroot\scripts\ZAGFramework-plugins-after.js" />
     <None Include="wwwroot\scripts\ZAGFramework-plugins-before.js" />
@@ -91,6 +95,7 @@
     <None Include="wwwroot\scss\Components\_InternalNav.scss" />
     <None Include="wwwroot\scss\Components\_Intro.scss" />
     <None Include="wwwroot\scss\Components\_LatestPosts.scss" />
+    <None Include="wwwroot\scss\Components\_LocationDetails.scss" />
     <None Include="wwwroot\scss\Components\_Login.scss" />
     <None Include="wwwroot\scss\Components\_Masthead.scss" />
     <None Include="wwwroot\scss\Components\_PositioningText.scss" />

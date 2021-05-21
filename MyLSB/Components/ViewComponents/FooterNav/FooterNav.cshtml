@@ -1,0 +1,38 @@
+﻿@model FooterNavViewModel
+
+<nav class="footer-nav" aria-label="Footer" id="footerNav">
+    <ul class="footer-nav__level-1">
+        @if (Model.PopularRequests.Any())
+        {
+            <li class="footer-nav__level-1-item">
+                <button href="#" class="collapsed" id="footerNav1" data-toggle="collapse" data-target="#footerNav1Sub" aria-expanded="false" aria-controls="footerNav1Sub">Popular Requests</button>
+                <ul class="footer-nav__level-2 collapse" id="footerNav1Sub" aria-labelledby="footerNav1">
+                    @foreach (var link in Model.PopularRequests)
+                    {
+                        <li class="footer-nav__level-2-item">
+                            <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
+                                @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+        @if (Model.LearnAboutUs.Any())
+        {
+            <li class="footer-nav__level-1-item">
+                <button class="collapsed" id="footerNav2" data-toggle="collapse" data-target="#footerNav2Sub" aria-expanded="false" aria-controls="footerNav2Sub">Learn About Us</button>
+                <ul class="footer-nav__level-2 collapse" id="footerNav2Sub" aria-labelledby="footerNav2">
+                    @foreach (var link in Model.PopularRequests)
+                    {
+                        <li class="footer-nav__level-2-item">
+                            <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
+                                @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</nav>
