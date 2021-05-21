@@ -216,6 +216,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Fax.
+		/// </summary>
+		[DatabaseField]
+		public string LocationFax
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationFax"), @"");
+			}
+			set
+			{
+				SetValue("LocationFax", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Hours of Operation.
 		/// </summary>
 		[DatabaseField]
@@ -228,6 +245,23 @@ namespace CMS.DocumentEngine.Types.Custom
 			set
 			{
 				SetValue("LocationHours", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Features.
+		/// </summary>
+		[DatabaseField]
+		public string LocationFeatures
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LocationFeatures"), @"");
+			}
+			set
+			{
+				SetValue("LocationFeatures", value);
 			}
 		}
 
@@ -581,6 +615,22 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
+			/// Fax.
+			/// </summary>
+			public string LocationFax
+			{
+				get
+				{
+					return mInstance.LocationFax;
+				}
+				set
+				{
+					mInstance.LocationFax = value;
+				}
+			}
+
+
+			/// <summary>
 			/// Hours of Operation.
 			/// </summary>
 			public string LocationHours
@@ -592,6 +642,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.LocationHours = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Features.
+			/// </summary>
+			public string LocationFeatures
+			{
+				get
+				{
+					return mInstance.LocationFeatures;
+				}
+				set
+				{
+					mInstance.LocationFeatures = value;
 				}
 			}
 

@@ -24,6 +24,7 @@ namespace MyLSB.Models.Pages
         public string OpenGraphUrl { get; set; }
         public string Schema { get; set; }
         public string BodyClass { get; set; }
+        public bool NoIndex { get; set; }
         public string PartialsPath { get; set; }
 
         //Settings
@@ -46,6 +47,7 @@ namespace MyLSB.Models.Pages
             OpenGraphImageAlt = node.GetStringValue("OpenGraphImageAlt", "Lincoln Savings Bank");
             OpenGraphUrl = DocumentURLProvider.GetAbsoluteUrl(node);
             Schema = node.GetStringValue("Schema", "");
+            NoIndex = node.GetBooleanValue("NoIndex", false);
             PartialsPath = partialsRepository.GetPartialsContainerPath(node);
 
             ContactPageUrl = settings.ContactPageUrl;

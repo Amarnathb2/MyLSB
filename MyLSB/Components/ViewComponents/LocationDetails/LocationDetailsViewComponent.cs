@@ -28,7 +28,7 @@ namespace MyLSB.Components
                     });
                 }
 
-                return location;
+                return LocationDetailsViewModel.GetViewModel(location);
 
             }, new CacheSettings(10, $"{nameof(LocationDetails)}|{node.NodeID}"));
 

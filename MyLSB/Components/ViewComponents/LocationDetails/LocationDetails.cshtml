@@ -1,9 +1,54 @@
-﻿@model PageLocation
+﻿@model LocationDetailsViewModel
+@{
+    var Location = Model.Location;
 
-<div class="container">
-    <div class="row">
-        <div>@Model.LocationAddress1</div>
-        <div>@Model.LocationAddress2</div>
-        <div>@Model.LocationCity, @Model.LocationState @Model.LocationZipCode</div>
+    string Address = !String.IsNullOrEmpty(Location.LocationAddress2) ? Location.LocationAddress1 + "<br />" + Location.LocationAddress2 : Location.LocationAddress1;
+
+    string LocationTypes = "";
+    LocationTypes += Location.LocationTypeBankingFinancialServices ? "<li class=\"banking-financial-services\">Banking and Financial Services</li>" : "";
+    LocationTypes += Location.LocationTypeInsuranceTrustWealthManagement ? "<li class=\"insurance-trust-wealth-management\">Insurance, Trust and WealthManagement</li>" : "";
+
+    string LocationMap = "https://www.google.com/maps/embed/v1/place?key=" + Model.ApiKey + "&q=" + Address + "+" + Location.LocationCity + "+" + Location.LocationState + "+" + Location.LocationZipCode + "&zoom=15";
+}
+<div class="location-details">
+    <div class="location-details__bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <h3>Proudly serving @Location.LocationCity, @Location.LocationState</h3>
+                <div class="location-details__address">
+                    <div>@Location.LocationAddress1</div>
+                    @if (!String.IsNullOrEmpty(Location.LocationAddress2))
+                    {
+                        <div>@Location.LocationAddress2</div>
+                    }
+                    <div>@Location.LocationCity, @Location.LocationState @Location.LocationZipCode</div>
+                </div>
+                @if (!String.IsNullOrEmpty(Location.LocationPhone))
+                {
+                    <div>Phone: <a href="@CustomHelpers.TelLink(Location.LocationPhone)">@Html.Raw(Location.LocationPhone)</a></div>
+                }
+                @if (!String.IsNullOrEmpty(Location.LocationFax))
+                {
+                    <div>Fax: @Html.Raw(Location.LocationFax)</div>
+                }
+                @if (!String.IsNullOrEmpty(Location.LocationHours))
+                {
+                    <div class="location-details__hours">
+                        @Html.Kentico().ResolveUrls(Location.LocationHours)
+                    </div>
+                }
+                @if (!String.IsNullOrEmpty(Location.LocationFeatures))
+                {
+                    <div class="location-details__features">
+                        <h3>Location Features</h3>
+                        @Html.Kentico().ResolveUrls(Location.LocationFeatures)
+                    </div>
+                }
+            </div>
+            <div class="col-lg-7">
+                <iframe class="location-details__map" Title="@("Google Map: " + Location.LocationAddress1)" src="@Url.Content(LocationMap)"></iframe>
+            </div>
+        </div>
     </div>
-</div> 
+</div>

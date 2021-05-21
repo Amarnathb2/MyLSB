@@ -27,6 +27,8 @@ var jsPaths = [
     'wwwroot/lib/jquery/jquery.js',
     'wwwroot/lib/popper.js/umd/popper.js',
     'wwwroot/lib/twitter-bootstrap/js/bootstrap.js',
+    'wwwroot/lib/angular.js/angular.min.js',
+    'wwwroot/lib/angular-sanitize/angular-sanitize.min.js',
     'wwwroot/lib/waypoints/jquery.waypoints.js',
     'wwwroot/lib/flickity/flickity.pkgd.js',
     'wwwroot/lib/odometer.js/odometer.js',
@@ -35,6 +37,7 @@ var jsPaths = [
     'wwwroot/scripts/base.js',    
     'wwwroot/scripts/cookies.js',
     'wwwroot/scripts/components/*.js',
+    'wwwroot/scripts/locations/*.js',
     'wwwroot/scripts/ZAGFramework-plugins-after.js',
 ];
 

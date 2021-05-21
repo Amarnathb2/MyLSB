@@ -1,0 +1,35 @@
+{
+  "LocationsConfig": {
+    "GoogleClientGeoCodeUrl": "https://maps.googleapis.com/maps/api/js?key={0}",
+    "GoogleClientGeoCodeApiKey": "AIzaSyB2PTyP5rLVroPvFlfN9oTqng7zv4xYx-4",
+    "GoogleLocationGeoCodeUrl": "https://maps.googleapis.com/maps/api/geocode/xml?address={0}&amp;key={1}",
+    "GoogleLocationDirectionsUrl": "https://www.google.com/maps/dir/Current+Location/{0}+{1}+{2}",
+    "Connectors": [
+      {
+        "key": "Website",
+        "className": "MyLSB.Modules.Locations.Connectors.KenticoConnector",
+        "mappings": [
+          {
+            "key": "LocationTypeBankingFinancialServices",
+            "to": "LocationTypeBankingFinancialServices"
+          },
+          {
+            "key": "LocationTypeInsuranceTrustWealthManagement",
+            "to": "LocationTypeInsuranceTrustWealthManagement"
+          }
+        ],
+        "url": "",
+        "apiKey": "",
+        "typeMapping": ""
+      },
+      {
+        "key": "COOP",
+        "className": "MyLSB.Modules.Locations.Connectors.COOPConnector",
+        "mappings": [],
+        "url": "http://api.CO-OPfs.org/locator/proximitySearch?latitude={0}&longitude={1}&maxRadius={2}&locType=A",
+        "apiKey": "",
+        "typeMapping": "COOP"
+      }
+    ]
+  }
+}

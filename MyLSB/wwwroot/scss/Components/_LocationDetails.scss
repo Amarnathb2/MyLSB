@@ -1,0 +1,45 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.location-details {
+    margin: 1.5rem 0;
+    padding-bottom: 2.5rem;
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+        margin: 3rem 0 6rem;
+        padding: 0 0 3rem;
+    }
+
+    &__bg {
+        background: linear-gradient( 175deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) calc(20% - 1px), $light 20%, $light 100%);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient( 175deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) calc(26% - 1px), $light 26%, $light 100%);
+        }
+    }
+
+    &__address {
+        margin-bottom: 1rem;
+    }
+
+    &__hours,
+    &__features {
+        margin-top: 3rem;
+    }
+
+    &__map {
+        border: none;
+        height: 450px;
+        width: 100%;
+    }
+}

@@ -27,6 +27,14 @@
       "destination": "wwwroot/lib/flickity/"
     },
     {
+      "library": "angular.js@1.8.2",
+      "destination": "wwwroot/lib/angular.js/"
+    },
+    {
+      "library": "angular-sanitize@1.8.2",
+      "destination": "wwwroot/lib/angular-sanitize/"
+    },
+    {
       "library": "odometer.js@0.4.8",
       "destination": "wwwroot/lib/odometer.js/",
       "files": [
