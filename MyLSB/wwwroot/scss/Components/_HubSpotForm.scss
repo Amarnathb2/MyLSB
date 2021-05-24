@@ -1,0 +1,42 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.hbspt-form {
+    margin-bottom: 3rem;
+
+    .field {
+        @extend .form-group;
+    }
+
+    textarea.hs-input,
+    input.hs-input {
+        @extend .form-control;
+    }
+
+    select.hs-input {
+        @extend .custom-select;
+    }
+
+    ul.hs-error-msgs {
+        margin: 0;
+        padding: 0;
+
+        li::before {
+            content: none;
+        }
+    }
+
+    .hs-error-msg {
+        @extend .field-validation-error;
+    }
+
+    .hs-button {
+        @extend .btn;
+    }
+
+    .hs-button.primary {
+        @extend .btn-primary;
+    }
+}

@@ -4,6 +4,7 @@ using CMS.Membership;
 using CMS.Search;
 using CMS.SiteProvider;
 using Kentico.Content.Web.Mvc;
+using MyLSB.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace MyLSB.Repository
     public class PageRepository
     {
         private readonly IPageRetriever pageRetriever;
+        private readonly RepositoryCacheHelper repositoryCacheHelper;
 
-        public PageRepository(IPageRetriever pageRetriever)
+        public PageRepository(IPageRetriever pageRetriever, RepositoryCacheHelper repositoryCacheHelper)
         {
             this.pageRetriever = pageRetriever;
+            this.repositoryCacheHelper = repositoryCacheHelper;
         }
 
         public IEnumerable<TreeNode> GetPages(string path)
@@ -51,23 +54,39 @@ namespace MyLSB.Repository
             //}, new CacheSettings(10, $"Pages|{SiteContext.CurrentSiteName}|{path}"));
         }
 
-        public static List<TreeNode> GetPagesSitemap(string path)
+        public IEnumerable<TreeNode> GetPagesSitemap(string path)
         {
-            return CacheHelper.Cache(cs =>
-            {
-                if (cs.Cached) { cs.CacheDependency = CacheHelper.GetCacheDependency($"node|{SiteContext.CurrentSiteName}|{path}|childnodes"); }
-                return DocumentHelper.GetDocuments()
-                    .Types("Custom.PageDefault", "Custom.PageGroup", "Custom.PageRedirect", "Custom.PageBlog", "Custom.PageBio", "Custom.PageLanding")
-                    .Path(path, PathTypeEnum.Children)
-                    .NestingLevel(1)
-                    .WhereNotEquals("DocumentSitemapExcluded", 1)
-                    //.Columns("ClassName", "NodeGUID", "NodeAliasPath", "DocumentName")
-                    .OrderBy("NodeOrder")
-                    .PublishedVersion()
-                    .Published()
-                    .ToList();
+            //return CacheHelper.Cache(cs =>
+            //{
+            //    if (cs.Cached) { cs.CacheDependency = CacheHelper.GetCacheDependency($"node|{SiteContext.CurrentSiteName}|{path}|childnodes"); }
+            //    return DocumentHelper.GetDocuments()
+            //        .Types("Custom.PageDefault", "Custom.PageGroup", "Custom.PageRedirect", "Custom.PageBlog", "Custom.PageBio", "Custom.PageLanding")
+            //        .Path(path, PathTypeEnum.Children)
+            //        .NestingLevel(1)
+            //        .WhereNotEquals("DocumentSitemapExcluded", 1)
+            //        //.Columns("ClassName", "NodeGUID", "NodeAliasPath", "DocumentName")
+            //        .OrderBy("NodeOrder")
+            //        .PublishedVersion()
+            //        .Published()
+            //        .ToList();
 
-            }, new CacheSettings(10, $"PagesSitemap|{SiteContext.CurrentSiteName}|{path}"));
+            //}, new CacheSettings(10, $"PagesSitemap|{SiteContext.CurrentSiteName}|{path}"));
+
+
+            return repositoryCacheHelper.CachePages(() =>
+            {
+                return DocumentHelper.GetDocuments()
+                    .Types("Custom.PageDefault", "Custom.PageGroup", "Custom.PageRedirect", "Custom.PageLanding")
+                    .OnCurrentSite()
+                    .NestingLevel(1)
+                    // Get Type-specific columns for the subclasses returned.
+                    .WithCoupledColumns()
+                    .OrderByAscending("NodeOrder");
+
+            }, $"{nameof(PageRepository)}|{nameof(GetPagesSitemap)}|{path}", new[]
+            {
+                $"node|{SiteContext.CurrentSiteName}|{path}|childnodes"
+            }) ?? Enumerable.Empty<TreeNode>();
         }
 
         public static List<TreeNode> GetBreadcrumbs(string path)
