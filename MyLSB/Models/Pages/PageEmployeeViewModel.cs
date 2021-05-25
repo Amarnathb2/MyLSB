@@ -12,6 +12,7 @@ namespace MyLSB.Models.Pages
         public string Designations { get; set; }
         public string Title { get; set; }
         public string Specialty { get; set; }
+        public string NMLS { get; set; }
         public string Photo { get; set; }
         public string Quote { get; set; }
         public string Bio {get; set;}
@@ -32,6 +33,7 @@ namespace MyLSB.Models.Pages
             Designations = page.EmployeeDesignations;
             Title = page.EmployeeTitle;
             Specialty = page.EmployeeSpecialty;
+            NMLS = page.EmployeeNMLS;
             Photo = page.EmployeePhoto;
             Quote = page.EmployeeQuote;
             //Bio = page.EmployeeBio;

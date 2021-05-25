@@ -16,13 +16,13 @@
                                 @if (!employee.EmployeeDisableFullBio)
                                 {
                                     @:<a href="@DocumentURLProvider.GetUrl(employee)" tabindex="-1">
-                                    }
+                                }
                                 <img src="@Url.Content(employee.EmployeePhoto)" alt="@Html.Raw(employee.EmployeeName)" class="employee__photo" />
                                 <h4 class="employee__name">@Html.Raw(employee.EmployeeName)</h4>
                                 @if (!employee.EmployeeDisableFullBio)
                                 {
-                                @:</a>
-                            }
+                                    @:</a>
+                                }
                                 @if (!String.IsNullOrEmpty(employee.EmployeeTitle))
                                 {
                                     <div class="employee__title">@Html.Raw(employee.EmployeeTitle)</div>
@@ -30,6 +30,10 @@
                                 @if (!String.IsNullOrEmpty(employee.EmployeeSpecialty))
                                 {
                                     <div class="employee__specialty">@Html.Raw(employee.EmployeeSpecialty)</div>
+                                }
+                                @if (!String.IsNullOrEmpty(employee.EmployeeNMLS))
+                                {
+                                    <div class="employee__nmls">NMLS# @Html.Raw(employee.EmployeeNMLS)</div>
                                 }
                                 <div class="employee__contact">
                                     @if (!String.IsNullOrEmpty(employee.EmployeeOfficePhone))

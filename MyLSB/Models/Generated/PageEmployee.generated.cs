@@ -148,6 +148,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// NMLS.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeNMLS
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeNMLS"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeNMLS", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Photo.
 		/// </summary>
 		[DatabaseField]
@@ -563,6 +580,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.EmployeeSpecialty = value;
+				}
+			}
+
+
+			/// <summary>
+			/// NMLS.
+			/// </summary>
+			public string EmployeeNMLS
+			{
+				get
+				{
+					return mInstance.EmployeeNMLS;
+				}
+				set
+				{
+					mInstance.EmployeeNMLS = value;
 				}
 			}
 
