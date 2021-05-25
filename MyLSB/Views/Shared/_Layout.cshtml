@@ -41,7 +41,7 @@
     <css path="~/assets/base.css" version="true" />
     <page-builder-styles />
 </head>
-<body>
+<body class="@Model.BodyClass">
     <vc:cookie-notice />
     @RenderBody()
     <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">

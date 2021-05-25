@@ -10,6 +10,7 @@ using MyLSB.Repository;
 [assembly: RegisterPageRoute(PageDefault.CLASS_NAME, typeof(PageDefaultController))]
 [assembly: RegisterPageRoute(PageRedirect.CLASS_NAME, typeof(PageRedirectController))]
 [assembly: RegisterPageRoute(PageLocation.CLASS_NAME, typeof(PageLocationController))]
+[assembly: RegisterPageRoute(PageEmployee.CLASS_NAME, typeof(PageEmployeeController))]
 namespace MyLSB.Controllers
 {
     public class PageDefaultController : Controller
@@ -60,6 +61,38 @@ namespace MyLSB.Controllers
             return View("~/Views/Pages/Location.cshtml", viewModel);
         }
     }
+
+    public class PageEmployeeController : Controller
+    {
+        private readonly IPageDataContextRetriever pageDataContextRetriever;
+        private readonly SettingsRepository settingsRepository;
+        private readonly PageRepository pageRepository;
+        private readonly PartialsRepository partialsRepository;
+
+        public PageEmployeeController(IPageDataContextRetriever pageDataContextRetriever, SettingsRepository settingsRepository, PageRepository pageRepository, PartialsRepository partialsRepository)
+        {
+            this.pageDataContextRetriever = pageDataContextRetriever;
+            this.settingsRepository = settingsRepository;
+            this.pageRepository = pageRepository;
+            this.partialsRepository = partialsRepository;
+        }
+
+        public ActionResult Index()
+        {
+            var pageEmployee = pageDataContextRetriever.Retrieve<PageEmployee>().Page;
+
+            if (pageEmployee.EmployeeDisableFullBio)
+            {
+                return new RedirectResult("/Page-Not-Found", false);
+            }
+
+            var settings = settingsRepository.GetSettings();
+            var viewModel = new PageEmployeeViewModel(pageEmployee, settings, pageRepository, partialsRepository);
+
+            return View("~/Views/Pages/Employee.cshtml", viewModel);
+        }
+    }
+
     public class PageRedirectController : Controller
     {
         private readonly IPageDataContextRetriever pageDataContextRetriever;

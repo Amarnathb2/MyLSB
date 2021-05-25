@@ -1,0 +1,71 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+
+.employee-page {
+    .masthead__img {
+        @include media-breakpoint-down(md) {
+            display: inline-block;
+            margin: 1rem auto;
+        }
+    }
+
+    .employee {
+
+        &__title {
+            font-size: 2rem;
+            font-weight: $font-weight-bold;
+            margin: 1rem 0;
+        }
+
+        &__address {
+            margin: 1rem 0;
+        }
+
+        &__quote {
+            color: white;
+            margin: auto;
+            min-width: 19.2rem;
+
+            @include media-breakpoint-up(lg) {
+                left: auto;
+                margin: auto;
+                right: -15rem;
+            }
+        }
+
+        &__quote-inner {
+            background: $primary;
+            display: flex;
+            flex-direction: column;
+            margin: 1.5rem auto 3rem;
+            padding: 1.8rem;
+
+
+            @include media-breakpoint-up(lg) {
+                margin: 0;
+                padding: 2.5rem 2.5rem;
+            }
+
+            p:first-child::before {
+                content: '\f10d\00a0';
+                font-family: $font-awesome;
+                font-weight: $font-weight-bold;
+            }
+
+
+            @include media-breakpoint-up(lg) {
+                position: absolute;
+                transform: translateY(-50%);
+                top: 80%;
+                z-index: 1;
+            }
+
+            :last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

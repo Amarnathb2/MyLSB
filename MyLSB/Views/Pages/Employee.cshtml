@@ -1,0 +1,76 @@
+﻿@model PageEmployeeViewModel
+@{
+    Layout = "~/Views/Pages/_Layout.cshtml";
+
+    var cacheEnabled = !Context.Kentico().Preview().Enabled;
+    var partialsCacheKey = new[]
+    {
+        $"nodeid|{Model.NodeID}"
+    };
+
+    string Address = !String.IsNullOrEmpty(Model.Address2) ? Model.Address1 + "<br />" + Model.Address2 : Model.Address1;
+}
+
+<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
+    <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+    <header class="masthead" aria-labelledby="pageTitle" id="masthead_@(Model.NodeID)">
+        <div class="masthead__bg">
+            <div class="container">
+                <img src="~/images/triangle-tr-bg.svg" alt="" aria-hidden="true" class="masthead__decoration os-animation" data-os-animation="animate__slideInRight" />
+                <div class="row">
+                    <div class="col-lg-8 d-flex flex-column justify-content-center">
+                        <vc:breadcrumb />
+                        <h1 id="pageTitle">@Html.Raw(Model.Name)@Html.Raw(!String.IsNullOrEmpty(Model.Designations) ? $", {Model.Designations}" : "")</h1>
+                        <img src="@Url.Content(Model.Photo)" class="masthead__img d-lg-none" alt="@Model.Name" />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                @if (!String.IsNullOrEmpty(Model.Title))
+                                {
+                                    <div class="employee__title">@Html.Raw(Model.Title)</div>
+                                }
+                                <div class="employee__address">
+                                    <div>@Html.Raw(Address)</div>
+                                    <div>@Html.Raw(Model.City)@(!String.IsNullOrEmpty(Model.State) ? "," : "") @Html.Raw(Model.State) @Html.Raw(Model.Zip)</div>
+                                </div>
+                                @if (!String.IsNullOrEmpty(Model.OfficePhone))
+                                {
+                                    <div class="employee__office">Office: <a href="@CustomHelpers.TelLink(Model.OfficePhone)">@Html.Raw(Model.OfficePhone)</a></div>
+                                }
+                                @if (!String.IsNullOrEmpty(Model.MobilePhone))
+                                {
+                                    <div class="employee__mobile">Mobile:<a href="@CustomHelpers.TelLink(Model.MobilePhone)">@Html.Raw(Model.MobilePhone)</a></div>
+                                }
+                                @if (!String.IsNullOrEmpty(Model.Fax))
+                                {
+                                    <div class="employee__fax">Fax: @Html.Raw(Model.Fax)</div>
+                                }
+                            </div>
+                            <div class="col-lg-6">
+                                @if (!String.IsNullOrEmpty(Model.Quote))
+                                {
+                                    <div class="employee__quote">
+                                        <div class="employee__quote-inner os-animation" data-os-animation="animate__fadeInUp">
+                                            @Html.Kentico().ResolveUrls(Model.Quote)
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <img src="@Url.Content(Model.Photo)" class="masthead__img d-none d-lg-inline-block" alt="@Model.Name" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <vc:internal-nav />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <vc:partials path="@Model.PartialsPath" get-container="false" />
+</cache>
