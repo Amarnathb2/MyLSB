@@ -29,7 +29,7 @@ namespace MyLSB
             //services.AddSingleton<BlogPostRepository>();
             //services.AddSingleton<CategoryRepository>();
             services.AddSingleton<ColumnRepository>();
-            //services.AddSingleton<PersonRepository>();
+            services.AddSingleton<EmployeeRepository>();
             //services.AddSingleton<FAQRepository>();
             services.AddSingleton<JsonTableRepository>();
             //services.AddSingleton<BannerRepository>();

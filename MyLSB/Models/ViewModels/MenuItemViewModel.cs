@@ -101,9 +101,18 @@ namespace MyLSB.Models
                 case PageGroup.CLASS_NAME:
                     return "#";
 
-                case PageRedirect.CLASS_NAME:
-                    node.MakeComplete(true);
-                    return node.GetStringValue("PageRedirectUrl", DocumentURLProvider.GetUrl(node));
+                case PageRedirect.CLASS_NAME:                  
+                    return CacheHelper.Cache(cs =>
+                    {
+                        if (cs.Cached)
+                        {
+                            cs.CacheDependency = CacheHelper.GetCacheDependency($"nodeid|{node.NodeID}");
+                        }
+
+                        node.MakeComplete(true);
+                        return node.GetStringValue("PageRedirectUrl", DocumentURLProvider.GetUrl(node));
+
+                    }, new CacheSettings(10, $"{nameof(GetMenuItemUrl)}|{node.NodeID}"));
 
                 default:
                     return DocumentURLProvider.GetUrl(node);

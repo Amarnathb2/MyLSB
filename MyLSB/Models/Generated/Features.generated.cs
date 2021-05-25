@@ -177,18 +177,6 @@ namespace CMS.DocumentEngine.Types.Custom
 					mInstance.FeaturesHeading = value;
 				}
 			}
-
-
-			/// <summary>
-			/// Features.
-			/// </summary>
-			public IEnumerable<TreeNode> Items
-			{
-				get
-				{
-					return mInstance.GetRelatedDocuments("FeaturesItems");
-				}
-			}
 		}
 
 		#endregion

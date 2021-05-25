@@ -81,6 +81,7 @@ $fa-font-path: "/fonts/fontawesome-pro/webfonts";
 //   Pages Views
 //-----------------------------------------
 @import "Pages/_Landing.scss";
+@import "Pages/_Employee.scss";
 
 //-----------------------------------------
 //   Vc Views
@@ -113,3 +114,4 @@ $fa-font-path: "/fonts/fontawesome-pro/webfonts";
 @import "Components/_Locations.scss";
 @import "Components/_LocationDetails.scss";
 @import "Components/_HubSpotForm.scss";
+@import "Components/_Employees.scss";
