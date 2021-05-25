@@ -28,6 +28,10 @@
                                 {
                                     <div class="employee__title">@Html.Raw(Model.Title)</div>
                                 }
+                                @if (!String.IsNullOrEmpty(Model.NMLS))
+                                {
+                                    <div class="employee__nmls">NMLS# @Html.Raw(Model.NMLS)</div>
+                                }
                                 <div class="employee__address">
                                     <div>@Html.Raw(Address)</div>
                                     <div>@Html.Raw(Model.City)@(!String.IsNullOrEmpty(Model.State) ? "," : "") @Html.Raw(Model.State) @Html.Raw(Model.Zip)</div>
