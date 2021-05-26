@@ -23,7 +23,7 @@
             <li class="footer-nav__level-1-item">
                 <button class="collapsed" id="footerNav2" data-toggle="collapse" data-target="#footerNav2Sub" aria-expanded="false" aria-controls="footerNav2Sub">Learn About Us</button>
                 <ul class="footer-nav__level-2 collapse" id="footerNav2Sub" aria-labelledby="footerNav2">
-                    @foreach (var link in Model.PopularRequests)
+                    @foreach (var link in Model.LearnAboutUs)
                     {
                         <li class="footer-nav__level-2-item">
                             <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
