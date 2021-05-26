@@ -19,12 +19,13 @@ namespace MyLSB.Controllers
                     cs.CacheDependency = CacheHelper.GetCacheDependency($"node|{SiteContext.CurrentSiteName}|/|childnodes");
                 }
                 var XmlSitemapDocuments = DocumentHelper.GetDocuments()
-                    .Types("Custom.PageDefault")
+                    .Types(ContentItemIdentifiers.XML_SITEMAP_PAGETYPES)
                     .OnCurrentSite()
                     .Path("/%")
                     .Culture(SiteContext.CurrentSite.DefaultVisitorCulture)
                     .CombineWithDefaultCulture(true)
                     .OrderBy("NodeLevel, NodeOrder, DocumentName")
+                    .WhereFalse("NoIndex")
                     .Select(x => new SitemapNode(x.NodeAliasPath)
                     {
                         LastModificationDate = x.DocumentModifiedWhen.Date.ToLocalTime()

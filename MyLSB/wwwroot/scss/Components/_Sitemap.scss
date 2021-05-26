@@ -1,0 +1,26 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.sitemap {
+    font-size: 1.2rem;
+    > li {
+        margin-bottom: 2rem;
+        vertical-align: top;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            width: 25%;
+        }
+    }
+
+    .list-unstyled {
+        margin-left: 1rem;
+    }
+
+    h4 {
+        line-height: $line-height-base;
+        margin-bottom: 0;
+    }
+}

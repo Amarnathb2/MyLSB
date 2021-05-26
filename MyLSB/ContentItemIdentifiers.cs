@@ -14,6 +14,7 @@ namespace MyLSB
         public const string POPULAR_REQUESTS = "/settings/popular-requests";
         public const string LEARN_ABOUT_US = "/settings/learn-about-us";
 
-        public const string SITEMAP_PAGETYPES = "custom.PageGroup;custom.PageDefault;custom.PageRedirect";
+        public const string SITEMAP_PAGETYPES = "custom.PageGroup;custom.PageDefault;custom.PageRedirect;custom.PageLocation;custom.PageEmployee";
+        public const string XML_SITEMAP_PAGETYPES = "custom.PageDefault;custom.PageLocation;custom.pageEmployee";
     }
 }
