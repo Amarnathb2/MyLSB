@@ -101,7 +101,7 @@ namespace MyLSB.Repository
             }, new CacheSettings(10, $"Breadcrumbs|{SiteContext.CurrentSiteName}|{path}"));
         }
 
-        public static SearchResult GetPagesSearchResults(string term, string index, int page = 1, int PAGE_SIZE = 10)
+        public static SearchResult GetSearchResults(string term, string index, int page = 1, int PAGE_SIZE = 10)
         {
             int DEFAULT_PAGE_NUMBER = 1;
 

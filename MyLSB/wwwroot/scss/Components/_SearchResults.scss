@@ -1,0 +1,18 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.search-results {
+    .search-result {
+        margin-bottom: 2rem;
+
+        a:first-child {
+            font-weight: $font-weight-bold;
+        }
+
+        a:last-child {
+            font-size: 1.2rem;
+        }
+    }
+}

@@ -32,6 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Components\ViewComponents\SearchResults\SearchResults.cshtml" />
+    <None Include="Components\ViewComponents\Sitemap\Sitemap.cshtml" />
     <None Include="web.config" />
     <None Include="wwwroot\images\cross-promo-bg.svg" />
     <None Include="wwwroot\images\ehl.svg" />

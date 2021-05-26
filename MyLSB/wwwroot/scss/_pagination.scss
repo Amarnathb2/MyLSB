@@ -63,9 +63,11 @@
             border-color: $pagination-hover-border-color;
             color: $pagination-hover-color;
         }
+    }
 
-        &--prev,
-        &--next {
+    .PagedList-skipToNext,
+    .PagedList-skipToPrevious {
+        .page-link {
             width: auto;
         }
     }

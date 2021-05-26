@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SitemapItemViewModel>
+
+@{
+    void SitemapLevel(int level, IEnumerable<MenuItemViewModel> items)
+    {
+        <ul class="list-unstyled">
+            @foreach (var item in items)
+            {
+                <li>
+                    @if (item.ClassName == PageGroup.CLASS_NAME)
+                    {
+                        <h4>@Html.Raw(item.Text)</h4>
+                    }
+                    else
+                    {
+                        <a href="@Url.Content(item.Url)" @Html.Raw(item.NewTab ? "target=\"_blank\"" : "")>
+                            @Html.Raw(item.Text)@Html.Raw(item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        </a>
+                    }
+                    @if (item.Children.Any())
+                    {
+                        SitemapLevel(item.NodeLevel + 1, item.Children);
+                    }
+                </li>
+            }
+        </ul>
+    }
+}
+
+<div class="container">
+    <ul class="list-inline sitemap">
+        @foreach (var level1Item in Model)
+        {
+            <li class="list-inline-item">
+                <h3>
+                    <a href="@Url.Content(level1Item.Url)" @Html.Raw(level1Item.NewTab ? "target=\"_blank\"" : "")>
+                        @Html.Raw(level1Item.Text)@Html.Raw(level1Item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                </h3>
+                @if (level1Item.Children.Any())
+                {
+                    SitemapLevel(level1Item.NodeLevel + 1, level1Item.Children);
+                }
+            </li>
+        }
+    </ul>
+</div>

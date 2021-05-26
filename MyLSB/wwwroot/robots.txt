@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+sitemap: https://www.mylsb.com/sitemap.xml

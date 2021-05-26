@@ -1,7 +1,7 @@
-﻿using X.PagedList;
-using X.PagedList.Mvc.Core;
+﻿using X.PagedList.Mvc.Core.Common;
+using X.PagedList.Web.Common;
 
-namespace MyLSB.Helpers
+namespace MyLSB.Infrastructure
 {
     /// <summary>
     /// Customized render option definitions for X.PagedList.
@@ -9,19 +9,25 @@ namespace MyLSB.Helpers
     /// <remarks>
     /// For more customization options see https://github.com/kpi-ua/X.PagedList/blob/master/src/X.PagedList.Mvc/PagedListRenderOptions.cs.
     /// </remarks>
-    public class PagedListRenderOptions : X.PagedList.Web.Common.PagedListRenderOptionsBase
+    public class CustomPagedListRenderOptions : PagedListRenderOptions
     {
         /// <summary>
         /// Creates a new instance of <see cref="CustomPagedListRenderOptions"/> class.
         /// </summary>
-        public PagedListRenderOptions()
+        public CustomPagedListRenderOptions()
         {
-            DisplayLinkToFirstPage = X.PagedList.Web.Common.PagedListDisplayMode.Never;
-            DisplayLinkToLastPage = X.PagedList.Web.Common.PagedListDisplayMode.Never;
+            DisplayLinkToFirstPage = PagedListDisplayMode.Never;
+            DisplayLinkToLastPage = PagedListDisplayMode.Never;
+            DisplayLinkToNextPage = PagedListDisplayMode.Always;
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always;
             MaximumPageNumbersToDisplay = 5;
             DisplayEllipsesWhenNotShowingAllPageNumbers = false;
-            LinkToPreviousPageFormat = "<span class=\"far fa-arrow-left\" aria-hidden=\"true\"></span><span class=\"sr-only\">Previous</span>";
-            LinkToNextPageFormat = "<span class=\"sr-only\">Next</span><span class=\"far fa-arrow-right\" aria-hidden=\"true\"></span>";
+            LinkToPreviousPageFormat = "Previous";
+            LinkToNextPageFormat = "Next";
+            LinkToIndividualPageFormat = "{0}";
+            UlElementClasses = new string[] { "pagination", "justify-content-center" };
+            LiElementClasses = new string[] { "page-item" };
+            PageClasses = new string[] { "page-link" };
         }
     }
 }
