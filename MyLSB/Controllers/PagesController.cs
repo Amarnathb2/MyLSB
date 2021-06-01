@@ -11,6 +11,7 @@ using MyLSB.Repository;
 [assembly: RegisterPageRoute(PageRedirect.CLASS_NAME, typeof(PageRedirectController))]
 [assembly: RegisterPageRoute(PageLocation.CLASS_NAME, typeof(PageLocationController))]
 [assembly: RegisterPageRoute(PageEmployee.CLASS_NAME, typeof(PageEmployeeController))]
+[assembly: RegisterPageRoute(PageLanding.CLASS_NAME, typeof(PageLandingController))]
 namespace MyLSB.Controllers
 {
     public class PageDefaultController : Controller
@@ -127,4 +128,31 @@ namespace MyLSB.Controllers
     //        return View("/Views/Pages/Landing.cshtml", viewModel);
     //    }
     //}
+
+    public class PageLandingController : Controller
+    {
+        private readonly IPageDataContextRetriever pageDataContextRetriever;
+        private readonly SettingsRepository settingsRepository;
+        private readonly PageRepository pageRepository;
+        private readonly PartialsRepository partialsRepository;
+        private readonly LinkRepository linkRepository;
+
+        public PageLandingController(IPageDataContextRetriever pageDataContextRetriever, SettingsRepository settingsRepository, PageRepository pageRepository, PartialsRepository partialsRepository, LinkRepository linkRepository)
+        {
+            this.pageDataContextRetriever = pageDataContextRetriever;
+            this.settingsRepository = settingsRepository;
+            this.pageRepository = pageRepository;
+            this.partialsRepository = partialsRepository;
+            this.linkRepository = linkRepository;
+        }
+
+
+        public ActionResult Index()
+        {
+            var pageDefault = pageDataContextRetriever.Retrieve<PageLanding>().Page;
+            var settings = settingsRepository.GetSettings();
+            var viewModel = new PageLandingViewModel(pageDefault, settings, pageRepository, partialsRepository, linkRepository);
+            return View("~/Views/Pages/Landing.cshtml", viewModel);
+        }
+    }
 }

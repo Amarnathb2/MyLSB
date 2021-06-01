@@ -1,0 +1,32 @@
+﻿@model LandingPageMastheadViewModel
+
+<header class="landing-masthead" aria-labelledby="pageTitle" id="masthead_@(Model.NodeID)">
+    <div class="container">
+        <h1 id="pageTitle" class="landing-masthead__heading">@Html.Raw(Model.Heading)</h1>
+        <div class="landing-masthead__content">
+            @if (!String.IsNullOrEmpty(Model.Subheading))
+            {
+                <h2>@Html.Raw(Model.Subheading)</h2>
+            }
+            @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.Text))
+            <div class="landing-masthead__ctas">
+                @if (Model.Button1 is not null)
+                {
+                    <a href="@Url.Content(Model.Button1.Url)" class="btn btn-secondary" @Html.Raw(Model.Button1.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button1.AriaLabel) ? $"aria-label=\"{Model.Button1.AriaLabel}\"" : "")>
+                        @Html.Raw(Model.Button1.Text)@Html.Raw(Model.Button1.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+                @if (Model.Button2 is not null)
+                {
+                    <a href="@Url.Content(Model.Button2.Url)" class="btn btn-secondary" @Html.Raw(Model.Button2.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button2.AriaLabel) ? $"aria-label=\"{Model.Button2.AriaLabel}\"" : "")>
+                        @Html.Raw(Model.Button2.Text)@Html.Raw(Model.Button2.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="landing-masthead__img">
+        <img src="~/images/triangle-tr-bg.svg" alt="" aria-hidden="true" class="landing-masthead__decoration os-animation" data-os-animation="animate__slideInRight" />
+        <img src="@Url.Content(Model.Image)" alt="" aria-hidden="true" />
+    </div>
+</header>

@@ -97,6 +97,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Include background.
+		/// </summary>
+		[DatabaseField]
+		public bool ResourcesHasBackground
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("ResourcesHasBackground"), false);
+			}
+			set
+			{
+				SetValue("ResourcesHasBackground", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Gets an object that provides extended API for working with Resources fields.
 		/// </summary>
 		[RegisterProperty]
@@ -175,6 +192,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.ResourcesHeading = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Include background.
+			/// </summary>
+			public bool HasBackground
+			{
+				get
+				{
+					return mInstance.ResourcesHasBackground;
+				}
+				set
+				{
+					mInstance.ResourcesHasBackground = value;
 				}
 			}
 

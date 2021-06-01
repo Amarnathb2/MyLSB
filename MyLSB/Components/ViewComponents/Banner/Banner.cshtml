@@ -1,0 +1,20 @@
+﻿@model BannerViewModel
+
+<header class="banner" aria-labelledby="bannerHeading" id="banner_@(Model.NodeID)">
+    <div class="container d-lg-flex flex-lg-row-reverse justify-content-lg-start align-items-lg-center">
+        <img src="~/images/triangle-tr-bg.svg" alt="" aria-hidden="true" class="banner__decoration os-animation" data-os-animation="animate__slideInRight" />
+        <img src="@Url.Content(Model.Image)" alt="" aria-hidden="true" class="banner__img" />
+        <div class="banner__content os-animation" data-os-animation="animate__fadeInUp">
+            <div class="banner__content-inner">
+                <div id="bannerHeading" class="banner__heading">@Html.Raw(Model.Heading)</div>
+                <div class="banner__sub">@Html.Raw(Model.Text)</div>
+                @if (Model.Button is not null)
+                {
+                    <a href="@Url.Content(Model.Button.Url)" class="btn btn-primary banner__btn" @Html.Raw(Model.Button.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button.AriaLabel) ? $"aria-label=\"{Model.Button.AriaLabel}\"" : "")>
+                        @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</header>

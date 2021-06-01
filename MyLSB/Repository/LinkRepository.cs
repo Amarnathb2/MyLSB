@@ -37,8 +37,7 @@ namespace MyLSB.Repository
                     .OrderByAscending("NodeOrder"),
                 cache => cache
                     .Key($"{nameof(LinkRepository)}|{nameof(GetLinks)}|{path}")
-                    .Dependencies((_, builder) => builder.Pages(Link.CLASS_NAME)
-                                                         .PageOrder()
+                    .Dependencies((_, builder) => builder.PageOrder()
                                                          .PagePath(path)));
         }
     }

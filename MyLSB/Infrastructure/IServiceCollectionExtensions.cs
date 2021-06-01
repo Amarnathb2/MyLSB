@@ -26,17 +26,12 @@ namespace MyLSB
             services.AddSingleton<PartialsRepository>();
             services.AddSingleton<FeatureRepository>();
             services.AddSingleton<PanelRepository>();
-            //services.AddSingleton<BlogPostRepository>();
-            //services.AddSingleton<CategoryRepository>();
+            services.AddSingleton<BlogPostLinkRepository>();
+            services.AddSingleton<ProductsServicesRepository>();
             services.AddSingleton<ColumnRepository>();
             services.AddSingleton<EmployeeRepository>();
-            //services.AddSingleton<FAQRepository>();
+            services.AddSingleton<StatisticRepository>();
             services.AddSingleton<JsonTableRepository>();
-            //services.AddSingleton<BannerRepository>();
-            //services.AddSingleton<PropertyRepository>();
-            //services.AddSingleton<CustomTableRepository>();
-            //services.AddSingleton<NewsletterRepository>();
-            //services.AddSingleton<MilestoneRepository>();
         }
 
         private static void AddViewComponentServices(IServiceCollection services)

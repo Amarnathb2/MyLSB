@@ -1,9 +1,9 @@
-﻿using System.Web;
-using CMS;
+﻿using CMS;
 using CMS.DataEngine;
-using CMS.Search;
 using CMS.Helpers;
+using CMS.Search;
 using HtmlAgilityPack;
+using System.Web;
 
 // Registers the custom module into the system
 [assembly: RegisterModule(typeof(CustomSearchCrawlerModule))]
