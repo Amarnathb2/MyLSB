@@ -1,0 +1,56 @@
+﻿@model PageLandingViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var cacheEnabled = !Context.Kentico().Preview().Enabled;
+    var partialsCacheKey = new[]
+    {
+        $"node|{SiteContext.CurrentSiteName}|{Model.PartialsPath}|childnodes"
+    };
+}
+
+<nav aria-label="Skip to" data-noindex="true">
+    <a href="#mainContent" class="skipto">Skip to Main Content</a>
+</nav>
+<header class="landing-header">
+    <div class="container">
+        <a href="/" class="logo">
+            <img src="~/images/logo-white.svg" alt="Go to the Lincoln Savings Bank home page" />
+        </a>
+    </div>
+</header>
+<main id="mainContent" class="landing">
+    <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
+        <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+        <vc:partials path="@Model.PartialsPath" get-container="false" />
+    </cache>
+</main>
+<footer class="landing-footer">
+    <div class="container d-flex flex-column align-items-center flex-lg-row justify-content-lg-between">
+        <div>
+            <div class="landing-footer__links">
+                <a href="@CustomHelpers.TelLink(@Model.PhoneNumber)">@Model.PhoneNumber</a>
+                @foreach (var link in Model.FooterNav)
+                {
+                    <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
+                        @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                    </a>
+                }
+                <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
+                    <cache-dependency cache-keys="@CacheKeys.SocialMedia" enabled="@cacheEnabled" />
+                    <vc:social-media-links variant="Landing" />
+                </cache>
+            </div>
+            <small>&copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330</small>
+        </div>
+        <div class="landing-footer__emblems">
+            <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
+                <img src="~/images/privileged.png" alt="Priviliged Status" />
+            </a>
+            <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
+            <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
+        </div>
+    </div>
+</footer>
+
+

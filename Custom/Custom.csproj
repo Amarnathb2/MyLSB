@@ -472,6 +472,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCertificateValidationModule.cs" />
     <Compile Include="CustomMacros\CustomMacroMethods.cs" />
     <Compile Include="CustomMacros\CustomMacroModule.cs" />
     <Compile Include="CustomMacros\CustomMacroNamespace.cs" />

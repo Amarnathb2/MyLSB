@@ -21,7 +21,7 @@ namespace MyLSB.Components
             return new BreadcrumbViewModel
             {
                 CurrentPageUrl = DocumentURLProvider.GetUrl(currentPage),
-                BreadcrumbItems = navigationRepository.GetBreadcrumbItems(currentPage)
+                BreadcrumbItems = navigationRepository.GetBreadcrumbItems(currentPage).Select(node => MenuItemViewModel.GetViewModel(node)) ?? Enumerable.Empty<MenuItemViewModel>()
             };
         }
     }

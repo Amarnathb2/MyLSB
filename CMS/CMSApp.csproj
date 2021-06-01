@@ -853,6 +853,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Themes\Default\Custom\FontAwesome.scss" />
+    <Content Include="App_Data\CMSModules\URLRedirection\RedirectionTable.xml" />
     <Content Include="App_Themes\Default\Custom\FontAwesome.css" />
     <Content Include="App_Themes\Default\Custom\Styles.scss" />
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\webfonts\fa-brands-400.svg" />
@@ -4092,6 +4093,12 @@
     <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_35.system.entry.js" />
     <Content Include="CMSScripts\WebComponents\shadow-css-14c5e2cb.js" />
     <Content Include="CMSScripts\WebComponents\shadow-css-8a020e34.system.js" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.cs">

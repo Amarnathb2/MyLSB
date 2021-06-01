@@ -62,7 +62,7 @@ namespace MyLSB.Repository
         /// <summary>
         /// Returns an enumerable collection of pages on the same path as the current page.
         /// </summary>
-        public IEnumerable<MenuItemViewModel> GetBreadcrumbItems(TreeNode node)
+        public IEnumerable<TreeNode> GetBreadcrumbItems(TreeNode node)
         {
             return repositoryCacheHelper.CachePages(() =>
             {
@@ -70,7 +70,7 @@ namespace MyLSB.Repository
             }, $"{nameof(NavigationRepository)}|{nameof(GetBreadcrumbItems)}|{node.NodeID}", new[]
             {
                 $"node|{SiteContext.CurrentSiteName}|{node.NodeID}"
-            }).Select(node => MenuItemViewModel.GetViewModel(node)) ?? Enumerable.Empty<MenuItemViewModel>();
+            });
         }
 
         public IEnumerable<TreeNode> GetSiteMapItems(string path)

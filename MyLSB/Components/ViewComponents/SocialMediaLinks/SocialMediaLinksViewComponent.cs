@@ -12,16 +12,27 @@ namespace MyLSB.Components
     {
         private readonly LinkRepository linkRepository;
 
+        public enum SocialMediaLinksVariant
+        {
+            Default,
+            Landing
+        }
+
         public SocialMediaLinksViewComponent(LinkRepository linkRepository)
         {
             this.linkRepository = linkRepository;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(SocialMediaLinksVariant variant)
         {
             var links = linkRepository.GetLinks(ContentItemIdentifiers.SOCIAL_MEDIA)
                                       .Select(link => LinkViewModel.GetViewModel(link));
 
+
+            if (variant == SocialMediaLinksVariant.Landing)
+            {
+                return View("~/Components/ViewComponents/SocialMediaLinks/SocialMediaLinksLanding.cshtml", links);
+            }
             return View("~/Components/ViewComponents/SocialMediaLinks/SocialMediaLinks.cshtml", links);
         }
     }

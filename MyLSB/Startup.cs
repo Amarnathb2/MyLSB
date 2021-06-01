@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyLSB;
 using MyLSB.FormBuilder.FormBuilderCustomizations;
+using System.Net;
+using System.Net.Http;
 
 namespace MyLSB
 {
