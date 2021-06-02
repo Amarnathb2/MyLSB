@@ -30,7 +30,10 @@
             <cache-dependency cache-keys="@CacheKeys.Navigation" enabled="@cacheEnabled" />
             <vc:hamburger-nav />
         </cache>
-        <vc:login />
+        <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
+            <cache-dependency cache-keys="@CacheKeys.Settings" enabled="@cacheEnabled" />
+            <vc:login />
+        </cache>        
     </div>
 </header>
 <main id="mainContent">
