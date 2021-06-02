@@ -19,10 +19,11 @@ public class CustomCertificateValidationModule : Module
     {
         base.OnInit();
 
-        if (bool.Parse(Service.Resolve<IAppSettingsService>()["CMSAllowAllCertificates"]))
+        string CMSAllowAllCertificates = Service.Resolve<IAppSettingsService>()["CMSAllowAllCertificates"] ?? "";
+
+        if (CMSAllowAllCertificates == "true")
         {
             ServicePointManager.ServerCertificateValidationCallback = (request, cert, chain, errors) => true;
         }
-
     }
 }
