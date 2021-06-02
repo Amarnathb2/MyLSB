@@ -300,6 +300,18 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
+			/// Promo.
+			/// </summary>
+			public IEnumerable<TreeNode> LoginPromo
+			{
+				get
+				{
+					return mInstance.GetRelatedDocuments("LoginPromo");
+				}
+			}
+
+
+			/// <summary>
 			/// Phone number.
 			/// </summary>
 			public string PhoneNumber

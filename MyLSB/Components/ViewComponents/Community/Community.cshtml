@@ -18,7 +18,7 @@
                     <img src="~/images/icons/boom.svg" alt="" aria-hidden="true" class="stat__icon" />
                     <div class="stat__value @(stat.StatisticIsCurrency ? "stat__currency" : "")" data-start-val="@stat.StatisticStartValue" data-end-val="@stat.StatisticEndValue" aria-hidden="true"></div>
                     <span class="sr-only">@(stat.StatisticIsCurrency ? "$" : "")@String.Format("{0:n0}", stat.StatisticEndValue)</span>
-                    <div class="stat__caption">@stat.StatisticName.</div>
+                    <div class="stat__caption">@stat.StatisticName</div>
                 </div>
             }
         </div>

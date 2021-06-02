@@ -63,6 +63,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// LatestBlogPostsName.
+		/// </summary>
+		[DatabaseField]
+		public string LatestBlogPostsName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LatestBlogPostsName"), @"Latest Blog Posts");
+			}
+			set
+			{
+				SetValue("LatestBlogPostsName", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Heading.
 		/// </summary>
 		[DatabaseField]
@@ -211,6 +228,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.LatestBlogPostsID = value;
+				}
+			}
+
+
+			/// <summary>
+			/// LatestBlogPostsName.
+			/// </summary>
+			public string Name
+			{
+				get
+				{
+					return mInstance.LatestBlogPostsName;
+				}
+				set
+				{
+					mInstance.LatestBlogPostsName = value;
 				}
 			}
 

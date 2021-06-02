@@ -1,4 +1,6 @@
-﻿<button type="button" class="login__toggle" id="login" aria-expanded="false">
+﻿@model ProductServicePromo
+
+<button type="button" class="login__toggle" id="login" aria-expanded="false">
     <span class="far fa-times" aria-hidden="true"></span>
     <span class="far fa-lock" aria-hidden="true"></span>Login
 </button>
@@ -55,21 +57,25 @@
                 </div>
             </div>
             <div class="login__divider"></div>
-            <a href="#" class="login__promo">
-                <div class="login__promo-title">
-                    Simply Free Checking
-                </div>
-                <img src="~/images/fpo/checking-promo.jpg" alt="" class="login__promo-img" />
-                <div class="login__promo-hover">
-                    <div class="login__promo-hover-title">
-                        Simply Free Checking
+            @if (Model is not null)
+            {
+                <a href="@Url.Content(Model.ProductServicePromoUrl)" @Html.Raw(Model.ProductServicePromoNewTab ? "target=\"_blank\"" : "") class="login__promo">
+                    <div class="login__promo-title" aria-hidden="true">
+                        @Html.Raw(Model.ProductServicePromoName)
                     </div>
-                    <div class="login__promo-hover-txt">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <span class="btn btn-primary">Learn More</span>
+                    <img src="@Url.Content(Model.ProductServicePromoImage)" alt="" class="login__promo-img" />
+                    <div class="login__promo-hover">
+                        <div class="login__promo-hover-title">
+                            @Html.Raw(Model.ProductServicePromoName)
+                        </div>
+                        <div class="login__promo-hover-txt">
+                            @Html.Raw(Model.ProductServicePromoSubtext)
+                            <span class="btn btn-primary">@Html.Raw(Model.ProductServicePromoButtonText)</span>
+                            @Html.Raw(Model.ProductServicePromoNewTab ? "(opens in a new tab)" : "")
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            }
         </div>
     </div>
 </div>
