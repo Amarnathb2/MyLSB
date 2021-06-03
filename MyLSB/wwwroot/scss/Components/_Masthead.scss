@@ -114,4 +114,10 @@
             right: -11rem;
         }
     }
+
+    &__nav-container {
+        @include media-breakpoint-up(lg) {
+            min-height: 5.4rem;
+        }
+    }
 }
