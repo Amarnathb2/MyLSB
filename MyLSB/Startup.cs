@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyLSB;
+using MyLSB.Controllers;
 using MyLSB.FormBuilder.FormBuilderCustomizations;
 using System.Net;
 using System.Net.Http;
@@ -81,10 +82,12 @@ namespace MyLSB
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }           
 
             // standard static files
             app.UseStaticFiles();
+
+            app.UseStatusCodePagesWithReExecute("/Page-Not-Found", "?code={0}");
 
             // custom static files mappings
             var provider = new FileExtensionContentTypeProvider();
@@ -108,30 +111,23 @@ namespace MyLSB
                     defaults: new { controller = "XmlSitemap", action = "Index" }
                 );
 
+                //route constraint: determines if the request matches the NodeAliasPath of a custom.PageGroup
                 endpoints.MapControllerRoute(
-                    name: "Admin",
-                    pattern: "/Admin",
-                    defaults: new { controller = "CustomRoutes", action = "Admin" }
+                    name: "PageGroup",
+                    pattern: "{*path}",
+                    defaults: new { controller = "CustomRoutes", action = "PageGroup" },
+                    new { id = new PageGroupConstraint() }
                 );
 
                 endpoints.Kentico().MapRoutes();
 
+                //if Kentico's routing to pages misses the request, check to see if the request exists in the URLRedirection Module
                 endpoints.MapControllerRoute(
                     name: "Redirect",
                     pattern: "{*path}",
-                    defaults: new { controller = "CustomRoutes", action = "Redirect" }
+                    defaults: new { controller = "CustomRoutes", action = "Redirect" },
+                    new { id = new RedirectConstraint() }
                 );
-
-                endpoints.MapControllerRoute(
-                    name: "Error",
-                    pattern: "/Error",
-                    defaults: new { controller = "CustomRoutes", action = "Error" }
-                );
-
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("The site has not been configured yet.");
-                //});
             });
         }
     }
