@@ -18,8 +18,12 @@ namespace MyLSB.Components
 
         public IViewComponentResult Invoke()
         {
-            var settings = settingsRepository.GetSettings();
+            if (Request.Cookies["CookieNoticeAccepted"] != null && Request.Cookies["CookieNoticeAccepted"] == "true")
+            {
+                return Content(String.Empty);                
+            }
 
+            var settings = settingsRepository.GetSettings();
             return View("~/Components/ViewComponents/CookieNotice/CookieNotice.cshtml", settings.CookieNotice);
         }
     }
