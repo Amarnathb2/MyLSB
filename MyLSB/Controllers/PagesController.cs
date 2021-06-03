@@ -110,25 +110,6 @@ namespace MyLSB.Controllers
         }
     }
 
-    //public class PageLandingController : Controller
-    //{
-    //    private readonly IPageDataContextRetriever pageDataContextRetriever;
-
-    //    public PageLandingController(
-    //        IPageDataContextRetriever pageDataContextRetriever
-    //    )
-    //    {
-    //        this.pageDataContextRetriever = pageDataContextRetriever;
-    //    }
-
-    //    public ActionResult Index(CancellationToken cancellationToken)
-    //    {
-    //        var pageLanding = pageDataContextRetriever.Retrieve<PageLanding>().Page;
-    //        var viewModel = new Models.PageBaseViewModel(pageLanding);
-    //        return View("/Views/Pages/Landing.cshtml", viewModel);
-    //    }
-    //}
-
     public class PageLandingController : Controller
     {
         private readonly IPageDataContextRetriever pageDataContextRetriever;

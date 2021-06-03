@@ -6,17 +6,17 @@
     "postinstall": "\"xcopy /Y %cd%\\node_modules\\@fortawesome\\fontawesome-pro\\scss %cd%\\wwwroot\\fonts\\fontawesome-pro\\scss\\ && xcopy /Y %cd%\\node_modules\\@fortawesome\\fontawesome-pro\\webfonts %cd%\\wwwroot\\fonts\\fontawesome-pro\\webfonts\\\""
   },
   "devDependencies": {
-    "concat": "latest",
-    "gulp": "latest",
-    "gulp-autoprefixer": "latest",
-    "gulp-clean-css": "latest",
-    "gulp-concat": "latest",
-    "gulp-filter": "latest",
-    "gulp-sass": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-uglify": "latest",
-    "gulp-watch": "latest",
-    "sass": "latest"
+    "concat": "3.0.0",
+    "gulp": "4.0.2",
+    "gulp-autoprefixer": "8.0.0",
+    "gulp-clean-css": "4.3.0",
+    "gulp-concat": "2.6.1",
+    "gulp-filter": "7.0.0",
+    "gulp-sass": "4.1.0",
+    "gulp-sourcemaps": "3.0.0",
+    "gulp-uglify": "3.0.2",
+    "gulp-watch": "5.0.1",
+    "sass": "1.34.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "5.15"
