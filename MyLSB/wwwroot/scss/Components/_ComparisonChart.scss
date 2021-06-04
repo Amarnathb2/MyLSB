@@ -99,7 +99,7 @@
             z-index: -1;
         }
 
-        h3 {
+        > div:first-child {
             font-size: 1.6rem;
             font-weight: $font-weight-extrabold;
             margin: 0;

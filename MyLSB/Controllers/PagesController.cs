@@ -29,7 +29,6 @@ namespace MyLSB.Controllers
             this.partialsRepository = partialsRepository;
         }
 
-
         public ActionResult Index()
         {
             var pageDefault = pageDataContextRetriever.Retrieve<PageDefault>().Page;

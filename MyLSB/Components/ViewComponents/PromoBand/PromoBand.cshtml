@@ -11,9 +11,12 @@
                 {
                     <h3 class="promo-band__heading">@Html.Raw(Model.PromoBandHeading)</h3>
                 }
-                <div class="promo-band__sub">
-                    @Html.Raw(Model.PromoBandSubtext)
-                </div>
+                @if (!String.IsNullOrEmpty(Model.PromoBandSubtext))
+                {
+                    <div class="promo-band__sub">
+                        @Html.Raw(Model.PromoBandSubtext)
+                    </div>
+                }
                 @if (!String.IsNullOrEmpty(Model.PromoBandLinkText) && !String.IsNullOrEmpty(Model.PromoBandLinkUrl))
                 {
                     <a href="@Url.Content(Model.PromoBandLinkUrl)" class="btn btn-tertiary promo-band__cta" @Html.Raw(Model.PromoBandLinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.PromoBandLinkAriaLabel) ? $"aria-label=\"{Model.PromoBandLinkAriaLabel}\"" : "")>
