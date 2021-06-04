@@ -9,15 +9,16 @@
     text-align: center;
 
     @include media-breakpoint-up(lg) {
-        padding: 9rem 0;
+        padding: 12rem 0 9rem;
     }
 
     &--has-bg {
-                background: $light;
+        background: $light;
 
         @include media-breakpoint-up(lg) {
             background: none;
             margin-bottom: 6rem;
+
             &::before {
                 content: '';
                 background: $light;
@@ -30,14 +31,6 @@
                 z-index: -2;
             }
         }
-/*        > svg {
-            left: 0;
-            margin: auto;
-            max-height: 47rem;
-            position: absolute;
-            right: 0;
-            top: -11rem;
-        }*/
     }
 
     &__heading {

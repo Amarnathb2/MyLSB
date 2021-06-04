@@ -10,6 +10,10 @@
         text-align: left;
     }
 
+    h1 {
+        word-break: break-word;
+    }
+
     &__bg {
         background: $light;
         position: relative;
@@ -119,5 +123,9 @@
         @include media-breakpoint-up(lg) {
             min-height: 5.4rem;
         }
+    }
+
+    + div.container {
+        margin-top: 2.5rem;
     }
 }

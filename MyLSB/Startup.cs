@@ -82,12 +82,14 @@ namespace MyLSB
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }           
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseStatusCodePagesWithReExecute("/Page-Not-Found", "?code={0}");
 
             // standard static files
             app.UseStaticFiles();
-
-            app.UseStatusCodePagesWithReExecute("/Page-Not-Found", "?code={0}");
 
             // custom static files mappings
             var provider = new FileExtensionContentTypeProvider();
