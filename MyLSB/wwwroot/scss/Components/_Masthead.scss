@@ -11,7 +11,7 @@
     }
 
     h1 {
-        word-break: break-word;
+        hyphens: auto;
     }
 
     &__bg {
