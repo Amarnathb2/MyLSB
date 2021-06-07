@@ -68,11 +68,11 @@ namespace MyLSB.Models
 
                 if (cs.Cached)
                 {
-                    var cacheKeys = new string[] { $"nodeid|{node.NodeID}" };
+                    var cacheKeys = new List<string>() { $"nodeid|{node.NodeID}" };
 
                     foreach (var link in links)
                     {
-                        cacheKeys.Append($"nodeid|{link.NodeID}");
+                        cacheKeys.Add($"nodeid|{link.NodeID}");
                     }
 
                     cs.CacheDependency = CacheHelper.GetCacheDependency(cacheKeys);

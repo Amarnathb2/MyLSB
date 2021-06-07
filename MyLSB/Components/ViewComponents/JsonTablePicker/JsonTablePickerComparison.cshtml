@@ -57,7 +57,7 @@
                     if (!String.IsNullOrEmpty(Model.ColumnNames.ElementAt(i)))
                     {
                         <div class="comparison__card">
-                            <div id="comparisonCardHeading_@(Model.NodeID)_@i">
+                            <div id="comparisonCardHeading_@(Model.NodeID)_@i" class="comparison__card-heading">
                                 @Html.Kentico().ResolveUrls(Model.ColumnNames.ElementAt(i))
                             </div>
 

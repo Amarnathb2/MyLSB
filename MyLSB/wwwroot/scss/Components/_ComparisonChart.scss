@@ -99,7 +99,7 @@
             z-index: -1;
         }
 
-        > div:first-child {
+        &-heading > div:first-child {
             font-size: 1.6rem;
             font-weight: $font-weight-extrabold;
             margin: 0;
@@ -216,5 +216,11 @@
             color: $primary;
             font-size: 2rem;
         }
+    }
+}
+
+@media print {
+    .comparison .collapse {
+        display: block;
     }
 }

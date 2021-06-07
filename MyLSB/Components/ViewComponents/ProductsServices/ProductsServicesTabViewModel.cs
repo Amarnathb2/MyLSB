@@ -31,10 +31,10 @@ namespace MyLSB.Components
 
                     if (cs.Cached)
                     {
-                        var cacheKeys = new string[] { $"nodeid|{tab.NodeID}" };
+                        var cacheKeys = new List<string>() { $"nodeid|{tab.NodeID}" };
                         foreach (var promo in promos)
                         {
-                            cacheKeys.Append($"nodeid|{promo.NodeID}");
+                            cacheKeys.Add($"nodeid|{promo.NodeID}");
                         }
 
                         cs.CacheDependency = CacheHelper.GetCacheDependency(cacheKeys);
