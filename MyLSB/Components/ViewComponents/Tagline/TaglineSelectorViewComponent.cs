@@ -22,17 +22,23 @@ namespace MyLSB.Components
 
                 if (cs.Cached)
                 {
-                    cs.CacheDependency = CacheHelper.GetCacheDependency(new string[] {
-                        $"nodeid|{node.NodeID}",
-                        $"nodeid|{tagline.NodeID}"
-                    });
+                    var keys = new List<string>() {
+                        $"nodeid|{node.NodeID}"
+                    };
+
+                    if (tagline is not null)
+                    {
+                        keys.Add($"nodeid|{tagline.NodeID}");
+                    }
+
+                    cs.CacheDependency = CacheHelper.GetCacheDependency(keys);
                 }
 
                 return tagline;
 
             }, new CacheSettings(10, $"{nameof(TaglineSelector)}|{node.NodeID}"));
 
-            if (tagline != null)
+            if (tagline is not  null)
             {
                 if (node.Parent.ClassName == Partials.CLASS_NAME)
                 {

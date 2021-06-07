@@ -38,11 +38,11 @@ namespace MyLSB.Components
 
                     if (cs.Cached)
                     {
-                        var cacheKeys = new string[] { $"nodeid|{node.NodeID}" };
+                        var cacheKeys = new List<string>() { $"nodeid|{node.NodeID}" };
 
                         foreach (var employee in selectedEmployees)
                         {
-                            cacheKeys.Append($"nodeid|{employee.NodeID}");
+                            cacheKeys.Add($"nodeid|{employee.NodeID}");
                         }
                         cs.CacheDependency = CacheHelper.GetCacheDependency(cacheKeys);
                     }

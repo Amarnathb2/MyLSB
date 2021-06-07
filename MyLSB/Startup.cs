@@ -7,12 +7,14 @@ using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyLSB;
 using MyLSB.Controllers;
 using MyLSB.FormBuilder.FormBuilderCustomizations;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 
@@ -37,6 +39,9 @@ namespace MyLSB
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHealthChecks()
+                .AddCheck<Healthchecks.OverrideHealthCheck>("override_health_check");
+
             // Enable desired Kentico Xperience features
             var kenticoServiceCollection = services.AddKentico(features =>
             {
@@ -95,6 +100,16 @@ namespace MyLSB
             var provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
             app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = provider });
+
+            var iisUrlRewriteXml = "IISUrlRewrite.xml";
+            if (File.Exists(iisUrlRewriteXml))
+            {
+                using (StreamReader iisUrlRewriteStreamReader = File.OpenText(iisUrlRewriteXml))
+                {
+                    var options = new RewriteOptions().AddIISUrlRewrite(iisUrlRewriteStreamReader);
+                    app.UseRewriter(options);
+                }
+            }
 
             app.UseKentico();
 

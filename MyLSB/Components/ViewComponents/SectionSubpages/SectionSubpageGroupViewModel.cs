@@ -31,11 +31,11 @@ namespace MyLSB.Components
 
                 if (cs.Cached)
                 {
-                    var keys = new string[] { $"nodeid|{pageGroup.NodeID}" };
+                    var keys = new List<string>() { $"nodeid|{pageGroup.NodeID}" };
 
                     if (promo is not null)
                     {
-                        keys.Append($"nodeid|{promo.NodeID}");
+                        keys.Add($"nodeid|{promo.NodeID}");
                     }
 
                     cs.CacheDependency = CacheHelper.GetCacheDependency(keys);

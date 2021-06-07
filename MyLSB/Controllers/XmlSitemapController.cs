@@ -26,6 +26,8 @@ namespace MyLSB.Controllers
                     .CombineWithDefaultCulture(true)
                     .OrderBy("NodeLevel, NodeOrder, DocumentName")
                     .WhereFalse("NoIndex")
+                    .Published()
+                    .LatestVersion()
                     .Select(x => new SitemapNode(x.NodeAliasPath)
                     {
                         LastModificationDate = x.DocumentModifiedWhen.Date.ToLocalTime()
