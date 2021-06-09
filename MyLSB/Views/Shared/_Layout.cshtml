@@ -27,12 +27,12 @@
     @Html.Kentico().PageTitle()
     @Html.Kentico().PageDescription()
     @Html.Kentico().PageKeywords()
-    <meta property="og:title" content="@Html.Raw(Model.OpenGraphTitle)" />
-    <meta property="og:type" content="@Html.Raw(Model.OpenGraphType)" />
-    <meta property="og:description" content="@Html.Raw(Model.OpenGraphDescription)" />
-    <meta property="og:image" content="@Model.OpenGraphImage" />
-    <meta property="og:image:alt" content="@Model.OpenGraphImageAlt" />
-    <meta property="og:url" content="@Model.OpenGraphUrl" />
+    <meta property="og:title" content="@Html.Encode(Model.OpenGraphTitle)" />
+    <meta property="og:type" content="@Html.Encode(Model.OpenGraphType)" />
+    <meta property="og:description" content="@Html.Encode(Model.OpenGraphDescription)" />
+    <meta property="og:image" content="@Html.Encode(Model.OpenGraphImage)" />
+    <meta property="og:image:alt" content="@Html.Encode(Model.OpenGraphImageAlt)" />
+    <meta property="og:url" content="@Html.Encode(Model.OpenGraphUrl)" />
     <link rel="canonical" href="@Url.Kentico().PageCanonicalUrl()" />
 
     @Html.Raw(Model.Schema)
