@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="site-footer__contact">
-                    <span class="site-footer__contact-heading">Get in Touch</span>
+                    <div class="site-footer__contact-heading">Get in Touch</div>
                     <a href="@CustomHelpers.TelLink(@Model.PhoneNumber)">@Model.PhoneNumber</a>
                     <a href="@Url.Content(Model.ContactPageUrl)">Contact Us Online</a>
                     <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
