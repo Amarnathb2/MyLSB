@@ -19,7 +19,7 @@
                             <li class="resource staggered-animation" data-os-animation="animate__fadeInUp" data-os-animation-delay="@(i * .3)s">
                                 <a href="@Url.Content(link.LinkUrl)" @Html.Raw(link.LinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.LinkAriaLabel) ? $"aria-label=\"{link.LinkAriaLabel}\"" : "")>
                                     <img src="@Url.Content(link.LinkIconImage)" class="resource__icon" alt="" aria-hidden="true" />
-                                    @Html.Raw(link.LinkText)@Html.Raw(link.LinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                                    @Html.Raw(link.LinkText)@Html.Raw(link.LinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                                 </a>
                             </li>
                         }

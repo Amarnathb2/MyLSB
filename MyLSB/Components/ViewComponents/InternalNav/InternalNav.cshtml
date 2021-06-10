@@ -6,7 +6,7 @@
         @foreach (var menuItem in Model.Children)
         {
             <a href="@Url.Content(menuItem.Url)" class="dropdown-item" @Html.Raw(menuItem.NewTab ? "target=\"_blank\"" : "")>
-                @Html.Raw(menuItem.Text)@Html.Raw(menuItem.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                @Html.Raw(menuItem.Text)@Html.Raw(menuItem.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
             </a>
         }
     </div>
