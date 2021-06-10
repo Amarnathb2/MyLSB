@@ -14,7 +14,7 @@
                     @foreach (var link in Model.AuxiliaryNavItems)
                     {
                         <li>
-                            <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>@Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")</a>
+                            <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>@Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
                         </li>
                     }
                 </ul>

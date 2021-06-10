@@ -20,7 +20,7 @@
                 @if (!String.IsNullOrEmpty(Model.PromoBandLinkText) && !String.IsNullOrEmpty(Model.PromoBandLinkUrl))
                 {
                     <a href="@Url.Content(Model.PromoBandLinkUrl)" class="btn btn-tertiary promo-band__cta" @Html.Raw(Model.PromoBandLinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.PromoBandLinkAriaLabel) ? $"aria-label=\"{Model.PromoBandLinkAriaLabel}\"" : "")>
-                        @Html.Raw(Model.PromoBandLinkText)@Html.Raw(Model.PromoBandLinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        @Html.Raw(Model.PromoBandLinkText)@Html.Raw(Model.PromoBandLinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                     </a>
                 }
             </div>

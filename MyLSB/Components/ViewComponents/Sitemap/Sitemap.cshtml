@@ -14,7 +14,7 @@
                     else
                     {
                         <a href="@Url.Content(item.Url)" @Html.Raw(item.NewTab ? "target=\"_blank\"" : "")>
-                            @Html.Raw(item.Text)@Html.Raw(item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                            @Html.Raw(item.Text)@Html.Raw(item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                         </a>
                     }
                     @if (item.Children.Any())
@@ -34,7 +34,7 @@
             <li class="list-inline-item">
                 <h3>
                     <a href="@Url.Content(level1Item.Url)" @Html.Raw(level1Item.NewTab ? "target=\"_blank\"" : "")>
-                        @Html.Raw(level1Item.Text)@Html.Raw(level1Item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        @Html.Raw(level1Item.Text)@Html.Raw(level1Item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                     </a>
                 </h3>
                 @if (level1Item.Children.Any())

@@ -16,14 +16,14 @@
                     {
                         delay += .3;
                         <a href="@Url.Content(Model.CTABandButton1Url)" class="btn btn-tertiary cta-band__cta staggered-animation" @Html.Raw(Model.CTABandButton1NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.CTABandButton1AriaLabel) ? $"aria-label=\"{Model.CTABandButton1AriaLabel}\"" : "") data-os-animation="animate__fadeInUp" data-os-animation-delay="@(delay)s">
-                            @Html.Raw(Model.CTABandButton1Text)@Html.Raw(Model.CTABandButton1NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                            @Html.Raw(Model.CTABandButton1Text)@Html.Raw(Model.CTABandButton1NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                         </a>
                     }
                     @if (!String.IsNullOrEmpty(Model.CTABandButton2Text) && !String.IsNullOrEmpty(Model.CTABandButton2Url))
                     {
                         delay += .3;
                         <a href="@Url.Content(Model.CTABandButton2Url)" class="btn btn-tertiary cta-band__cta staggered-animation" @Html.Raw(Model.CTABandButton2NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.CTABandButton2AriaLabel) ? $"aria-label=\"{Model.CTABandButton2AriaLabel}\"" : "") data-os-animation="animate__fadeInUp" data-os-animation-delay="@(delay)s">
-                            @Html.Raw(Model.CTABandButton2Text)@Html.Raw(Model.CTABandButton2NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                            @Html.Raw(Model.CTABandButton2Text)@Html.Raw(Model.CTABandButton2NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                         </a>
                     }
                 </div>
