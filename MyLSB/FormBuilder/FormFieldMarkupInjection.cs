@@ -45,7 +45,7 @@ namespace MyLSB.FormBuilder.FormBuilderCustomizations
                     // Adds the 'aria-required' and 'required' attributes to the component's 'input' element
                     e.Configuration.EditorHtmlAttributes["required"] = "";
 
-                    ComponentClasses += " form-group-required";
+                    ComponentClasses += " form-group--required";
                     ComponentErrors += "<li class=\"zag-validation-error\" data-ruletype=\"required\">" + e.FormComponent.BaseProperties.Label + " is a required field</li>";
                 }
 
@@ -93,7 +93,10 @@ namespace MyLSB.FormBuilder.FormBuilderCustomizations
                 }
 
                 // udpate wrapping markup
-                if (e.FormComponent is DropDownComponent) { e.Configuration.ComponentWrapperConfiguration.HtmlAttributes["class"] = "select-wrapper"; }
+                if (e.FormComponent is DropDownComponent) {
+                    //e.Configuration.ComponentWrapperConfiguration.HtmlAttributes["class"] = "select-wrapper";
+                    e.Configuration.EditorHtmlAttributes["class"] = "custom-select";
+                }
                 else { e.Configuration.ComponentWrapperConfiguration.ElementName = ""; }
 
                 // add class for type of validation
@@ -125,13 +128,15 @@ namespace MyLSB.FormBuilder.FormBuilderCustomizations
 
                 if (e.FormComponent.BaseProperties.Required)
                 {
-                    ComponentClasses += " form-group-required";
+                    ComponentClasses += " form-group--required";
                     ComponentErrors += "<li class=\"zag-validation-error\" data-ruletype=\"required\">" + e.FormComponent.BaseProperties.Label + " is a required field</li>";
                 }
 
                 // udpate wrapping markup
                 e.Configuration.LabelWrapperConfiguration.ElementName = "legend";
-                //e.Configuration.LabelHtmlAttributes["role"] = "none";
+                e.Configuration.LabelWrapperConfiguration.HtmlAttributes["class"] = "form-label";
+                e.Configuration.LabelHtmlAttributes["role"] = "none";
+                e.Configuration.EditorHtmlAttributes["class"] = "custom-control-input";
 
                 // add class for type of validation
                 e.Configuration.EditorHtmlAttributes["class"] += " zag-validation-input-radio";
@@ -155,7 +160,7 @@ namespace MyLSB.FormBuilder.FormBuilderCustomizations
 
                 if (e.FormComponent.BaseProperties.Required)
                 {
-                    ComponentClasses += " form-group-required";
+                    ComponentClasses += " form-group--required";
                     ComponentErrors += "<li class=\"zag-validation-error\" data-ruletype=\"required\">" + e.FormComponent.BaseProperties.Label + " is a required field</li>";
                 }
 
@@ -201,8 +206,9 @@ namespace MyLSB.FormBuilder.FormBuilderCustomizations
                 }
 
                 // udpate wrapping markup
-                e.Configuration.LabelWrapperConfiguration.ElementName = "legend";
-                //e.Configuration.LabelHtmlAttributes["role"] = "none";
+                e.Configuration.LabelWrapperConfiguration.ElementName = "span";
+                e.Configuration.LabelHtmlAttributes["role"] = "none";
+                e.Configuration.EditorHtmlAttributes["class"] = "custom-control-input";
 
                 // add class for type of validation
                 e.Configuration.EditorHtmlAttributes["class"] += " zag-validation-input-checkbox";
