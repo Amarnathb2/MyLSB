@@ -42,7 +42,7 @@
                                 }
                                 @if (!String.IsNullOrEmpty(Model.MobilePhone))
                                 {
-                                    <div class="employee__mobile">Mobile:<a href="@CustomHelpers.TelLink(Model.MobilePhone)">@Html.Raw(Model.MobilePhone)</a></div>
+                                    <div class="employee__mobile">Mobile: <a href="@CustomHelpers.TelLink(Model.MobilePhone)">@Html.Raw(Model.MobilePhone)</a></div>
                                 }
                                 @if (!String.IsNullOrEmpty(Model.Fax))
                                 {
