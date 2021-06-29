@@ -167,6 +167,7 @@ namespace MyLSB.FormBuilder.FormBuilderCustomizations
                 // udpate wrapping markup
                 e.Configuration.LabelWrapperConfiguration.ElementName = "legend";
                 //e.Configuration.LabelHtmlAttributes["role"] = "none";
+                e.Configuration.EditorHtmlAttributes["class"] = "custom-control-input";
 
                 // add class for type of validation
                 e.Configuration.EditorHtmlAttributes["class"] += " zag-validation-input-checkboxes";
