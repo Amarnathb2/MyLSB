@@ -28,7 +28,7 @@ namespace MyLSB.Controllers
                     .WhereFalse("NoIndex")
                     .Published()
                     .LatestVersion()
-                    .Select(x => new SitemapNode(x.NodeAliasPath)
+                    .Select(x => new SitemapNode(DocumentURLProvider.GetAbsoluteUrl(x))
                     {
                         LastModificationDate = x.DocumentModifiedWhen.Date.ToLocalTime()
                     }).ToList();
