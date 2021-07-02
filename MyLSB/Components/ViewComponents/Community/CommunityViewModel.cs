@@ -29,7 +29,7 @@ namespace MyLSB.Components
                 Text = community.CommunityText,
                 Image = community.CommunityImage,
                 Button = LinkViewModel.GetViewModel(community.CommunityButtonText, community.CommunityButtonUrl, community.CommunityButtonNewTab, community.CommunityButtonAriaLabel),
-                Statistics = statisticRepository.GetStatistics(community.NodeAliasPath) ?? Enumerable.Empty<Statistic>()
+                Statistics = statisticRepository.GetStatistics(community.NodeAliasPath, 3) ?? Enumerable.Empty<Statistic>()
             };
         }
     }
