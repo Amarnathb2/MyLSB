@@ -162,44 +162,18 @@
             min-width: 7rem;
             padding: 1.1rem 1rem;
         }
-    }
-    /*    align-items: center;
-    border-left: 2px solid #e7e7e7;
-    color: $secondary;
-    display: flex;
-    flex-direction: column;
-    font-size: 0;
-    justify-content: center;
-    padding: 2.5rem 1.4rem;
-    text-decoration: none;
 
-    @include hover-focus {
-        color: $primary;
-        outline-offset: -2px;
+        .yxt-SearchBar-input {
+            font-size: 1.8rem;
+        }
 
-        > div {
-            color: $secondary;
-            text-decoration: underline;
+        .yxt-AutoComplete-option {
+            font-size: 1.8rem;
+            text-align: left;
+
+            &::before {
+                content: none;
+            }
         }
     }
-
-    @include media-breakpoint-up(lg) {
-        padding: 1.2rem 1.4rem;
-    }
-
-    .fas {
-        font-size: 1.8rem;
-    }
-
-    > div {
-        color: #565b5c;
-        font-size: 0;
-
-        @include media-breakpoint-up(lg) {
-            display: block;
-            font-size: 1.3rem;
-            margin-top: 1.1rem;
-        }
-    }
-*/
 }

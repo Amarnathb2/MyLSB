@@ -1,8 +1,9 @@
-﻿@model SearchResultsViewModel
-<div class="search-results">
+﻿<div class="search-results">
     <div class="container">
+        <div id="answers-container"></div>
+        <script src="https://answers-mylsb.com.pagescdn.com/answers.js"></script>
 
-        @if (!Model.Pages.Any())
+        @*@if (!Model.Pages.Any())
         {
             <p>No results found for "@Html.Raw(Model.SearchTerm)".</p>
         }
@@ -46,6 +47,6 @@
                     new CustomPagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
                 </nav>
             }
-        }
+        }*@
     </div>
 </div>

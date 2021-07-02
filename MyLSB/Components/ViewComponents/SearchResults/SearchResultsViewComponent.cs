@@ -30,31 +30,33 @@ namespace MyLSB.Components
 
         public IViewComponentResult Invoke(CMS.DocumentEngine.Types.Custom.SearchResults node)
         {
-            var results = SearchResultsViewModel.GetViewModel(node, Request);
+            //var results = SearchResultsViewModel.GetViewModel(node, Request);
 
-            if (string.IsNullOrWhiteSpace(results.SearchTerm))
-            {
-                results.Pages = new StaticPagedList<TreeNode>(Enumerable.Empty<TreeNode>(), 1, results.SearchPageSize, 0);
-            }
-            else
-            {
-                SearchResult searchResults = PageRepository.GetSearchResults(results.SearchTerm, results.SearchIndex, results.SearchPage);
+            //if (string.IsNullOrWhiteSpace(results.SearchTerm))
+            //{
+            //    results.Pages = new StaticPagedList<TreeNode>(Enumerable.Empty<TreeNode>(), 1, results.SearchPageSize, 0);
+            //}
+            //else
+            //{
+            //    SearchResult searchResults = PageRepository.GetSearchResults(results.SearchTerm, results.SearchIndex, results.SearchPage);
 
-                // Validate page number (starting from 1)
-                results.SearchPage = Math.Max(results.SearchPage, 1);
+            //    // Validate page number (starting from 1)
+            //    results.SearchPage = Math.Max(results.SearchPage, 1);
 
-                IEnumerable<TreeNode> searchResultItems = searchResults.Items.Select(result => result.Data as TreeNode);
-                foreach (var result in searchResultItems)
-                {
-                    result.LoadInheritedValues(new[] { "DocumentPageDescription" });
-                }
+            //    IEnumerable<TreeNode> searchResultItems = searchResults.Items.Select(result => result.Data as TreeNode);
+            //    foreach (var result in searchResultItems)
+            //    {
+            //        result.LoadInheritedValues(new[] { "DocumentPageDescription" });
+            //    }
 
-                results.Pages = new StaticPagedList<TreeNode>(searchResultItems, results.SearchPage, results.SearchPageSize, searchResults.TotalNumberOfResults);
-            }
+            //    results.Pages = new StaticPagedList<TreeNode>(searchResultItems, results.SearchPage, results.SearchPageSize, searchResults.TotalNumberOfResults);
+            //}
 
-            pageActivityLogger.LogInternalSearch(Request.Query["searchtext"]);
+            //pageActivityLogger.LogInternalSearch(Request.Query["searchtext"]);
 
-            return View("~/Components/ViewComponents/SearchResults/SearchResults.cshtml", results);
+            //return View("~/Components/ViewComponents/SearchResults/SearchResults.cshtml", results);
+
+            return View("~/Components/ViewComponents/SearchResults/SearchResults.cshtml");
         }
     }
 }
