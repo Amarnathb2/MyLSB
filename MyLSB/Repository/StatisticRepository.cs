@@ -27,16 +27,17 @@ namespace MyLSB.Repository
         /// <summary>
         /// Returns an enumerable collection of Statistics ordered by a position in the content tree.
         /// </summary>
-        public IEnumerable<Statistic> GetStatistics(string path)
+        public IEnumerable<Statistic> GetStatistics(string path, int topN = -1)
         {
             return pageRetriever.Retrieve<Statistic>(
                 query => query
                     .Path(path, PathTypeEnum.Children)
                     .Columns("NodeID, StatisticName, StatisticStartValue, StatisticEndValue, StatisticIsCurrency")
+                    .TopN(topN)
                     .OrderByAscending("NodeOrder"),
                 cache => cache
-                    .Key($"{nameof(StatisticRepository)}|{nameof(GetStatistics)}")
-                    .Dependencies((_, builder) => builder.Pages(Statistic.CLASS_NAME).PagePath(path, PathTypeEnum.Children)));
+                    .Key($"{nameof(StatisticRepository)}|{nameof(GetStatistics)}|{topN}")
+                    .Dependencies((_, builder) => builder.PagePath(path, PathTypeEnum.Children)));
         }
     }
 }

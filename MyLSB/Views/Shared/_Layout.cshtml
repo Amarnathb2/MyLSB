@@ -38,7 +38,9 @@
     @Html.Raw(Model.Schema)
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://assets.sitescdn.net">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.css" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -47,6 +49,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#115e67">
     <css path="~/assets/base.css" version="true" />
+
     <page-builder-styles />
 </head>
 <body class="@Model.BodyClass">
@@ -63,6 +66,28 @@
         <vc:speedbump />
     </cache>
     <page-builder-scripts />
+    <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answerstemplates.compiled.min.js"></script>
+    <script>
+        function initAnswers() {
+            ANSWERS.init({
+                apiKey: "24e41d6d52049d995b1c7db9597ba8ac",
+                experienceKey: "lincoln_savings_bank_answers",
+                experienceVersion: "PRODUCTION",
+                locale: "en", // e.g. en
+                businessId: "2187475",
+                templateBundle: TemplateBundle.default,
+                onReady: function () {
+                    ANSWERS.addComponent("SearchBar", {
+                        container: ".search__form",
+                        name: "search-bar", //Must be unique for every search bar on the same page
+                        redirectUrl: "/Search-Results",
+                        placeholderText: "What are you looking for?",
+                    });
+                },
+            });
+        }
+    </script>
+    <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.min.js" onload="ANSWERS.domReady(initAnswers)" async defer></script>
     <js path="~/assets/base.js" version="true"></js>
 </body>
 </html>
