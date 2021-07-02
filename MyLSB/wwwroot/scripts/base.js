@@ -9,7 +9,7 @@ App = (function ($) {
 
     function init() {
         $('a[href^="#"]')
-            .not('.skipto')
+            .not('.skipto, #sbModalSubmit')
             .on('click', function (e) {
                 var $this = $(this);
 
