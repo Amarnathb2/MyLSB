@@ -24,7 +24,6 @@ var adminSassPaths = [
 ];
 
 var jsPaths = [
-    'wwwroot/lib/jquery/jquery.js',
     'wwwroot/lib/popper.js/umd/popper.js',
     'wwwroot/lib/twitter-bootstrap/js/bootstrap.js',
     'wwwroot/lib/angular.js/angular.min.js',
