@@ -83,11 +83,11 @@ namespace CMS.DocumentEngine.Types.Custom
 		/// Start value.
 		/// </summary>
 		[DatabaseField]
-		public int StatisticStartValue
+		public decimal StatisticStartValue
 		{
 			get
 			{
-				return ValidationHelper.GetInteger(GetValue("StatisticStartValue"), 0);
+				return ValidationHelper.GetDecimal(GetValue("StatisticStartValue"), 0);
 			}
 			set
 			{
@@ -100,11 +100,11 @@ namespace CMS.DocumentEngine.Types.Custom
 		/// End value.
 		/// </summary>
 		[DatabaseField]
-		public string StatisticEndValue
+		public decimal StatisticEndValue
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("StatisticEndValue"), @"");
+				return ValidationHelper.GetDecimal(GetValue("StatisticEndValue"), 0);
 			}
 			set
 			{
@@ -200,7 +200,7 @@ namespace CMS.DocumentEngine.Types.Custom
 			/// <summary>
 			/// Start value.
 			/// </summary>
-			public int StartValue
+			public decimal StartValue
 			{
 				get
 				{
@@ -216,7 +216,7 @@ namespace CMS.DocumentEngine.Types.Custom
 			/// <summary>
 			/// End value.
 			/// </summary>
-			public string EndValue
+			public decimal EndValue
 			{
 				get
 				{
