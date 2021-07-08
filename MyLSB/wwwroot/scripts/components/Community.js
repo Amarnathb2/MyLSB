@@ -18,7 +18,7 @@ App.Community = (function ($) {
                     el: this,
                     value: $this.data('start-val'),
                     endValue: $this.data('end-val'),
-                    format: '(,ddd)',
+                    format: getNumberFormat($this.data('end-val')),
                     theme: 'default',
                     duration: 2500
                 }));
@@ -61,6 +61,14 @@ App.Community = (function ($) {
                 $this.flickity('destroy');
             }
         });
+    }
+
+    function getNumberFormat(value) {
+        if (value % 1 != 0) {
+            return '(,ddd).dd'
+        }
+
+        return '(,ddd)';
     }
 
     return {
