@@ -149,6 +149,7 @@ App.PrimaryNav = (function ($) {
             .attr('aria-expanded', 'true');
 
         $menu
+            .off('animationend')
             .addClass('animate__animated fadeInPanel')
             .show();
 
