@@ -15,12 +15,12 @@
                         <div class="masthead__ctas-inner os-animation" data-os-animation="animate__fadeInUp">
                             @if (Model.Link1 != null)
                             {
-                                <a href="@Url.Content(Model.Link1.Url)" class="masthead__cta" @Html.Raw(Model.Link1.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Link1.AriaLabel) ? $"aria-label=\"{Model.Link1.AriaLabel}\"" : "")>@Html.Raw(Model.Link1.Text)@Html.Raw(Model.Link1.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")</a>
+                                <a href="@Url.Content(Model.Link1.Url)" class="masthead__cta" @Html.Raw(Model.Link1.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Link1.AriaLabel) ? $"aria-label=\"{Model.Link1.AriaLabel}\"" : "")>@Html.Raw(Model.Link1.Text)@Html.Raw(Model.Link1.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
                             }
                             @if (Model.Link2 != null)
                             {
                                 <div class="masthead__ctas-divider"></div>
-                                <a href="@Url.Content(Model.Link2.Url)" class="masthead__cta" @Html.Raw(Model.Link2.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Link2.AriaLabel) ? $"aria-label=\"{Model.Link2.AriaLabel}\"" : "")>@Html.Raw(Model.Link2.Text)@Html.Raw(Model.Link2.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")</a>
+                                <a href="@Url.Content(Model.Link2.Url)" class="masthead__cta" @Html.Raw(Model.Link2.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Link2.AriaLabel) ? $"aria-label=\"{Model.Link2.AriaLabel}\"" : "")>@Html.Raw(Model.Link2.Text)@Html.Raw(Model.Link2.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
                             }
                         </div>
                     </div>

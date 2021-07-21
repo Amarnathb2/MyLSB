@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="site-footer__contact">
-                    <span class="site-footer__contact-heading">Get in Touch</span>
+                    <div class="site-footer__contact-heading">Get in Touch</div>
                     <a href="@CustomHelpers.TelLink(@Model.PhoneNumber)">@Model.PhoneNumber</a>
                     <a href="@Url.Content(Model.ContactPageUrl)">Contact Us Online</a>
                     <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
@@ -66,7 +66,7 @@
                 <div class="d-lg-flex justify-content-between align-items-center">
                     <small>
                         &copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330<br />
-                        Website by <a href="https://www.zaginteractive.com" target="_blank">ZAG Interactive</a>
+                        Website by <a href="https://www.zaginteractive.com" target="_blank">ZAG Interactive</a> | <a href="/sitemap">Sitemap</a>
                     </small>
                     <div class="site-footer__emblems">
                         <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">

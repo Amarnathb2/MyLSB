@@ -4,6 +4,15 @@
 {
     <div class="comparison" id="table_@(Model.NodeID)">
         <div class="container">
+            @if (!String.IsNullOrEmpty(Model.Vc.Title))
+            {
+                <h2>@Html.Raw(Model.Vc.Title)</h2>
+            }
+
+            @if (!String.IsNullOrEmpty(Model.Vc.Text))
+            {
+                @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.Vc.Text))
+            }
             <div class="comparison__table">
                 <div class="table-responsive">
                     <table class="table">

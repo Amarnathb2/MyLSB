@@ -11,7 +11,7 @@
                 @if (Model.Button is not null)
                 {
                     <a href="@Url.Content(Model.Button.Url)" class="btn btn-primary banner__btn" @Html.Raw(Model.Button.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button.AriaLabel) ? $"aria-label=\"{Model.Button.AriaLabel}\"" : "")>
-                        @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                     </a>
                 }
             </div>

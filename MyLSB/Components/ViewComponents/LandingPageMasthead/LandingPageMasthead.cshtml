@@ -12,11 +12,11 @@
             <div class="landing-masthead__ctas">
                 @if (Model.Button1 is not null)
                 {
-                    <a href="@Url.Content(Model.Button1.Url)" class="btn btn-secondary" @Html.Raw(Model.Button1.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button1.AriaLabel) ? $"aria-label=\"{Model.Button1.AriaLabel}\"" : "")>@Html.Raw(Model.Button1.Text)@Html.Raw(Model.Button1.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")</a>
+                    <a href="@Url.Content(Model.Button1.Url)" class="btn btn-secondary" @Html.Raw(Model.Button1.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button1.AriaLabel) ? $"aria-label=\"{Model.Button1.AriaLabel}\"" : "")>@Html.Raw(Model.Button1.Text)@Html.Raw(Model.Button1.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
                 }
                 @if (Model.Button2 is not null)
                 {
-                    <a href="@Url.Content(Model.Button2.Url)" class="btn btn-secondary" @Html.Raw(Model.Button2.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button2.AriaLabel) ? $"aria-label=\"{Model.Button2.AriaLabel}\"" : "")>@Html.Raw(Model.Button2.Text)@Html.Raw(Model.Button2.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")</a>
+                    <a href="@Url.Content(Model.Button2.Url)" class="btn btn-secondary" @Html.Raw(Model.Button2.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button2.AriaLabel) ? $"aria-label=\"{Model.Button2.AriaLabel}\"" : "")>@Html.Raw(Model.Button2.Text)@Html.Raw(Model.Button2.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
                 }
             </div>
         </div>

@@ -33,7 +33,7 @@
                 @foreach (var link in Model.FooterNav)
                 {
                     <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
-                        @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+                        @Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
                     </a>
                 }
                 <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">

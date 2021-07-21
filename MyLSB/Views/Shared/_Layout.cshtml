@@ -8,6 +8,14 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T6HM6F3');</script>
+    <!-- End Google Tag Manager -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,12 +27,12 @@
     @Html.Kentico().PageTitle()
     @Html.Kentico().PageDescription()
     @Html.Kentico().PageKeywords()
-    <meta property="og:title" content="@Html.Raw(Model.OpenGraphTitle)" />
-    <meta property="og:type" content="@Html.Raw(Model.OpenGraphType)" />
-    <meta property="og:description" content="@Html.Raw(Model.OpenGraphDescription)" />
-    <meta property="og:image" content="@Model.OpenGraphImage" />
-    <meta property="og:image:alt" content="@Model.OpenGraphImageAlt" />
-    <meta property="og:url" content="@Model.OpenGraphUrl" />
+    <meta property="og:title" content="@Html.Encode(Model.OpenGraphTitle)" />
+    <meta property="og:type" content="@Html.Encode(Model.OpenGraphType)" />
+    <meta property="og:description" content="@Html.Encode(Model.OpenGraphDescription)" />
+    <meta property="og:image" content="@Html.Encode(Model.OpenGraphImage)" />
+    <meta property="og:image:alt" content="@Html.Encode(Model.OpenGraphImageAlt)" />
+    <meta property="og:url" content="@Html.Encode(Model.OpenGraphUrl)" />
     <link rel="canonical" href="@Url.Kentico().PageCanonicalUrl()" />
 
     @Html.Raw(Model.Schema)
@@ -45,6 +53,12 @@
     <page-builder-styles />
 </head>
 <body class="@Model.BodyClass">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6HM6F3"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <vc:cookie-notice />
     @RenderBody()
     <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">

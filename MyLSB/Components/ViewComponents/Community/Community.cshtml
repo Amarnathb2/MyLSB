@@ -7,7 +7,7 @@
             @Html.Raw(Model.Text)
         </div>
         <a href="@Url.Content(Model.Button.Url)" class="btn btn-secondary" @Html.Raw(Model.Button.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button.AriaLabel) ? $"aria-label=\"{Model.Button.AriaLabel}\"" : "")>
-            @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)" : "")
+            @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
         </a>
         <div class="community__stats staggered-animation-container">
             @for (int i = 0; i < Model.Statistics.Count(); i++)

@@ -21,8 +21,8 @@
                             var tab = Model.Tabs.ElementAt(i);
 
                             <div id="productsServicesPanel_@tab.NodeID" class="card tab-pane fade @(i == 0 ? "show active" : "")" role="tabpanel" aria-labelledby="productsServicesTab_@tab.NodeID">
-                                <div class="card-header" role="tab" id="productsServicesHeading_@tab.NodeID">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#productsServicesCollapse_@tab.NodeID" aria-expanded="@(i == 0 ? "true" : "false")" aria-controls="productsServicesCollapse_@tab.NodeID">
+                                <div class="card-header" role="tab">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#productsServicesCollapse_@tab.NodeID" aria-expanded="@(i == 0 ? "true" : "false")" aria-controls="productsServicesCollapse_@tab.NodeID" id="productsServicesHeading_@tab.NodeID">
                                         <img class="products-services__icon" src="@Url.Content(tab.Icon)" alt="" aria-hidden="true" />@Html.Raw(tab.Name)
                                     </button>
                                 </div>
@@ -41,7 +41,7 @@
                                                     </div>
                                                     <div class="products-services__promo-hover-txt">
                                                         @Html.Raw(promo.ProductServicePromoSubtext)
-                                                        <span class="btn btn-primary">@Html.Raw(promo.ProductServicePromoButtonText)</span>
+                                                        <div class="btn btn-primary">@Html.Raw(promo.ProductServicePromoButtonText)</div>
                                                         @Html.Raw(promo.ProductServicePromoNewTab ? "(opens in a new tab)" : "")
                                                     </div>
                                                 </div>
