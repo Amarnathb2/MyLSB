@@ -122,6 +122,9 @@ namespace MyLSB
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHealthChecks("/healthcheck");
+
+                // route to render the sitemap at /sitemap.xml in support of XmlSitemapController.cs
                 endpoints.MapControllerRoute(
                     name: "XmlSitemap",
                     pattern: "sitemap.xml",
@@ -138,7 +141,7 @@ namespace MyLSB
 
                 endpoints.Kentico().MapRoutes();
 
-                //if Kentico's routing to pages misses the request, check to see if the request exists in the URLRedirection Module
+                // if Kentico's routing to pages misses the request, check to see if the request exists in the URLRedirection Module
                 endpoints.MapControllerRoute(
                     name: "Redirect",
                     pattern: "{*path}",
