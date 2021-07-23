@@ -7,7 +7,7 @@ using CMS.Helpers;
 using CMS.SiteProvider;
 
 namespace URLRedirection
-{    
+{
     /// <summary>
     /// Class providing RedirectionTableInfo management.
     /// </summary>
@@ -101,19 +101,19 @@ namespace URLRedirection
         {
             return ProviderObject.GetRedirectionTablesInternal(where, siteId);
         }
-        
+
         #endregion
 
 
         #region "Internal methods - Basic"
-	
+
         /// <summary>
         /// Returns a query for all the RedirectionTableInfo objects.
         /// </summary>
         protected virtual ObjectQuery<RedirectionTableInfo> GetRedirectionTablesInternal()
         {
             return GetObjectQuery();
-        }    
+        }
 
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace URLRedirection
         /// </summary>
         /// <param name="id">RedirectionTableInfo ID</param>        
         protected virtual RedirectionTableInfo GetRedirectionTableInfoInternal(int id)
-        {	
+        {
             return GetInfoById(id);
         }
 
@@ -143,7 +143,7 @@ namespace URLRedirection
         protected virtual void DeleteRedirectionTableInfoInternal(RedirectionTableInfo infoObj)
         {
             DeleteInfo(infoObj);
-        }	
+        }
 
         #endregion
 
@@ -166,9 +166,13 @@ namespace URLRedirection
         /// <param name="siteId">Site ID</param>
         protected virtual ObjectQuery<RedirectionTableInfo> GetRedirectionTablesInternal(string where, int siteId)
         {
-            return GetObjectQuery().WhereEquals("RedirectionOriginalURL",where).OnSite(siteId);
-        }    
-        
-        #endregion		
+            return GetObjectQuery()
+                .WhereEquals("RedirectionOriginalURL", where)
+                .Or()
+                .WhereEquals("RedirectionOriginalURL", where + "/")
+                .OnSite(siteId);
+        }
+
+        #endregion
     }
 }

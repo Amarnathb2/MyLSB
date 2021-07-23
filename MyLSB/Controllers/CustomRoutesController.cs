@@ -15,26 +15,25 @@ using System.Linq;
 
 namespace MyLSB.Controllers
 {
-
     public class CustomRoutesController : Controller
     {
         private readonly PageRepository pageRepository;
-        private readonly IPageRetriever pageRetriever;
-        private readonly SettingsRepository settingsRepository;
-        private readonly PartialsRepository partialsRepository;
-        private readonly string PageNotFoundUrl = "/Page-Not-Found";
+        private readonly IPageUrlRetriever pageUrlRetriever;
 
-        public CustomRoutesController(PageRepository pageRepository, IPageRetriever pageRetriever, SettingsRepository settingsRepository, PartialsRepository partialsRepository)
+        public CustomRoutesController(PageRepository pageRepository, IPageUrlRetriever pageUrlRetriever)
         {
             this.pageRepository = pageRepository;
-            this.pageRetriever = pageRetriever;
-            this.settingsRepository = settingsRepository;
-            this.partialsRepository = partialsRepository;
+            this.pageUrlRetriever = pageUrlRetriever;
+        }
+
+        public ActionResult PageGroup()
+        {
+            return NotFound();
         }
 
         public ActionResult Redirect()
         {
-            string Path = RequestContext.URL.PathAndQuery;
+            string Path = RequestContext.URL.PathAndQuery.TrimEnd('/');
             int Site = SiteContext.CurrentSiteID;
 
             DataSet Ds = URLRedirection.RedirectionTableInfoProvider.GetRedirectionTables(Path, Site);
@@ -55,33 +54,10 @@ namespace MyLSB.Controllers
                 return new RedirectResult(DestUrl, false);
             }
         }
-
-        public ActionResult PageGroup()
-        {   
-            return NotFound();
-        }
-
-        new public ActionResult NotFound()
-        {
-            Response.StatusCode = 404;
-
-            var notFound = pageRetriever.Retrieve<PageDefault>(
-                query => query
-                    .Path(PageNotFoundUrl)
-                    .TopN(1),
-                cache => cache
-                    .Key($"PageNotFound|{PageNotFoundUrl}")
-                    .Dependencies((_, builder) => builder.PagePath(PageNotFoundUrl))
-                ).FirstOrDefault();
-            var settings = settingsRepository.GetSettings();
-            var viewModel = new PageDefaultViewModel(notFound, settings, pageRepository, partialsRepository);
-            return View("~/Views/Pages/Default.cshtml", viewModel);
-        }
     }
 
     class PageGroupConstraint : IRouteConstraint
     {
-
         public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
         {
             string Path = "/" + (values["path"] == null ? string.Empty : values["path"].ToString().TrimEnd('/'));
@@ -113,15 +89,15 @@ namespace MyLSB.Controllers
 
         public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
         {
-            string Path = "/" + (values["path"] == null ? string.Empty : values["path"].ToString().TrimEnd('/'));
+            string Path = "/" + (values["path"] == null ? string.Empty : values["path"].ToString().ToLower().TrimEnd('/'));
             int Site = SiteContext.CurrentSiteID;
 
-            IEnumerable<string> OriginalUrls = CacheHelper.Cache(cs =>
+            List<string> OriginalUrls = CacheHelper.Cache(cs =>
             {
                 if (cs.Cached) { cs.CacheDependency = CacheHelper.GetCacheDependency("urlredirection.redirectiontable|all"); }
-                return URLRedirection.RedirectionTableInfoProvider.GetRedirectionTables(Site).Select(r => r.RedirectionOriginalURL).ToList();
+                return URLRedirection.RedirectionTableInfoProvider.GetRedirectionTables(Site).Select(r => r.RedirectionOriginalURL.ToLower().TrimEnd('/')).ToList();
 
-            }, new CacheSettings(10, $"RoutConstraintRedirect|{SiteContext.CurrentSiteName}|{Path}"));
+            }, new CacheSettings(10, $"{nameof(RedirectConstraint)}|{SiteContext.CurrentSiteName}|{Path}"));
 
 
             if (OriginalUrls.Contains(Path))
@@ -135,4 +111,5 @@ namespace MyLSB.Controllers
             }
         }
     }
+
 }
