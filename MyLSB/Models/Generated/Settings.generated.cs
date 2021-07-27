@@ -165,6 +165,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Insurance disclosure.
+		/// </summary>
+		[DatabaseField]
+		public string FooterInsuranceDisclosure
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FooterInsuranceDisclosure"), @"");
+			}
+			set
+			{
+				SetValue("FooterInsuranceDisclosure", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Cookie notice.
 		/// </summary>
 		[DatabaseField]
@@ -387,6 +404,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.FooterPrivilegedStatusUrl = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Insurance disclosure.
+			/// </summary>
+			public string FooterInsuranceDisclosure
+			{
+				get
+				{
+					return mInstance.FooterInsuranceDisclosure;
+				}
+				set
+				{
+					mInstance.FooterInsuranceDisclosure = value;
 				}
 			}
 

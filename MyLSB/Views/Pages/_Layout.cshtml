@@ -33,7 +33,7 @@
         <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
             <cache-dependency cache-keys="@CacheKeys.Settings" enabled="@cacheEnabled" />
             <vc:login />
-        </cache>        
+        </cache>
     </div>
 </header>
 <main id="mainContent">
@@ -63,18 +63,27 @@
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <vc:footer-nav />
+                @if (Model.ShowInsuranceDisclosure)
+                {
+                    <div class="site-footer__disclosure">
+                        @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.InsuranceDisclosure))
+                    </div>
+                }
                 <div class="d-lg-flex justify-content-between align-items-center">
                     <small>
                         &copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330<br />
                         Website by <a href="https://www.zaginteractive.com" target="_blank">ZAG Interactive</a> | <a href="/sitemap">Sitemap</a>
                     </small>
-                    <div class="site-footer__emblems">
-                        <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
-                            <img src="~/images/privileged.png" alt="Priviliged Status" />
-                        </a>
-                        <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
-                        <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
-                    </div>
+                    @if (!Model.ShowInsuranceDisclosure)
+                    {
+                        <div class="site-footer__emblems">
+                            <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
+                                <img src="~/images/privileged.png" alt="Priviliged Status" />
+                            </a>
+                            <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
+                            <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
+                        </div>
+                    }
                 </div>
             </div>
         </div>

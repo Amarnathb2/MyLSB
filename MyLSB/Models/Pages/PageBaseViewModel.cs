@@ -25,6 +25,7 @@ namespace MyLSB.Models.Pages
         public string Schema { get; set; }
         public string BodyClass { get; set; }
         public bool NoIndex { get; set; }
+        public bool ShowInsuranceDisclosure { get; set; }
         public string PartialsPath { get; set; }
 
         //Settings
@@ -32,6 +33,8 @@ namespace MyLSB.Models.Pages
         public string PhoneNumber { get; set; }
         public string PhoneNumberTelLink { get; set; }
         public string PrivilegedStatusUrl { get; set; }
+
+        public string InsuranceDisclosure { get; set; }
 
         public PageBaseViewModel(TreeNode node, Settings settings, PageRepository pageRepository, PartialsRepository partialsRepository)
         {
@@ -48,6 +51,7 @@ namespace MyLSB.Models.Pages
             OpenGraphUrl = DocumentURLProvider.GetAbsoluteUrl(node);
             Schema = node.GetStringValue("Schema", "");
             NoIndex = node.GetBooleanValue("NoIndex", false);
+            ShowInsuranceDisclosure = node.GetBooleanValue("ShowInsuranceDisclosure", false);
             PartialsPath = partialsRepository.GetPartialsContainerPath(node);
 
             ContactPageUrl = settings.ContactPageUrl;
@@ -58,6 +62,7 @@ namespace MyLSB.Models.Pages
                 .Replace("-", "")
                 .Replace(" ", "");
             PrivilegedStatusUrl = settings.FooterPrivilegedStatusUrl;
+            InsuranceDisclosure = settings.FooterInsuranceDisclosure;
         }
     }
 }

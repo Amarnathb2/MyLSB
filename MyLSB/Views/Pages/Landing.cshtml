@@ -27,6 +27,12 @@
 </main>
 <footer class="landing-footer">
     <div class="container d-flex flex-column align-items-center flex-lg-row justify-content-lg-between">
+        @if (Model.ShowInsuranceDisclosure)
+        {
+            <div class="landing-footer__disclosure">
+                @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.InsuranceDisclosure))
+            </div>
+        }
         <div>
             <div class="landing-footer__links">
                 <a href="@CustomHelpers.TelLink(@Model.PhoneNumber)">@Model.PhoneNumber</a>
@@ -43,13 +49,16 @@
             </div>
             <small>&copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330</small>
         </div>
-        <div class="landing-footer__emblems">
-            <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
-                <img src="~/images/privileged.png" alt="Priviliged Status" />
-            </a>
-            <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
-            <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
-        </div>
+        @if (!Model.ShowInsuranceDisclosure)
+        {
+            <div class="landing-footer__emblems">
+                <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
+                    <img src="~/images/privileged.png" alt="Priviliged Status" />
+                </a>
+                <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
+                <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
+            </div>
+        }
     </div>
 </footer>
 
