@@ -114,6 +114,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Show insurance disclosure.
+		/// </summary>
+		[DatabaseField]
+		public bool ShowInsuranceDisclosure
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("ShowInsuranceDisclosure"), false);
+			}
+			set
+			{
+				SetValue("ShowInsuranceDisclosure", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Title.
 		/// </summary>
 		[DatabaseField]
@@ -305,6 +322,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.ShowInSitemap = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Show insurance disclosure.
+			/// </summary>
+			public bool ShowInsuranceDisclosure
+			{
+				get
+				{
+					return mInstance.ShowInsuranceDisclosure;
+				}
+				set
+				{
+					mInstance.ShowInsuranceDisclosure = value;
 				}
 			}
 

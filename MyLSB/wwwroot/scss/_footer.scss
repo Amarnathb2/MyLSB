@@ -104,12 +104,16 @@
         }
     }
 
-    &_seo {
+    &__seo {
         &-heading {
             @include media-breakpoint-up(lg) {
                 font-size: 1.8rem;
             }
         }
+    }
+
+    &__disclosure {
+        font-size: 1.2rem;
     }
 
     &__emblems {
