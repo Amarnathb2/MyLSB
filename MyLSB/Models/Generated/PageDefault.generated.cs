@@ -131,6 +131,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// JSON.
+		/// </summary>
+		[DatabaseField]
+		public string Schema
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Schema"), @"");
+			}
+			set
+			{
+				SetValue("Schema", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Title.
 		/// </summary>
 		[DatabaseField]
@@ -338,6 +355,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.ShowInsuranceDisclosure = value;
+				}
+			}
+
+
+			/// <summary>
+			/// JSON.
+			/// </summary>
+			public string Schema
+			{
+				get
+				{
+					return mInstance.Schema;
+				}
+				set
+				{
+					mInstance.Schema = value;
 				}
 			}
 
