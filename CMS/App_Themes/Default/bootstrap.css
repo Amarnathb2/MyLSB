@@ -3438,6 +3438,12 @@ body.cms-bootstrap,
 .cms-bootstrap .icon-engage-users:before {
   content: "\e920";
 }
+.cms-bootstrap .icon-timed-box:before {
+    content: "\e921";
+}
+.cms-bootstrap .icon-magnifier-emoticon:before {
+    content: "\e922";
+}
 .cms-bootstrap .icon-crosshair {
   position: relative;
   display: inline-block;

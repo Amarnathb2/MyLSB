@@ -446,6 +446,10 @@
     <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
       <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DotNetOpenAuth">
       <HintPath>..\Lib\DotNetOpenAuth.dll</HintPath>
     </Reference>
@@ -774,6 +778,10 @@
       <HintPath>..\Lib\CMS.Taxonomy.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="CMS.TextAnalytics.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\Lib\CMS.TextAnalytics.Azure.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="CMS.TranslationServices.Web.UI, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.TranslationServices.Web.UI.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -846,8 +854,20 @@
       <HintPath>..\Lib\CMS.WorkflowEngine.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Azure.Core, Version=1.2.2.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\Azure.Core.1.2.2\lib\netstandard2.0\Azure.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Json.4.7.1\lib\net461\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Azure.AI.TextAnalytics, Version=5.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\Azure.AI.TextAnalytics.5.0.0\lib\netstandard2.0\Azure.AI.TextAnalytics.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -871,14 +891,6 @@
     <Content Include="CMSFormControls\JsonTable\JsonTableData.ascx" />
     <Content Include="CMSFormControls\JsonTable\JsonTableEditor.ascx" />
     <Content Include="CMSFormControls\JsonTable\JsonTablePicker.ascx" />
-    <None Include="App_Themes\Default\CMSModules\cms.messages.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.emailproperties.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailcontent.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.issuenew.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.newsletter.report.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.membership.less" />
-    <None Include="App_Themes\Default\CMSModules\cms.objecttypegraph.less" />
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\scss\brands.scss" />
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\scss\duotone.scss" />
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\scss\fontawesome.scss" />
@@ -919,6 +931,22 @@
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\webfonts\fa-solid-900.ttf" />
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\webfonts\fa-solid-900.woff" />
     <Content Include="App_Themes\Default\Fonts\fontawesome-pro\webfonts\fa-solid-900.woff2" />
+    <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_35.entry.js" />
+    <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_35.system.entry.js" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="App_Themes\Default\CMSModules\cms.messages.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.emailproperties.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailcontent.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.issuenew.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.newsletter.report.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.membership.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.objecttypegraph.less" />
     <None Include="Old_App_WebReferences\WS\WebService.discomap" />
     <None Include="Old_App_WebReferences\WS\WebService.wsdl" />
     <Content Include="Admin\Default.aspx" />
@@ -3363,6 +3391,34 @@
     <Content Include="CMSWebParts\Viewers\DateTime.ascx" />
     <Content Include="CMSWebParts\Viewers\DateTime_files\DateTime.js" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Brew-Bar.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Cauca-Farmer.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Cherries.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Region.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Shop.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Triangle.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Colombia-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Kona-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Robusta.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\St-Helena-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Thailand-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Work-And-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\banner-default.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\banner2.png" />
+    <Content Include="DancingGoatCore\media\Graphics\colombia-coffee.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\default-image-product.png" />
+    <Content Include="DancingGoatCore\media\Graphics\hero-bg.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\hero-bg3.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\hero_image.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\Logos\logo-dancing-goat.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\aerobie.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\chemex.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Espro.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Hario.png" />
     <Content Include="Global.asax" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
@@ -3874,10 +3930,12 @@
     <Content Include="CMSWebParts\Text\Link.ascx" />
     <Content Include="CMSWebParts\DashBoard\documents.ascx" />
     <Content Include="Old_App_WebReferences\WS\WebService.disco" />
+    <Content Include="App_Data\Dictionaries\en-GB.dic" />
     <Content Include="App_Data\Dictionaries\en-US.dic" />
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
+    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
@@ -4089,16 +4147,10 @@
     <Content Include="CMSScripts\WebComponents\index-7b62609d.system.js" />
     <Content Include="CMSScripts\WebComponents\index.esm.js" />
     <Content Include="CMSScripts\WebComponents\index.system.js" />
-    <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_35.entry.js" />
-    <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_35.system.entry.js" />
+    <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_41.entry.js" />
+    <Content Include="CMSScripts\WebComponents\kentico-abtest-variant-listing_41.system.entry.js" />
     <Content Include="CMSScripts\WebComponents\shadow-css-14c5e2cb.js" />
     <Content Include="CMSScripts\WebComponents\shadow-css-8a020e34.system.js" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMSFormControls\JsonTable\JsonTableCellPicker.ascx.cs">
@@ -14356,6 +14408,7 @@
   <ItemGroup>
     <Folder Include="App_Data\Templates\" />
     <Folder Include="CMSScripts\Custom\" />
+    <Folder Include="CMSScripts\WebComponents\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Custom\Custom.csproj">
