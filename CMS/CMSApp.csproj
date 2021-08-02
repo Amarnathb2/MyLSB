@@ -3906,7 +3906,6 @@
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
-    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
@@ -14377,6 +14376,7 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Templates\BlankSite\" />
     <Folder Include="CMSScripts\Custom\" />
   </ItemGroup>
   <ItemGroup>
