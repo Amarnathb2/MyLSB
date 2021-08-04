@@ -450,6 +450,22 @@
       <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Azure.Core, Version=1.2.2.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\Azure.Core.1.2.2\lib\netstandard2.0\Azure.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Json.4.7.1\lib\net461\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Azure.AI.TextAnalytics, Version=5.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\Azure.AI.TextAnalytics.5.0.0\lib\netstandard2.0\Azure.AI.TextAnalytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DotNetOpenAuth">
       <HintPath>..\Lib\DotNetOpenAuth.dll</HintPath>
     </Reference>
@@ -853,22 +869,6 @@
     <Reference Include="CMS.WorkflowEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.WorkflowEngine.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Azure.Core, Version=1.2.2.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
-      <HintPath>..\packages\Azure.Core.1.2.2\lib\netstandard2.0\Azure.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Text.Json, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Text.Json.4.7.1\lib\net461\System.Text.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Azure.AI.TextAnalytics, Version=5.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
-      <HintPath>..\packages\Azure.AI.TextAnalytics.5.0.0\lib\netstandard2.0\Azure.AI.TextAnalytics.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -3391,6 +3391,34 @@
     <Content Include="CMSWebParts\Viewers\DateTime.ascx" />
     <Content Include="CMSWebParts\Viewers\DateTime_files\DateTime.js" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Brew-Bar.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Cauca-Farmer.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Cherries.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Region.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Shop.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Triangle.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Colombia-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Kona-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Robusta.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\St-Helena-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Thailand-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Work-And-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\banner-default.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\banner2.png" />
+    <Content Include="DancingGoatCore\media\Graphics\colombia-coffee.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\default-image-product.png" />
+    <Content Include="DancingGoatCore\media\Graphics\hero-bg.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\hero-bg3.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\hero_image.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\Logos\logo-dancing-goat.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\aerobie.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\chemex.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Espro.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Hario.png" />
     <Content Include="Global.asax" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
@@ -3902,10 +3930,12 @@
     <Content Include="CMSWebParts\Text\Link.ascx" />
     <Content Include="CMSWebParts\DashBoard\documents.ascx" />
     <Content Include="Old_App_WebReferences\WS\WebService.disco" />
+    <Content Include="App_Data\Dictionaries\en-GB.dic" />
     <Content Include="App_Data\Dictionaries\en-US.dic" />
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
+    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
@@ -14378,6 +14408,7 @@
   <ItemGroup>
     <Folder Include="App_Data\Templates\BlankSite\" />
     <Folder Include="CMSScripts\Custom\" />
+    <Folder Include="CMSScripts\WebComponents\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Custom\Custom.csproj">
