@@ -3391,34 +3391,6 @@
     <Content Include="CMSWebParts\Viewers\DateTime.ascx" />
     <Content Include="CMSWebParts\Viewers\DateTime_files\DateTime.js" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Brew-Bar.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Cauca-Farmer.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Cherries.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Region.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Shop.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Triangle.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Colombia-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Kona-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Robusta.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\St-Helena-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Thailand-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\CoffeeGallery\Work-And-Coffee.jpg" />
-    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
-    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
-    <Content Include="DancingGoatCore\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\banner-default.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\banner2.png" />
-    <Content Include="DancingGoatCore\media\Graphics\colombia-coffee.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\default-image-product.png" />
-    <Content Include="DancingGoatCore\media\Graphics\hero-bg.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\hero-bg3.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\hero_image.jpg" />
-    <Content Include="DancingGoatCore\media\Graphics\Logos\logo-dancing-goat.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\aerobie.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\chemex.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Espro.png" />
-    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Hario.png" />
     <Content Include="Global.asax" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
@@ -3930,12 +3902,10 @@
     <Content Include="CMSWebParts\Text\Link.ascx" />
     <Content Include="CMSWebParts\DashBoard\documents.ascx" />
     <Content Include="Old_App_WebReferences\WS\WebService.disco" />
-    <Content Include="App_Data\Dictionaries\en-GB.dic" />
     <Content Include="App_Data\Dictionaries\en-US.dic" />
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
-    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
@@ -14408,7 +14378,6 @@
   <ItemGroup>
     <Folder Include="App_Data\Templates\BlankSite\" />
     <Folder Include="CMSScripts\Custom\" />
-    <Folder Include="CMSScripts\WebComponents\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Custom\Custom.csproj">
