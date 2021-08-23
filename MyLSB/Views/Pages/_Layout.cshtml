@@ -10,6 +10,12 @@
 </nav>
 <vc:alerts />
 <header class="site-header">
+    @if (Context.Request.Path.ToString().StartsWith("/invest"))
+    {
+        <div id="broker-check">
+            <a href="http://brokercheck.finra.org#sthash.lU1cDXH4.dpuf" target="_blank"><img src="~/images/BC_firm_badge_color_200wide.png" alt="BrokerCheck"></a>
+        </div>
+    }
     <div class="site-header__inner">
         <a href="/" class="logo">
             <img src="~/images/logo.svg" alt="Go to the Lincoln Savings Bank home page" />
