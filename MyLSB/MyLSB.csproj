@@ -129,7 +129,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Generated\" />
     <Folder Include="Modules\" />
   </ItemGroup>
 
