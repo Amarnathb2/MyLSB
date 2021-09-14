@@ -26,6 +26,8 @@ App = (function ($) {
             var $this = $(this);
             onScrollInit($this, $this.parents('.staggered-animation-container'));
         });
+
+        $('iframe.resize').iFrameResize([{ log: true }]);
     }
 
     function addOverlay() {
