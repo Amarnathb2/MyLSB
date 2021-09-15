@@ -325,8 +325,10 @@ ckeditor.on('instanceReady',function() {
     sentimentAnalysisComponent.dataset.sentimentAnalysisForSelector = '#" + editor.ClientID + @" + div';
 });
 sentimentAnalysisComponent.getText = function() {
-        return $cmsj(CKEDITOR.instances['" + editor.ClientID + @"'].getData()).text();
-    };
+    var text = CKEDITOR.instances['" + editor.ClientID + @"'].getData();
+    // Encapsulate content from CKEditor to DIV element since it can directly contain text
+    return $cmsj('<div/>').html(text).text();
+};
 ckeditor.on('change', function() { 
     sentimentAnalysisComponent.onTextChanged(); 
 });
