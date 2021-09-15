@@ -1,0 +1,5 @@
+﻿@model Calculator
+
+<div class="calculator" id="calculator_@(Model.NodeID)">
+    <iframe title="@Html.Raw(Model.CalculatorName)" src="@Url.Content(Model.CalculatorSrc)" class="resize"></iframe>
+</div>
