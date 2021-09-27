@@ -80,7 +80,7 @@
                         &copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330<br />
                         Website by <a href="https://www.zaginteractive.com" target="_blank">ZAG Interactive</a> | <a href="/sitemap">Sitemap</a>
                     </small>
-                    @if (!Model.ShowInsuranceDisclosure)
+                    @if (Model.ShowFooterEmblems)
                     {
                         <div class="site-footer__emblems">
                             @if (!String.IsNullOrEmpty(Model.PrivilegedStatusUrl))
