@@ -49,7 +49,7 @@
             </div>
             <small>&copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330</small>
         </div>
-        @if (!Model.ShowInsuranceDisclosure)
+        @if (Model.ShowFooterEmblems)
         {
             <div class="landing-footer__emblems">
                 @if (!String.IsNullOrEmpty(Model.PrivilegedStatusUrl))

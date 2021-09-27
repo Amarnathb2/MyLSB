@@ -26,6 +26,7 @@ namespace MyLSB.Models.Pages
         public string BodyClass { get; set; }
         public bool NoIndex { get; set; }
         public bool ShowInsuranceDisclosure { get; set; }
+        public bool ShowFooterEmblems { get; set; }
         public string PartialsPath { get; set; }
 
         //Settings
@@ -52,6 +53,7 @@ namespace MyLSB.Models.Pages
             Schema = node.GetStringValue("Schema", "");
             NoIndex = node.GetBooleanValue("NoIndex", false);
             ShowInsuranceDisclosure = node.GetBooleanValue("ShowInsuranceDisclosure", false);
+            ShowFooterEmblems = node.GetBooleanValue("ShowFooterEmblems", true);
             PartialsPath = partialsRepository.GetPartialsContainerPath(node);
 
             ContactPageUrl = settings.ContactPageUrl;
