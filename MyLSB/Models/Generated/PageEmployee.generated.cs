@@ -335,6 +335,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Show Wealth Management Logo.
+		/// </summary>
+		[DatabaseField]
+		public bool ShowWealthManagementLogo
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("ShowWealthManagementLogo"), false);
+			}
+			set
+			{
+				SetValue("ShowWealthManagementLogo", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Hide from search engines (noindex).
 		/// </summary>
 		[DatabaseField]
@@ -756,6 +773,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.EmployeeFax = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Show Wealth Management Logo.
+			/// </summary>
+			public bool ShowWealthManagementLogo
+			{
+				get
+				{
+					return mInstance.ShowWealthManagementLogo;
+				}
+				set
+				{
+					mInstance.ShowWealthManagementLogo = value;
 				}
 			}
 
