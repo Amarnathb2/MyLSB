@@ -13,6 +13,18 @@
 
 <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
     <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+    @if (Model.ShowWealthManagementLogo)
+    {
+        <div class="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <p><img alt="LSB Wealth Management" src="~/images/lsb-wm-logo.png" /></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
     <header class="masthead" aria-labelledby="pageTitle" id="masthead_@(Model.NodeID)">
         <div class="masthead__bg">
             <div class="container">

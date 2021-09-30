@@ -114,6 +114,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Show footer emblems.
+		/// </summary>
+		[DatabaseField]
+		public bool ShowFooterEmblems
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("ShowFooterEmblems"), true);
+			}
+			set
+			{
+				SetValue("ShowFooterEmblems", value);
+			}
+		}
+
+
+		/// <summary>
 		/// JSON.
 		/// </summary>
 		[DatabaseField]
@@ -310,6 +327,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.ShowInsuranceDisclosure = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Show footer emblems.
+			/// </summary>
+			public bool ShowFooterEmblems
+			{
+				get
+				{
+					return mInstance.ShowFooterEmblems;
+				}
+				set
+				{
+					mInstance.ShowFooterEmblems = value;
 				}
 			}
 
