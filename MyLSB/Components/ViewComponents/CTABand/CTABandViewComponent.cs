@@ -1,5 +1,6 @@
 ﻿using CMS.DocumentEngine.Types.Custom;
 using Microsoft.AspNetCore.Mvc;
+using MyLSB.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace MyLSB.Components
 
         public IViewComponentResult Invoke(CTABand node)
         {
-            return View("~/Components/ViewComponents/CTABand/CTABand.cshtml", node);
+            return View("~/Components/ViewComponents/CTABand/CTABand.cshtml", new ChangeOrderRequestFormViewModel(node));
         }
     }
 }

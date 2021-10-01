@@ -19,7 +19,8 @@ namespace MyLSB.Controllers
         public ActionResult Index(ChangeOrderRequestFormViewModel obj)
         {
 
-            return Redirect("~/bank/business/change-order-request/thank-you");
+
+            return Redirect(obj.ConfirmationPage);
         }
     }
 }
