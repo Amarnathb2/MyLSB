@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using CMS.DocumentEngine.Types.Custom;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -118,5 +119,12 @@ namespace MyLSB.Models.ViewModels
 
         [Display(Name = "Total Change Order")]
         public string TotalChangeOrder { get; set; }
+
+        public string ConfirmationPage { get; set; }
+
+        protected ChangeOrderRequestFormViewModel(ChangeOrderRequestForm node)
+        {
+            ConfirmationPage = node.ConfirmationPage;
+        }
     }
 }
