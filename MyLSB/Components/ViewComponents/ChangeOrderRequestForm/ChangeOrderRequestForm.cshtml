@@ -2,29 +2,32 @@
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-@using (Html.BeginForm("Index", "ChangeOrderRequestForm", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate" }))
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-row">
-        <div class="col">
-            <div class="form-group">
-                @Html.LabelFor(m => m.NameOfBusiness)<span class="text-danger">*</span>
-                @Html.TextBoxFor(m => m.NameOfBusiness, new { @class = "form-control", @required = "required" })
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-1">
+            <form asp-controller="ChangeOrderRequestForm" asp-action="Index" id="change-order-request-form" class="needs-validation" method="post" novalidate="novalidate">
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.NameOfBusiness)<span class="text-danger">*</span>
+                            @Html.TextBoxFor(m => m.NameOfBusiness, new { @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+                </div>
+                <div class="recaptcha">
+                    <div class="g-recaptcha" data-sitekey="@SettingsKeyInfoProvider.GetValue(CMS.SiteProvider.SiteContext.CurrentSiteName + ".CMSReCaptchaPublicKey")" data-callback="onSubmitChangeOrderRequestForm" data-size="invisible"></div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                            <small class="spinner text-muted d-none">
+                                <i class="fas fa-circle-notch fa-spin ml-2 mr-1"></i> Submitting form&hellip;
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="recaptcha">
-        <div class="g-recaptcha" data-sitekey="@SettingsKeyInfoProvider.GetValue(CMS.SiteProvider.SiteContext.CurrentSiteName + ".CMSReCaptchaPublicKey")" data-callback="onSubmitChangeOrderRequestForm" data-size="invisible"></div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary submit">Submit</button>
-                <small class="spinner text-muted d-none">
-                    <i class="fas fa-circle-notch fa-spin ml-2 mr-1"></i> Submitting form&hellip;
-                </small>
-            </div>
-        </div>
-    </div>
-}
+</div>
