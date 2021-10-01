@@ -18,10 +18,10 @@ namespace MyLSB.Components
         }
 
         public IViewComponentResult Invoke(ChangeOrderRequestForm node)
-        {
-            
-
-            return View("~/Components/ViewComponents/ChangeOrderRequestForm/ChangeOrderRequestForm.cshtml", new ChangeOrderRequestFormViewModel(node));
+        {            
+            return View("~/Components/ViewComponents/ChangeOrderRequestForm/ChangeOrderRequestForm.cshtml", new ChangeOrderRequestFormViewModel {
+                ConfirmationPage = node.ConfirmationPage
+            });
         }
     }
 }
