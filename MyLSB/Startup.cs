@@ -139,6 +139,11 @@ namespace MyLSB
                     new { id = new PageGroupConstraint() }
                 );
 
+                endpoints.MapControllerRoute(
+                    name: "Default",
+                    pattern: "{controller}/{action}"
+                );
+
                 endpoints.Kentico().MapRoutes();
 
                 // if Kentico's routing to pages misses the request, check to see if the request exists in the URLRedirection Module
