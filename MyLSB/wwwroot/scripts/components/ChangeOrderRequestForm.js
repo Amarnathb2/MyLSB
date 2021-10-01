@@ -10,34 +10,34 @@ App.ChangeOrderRequestForm = (function ($) {
             $fields = $fieldsets.find("input, select, textarea"),
 
             $submitButton = $forms.find("button[type=submit]"),
-            $spinner = $forms.find(".spinner"),
+            $spinner = $forms.find(".spinner");
 
-            window.addEventListener("load", function () {
+        window.addEventListener("load", function () {
 
-                var validation = Array.prototype.filter.call($forms, function (form) {
-                    form.addEventListener("submit", function (event) {
-                        event.preventDefault();
-                        event.stopPropagation();
+            var validation = Array.prototype.filter.call($forms, function (form) {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
 
-                        form.classList.add("was-validated");
+                    form.classList.add("was-validated");
 
-                        var invalid = $fields.filter(":invalid:visible");
+                    var invalid = $fields.filter(":invalid:visible");
 
-                        if (invalid.length > 0) {
-                            smoothScroll(invalid.first());
+                    if (invalid.length > 0) {
+                        smoothScroll(invalid.first());
 
-                            invalid
-                                .first()
-                                .focus();
-                        }
+                        invalid
+                            .first()
+                            .focus();
+                    }
 
-                        if (form.checkValidity() === true) {
-                            grecaptcha.execute();
-                        }
-                    }, false);
-                });
-                
-            }, false);
+                    if (form.checkValidity() === true) {
+                        grecaptcha.execute();
+                    }
+                }, false);
+            });
+
+        }, false);
 
         function smoothScroll(anchor) {
             var offset = Math.floor(parseFloat($main.css("padding-top").split("px")[0]));
