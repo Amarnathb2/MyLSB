@@ -122,7 +122,7 @@ namespace MyLSB.Models.ViewModels
 
         public string ConfirmationPage { get; set; }
 
-        protected ChangeOrderRequestFormViewModel(ChangeOrderRequestForm node)
+        public ChangeOrderRequestFormViewModel(ChangeOrderRequestForm node)
         {
             ConfirmationPage = node.ConfirmationPage;
         }
