@@ -7,7 +7,7 @@ App.ChangeOrderRequestForm = (function ($) {
 
     function init() {
         window.addEventListener("load", function () {
-            var validation = Array.prototype.filter.call($realEstateForm, function (form) {
+            var validation = Array.prototype.filter.call($changeOrderRequestForm, function (form) {
                 form.addEventListener("submit", function (event) {
                     event.preventDefault();
                     event.stopPropagation();
