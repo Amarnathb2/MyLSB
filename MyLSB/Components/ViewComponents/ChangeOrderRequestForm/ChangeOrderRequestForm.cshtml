@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="recaptcha">
-        <div class="g-recaptcha" data-sitekey="6LdQf7oaAAAAAF1wmQVSR1oL51kFYDgkkf58ToXn" data-callback="onSubmitChangeOrderRequestForm" data-size="invisible"></div>
+        <div class="g-recaptcha" data-sitekey="@SettingsKeyInfoProvider.GetValue(CMS.SiteProvider.SiteContext.CurrentSiteName + ".CMSReCaptchaPublicKey")" data-callback="onSubmitChangeOrderRequestForm" data-size="invisible"></div>
     </div>
     <div class="form-row">
         <div class="col">
