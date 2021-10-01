@@ -31,29 +31,3 @@ App.ChangeOrderRequestForm = (function ($) {
 $(function () {
     App.ChangeOrderRequestForm.init();
 });
-
-function onSubmitChangeOrderRequestForm() {
-    return new Promise(function (resolve, reject) {
-        var $forms = $("#change-order-request-form form.needs-validation"),
-            $submitButton = $forms.find("button[type=submit]");
-
-        if (grecaptcha === undefined) {
-            reject();
-
-            $submitButton.attr("disabled", null);
-        }
-
-        var response = grecaptcha.getResponse();
-
-        if (!response) {
-            reject();
-
-            $submitButton.attr("disabled", null);
-        }
-
-        resolve();
-
-        $forms.submit();
-        $submitButton.attr("disabled", "disabled");
-    });
-}
