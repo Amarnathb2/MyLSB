@@ -12,6 +12,11 @@
     }
 }
 
+.input-group-prepend,
+.input-group-append{
+    height: $input-height;
+}
+
 .form-group {
     font-size: $input-font-size;
 
