@@ -29,7 +29,6 @@ namespace MyLSB.Models.ViewModels
             {
                 return new List<SelectListItem>
                 {
-                    new SelectListItem { Selected = true, Text = "Text", Value = "value"},
                     new SelectListItem { Selected = false, Text = "Adel", Value = "csa-adel@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Allison", Value = "csa-allison@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Ankeny", Value = "csa-ankeny@mylsb.com"},
@@ -73,7 +72,7 @@ namespace MyLSB.Models.ViewModels
         public string EarliestRequestedTimeForPickup { get; set; }
 
         [Display(Name = "Transport by pre-arranged Armored Car")]
-        public string TransportByPreArrangedArmoredCar { get; set; }
+        public bool TransportByPreArrangedArmoredCar { get; set; }
 
         [Display(Name = "Pennies", Description = "$0.50/roll")]
         public string Pennies { get; set; }
