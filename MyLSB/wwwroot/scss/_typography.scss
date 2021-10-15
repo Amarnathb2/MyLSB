@@ -1,0 +1,183 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include media-breakpoint-up(lg) {
+        font-size: 1.6rem;
+    }
+}
+
+h1,
+.h1 {
+    font-weight: $font-weight-extrabold;
+    line-height: 1.429;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 4.8rem;
+        line-height: 1.273;
+    }
+}
+
+h2,
+.h2 {
+    font-weight: $font-weight-extrabold;
+    line-height: 1.4;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 3.5rem;
+        line-height: 1.256;
+    }
+}
+
+h3,
+.h3 {
+    line-height: 1.333;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 2.4rem;
+        line-height: 1.333;
+    }
+}
+
+h4,
+.h4 {
+    line-height: 1.5;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.444rem;
+        line-height: 2.8;
+    }
+}
+
+p {
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 3rem;
+    }
+}
+
+a {
+    text-decoration: underline;
+
+    @include hover-focus-active() {
+        text-decoration: none;
+    }
+}
+
+ol:not(.breadcrumb),
+ul {
+    list-style-type: none;
+    margin-bottom: $paragraph-margin-bottom;
+    padding-left: 15px;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 3rem;
+    }
+
+    li {
+        &::before {
+            color: $secondary;
+            content: "\25cf";
+            position: absolute;
+            transform: translateX(-15px);
+        }
+
+        &.list-inline-item {
+            padding-left: 0;
+
+            &::before {
+                content: none;
+            }
+        }
+
+        > ol,
+        > ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+    }
+}
+
+ul {
+    li::before {
+        content: "\2022";
+    }
+}
+
+ol:not(.breadcrumb) {
+    counter-reset: item;
+
+    li {
+        counter-increment: item;
+        padding-left: 5px;
+
+        &::before {
+            content: counter(item)".";
+            font-weight: $font-weight-extrabold;
+            transform: translateX(-20px);
+        }
+    }
+}
+
+.list-unstyled {
+    li {
+        padding: 0;
+
+        &::before {
+            content: none;
+        }
+    }
+}
+
+.checklist {
+    li {
+        padding-left: 5px;
+
+        &:before {
+            color: $secondary;
+            content: "\f00c";
+            font-family: $font-awesome;
+            font-weight: $font-weight-normal;
+            transform: translateX(-20px);
+        }
+    }
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+.disclosure {
+    font-size: 1.4rem;
+    line-height: 1.4285;
+
+    &__heading {
+        color: $secondary;
+        display: inline;
+        font-weight: $font-weight-bold;
+        margin-bottom: .5rem;
+    }
+
+    & p {
+        display: inline;
+    }
+}
+
+.disclosure {
+    font-size: 1.2rem;
+    line-height: 1.333;
+}
+
+blockquote > h3 {
+    &::before {
+        content: '\f10d';
+        display: inline-block;
+        font-family: $font-awesome;
+        margin-right: .5rem;
+    }
+}

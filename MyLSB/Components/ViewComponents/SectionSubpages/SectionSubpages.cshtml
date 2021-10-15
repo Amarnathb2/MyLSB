@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SectionSubpageGroupViewModel>
+
+<div class="section-nav">
+    <div class="container">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var pageGroup = Model.ElementAt(i);
+            var alt = i % 2 == 1;
+
+            <div class="row" id="section-nav_@(pageGroup.NodeID)">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-nav__category @(i == 0 ? "section-nav__category--first" : "") @(alt ? "section-nav__category--alt" : "")">
+                        <div>
+                            <h3 class="section-nav__category-heading">
+                                @if (!String.IsNullOrEmpty(pageGroup.Icon))
+                                {
+                                    <img src="@Url.Content(pageGroup.Icon)" alt="" aria-hidden="true" class="section-nav__category-icon" />
+                                }
+                                @Html.Raw(pageGroup.Heading)
+                            </h3>
+                            @if (pageGroup.Children.Any())
+                            {
+                                <ul class="list-unstyled section-nav__category-list">
+                                    @foreach (var child in pageGroup.Children)
+                                    {
+                                        <li>
+                                            <a href="@Url.Content(child.Url)" @Html.Raw(child.NewTab ? "target=\"_blank\"" : "")>
+                                                @Html.Raw(child.Text)@Html.Raw(child.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+
+                        @if (pageGroup.Promo is not null)
+                        {
+                            <img src="@Url.Content(pageGroup.Promo.PageGroupPromoImage)" class="section-nav__category-img" alt="" aria-hidden="true" />
+                            <div class="section-nav__category-promo os-animation" data-os-animation="@(alt ? "animate__fadeInLeft" : "animate__fadeInRight")">
+                                <a href="@Url.Content(pageGroup.Promo.PageGroupPromoLinkUrl)" @Html.Raw(pageGroup.Promo.PageGroupPromoLinkNewTab ? "target=\"_blank\"" : "")>
+                                    @Html.Raw(pageGroup.Promo.PageGroupPromoText)
+                                    <div>@Html.Raw(pageGroup.Promo.PageGroupPromoLinkText)</div>
+                                    @Html.Raw(pageGroup.Promo.PageGroupPromoLinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                                </a>
+                                <img src="@(alt ? "~/images/triangle-bl-bg-2.svg" : "~/images/triangle-br-bg-2.svg")" class="section-nav__category-promo-decoration" alt="" aria-hidden="true" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <img src="~/images/triangle-l-bg.svg" class="section-nav__decoration-left" alt="" aria-hidden="true" />
+    <img src="~/images/triangle-r-lg.svg" class="section-nav__decoration-right" alt="" aria-hidden="true" />
+</div>

@@ -1,0 +1,17 @@
+﻿@model MyLSB.Models.FormBuilder.FormComponents.Html5InputComponent
+
+@* Gets a collection of system HTML attributes necessary for the correct functionality of the form component inputs *@
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.Kentico().GetEditorHtmlAttributes();
+}
+
+@{
+
+    @* Specifies additional HTML attributes for the form component *@
+    htmlAttributes["autocomplete"] = Model.Properties.Autocomplete;
+    htmlAttributes["placeholder"] = Model.Properties.Placeholder;
+    htmlAttributes["type"] = Model.Properties.Type;
+}
+
+@* Renders the input element for the 'Value' property of the form component *@
+@Html.TextBoxFor(m => m.Value, htmlAttributes)

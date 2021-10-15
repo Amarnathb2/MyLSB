@@ -1,0 +1,39 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.intro {
+    margin-top: 2rem;
+    text-align: center;
+
+    &__heading {
+        color: $secondary;
+        font-weight: $font-weight-semibold;
+        margin: 0 2.5rem 1rem;
+        padding-bottom: 1.2rem;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 1.8rem;
+            padding-bottom: 2rem;
+        }
+
+        &::after {
+            background: $bright-green;
+            bottom: 0;
+            content: '';
+            height: 2px;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            width: 6.5rem;
+        }
+
+        strong {
+            color: $primary;
+            font-weight: $font-weight-extrabold;
+        }
+    }
+}

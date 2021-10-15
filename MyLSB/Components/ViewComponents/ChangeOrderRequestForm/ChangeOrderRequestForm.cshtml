@@ -1,0 +1,252 @@
+﻿@model MyLSB.Models.ViewModels.ChangeOrderRequestFormViewModel
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<section class="change-order-request-form" id="change-order-request-form" aria-label="Change Order Request Form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-1">
+                <form asp-controller="ChangeOrderRequestForm" asp-action="Index" class="needs-validation" method="post" novalidate="novalidate">
+                    @Html.HiddenFor(m => m.ConfirmationPage, new { @value = Model.ConfirmationPage })
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NameOfBusiness)<span class="text-danger">*</span>
+                                @Html.TextBoxFor(m => m.NameOfBusiness, new { @class = "form-control", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NameOfRequestingIndividual)<span class="text-danger">*</span>
+                                @Html.TextBoxFor(m => m.NameOfRequestingIndividual, new { @class = "form-control", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.LastFourOfAccountNumber)<span class="text-danger">*</span>
+                                @Html.TextBoxFor(m => m.LastFourOfAccountNumber, new { @class = "form-control", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Funding)<span class="text-danger">*</span>
+                                @Html.DropDownListFor(m => m.Funding, Model.FundingItems, new { @class = "custom-select", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.BankLocationForPickup)<span class="text-danger">*</span>
+                                @Html.DropDownListFor(m => m.BankLocationForPickup, Model.BankLocationForPickupItems, new { @class = "custom-select", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EarliestRequestedDateForPickup)<span class="text-danger">*</span>
+                                @Html.TextBoxFor(m => m.EarliestRequestedDateForPickup, new { @class = "form-control", @type = "date", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EarliestRequestedTimeForPickup)<span class="text-danger">*</span><br />
+                                <em>Please allow at least 90 minutes from time of entry for your order to be processed.</em>
+                                @Html.TextBoxFor(m => m.EarliestRequestedTimeForPickup, new { @class = "form-control", @type = "time", @required = "required" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    @Html.CheckBoxFor(m => m.TransportByPreArrangedArmoredCar, new { @class = "custom-control-input" })
+                                    @Html.LabelFor(m => m.TransportByPreArrangedArmoredCar)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <fieldset aria-labelledby="changeOrder_fieldset_title">
+                        <h3 id="changeOrder_fieldset_title">Change Order:</h3>
+                        <p>Please enter total amount, in value, for each denomination requested.</p>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Pennies) <small>($0.50/roll)</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Pennies, new { @class = "form-control coin", @type = "number", @step = ".50" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Nickles) <small>($2.00/roll)</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Nickles, new { @class = "form-control coin", @type = "number", @step = "2" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Dimes) <small>($5.00/roll)</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Dimes, new { @class = "form-control coin", @type = "number", @step = "5" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Quarters) <small>($10.00/roll)</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Quarters, new { @class = "form-control coin", @type = "number", @step = "10" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Halves) <small>($10.00/roll)</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Halves, new { @class = "form-control coin", @type = "number", @step = "10" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DollarCoins) <small>($25.00/roll)</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.DollarCoins, new { @class = "form-control coin", @type = "number", @step = "25" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Dollars)
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Dollars, new { @class = "form-control currency", @type = "number", @step = "1" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Fives)
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Fives, new { @class = "form-control currency", @type = "number", @step = "5" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Tens)
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Tens, new { @class = "form-control currency", @type = "number", @step = "10" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Twenties)
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Twenties, new { @class = "form-control currency", @type = "number", @step = "20" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Fifties)
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Fifties, new { @class = "form-control currency", @type = "number", @step = "50" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Hundreds)
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Hundreds, new { @class = "form-control currency", @type = "number", @step = "100" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <em>* Halves and Dollar Coins Subject to Availability</em>
+                    </fieldset>
+                    <hr />
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TotalCoin)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.TotalCoin, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TotalCurrency)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.TotalCurrency, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TotalChangeOrder)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.TotalChangeOrder, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recaptcha">
+                        <div class="g-recaptcha" data-sitekey="@SettingsKeyInfoProvider.GetValue(CMS.SiteProvider.SiteContext.CurrentSiteName + ".CMSReCaptchaPublicKey")"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <em>Only previously authorized individuals will be allowed to retrieve order.</em>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,122 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.latest-posts {
+    padding-top: 4rem;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        text-align: left;
+    }
+
+    &__heading {
+        color: $secondary;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+        position: relative;
+        text-align: center;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 30%;
+            margin: 0 0 4rem;
+            padding: 0;
+            text-align: left;
+        }
+
+        &::before {
+            background: $bright-green;
+            content: '';
+            height: 2px;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 6.5rem;
+
+            @include media-breakpoint-up(lg) {
+                left: calc(-9.5rem);
+                right: auto;
+                top: 2.25rem;
+            }
+        }
+
+        strong {
+            color: $primary;
+            display: block;
+            font-weight: $font-weight-extrabold;
+        }
+    }
+
+    &__img {
+
+        > img {
+            position: relative;
+            width: 100%;
+            z-index: -1;
+
+            @include media-breakpoint-up(lg) {
+                transform: translateX(-9.5rem);
+            }
+        }
+
+        .btn {
+            margin: 0 auto;
+            transform: translateY(50%);
+
+            @include media-breakpoint-up(lg) {
+                margin: 0 auto 0 0;
+            }
+        }
+    }
+
+    &__list {
+        margin-top: 3rem;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 58%;
+            margin-top: 5rem;
+            padding-right: 2rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            flex-basis: 42.5%;
+        }
+    }
+
+    .post {
+        margin-bottom: 2rem;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 3.5rem;
+        }
+
+        &__category {
+            font-weight: $font-weight-bold;
+            text-transform: uppercase;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 1.4rem;
+            }
+        }
+
+        a {
+            color: $green;
+            font-size: 1.4rem;
+            font-weight: $font-weight-bold;
+            line-height: 1.167;
+            text-decoration: none;
+
+            @include hover-focus {
+                text-decoration: underline;
+            }
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2.4rem;
+            }
+        }
+    }
+}

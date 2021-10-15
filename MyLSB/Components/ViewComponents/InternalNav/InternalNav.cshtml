@@ -1,0 +1,13 @@
+﻿@model MenuItemViewModel
+
+<nav class="internal-nav dropdown" aria-labelledby="internalNav">
+    <a class="dropdown-toggle" href="#" role="button" id="internalNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages within: <span class="internal-nav__parent">@Html.Raw(Model.Text)</span><span class="fas fa-chevron-down" aria-hidden="true"></span></a>
+    <div class="dropdown-menu" aria-labelledby="internalNav">
+        @foreach (var menuItem in Model.Children)
+        {
+            <a href="@Url.Content(menuItem.Url)" class="dropdown-item" @Html.Raw(menuItem.NewTab ? "target=\"_blank\"" : "")>
+                @Html.Raw(menuItem.Text)@Html.Raw(menuItem.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+            </a>
+        }
+    </div>
+</nav>

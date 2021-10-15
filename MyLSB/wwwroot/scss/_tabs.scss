@@ -1,0 +1,145 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+.nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    padding: 0;
+
+    .nav-item {
+        @include media-breakpoint-down(md) {
+            flex: 1;
+            padding: 0;
+        }
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        & + .nav-item {
+            .nav-link {
+                border-left: none;
+            }
+        }
+
+        &::before {
+            content: none;
+        }
+
+        a {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
+            .icon {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .nav-link {
+        border: 1px solid $nav-tabs-border-color;
+        color: $body-color;
+        font-size: 1.5rem;
+        font-weight: $font-weight-bold;
+        position: relative;
+        text-decoration: none;
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: $secondary;
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline: none;
+            text-decoration: underline;
+        }
+
+        &.active {
+            border-bottom-color: $card-bg;
+
+            &::before {
+                background: $bright-green;
+                content: '';
+                height: .3rem;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+.tab-content {
+}
+
+.tab-pane {
+
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.4rem;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+
+        &.card {
+            border-top: none;
+
+            > .card-header {
+                display: none;
+            }
+
+            .card-body {
+                padding: 2.5rem 2rem;
+            }
+
+            > .collapse {
+                display: block;
+            }
+
+            > .collapsing {
+                height: auto !important;
+            }
+
+            & + .card {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.tab-to-accordion {
+    &.accordion {
+        @include media-breakpoint-up(lg) {
+            border: none;
+        }
+    }
+
+    .nav-tabs {
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    .tab-pane {
+        @include media-breakpoint-down(md) {
+            &.card {
+                border: none;
+                display: block !important;
+                opacity: 1;
+
+                & + .card {
+                    margin-top: .9rem;
+                }
+            }
+        }
+    }
+}

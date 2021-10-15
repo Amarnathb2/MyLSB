@@ -1,0 +1,69 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.employees {
+    margin: 3rem 0;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        margin-block: 2rem;
+    }
+
+    .employee {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+
+            @include hover-focus {
+                text-decoration: underline;
+            }
+        }
+
+        &__photo {
+            max-width: 100%;
+        }
+
+        &__name {
+            font-size: 1.6rem;
+            line-height: 1;
+            margin: 1rem 0 0;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2rem;
+            }
+        }
+
+        &__title {
+            font-weight: $font-weight-bold;
+            margin: 0 0 .5rem;            
+        }
+
+        &__phone + .employee__location::before {
+            content: '|';
+            display: inline-block;
+            margin: 0 .5rem;
+        }
+
+        &__bio-link {
+            margin-top: 1rem;
+        }
+
+        .fa-phone {
+            color: $primary;
+        }
+    }
+}

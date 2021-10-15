@@ -1,0 +1,53 @@
+﻿@model JsonTablePickerModel
+
+
+@if (!String.IsNullOrEmpty(Model.Vc.Title))
+{
+    <h2>@Html.Raw(Model.Vc.Title)</h2>
+}
+
+@if (!String.IsNullOrEmpty(Model.Vc.Text))
+{
+    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.Vc.Text))
+}
+
+@if (Model.ColumnNames.Any() && Model.Rows.Any())
+{
+    <div class="vc-json-table-picker-table table-responsive" id="table_@(Model.NodeID)">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    @foreach (string ColumnName in Model.ColumnNames)
+                    {
+                        <th scope="col">@Html.Raw(ColumnName)</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (List<string> Row in Model.Rows)
+                {
+                    <tr>
+                        @if (!Model.Vc.TableFirstColumn)
+                        {
+                            foreach (string Cell in Row)
+                            {
+                                <td>@Html.Kentico().ResolveUrls(Cell)</td>
+                            }
+                        }
+                        else
+                        {
+                            foreach (string Cell in Row.Take(1))
+                            {
+                                <th scope="row">@Html.Kentico().ResolveUrls(Cell)</th>
+                            }
+                            foreach (string Cell in Row.Skip(1))
+                            {
+                                <td>@Html.Kentico().ResolveUrls(Cell)</td>
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

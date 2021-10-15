@@ -1,0 +1,194 @@
+﻿// Color system
+
+$dark-teal: #115e67;
+$green: #1c8173;
+$bright-green: #b5bd00;
+$light: #f1f8f7;
+$dark: #58605f;
+
+$primary: $dark-teal;
+$secondary: $green;
+
+$theme-colors: ("primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark);
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-rounded: false;
+
+// Body
+$body-color: $dark;
+
+// Links
+$link-color: $dark-teal;
+$link-hover-color: $dark-teal;
+
+// Paragraphs
+$paragraph-margin-bottom: 3rem;
+
+// Typography
+$font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-awesome: "Font Awesome 5 Pro";
+$font-family-base: $font-family-sans-serif;
+
+$font-weight-semibold: 600 !default;
+$font-weight-extrabold: 800 !default;
+
+$font-weight-base: $font-weight-semibold;
+$font-size-base: 1.2rem;
+
+$h1-font-size: 2.8rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.8rem;
+$h4-font-size: 1.6rem;
+
+$headings-font-weight: $font-weight-bold;
+$headings-color: $primary;
+
+// Tables
+$table-cell-padding: 2.5rem 1rem;
+
+$table-color: $body-color;
+$table-bg: $white;
+
+$table-border-width: 2px;
+$table-border-color: #eaeaea;
+
+$table-head-color: $primary;
+
+// Buttons + Forms
+$input-btn-font-size: 1.2rem;
+$input-btn-border-width: 2px;
+
+// Buttons
+$btn-padding-y: .4rem;
+$btn-padding-x: 1rem;
+$btn-font-size: $input-btn-font-size;
+
+$btn-box-shadow: none;
+$btn-focus-width: 0;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+
+$btn-border-width: $input-btn-border-width;
+
+$btn-font-weight: $font-weight-bold;
+
+//Forms
+$label-margin-bottom: 1rem;
+    
+$input-padding-y: 1.5rem;
+$input-padding-x: 2rem;
+$input-font-size: 1.6rem;
+$input-font-weight: $font-weight-bold;
+
+$input-bg: $light;
+
+$input-color: #454545;
+$input-border-color: #d7d7d7;
+$input-border-width: 1px;
+$input-box-shadow: none;
+
+$input-focus-bg: $input-bg;
+$input-focus-border-color: $dark-teal;
+$input-focus-box-shadow: inset 1px 1px 0 $dark-teal, inset -1px -1px 0 $dark-teal;
+
+$input-height-inner: 4.7rem;
+$input-height: calc(#{$input-height-inner} + #{$input-height-border});
+
+$custom-control-indicator-size: 1.6rem;
+
+$custom-control-indicator-bg-size: 100%;
+
+$custom-control-indicator-border-color: theme-color("secondary");
+$custom-control-indicator-checked-color: $white;
+$custom-control-indicator-checked-bg: theme-color("secondary");
+$custom-control-indicator-checked-border-color: theme-color("secondary");
+
+$custom-control-indicator-focus-box-shadow: none;
+$custom-control-indicator-focus-border-color: $custom-control-indicator-border-color;
+
+$custom-checkbox-indicator-border-radius: 0;
+$custom-checkbox-indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 11.41'%3e%3cpath fill='#{$white}' d='M11.49,0,5.2,6.34,2.51,3.62,0,6.16l5.2,5.25L14,2.53Z'/%3e%3c/svg%3e"), "#", "%23");
+
+$custom-select-padding-y: 0;
+$custom-select-padding-x: $input-padding-x;
+$custom-select-font-size: $input-font-size;
+$custom-select-height: $input-height;
+$custom-select-indicator-padding: 2rem;
+$custom-select-color: $input-color;
+$custom-select-bg: $input-bg;
+$custom-select-bg-size: 1.2rem .8rem;
+$custom-select-indicator-color: $secondary;
+$custom-select-indicator: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 8'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M6.15,7.6l-6-6A.49.49,0,0,1,.14,1L1,.14a.49.49,0,0,1,.69,0L6.5,5,11.36.14a.49.49,0,0,1,.69,0l.81.81a.49.49,0,0,1,0,.69l-6,6a.5.5,0,0,1-.7,0Z'/%3E%3C/svg%3E"), "#", "%23");
+$custom-select-background: $custom-select-indicator no-repeat right $custom-select-padding-x center / $custom-select-bg-size; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
+
+$custom-select-border-width: $input-border-width;
+$custom-select-border-color: $input-border-color;
+$custom-select-border-radius: $input-border-radius;
+
+$custom-select-focus-border-color: $input-focus-border-color;
+$custom-select-focus-box-shadow: $input-focus-box-shadow;
+
+// Dropdowns
+$dropdown-font-size: 1em;
+
+// Navs
+$nav-link-padding-y: 1.4rem;
+$nav-link-padding-x: 1.5rem;
+
+$nav-tabs-border-color: #e7eaea;
+$nav-tabs-border-width: 1px;
+$nav-tabs-border-radius: $border-radius;
+$nav-tabs-link-hover-border-color: $nav-tabs-border-color;
+$nav-tabs-link-active-color: $primary;
+$nav-tabs-link-active-bg: $white;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color;
+
+//Pagination
+$pagination-padding-y: 1rem;
+$pagination-padding-x: 1rem;
+
+$pagination-color: $secondary;
+$pagination-bg: transparent;
+$pagination-border-color: #d6d6d6;
+
+$pagination-focus-box-shadow: none;
+$pagination-focus-outline: 2px;
+
+$pagination-hover-color: $pagination-color;
+$pagination-hover-bg: $pagination-bg;
+$pagination-hover-border-color: $secondary;
+
+$pagination-active-color: $white;
+$pagination-active-bg: $primary;
+$pagination-active-border-color: $primary;
+
+$pagination-disabled-color: #cacaca;
+$pagination-disabled-bg: $pagination-bg;
+$pagination-disabled-border-color: $pagination-border-color;
+
+// Cards
+$card-border-color: #e7eaea;
+
+// Breadcrumbs
+$breadcrumb-font-size: 1.2rem;
+
+$breadcrumb-padding-y: 0;
+$breadcrumb-padding-x: 0;
+$breadcrumb-item-padding: .5rem !default;
+
+$breadcrumb-margin-bottom: 0;
+
+$breadcrumb-bg: transparent;
+$breadcrumb-divider-color: $body-color;
+$breadcrumb-active-color: $body-color;
+
+
+//Modals
+
+$modal-xl: 114rem;
+$modal-lg: 80rem;
+$modal-md: 50rem;
+$modal-sm: 30rem;

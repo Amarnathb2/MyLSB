@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CategorySubpageItemViewModel>
+
+<div class="category-nav">
+    <div class="container">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var page = Model.ElementAt(i);
+
+            if (i % 2 == 0)
+            {
+                @:<div class="row d-lg-flex flex-wrap align-items-stretch staggered-animation-container" id="category-nav_@(page.NodeID)">
+            }
+                <div class="col-lg-5 @(i % 2 == 0 ? "offset-lg-1" : "")">
+                    <a href="@Url.Content(page.Url)" class="category-nav__item staggered-animation" @Html.Raw(page.NewTab ? "target=\"_blank\"" : "") data-os-animation="animate__fadeInUp" data-os-animation-delay="@(i % 2 == 0 ? "0" : ".3")s">
+                        <h3 class="category-nav__item-heading">@Html.Raw(page.Text)</h3>
+                        <div class="category-nav__item-sub">@Html.Kentico().ResolveUrls(MacroResolver.Resolve(page.Summary))</div>
+                        @Html.Raw(page.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                        <img src="~/images/triangle-br-bg.svg" alt="" aria-hidden="true" class="category-nav__item-decoration" />
+                    </a>
+                </div>
+            if (i % 2 == 1)
+            {
+                @:</div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.features {
+    color: $secondary;
+    font-weight: $font-weight-bold;
+    padding-top: 2.8rem;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        padding: 5.5rem 0;
+    }
+
+    &__heading {
+        color: $secondary;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 40%;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        &::before {
+            background: $bright-green;
+            content: '';
+            height: 2px;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 6.5rem;
+
+            @include media-breakpoint-up(lg) {
+                left: calc(-6.5rem - #{$grid-gutter-width});
+                right: auto;
+                top: 2.25rem;
+            }
+        }
+
+        strong {
+            color: $primary;
+            display: block;
+            font-weight: $font-weight-extrabold;
+        }
+    }
+
+    &__list {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        @include media-breakpoint-up(lg) {
+            align-items: start;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        li::before {
+            content: none;
+        }
+    }
+
+    .feature {
+        margin-bottom: 2.5rem;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 100%;
+            margin: 0 3rem;
+        }
+
+        &__icon {
+            display: block;
+            height: 3.3rem;
+            margin: .5rem auto;
+            width: 3.2rem;
+
+            @include media-breakpoint-up(lg) {
+                height: 5.5rem;
+                margin: 0 auto 1rem;
+                width: 5.2rem;
+            }
+        }
+    }
+}

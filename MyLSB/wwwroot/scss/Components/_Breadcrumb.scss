@@ -1,0 +1,32 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.breadcrumb {
+    justify-content: center;
+    margin: 4rem 0 .5rem;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.4rem;
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+
+    a {
+        color: inherit;
+        font-weight: inherit;
+        text-decoration: none;
+
+        @include hover-focus {
+            text-decoration: underline;
+        }
+    }
+
+    &-item {
+        &.active {
+            display: none;
+        }
+    }
+}

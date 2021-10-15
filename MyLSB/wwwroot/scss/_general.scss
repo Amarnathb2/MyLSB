@@ -1,0 +1,138 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+:focus {
+    outline: none;
+}
+
+a:focus {
+    outline: 2px solid;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: 320px;
+    overflow-x: hidden;
+
+    &.has-overlay {
+        position: relative;
+
+        &::before {
+            background: rgba($black, .5);
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 4;
+        }
+    }
+
+    &.no-js {
+        .staggered-animation,
+        .os-animation {
+            opacity: 1;
+        }
+    }
+}
+
+[hidden] {
+    display: none;
+}
+
+.staggered-animation,
+.os-animation {
+    opacity: 0;
+
+    &.animate__animated,
+    &.animation-complete {
+        opacity: 1;
+    }
+}
+
+
+.skipto {
+    background: white;
+    display: block;
+    left: -999px;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    z-index: 1001;
+
+    &:focus {
+        left: 10px;
+    }
+}
+
+.dropdown {
+
+    &-toggle {
+        &::after {
+            content: none;
+        }
+    }
+
+    &-menu {
+        a {
+            font-weight: $font-weight-semibold;
+            text-decoration: none;
+
+            @include hover-focus {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+div.richtext,
+div.disclosure {
+    margin-bottom: 4rem;
+
+    :last-child {
+        margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 7rem;
+    }
+}
+
+div.disclosure {
+    border-top: 2px solid #e7e7e7;
+    padding-top: 2.5rem;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 3rem;
+    }
+}
+
+#broker-check {
+    position: fixed;
+    top: 272px;
+    right: 16px;
+    z-index: 700000;
+    display: block;
+
+    @include media-breakpoint-down(sm) {
+        position: fixed;
+        top: inherit;
+        bottom: 16px !important;
+        right: 16px;
+        z-index: 700000;
+        display: block;
+    }
+}
+iframe {
+    border: none;
+    width: 1px;
+    min-width: 100%;
+}

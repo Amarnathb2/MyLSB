@@ -1,0 +1,104 @@
+﻿@model LocationsViewModel
+@{
+    var Locations = Model.Locations;
+}
+<js path="@Model.GoogleApiString" version=false></js>
+
+<div id="locations_@(Model.NodeID)" class="locations">
+    <div class="container">
+        <div class="locationsModule map-updating" data-ng-controller="Locations_Ctl" id="ngLocationApp" data-ng-init="init()">
+            <div id="form" class="locations__form kentico-form">
+                <div class="locations__form-layout">
+                    <div class="form-group form-group-text form-group--required address">
+                        <label for="locations-form-address">Address, City, State or ZIP</label>
+                        <input class="form-control" id="locations-form-address" type="text" data-ng-model="Address" aria-required="true" data-ng-enter-refresh />
+                        <div data-ng-hide="Address.trim().length>0" class="zag-validation-error-angular" data-ng-cloak>Location is required</div>
+                    </div>
+                    <div class="form-group form-group--required radius">
+                        <label for="locations-form-radius">Radius</label>
+                        <div class="select-wrapper">
+                            <select class="custom-select" id="locations-form-radius" data-ng-model="SearchValues.Radius" data-ng-options="x for x in [1,2,5,10,25,50,100]" data-ng-enter-refresh></select>
+                        </div>
+                        <div data-ng-hide="SearchValues.Radius>0" class="zag-validation-error-angular" data-ng-cloak>Radius is required</div>
+                    </div>
+                    <div class="form-group form-group-submit">
+                        <input id="locations__form-submit" type="button" class="btn btn-primary" value="Search" data-ng-click="refresh()" data-ng-enter-refresh />
+                    </div>
+                </div>
+                @*<div class="locations__form-layout">
+                        <div class="form-group form-group-checkboxes form-group-required">
+                            <fieldset>
+                                <legend>Indicate which type of location you are searching for</legend>
+                                <div class="editing-form-control-nested-control">
+                                    <span class="ktc-checkbox-list ktc-checkbox-list-horizontal">
+                                        <span class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" id="page-locations-search-website" data-ng-model="SearchValues.Connectors[0].selected" data-ng-click="setCheckBoxValidation()" />
+                                            <label for="page-locations-search-website">Kentico</label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div data-ng-hide="CheckBoxesAreValid" class="zag-validation-error-angular">Please choose one or more options</div>
+                            </fieldset>
+                        </div>
+                    </div>*@
+                @*<div class="vc-locations-form-layout">
+                        <div class="form-group form-group-checkboxes form-group-required">
+                            <fieldset>
+                                <legend>Indicate which type of services you are searching for</legend>
+                                <div class="editing-form-control-nested-control">
+                                    <span class="ktc-checkbox-list ktc-checkbox-list-horizontal">
+                                        <span class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" id="LocationTypeBankingFinancialServices" type="checkbox" data-ng-model="SearchValues.Connectors[0].filters[0].selected" />
+                                            <label for="LocationTypeBankingFinancialServices">Banking and Financial Services</label>
+                                        </span>
+                                        <span class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" id="LocationTypeInsuranceTrustWealthManagement" type="checkbox" data-ng-model="SearchValues.Connectors[0].filters[1].selected" />
+                                            <label for="LocationTypeInsuranceTrustWealthManagement">Insurance, Trust and Wealth Management</label>
+                                        </span>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>*@
+                @*<div class="locations__form-row">
+
+                </div>*@
+            </div>
+            <div class="locations__results">
+                <div class="locations__results-layout">
+                    <div class="locations__results-list" aria-live="polite" aria-atomic="true">
+                        <div>{{LocationsLabel}}</div>
+                        <ul>
+                            <li data-ng-repeat="location in Locations | orderBy:'distanceString'" class="location" id="{{location.id}}" data-ng-click="fireMarkerEvent(location.id)" data-ng-cloak tabindex="0">
+                                <div class="info">
+                                    <div class="name">{{location.name}}</div>
+                                    <div class="distance">Distance: {{location.distanceString}} miles</div>
+                                    <div class="types">
+                                        <div>Services:</div>
+                                        <ul>
+                                            <li data-ng-if="location.locationTypeBankingFinancialServices">Banking and Financial Services</li>
+                                            <li data-ng-if="location.locationTypeInsuranceTrustWealthManagement">Insurance, Trust and Wealth Management</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="address">
+                                    <div>{{location.address1}}</div>
+                                    <div data-ng-if="location.address2!=''">{{location.address2}}</div>
+                                    <div>{{location.city}}, {{location.state}} {{location.zipCode}}</div>
+                                </div>
+                                <div class="links">
+                                    <div data-ng-if="location.phoneLink!=''"><a href="{{location.phoneLink}}">{{location.phone}}</a></div>
+                                    <div data-ng-if="location.googleDirectionsLink!=''"><a href="{{location.googleDirectionsLink}}" target="_blank">Directions<span class="sr-only"> to {{location.name}} - opens in new window</span></a></div>
+                                    <div data-ng-if="location.type=='Website'"><a href="{{location.kenticoUrl}}">More Info<span class="sr-only"> about {{location.name}}</span></a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="locations__results-map">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

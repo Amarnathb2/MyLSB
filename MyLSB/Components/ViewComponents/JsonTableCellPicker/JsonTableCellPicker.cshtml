@@ -1,0 +1,16 @@
+﻿@model JsonTableCellPickerModel
+
+<section class="vc-json-table-cell-picker">
+    <div class="container">
+        <div class="table-cell-picker" aria-label="@Html.Raw(Model.Vc.DocumentName)">
+            @if (!String.IsNullOrEmpty(Model.Vc.Rate))
+            {
+
+                <h2>@Html.Raw(Model.Vc.DocumentName)</h2>
+                <div class="rate">
+                    @Html.Raw(Model.FormattedRate)
+                </div>
+            }
+        </div>
+    </div>
+</section>

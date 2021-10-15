@@ -1,0 +1,215 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+.form {
+    font-size: 1.4rem;
+
+    button[type="submit"],
+    input[type="submit"] {
+        margin: 2rem auto;
+    }
+}
+
+.input-group-prepend,
+.input-group-append{
+    height: $input-height;
+}
+
+.form-group {
+    font-size: $input-font-size;
+
+    &--required {
+        label,
+        .form-label {
+            &::after {
+                content: '*';
+            }
+        }
+
+        legend.form-label::after {
+            content: none;
+        }
+    }
+
+    .form-control,
+    .custom-select {
+        background-clip: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &::-webkit-datetime-edit {
+            line-height: 1;
+        }
+
+        &.input-validation-error {
+            color: $danger;
+        }
+    }
+
+    .custom-select {
+        background-position: right 15px center;
+        z-index: 2;
+
+        option {
+            font-size: $input-font-size;
+        }
+    }
+
+    textarea.form-control {
+        min-height: 13rem;
+    }
+
+    .field-validation-error {
+        color: $danger;
+        display: block;
+        font-size: 1.5rem;
+        margin: .25rem 0 0;
+    }
+
+    label {
+        color: #5b5c63;
+    }
+}
+
+legend {
+
+}
+
+label,
+.form-label {
+    font-size: 1.2rem;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 0;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.6rem;
+    }
+}
+
+.custom-radio {
+    font-size: $input-font-size;
+    padding-left: 2.5rem;
+    margin: 1rem 0;
+
+    .custom-control-input {
+        ~ label {
+            @extend .custom-control-label;
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            position: relative;
+            vertical-align: top;
+
+            &::before {
+                height: 1.6rem;
+                left: -2.5rem;
+                top: .35rem;
+                width: 1.6rem;
+                border: 2px solid $secondary;
+            }
+
+            &::after {
+                height: 1.6rem;
+                left: -2.5rem;
+                top: .35rem;
+                width: 1.6rem;
+            }
+        }
+
+        &:not(:disabled):active {
+            & ~ label,
+            & ~ .custom-control-label {
+                &::before {
+                    background-color: rgba($secondary, .9);
+                    background-image: none;
+                    border-color: $secondary;
+                }
+            }
+        }
+
+        &:checked {
+            ~ label {
+                &::before {
+                    background-image: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$secondary}'/%3e%3c/svg%3e"), "#", "%23");
+                    top: .35rem;
+                    border-color: $secondary;
+                }
+
+                &::after {
+                    content: none;
+                    left: -2.5rem;
+                    top: .1rem;
+                }
+            }
+        }
+    }
+}
+
+.ktc-radio {
+    @extend .custom-control;
+    @extend .custom-radio;
+
+    @include media-breakpoint-up(lg) {
+        margin: 0;
+    }
+
+    &.ktc-radio-list {
+        padding: 0;
+        position: static;
+    }
+}
+
+.custom-checkbox {
+    font-size: $input-font-size;
+    margin: 1rem 0;
+    padding-left: 2.5rem;
+
+    .custom-control-input {
+        ~ label {
+            @extend .custom-control-label;
+            font-size: 1.4rem;
+
+            &::before,
+            &::after {
+                background-color: $white;
+                border: 2px solid $secondary;
+                border-radius: $custom-checkbox-indicator-border-radius;
+                height: 1.8rem;
+                left: -2.5rem;
+                top: .35rem;
+                width: 1.8rem;
+            }
+        }
+
+        &:checked {
+            & ~ label,
+            & ~ .custom-control-label {
+                &::after {
+                    background-color: $custom-control-indicator-checked-bg;
+                    background-image: $custom-checkbox-indicator-icon-checked;
+                    border-color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+.ktc-checkbox {
+    @extend .custom-control;
+    @extend .custom-checkbox;
+
+    @include media-breakpoint-up(lg) {
+        margin: 0;
+    }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+
+    &:focus {
+        ~ label::before {
+            outline: 2px solid;
+        }
+    }
+}

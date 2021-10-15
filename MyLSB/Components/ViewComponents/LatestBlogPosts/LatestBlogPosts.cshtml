@@ -1,0 +1,36 @@
+﻿@model LatestBlogPostsViewModel
+
+<section class="latest-posts" aria-label="Latest blog posts">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-11 offset-lg-1">
+                <h2 class="latest-posts__heading">@Html.Raw(Model.Heading)</h2>
+                <div class="d-lg-flex">
+                    <div class="latest-posts__img os-animation" data-os-animation="animate__slideInLeft">
+                        @if (Model.Button is not null)
+                        {
+                            <a href="@Url.Content(Model.Button.Url)" class="btn btn-secondary" @Html.Raw(Model.Button.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button.AriaLabel) ? $"aria-label=\"{Model.Button.AriaLabel}\"" : "")>
+                                @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                            </a>
+                        }
+                        <img src="@Url.Content(Model.Image)" alt="" aria-hidden="true" />
+                    </div>
+                    @if (Model.Links.Any())
+                    {
+                        <ul class="list-unstyled latest-posts__list staggered-animation-container">
+                            @foreach (var link in Model.Links)
+                            {
+                            <li class="post staggered-animation" data-os-animation="animate__fadeInRight">
+                                <div class="post__category">@Html.Raw(link.BlogPostLinkPostCategory)</div>
+                                <a href="@Url.Content(link.BlogPostLinkUrl)" @Html.Raw(link.BlogPostLinkNewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.BlogPostLinkAriaLabel) ? $"aria-label=\"{link.BlogPostLinkAriaLabel}\"" : "")>
+                                    @Html.Raw(link.BlogPostLinkText)@Html.Raw(link.BlogPostLinkNewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+                                </a>
+                            </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

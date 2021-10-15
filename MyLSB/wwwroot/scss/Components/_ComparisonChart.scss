@@ -1,0 +1,226 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.comparison {
+    &__table {
+        background: $white;
+        border-top: 3px solid $bright-green;
+        display: none;
+        box-shadow: 0 8px 16.56px 1.44px rgba($black, 0.16);
+        margin: 4rem 0 7rem;
+        padding: 4rem 2.5rem 2.5rem;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+
+        .table {
+            margin: 0;
+
+            > thead {
+
+                > tr {
+                    > th {
+                        font-size: 1.8rem;
+                        line-height: 1.333;
+                    }
+
+                    &:last-child {
+                        > th {
+                            border-bottom: none;
+                            padding: 0 2.5rem 2rem;
+                            position: relative;
+
+                            &::after {
+                                background: $bright-green;
+                                bottom: 0;
+                                content: '';
+                                height: 2px;
+                                left: 2.5rem;
+                                position: absolute;
+                                right: 2.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__cta-link {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+
+            a {
+                text-decoration: none;
+
+                @include hover-focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &__cta-btn {
+            font-size: 1.2rem;
+            min-width: 12rem;
+        }
+
+        &-decoration {
+            bottom: -1.4rem;
+            height: 6.7rem;
+            position: absolute;
+            right: -1.2rem;
+            z-index: -1;
+        }
+    }
+
+    &__cards {
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+    }
+
+    &__card {
+        background: $white;
+        border-top: 2px solid $bright-green;
+        box-shadow: 0 8px 16.56px 1.44px rgba($black, 0.16);
+        margin: 3rem auto;
+        padding: 2rem;
+        position: relative;
+        text-align: center;
+
+        &-decoration {
+            bottom: -.8rem;
+            height: 4.5rem;
+            position: absolute;
+            right: -.8rem;
+            z-index: -1;
+        }
+
+        &-heading > div:first-child {
+            font-size: 1.6rem;
+            font-weight: $font-weight-extrabold;
+            margin: 0;
+        }
+
+        dt {
+            font-weight: $font-weight-extrabold;
+        }
+
+        &__cta-link {
+            font-size: 1.2rem;
+            font-weight: $font-weight-extrabold;
+            margin: 1.5rem 0;
+
+            a {
+                text-decoration: none;
+
+                @include hover-focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &__cta-btn {
+            font-size: 1.2rem;
+            margin: 0 auto;
+            min-width: 12rem;
+        }
+
+        &-summary {
+            margin: 1.5rem 0 2rem;
+            padding-top: 1.5rem;
+            position: relative;
+
+            &::before {
+                background: $bright-green;
+                content: '';
+                height: 2px;
+                left: 3rem;
+                position: absolute;
+                right: 3rem;
+                top: 0;
+            }
+        }
+    }
+
+    &__features {
+
+        &-btn-wrap {
+            padding-top: 1.5rem;
+            position: relative;
+
+            &::after {
+                background: $bright-green;
+                content: '';
+                height: 2px;
+                left: 3rem;
+                position: absolute;
+                right: 3rem;
+                top: 0;
+            }
+
+            .btn-link {
+                display: inline-flex;
+                font-weight: $font-weight-extrabold;
+                margin: 0 auto;
+                padding: 0 1.5rem 0 0;
+                position: relative;
+                text-decoration: none;
+                text-transform: uppercase;
+
+                &::after {
+                    content: "\f068";
+                    display: inline-block;
+                    font-family: $font-awesome;
+                    font-weight: $font-weight-bold;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .comparison__features-btn-more {
+                    display: none;
+                }
+
+                .comparison__features-btn-less {
+                    display: inline;
+                }
+
+                &.collapsed {
+
+                    &::after {
+                        content: '\f067';
+                    }
+
+                    .comparison__features-btn-more {
+                        display: inline;
+                    }
+
+                    .comparison__features-btn-less {
+                        display: none;
+                    }
+                }
+
+                @include hover-focus {
+                    color: $secondary;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .fas {
+            color: $primary;
+            font-size: 2rem;
+        }
+    }
+}
+
+@media print {
+    .comparison .collapse {
+        display: block;
+    }
+}
