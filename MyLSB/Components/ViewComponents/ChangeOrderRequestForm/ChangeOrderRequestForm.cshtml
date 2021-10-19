@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-1">
-                <form asp-controller="ChangeOrderRequestForm" asp-action="Index" class="needs-validation" method="post" novalidate="novalidate">
+                <form asp-controller="changeorderrequestform" asp-action="index" class="needs-validation" method="post" novalidate="novalidate">
                     @Html.HiddenFor(m => m.ConfirmationPage, new { @value = Model.ConfirmationPage })
                     <div class="form-row">
                         <div class="col">
