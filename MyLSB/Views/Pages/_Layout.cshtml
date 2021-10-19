@@ -10,6 +10,12 @@
 </nav>
 <vc:alerts />
 <header class="site-header">
+    @if (Context.Request.Path.ToString().StartsWith("/invest"))
+    {
+        <div id="broker-check">
+            <a href="http://brokercheck.finra.org#sthash.lU1cDXH4.dpuf" target="_blank"><img src="~/images/BC_firm_badge_color_200wide.png" alt="BrokerCheck"></a>
+        </div>
+    }
     <div class="site-header__inner">
         <a href="/" class="logo">
             <img src="~/images/logo.svg" alt="Go to the Lincoln Savings Bank home page" />
@@ -74,12 +80,21 @@
                         &copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330<br />
                         Website by <a href="https://www.zaginteractive.com" target="_blank">ZAG Interactive</a> | <a href="/sitemap">Sitemap</a>
                     </small>
-                    @if (!Model.ShowInsuranceDisclosure)
+                    @if (Model.ShowFooterEmblems)
                     {
                         <div class="site-footer__emblems">
-                            <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
-                                <img src="~/images/privileged.png" alt="Priviliged Status" />
-                            </a>
+                            @if (!String.IsNullOrEmpty(Model.PrivilegedStatusUrl))
+                            {
+                                <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
+                                    <img src="~/images/privileged.png" alt="Priviliged Status" />
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="privileged">
+                                    <img src="~/images/privileged.png" alt="Priviliged Status" />
+                                </span>
+                            }
                             <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
                             <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
                         </div>

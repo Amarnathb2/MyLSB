@@ -31,6 +31,7 @@ var jsPaths = [
     'wwwroot/lib/waypoints/jquery.waypoints.js',
     'wwwroot/lib/flickity/flickity.pkgd.js',
     'wwwroot/lib/odometer.js/odometer.js',
+    'wwwroot/lib/iframe-resizer/iframeResizer.min.js',
     'wwwroot/scripts/rotaterator.js',
     'wwwroot/scripts/ZAGFramework-plugins-before.js',
     'wwwroot/scripts/base.js',    

@@ -39,6 +39,15 @@
         "themes/odometer-theme-default.css",
         "themes/odometer-theme-default.min.css"
       ]
+    },
+    {
+      "library": "iframe-resizer@4.3.2",
+      "destination": "wwwroot/lib/iframe-resizer/",
+      "files": [
+        "iframeResizer.js",
+        "iframeResizer.map",
+        "iframeResizer.min.js"
+      ]
     }
   ]
 }

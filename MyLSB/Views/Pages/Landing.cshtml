@@ -49,12 +49,21 @@
             </div>
             <small>&copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330</small>
         </div>
-        @if (!Model.ShowInsuranceDisclosure)
+        @if (Model.ShowFooterEmblems)
         {
             <div class="landing-footer__emblems">
-                <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
-                    <img src="~/images/privileged.png" alt="Priviliged Status" />
-                </a>
+                @if (!String.IsNullOrEmpty(Model.PrivilegedStatusUrl))
+                {
+                    <a href="@Url.Content(Model.PrivilegedStatusUrl)" class="privileged">
+                        <img src="~/images/privileged.png" alt="Priviliged Status" />
+                    </a>
+                }
+                else
+                {
+                    <span class="privileged">
+                        <img src="~/images/privileged.png" alt="Priviliged Status" />
+                    </span>
+                }
                 <img class="ehl" src="~/images/ehl.svg" alt="Equal Housing Lender" />
                 <img class="fdic" src="~/images/fdic.svg" alt="Member FDIC" />
             </div>

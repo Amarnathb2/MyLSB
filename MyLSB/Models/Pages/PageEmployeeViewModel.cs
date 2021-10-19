@@ -25,7 +25,9 @@ namespace MyLSB.Models.Pages
         public string MobilePhone { get; set; }
         public string Fax { get; set; }
         public string ContactFormID { get; set; }
-        public HubSpotForm ContactForm { get; set; } 
+        public HubSpotForm ContactForm { get; set; }
+
+        public bool ShowWealthManagementLogo { get; set; }
 
         public PageEmployeeViewModel(PageEmployee page, Settings settings, PageRepository pageRepository, PartialsRepository partialsRepository) : base(page, settings, pageRepository, partialsRepository)
         {
@@ -53,8 +55,9 @@ namespace MyLSB.Models.Pages
             //};
 
             BodyClass = "employee-page";
-            OpenGraphImage = URLHelper.GetAbsoluteUrl(page.GetStringValue(page.EmployeePhoto, "~/MyLSB/media/Images/opengraph.jpg"));
-            OpenGraphImageAlt = page.GetStringValue(page.EmployeeName, "Lincoln Savings Bank");
+            OpenGraphImage = URLHelper.GetAbsoluteUrl(page.GetStringValue("EmployeePhoto", "~/MyLSB/media/Images/opengraph.jpg"));
+            OpenGraphImageAlt = page.GetStringValue("EmployeeName", "Lincoln Savings Bank");
+            ShowWealthManagementLogo = page.GetBooleanValue("ShowWealthManagementLogo", false);
         }
     }
 }
