@@ -1,0 +1,127 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.masthead {
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        text-align: left;
+    }
+
+    &__bg {
+        background: $light;
+        position: relative;
+
+        > .container {
+            @include media-breakpoint-up(lg) {
+                position: relative;
+            }
+        }
+    }
+
+    &__img {
+        display: none;
+        max-width: 61.5rem;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+            transform: translateY(3rem);
+        }
+    }
+
+    &__ctas {
+        margin: auto;
+        min-width: 19.2rem;
+
+        @include media-breakpoint-up(lg) {
+            left: 0;
+            margin: auto;
+            max-width: 25%;
+            right: 0;
+            width: 28.5rem;
+        }
+
+        &-inner {
+            background: $primary;
+            display: flex;
+            flex-direction: column;
+            padding: 1.8rem;
+            text-align: center;
+            margin: 1.5rem auto 3rem;
+
+            @include media-breakpoint-up(lg) {
+                margin: 0;
+                padding: 3.5rem 2.5rem;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            z-index: 1;
+        }
+
+        &-divider {
+            background: $bright-green;
+            height: 2px;
+            margin: 1.8rem 0;
+            width: 100%;
+
+            @include media-breakpoint-up(lg) {
+                margin: 2.5rem 0;
+            }
+        }
+    }
+
+    &__cta {
+        color: $white;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 2.1rem;
+        }
+
+        &::after {
+            content: '\f061';
+            display: inline-block;
+            font-family: $font-awesome;
+            margin-left: .5rem;
+            transition: transform .25s ease-in-out;
+        }
+
+        @include hover-focus {
+            color: $white;
+            text-decoration: underline;
+
+            &::after {
+                transform: translateX(.3rem);
+            }
+        }
+    }
+
+    &__decoration {
+        height: 6rem;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            height: 15.3rem;
+            right: -11rem;
+        }
+    }
+
+    &__nav-container {
+        @include media-breakpoint-up(lg) {
+            min-height: 5.4rem;
+        }
+    }
+
+    + div.container {
+        margin-top: 2.5rem;
+    }
+}

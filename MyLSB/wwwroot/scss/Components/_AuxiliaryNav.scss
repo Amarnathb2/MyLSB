@@ -1,0 +1,33 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.auxiliary-nav {
+    display: none;
+    font-size: 0;
+    text-align: right;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+
+    .list-inline {
+        margin: .5rem 0 1.75rem;
+    }
+
+    .list-inline-item:not(:last-child) {
+        margin-right: 2rem;
+    }
+
+    a {
+        color: #6f7779;
+        font-size: 1.3rem;
+        text-decoration: none;
+
+        @include hover-focus() {
+            color: $secondary;
+            text-decoration: underline;
+        }
+    }
+}

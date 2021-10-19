@@ -1,0 +1,107 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.footer-nav {
+    margin: 2.5rem 0;
+    text-align: left;
+
+    @include media-breakpoint-up(lg) {
+        margin: -.75rem 0 6rem;
+    }
+
+    li::before {
+        content: none;
+    }
+
+    &__level-1 {
+        margin: 0;
+        padding: 0;
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            width: 100%;
+        }
+
+        &-item {
+            background: $white;
+            margin: 0 0 0.8rem;
+            padding: 0;
+
+            @include media-breakpoint-up(lg) {
+                background: none;
+                margin: 0;
+                width: 50%;
+            }
+
+            > button {
+                background: none;
+                border: none;
+                color: $secondary;
+                display: block;
+                font-size: 1.4rem;
+                font-weight: $font-weight-bold;
+                padding: 1rem 3rem 1rem 1.5rem;
+                position: relative;
+                text-align: left;
+                text-decoration: none;
+                width: 100%;
+
+                @include hover-focus {
+                    text-decoration: underline;
+                }
+
+                &:focus {
+                    outline: 2px solid;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    background: none;
+                    color: $primary;
+                    cursor: default;
+                    font-size: 1.8rem;
+                    padding: 0;
+
+                    @include hover-focus {
+                        text-decoration: none;
+                    }
+                }
+
+                &::after {
+                    content: '\f068';
+                    font-family: $font-awesome;
+                    font-weight: $font-weight-light;
+                    position: absolute;
+                    right: 1.5rem;
+
+                    @include media-breakpoint-up(lg) {
+                        content: none;
+                    }
+                }
+
+                &.collapsed::after {
+                    content: '\f067';
+                }
+            }
+        }
+    }
+
+    &__level-2 {
+        margin: 1rem 0 0;
+        padding: 0 1.5rem 1rem;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+        }
+
+        &-item {
+            margin: 0 0 1rem;
+            padding: 0;
+
+            @include media-breakpoint-up(lg) {
+                margin: 1rem 0 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+﻿@model PageBaseViewModel
+@{
+    var settingsCacheKeys = new[] {
+        $"node|{SiteContext.CurrentSiteName}|{ContentItemIdentifiers.SETTINGS}"
+    };
+    var cacheEnabled = !Context.Kentico().Preview().Enabled;
+}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T6HM6F3');</script>
+    <!-- End Google Tag Manager -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @if (Model.NoIndex)
+    {
+        <meta name="robots" content="noindex">
+    }
+
+    @Html.Kentico().PageTitle()
+    @Html.Kentico().PageDescription()
+    @Html.Kentico().PageKeywords()
+    <meta property="og:title" content="@Html.Encode(Model.OpenGraphTitle)" />
+    <meta property="og:type" content="@Html.Encode(Model.OpenGraphType)" />
+    <meta property="og:description" content="@Html.Encode(Model.OpenGraphDescription)" />
+    <meta property="og:image" content="@Html.Encode(Model.OpenGraphImage)" />
+    <meta property="og:image:alt" content="@Html.Encode(Model.OpenGraphImageAlt)" />
+    <meta property="og:url" content="@Html.Encode(Model.OpenGraphUrl)" />
+    <link rel="canonical" href="@Url.Kentico().PageCanonicalUrl()" />
+
+    @Html.Raw(Model.Schema)
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://assets.sitescdn.net">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.css" rel="stylesheet" type="text/css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#115e67">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#115e67">
+    <script type="text/javascript" src="https://cds-sdkcfg.onlineaccess1.com/common.js"></script>
+    <css path="~/assets/base.css" version="true" />
+    <page-builder-styles />
+</head>
+<body class="@Model.BodyClass">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6HM6F3"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <vc:cookie-notice />
+    @RenderBody()
+    <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled">
+        <cache-dependency cache-keys="@settingsCacheKeys" enabled="@cacheEnabled" />
+        <vc:speedbump />
+    </cache>
+    <page-builder-scripts />
+    <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answerstemplates.compiled.min.js"></script>
+    <script>
+        function initAnswers() {
+            ANSWERS.init({
+                apiKey: "24e41d6d52049d995b1c7db9597ba8ac",
+                experienceKey: "lincoln_savings_bank_answers",
+                experienceVersion: "PRODUCTION",
+                locale: "en", // e.g. en
+                businessId: "2187475",
+                templateBundle: TemplateBundle.default,
+                onReady: function () {
+                    ANSWERS.addComponent("SearchBar", {
+                        container: ".search__form",
+                        name: "search-bar", //Must be unique for every search bar on the same page
+                        redirectUrl: "/Search-Results",
+                        placeholderText: "What are you looking for?",
+                    });
+                },
+            });
+        }
+    </script>
+    <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.min.js" onload="ANSWERS.domReady(initAnswers)" async defer></script>
+    <js path="~/assets/base.js" version="true"></js>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+            (function() {
+                var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+                sz.src = '//siteimproveanalytics.com/js/siteanalyze_82619.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+            })();
+        /*]]>*/
+    </script>
+</body>
+</html>

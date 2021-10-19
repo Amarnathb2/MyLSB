@@ -1,0 +1,187 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+
+.primary-nav {
+    display: none;
+    justify-content: flex-end;
+    margin: 0;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+    }
+
+    li::before {
+        content: none;
+    }
+
+    &__level-1 {
+        align-items: stretch;
+        display: flex;
+        margin: 0 0 .9rem;
+        padding: 0;
+
+        &-item {
+            align-items: stretch;
+            display: flex;
+            margin: 0 2.5rem 0 0;
+            padding: 0;
+
+            @include media-breakpoint-up(xl) {
+                margin-right: 4.5rem;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            > a {
+                align-items: center;
+                color: $secondary;
+                display: flex;
+                font-size: 1.8rem;
+                font-weight: $font-weight-bold;
+                position: relative;
+                text-decoration: none;
+
+                &::after {
+                    bottom: 0;
+                    content: '';
+                    height: 2px;
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    width: 100%;
+                }
+
+                &.active,
+                &:hover,
+                &:focus {
+                    color: $primary;
+
+                    &::after {
+                        background: #a6b9bc;
+                    }
+                }
+
+                &.active {
+                    font-weight: $font-weight-extrabold;
+                }
+            }
+        }
+    }
+
+    &__level-2 {
+        margin: 0;
+        padding: 0;
+
+        &-item {
+            color: $white;
+            font-size: 1.8rem;
+            font-weight: $font-weight-bold;
+
+            > div {
+                margin-bottom: 2.4rem;
+                padding: 0 0 2.2rem;
+                position: relative;
+
+                &::after {
+                    background: $bright-green;
+                    bottom: 0;
+                    content: '';
+                    height: 2px;
+                    left: 0;
+                    width: 6.1rem;
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    &__level-3 {
+        margin: 0;
+        padding: 0;
+
+        &-item {
+            font-size: 1.4rem;
+            margin-top: 1.2rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            > a {
+                color: $white;
+                font-weight: $font-weight-bold;
+                text-decoration: none;
+
+                @include hover-focus() {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__menu {
+        background-color: $primary;
+        box-shadow: 0px 8px 16.56px 1.44px rgba($black, 0.31);
+        color: $white;
+        display: none;
+        left: 0;
+        margin: auto;
+        padding: 5.2rem 0 6.2rem;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        width: 100%;
+        z-index: $zindex-modal + 1;
+    }
+
+    .quick-links {
+        height: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: .8rem 0;
+        position: relative;
+
+        &::before {
+            background: $bright-green;
+            bottom: 0;
+            content: '';
+            left: -$grid-gutter-width;
+            position: absolute;
+            top: 0;
+            width: 2px;
+        }
+
+        li + li {
+            margin-top: 3.8rem;
+        }
+    }
+
+    .quick-link {
+        align-items: center;
+        color: $white;
+        display: flex;
+        font-size: 1.8rem;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+
+
+        @include hover-focus {
+            text-decoration: underline;
+
+            .quick-link__icon {
+                transform: translateX(.5rem);
+            }
+        }
+
+        &__icon {
+            margin-right: 2.4rem;
+            transition: transform .25s ease-in-out;
+            width: 4.3rem;
+        }
+    }
+}

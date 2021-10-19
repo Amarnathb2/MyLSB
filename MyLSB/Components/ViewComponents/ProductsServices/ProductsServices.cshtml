@@ -1,0 +1,59 @@
+﻿@model ProductsServicesViewModel
+
+<section class="products-services" aria-label="Products & Services" id="productsServices_@(Model.NodeID)">
+    <div class="container">
+        <img src="~/images/triangle-tl-bg.svg" alt="" aria-hidden="true" class="products-services__decoration os-animation" data-os-animation="animate__slideInLeft" />
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <h2 class="products-services__heading">@Html.Raw(Model.Heading)</h2>
+                <div class="tab-to-accordion accordion products-services__tabs">
+                    <ul class="nav nav-tabs tab-collapse" id="nav-tab" role="tablist" aria-orientation="vertical">
+                        @for (int i = 0; i < Model.Tabs.Count(); i++)
+                        {
+                            var tab = Model.Tabs.ElementAt(i);
+
+                            <li class="nav-item"><a class="nav-link @(i == 0 ? "active" : "")" id="productsServicesTab_@tab.NodeID" data-toggle="tab" href="#productsServicesPanel_@tab.NodeID" role="tab" aria-controls="productsServicesPanel_@tab.NodeID" aria-selected="@(i == 0 ? "true" : "false")"><img class="products-services__icon" src="@Url.Content(tab.Icon)" alt="" aria-hidden="true" />@Html.Raw(tab.Name)</a></li>
+                        }
+                    </ul>
+                    <div id="productsServicesContent_@(Model.NodeID)" class="tab-content" role="tablist">
+                        @for (int i = 0; i < Model.Tabs.Count(); i++)
+                        {
+                            var tab = Model.Tabs.ElementAt(i);
+
+                            <div id="productsServicesPanel_@tab.NodeID" class="card tab-pane fade @(i == 0 ? "show active" : "")" role="tabpanel" aria-labelledby="productsServicesTab_@tab.NodeID">
+                                <div class="card-header" role="tab">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#productsServicesCollapse_@tab.NodeID" aria-expanded="@(i == 0 ? "true" : "false")" aria-controls="productsServicesCollapse_@tab.NodeID" id="productsServicesHeading_@tab.NodeID">
+                                        <img class="products-services__icon" src="@Url.Content(tab.Icon)" alt="" aria-hidden="true" />@Html.Raw(tab.Name)
+                                    </button>
+                                </div>
+                                <div id="productsServicesCollapse_@tab.NodeID" class="collapse @(i == 0 ? "show" : "")" role="tabpanel" aria-labelledby="productsServicesHeading_@tab.NodeID" data-parent="#productsServicesContent_@(Model.NodeID)">
+                                    <div class="card-body staggered-animation-container">
+                                        @foreach (var promo in tab.Promos)
+                                        {
+                                            <a href="@Url.Content(promo.ProductServicePromoUrl)" @Html.Raw(promo.ProductServicePromoNewTab ? "target=\"_blank\"" : "") class="products-services__promo staggered-animation" data-os-animation="animate__fadeInUp">
+                                                <div class="products-services__promo-title" aria-hidden="true">
+                                                    @Html.Raw(promo.ProductServicePromoName)
+                                                </div>
+                                                <img src="@Url.Content(promo.ProductServicePromoImage)" alt="" class="products-services__promo-img" />
+                                                <div class="products-services__promo-hover">
+                                                    <div class="products-services__promo-hover-title">
+                                                        @Html.Raw(promo.ProductServicePromoName)
+                                                    </div>
+                                                    <div class="products-services__promo-hover-txt">
+                                                        @Html.Raw(promo.ProductServicePromoSubtext)
+                                                        <div class="btn btn-primary">@Html.Raw(promo.ProductServicePromoButtonText)</div>
+                                                        @Html.Raw(promo.ProductServicePromoNewTab ? "(opens in a new tab)" : "")
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

@@ -1,0 +1,10 @@
+﻿@model PositioningText
+
+<div class="positioning staggered-animation-container">
+    <div class="container">
+        <h1 class="positioning__heading staggered-animation" data-os-animation="animate__fadeInUp">@Html.Raw(Model.PositioningTextHeading)</h1>
+        <div class="positioning__statement staggered-animation" data-os-animation="animate__fadeInUp" data-os-animation-delay=".3s">
+            @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.PositioningTextText))
+        </div>
+    </div>
+</div>

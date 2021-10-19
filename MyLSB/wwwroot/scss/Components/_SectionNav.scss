@@ -1,0 +1,207 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.section-nav {
+    position: relative;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {       
+        text-align: left;
+    }
+
+    >.container > .row:last-child {
+        border-bottom: 2px solid #e7e7e7;
+    }
+
+    &__category {
+        padding: 0 0 2.5rem;
+
+        @include media-breakpoint-up(lg) {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding: 0 0 10.5rem;
+        }
+
+        &--first {
+            border-top: 2px solid #e7e7e7;
+            padding-top: 3rem;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 3rem;
+                padding-top: 5.8rem;
+            }
+        }
+
+        &-icon {
+            display: block;
+            margin: 0 auto .5rem;
+            width: 2.7rem;
+
+            @include media-breakpoint-up(lg) {
+                left: -7.5rem;
+                margin: 0;
+                width: 5rem;
+                position: absolute;
+            }
+        }
+
+        &-heading {
+            font-weight: $font-weight-extrabold;
+            margin: 0 0 1rem;
+            padding-bottom: 1.2rem;
+            position: relative;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 3.6rem;
+                margin: 0 0 1.8rem;
+                padding-bottom: 1.5rem;
+            }
+
+            &::after {
+                background: $bright-green;
+                bottom: 0;
+                content: '';
+                height: 2px;
+                left: 0;
+                margin: auto;
+                position: absolute;
+                right: 0;
+                width: 4.8rem;
+
+                @include media-breakpoint-up(lg) {
+                    right: auto;
+                }
+            }
+        }
+
+        &-list {
+
+            @include media-breakpoint-up(lg) {
+                margin: 0;
+            }
+
+            li + li {
+                margin-top: .5rem;
+            }
+
+            a {
+                font-weight: $font-weight-bold;
+                text-decoration: none;
+
+                @include hover-focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &-img {
+            display: none;
+            width: 58.67%;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+                margin-left: 12.5rem;
+            }
+        }
+
+        &-promo {
+            border-top: 2px solid $bright-green;
+            box-shadow: 0 8px 16.56px 1.44px rgba($black, 0.16);
+            max-width: 26.5rem;
+            margin: 0 auto 1.3rem auto;
+            position: relative;
+            text-align: center;
+
+            @include media-breakpoint-up(lg) {
+                bottom: 9.2rem;
+                font-size: 1.8rem;
+                position: absolute;
+                right: -1.4rem;
+            }
+
+            > a {
+                background: $white;
+                color: $primary;
+                display: block;
+                font-size: 1.6rem;
+                font-weight: $font-weight-bold;
+                padding: 2rem 3rem 1.8rem;
+                text-decoration: none;
+
+                @include hover-focus {
+                    text-decoration: none;
+
+                    div {
+                        text-decoration: underline;
+                    }
+                }
+
+                div {
+                    color: $secondary;
+                    font-size: 1.2rem;
+                    margin-top: 1rem;
+
+                    @include media-breakpoint-up(lg) {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+
+            &-decoration {
+                bottom: -1.4rem;
+                height: 9.3rem;
+                position: absolute;
+                right: -1.4rem;
+                z-index: -1;
+            }
+        }
+
+        &--alt {
+            @include media-breakpoint-up(lg) {
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+
+                .section-nav__category-img {
+                    margin-left: 0;
+                    margin-right: 12.5rem;
+                }
+
+                .section-nav__category-promo {
+                    left: -1.4rem;
+                    right: auto;
+                }
+            }
+
+            .section-nav__category-promo-decoration {
+                left: -1.4rem;
+                right: auto;
+            }
+        }
+    }
+
+    &__decoration-left,
+    &__decoration-right {
+        bottom: 23rem;
+        display: none;
+        left: 0;
+        position: absolute;
+        width: 11.7rem;
+        z-index: -1;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+    }
+
+    &__decoration-right {
+        bottom: auto;
+        left: auto;
+        right: 0;
+        top: -20rem;
+        width: 43.3rem;
+    }
+}

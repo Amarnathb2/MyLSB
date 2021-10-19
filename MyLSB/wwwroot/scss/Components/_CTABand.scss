@@ -1,0 +1,90 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.cta-band {
+    background: $secondary;
+    color: $white;
+    padding: 2rem 0 3.5rem;
+    position: relative;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        padding: 6rem 0 5rem;
+        text-align: left;
+    }
+
+    > .container {
+        @include media-breakpoint-up(lg) {
+            position: relative;
+        }
+    }
+
+    &__heading {
+        color: inherit;
+        flex: 1;
+        font-size: 2.4rem;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 4.5rem;
+        }
+
+        strong {
+            display: block;
+            font-weight: $font-weight-extrabold;
+        }
+    }
+
+    &__ctas {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__cta {
+        border-color: $white;
+
+        & + & {
+            margin-left: 1.5rem;
+
+            @include media-breakpoint-up(lg) {
+                margin-left: 2.5rem;
+            }
+        }
+    }
+
+    &__decoration-top {
+        height: 6rem;
+        left: 0;
+        position: absolute;
+        top: -.7rem;
+        width: auto;
+
+        @include media-breakpoint-up(lg) {
+            height: 15.7rem;
+            left: -9.6rem;
+            top: -9.1rem;
+        }
+    }
+
+    &__decoration-bottom {
+        bottom: -.8rem;
+        height: 6rem;
+        position: absolute;
+        right: 0;
+        width: auto;
+
+        @include media-breakpoint-up(lg) {
+            bottom: -7.6rem;
+            height: 15.2rem;
+            right: -9.9rem;
+        }
+    }
+}

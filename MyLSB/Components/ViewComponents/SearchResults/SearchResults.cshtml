@@ -1,0 +1,52 @@
+﻿<div class="search-results">
+    <div class="container">
+        <div id="answers-container"></div>
+        <script src="https://answers-mylsb.com.pagescdn.com/answers.js"></script>
+
+        @*@if (!Model.Pages.Any())
+        {
+            <p>No results found for "@Html.Raw(Model.SearchTerm)".</p>
+        }
+        else
+        {
+            <h2 class="text-center">@Model.Pages.TotalItemCount results for "@Html.Raw(Model.SearchTerm)"</h2>
+
+            foreach (var result in Model.Pages)
+            {
+                var resultUrl = @DocumentURLProvider.GetAbsoluteUrl(result);
+
+                <div class="search-result">
+                    <a href="@resultUrl">@Html.Raw(result.DocumentName)</a>
+                    <p>@Html.Raw(result.DocumentPageDescription)</p>
+                    <a href="@resultUrl">@resultUrl</a>
+                </div>
+            }
+
+            if (Model.Pages.PageCount > 1)
+            {
+                <nav aria-label="Results pagination (page @Model.Pages.PageNumber of @Model.Pages.PageCount)">
+                    @Html.PagedListPager(
+                    Model.Pages,
+                    i =>
+                    {
+                        var qs = new NameValueCollection();
+
+                        if (!string.IsNullOrEmpty(Model.SearchTerm))
+                        {
+                            qs.Add("searchtext", Model.SearchTerm);
+                        }
+                        qs.Add("page", i);
+
+                        var array = (from key in qs.AllKeys
+                                     from value in qs.GetValues(key)
+                                     select string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value)))
+                            .ToArray();
+
+                        return Url.Content($"{Context.Request.Path}?{string.Join("&", array)}");
+                    },
+                    new CustomPagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+                </nav>
+            }
+        }*@
+    </div>
+</div>

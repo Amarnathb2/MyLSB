@@ -1,0 +1,136 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <Compile Remove="Components\ViewComponents\Search\**" />
+    <Content Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <Content Remove="Components\ViewComponents\Search\**" />
+    <EmbeddedResource Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <EmbeddedResource Remove="Components\ViewComponents\Search\**" />
+    <None Remove="Components\ViewComponents\FooterContactInfo\**" />
+    <None Remove="Components\ViewComponents\Search\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="web.config" />
+    <Content Remove="wwwroot\scss\Components\_LocationDetails.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+    <PackageReference Include="kentico.xperience.aspnetcore.webapp" Version="13.0.38" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
+    <PackageReference Include="SimpleMvcSitemap" Version="4.0.1" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\ViewComponents\SearchResults\SearchResults.cshtml" />
+    <None Include="Components\ViewComponents\Sitemap\Sitemap.cshtml" />
+    <None Include="web.config" />
+    <None Include="wwwroot\images\cross-promo-bg.svg" />
+    <None Include="wwwroot\images\ehl.svg" />
+    <None Include="wwwroot\images\fdic.svg" />
+    <None Include="wwwroot\images\icons\blog-post.svg" />
+    <None Include="wwwroot\images\icons\blog.svg" />
+    <None Include="wwwroot\images\icons\boom.svg" />
+    <None Include="wwwroot\images\icons\business.svg" />
+    <None Include="wwwroot\images\icons\calculator.svg" />
+    <None Include="wwwroot\images\icons\commercial.svg" />
+    <None Include="wwwroot\images\icons\feature.svg" />
+    <None Include="wwwroot\images\icons\lsb-plus.svg" />
+    <None Include="wwwroot\images\icons\mortgage-2.svg" />
+    <None Include="wwwroot\images\icons\mortgage.svg" />
+    <None Include="wwwroot\images\icons\personal.svg" />
+    <None Include="wwwroot\images\icons\related-promo.svg" />
+    <None Include="wwwroot\images\icons\services.svg" />
+    <None Include="wwwroot\images\landing-bg.svg" />
+    <None Include="wwwroot\images\logo-white.svg" />
+    <None Include="wwwroot\images\logo.svg" />
+    <None Include="wwwroot\images\resources-bg.svg" />
+    <None Include="wwwroot\images\triangle-bl-bg-2.svg" />
+    <None Include="wwwroot\images\triangle-br-bg-2.svg" />
+    <None Include="wwwroot\images\triangle-br-bg.svg" />
+    <None Include="wwwroot\images\triangle-br-g.svg" />
+    <None Include="wwwroot\images\triangle-l-bg.svg" />
+    <None Include="wwwroot\images\triangle-r-lg.svg" />
+    <None Include="wwwroot\images\triangle-tl-bg.svg" />
+    <None Include="wwwroot\images\triangle-tr-bg.svg" />
+    <None Include="wwwroot\scripts\base.js" />
+    <None Include="wwwroot\scripts\components\Alert.js" />
+    <None Include="wwwroot\scripts\components\Community.js" />
+    <None Include="wwwroot\scripts\components\CookieNotice.js" />
+    <None Include="wwwroot\scripts\components\FooterNav.js" />
+    <None Include="wwwroot\scripts\components\HamburgerNav.js" />
+    <None Include="wwwroot\scripts\components\Login.js" />
+    <None Include="wwwroot\scripts\components\PositioningText.js" />
+    <None Include="wwwroot\scripts\components\PrimaryNav.js" />
+    <None Include="wwwroot\scripts\components\Search.js" />
+    <None Include="wwwroot\scripts\cookies.js" />
+    <None Include="wwwroot\scripts\locations\Locations_App.js" />
+    <None Include="wwwroot\scripts\locations\Locations_Ctl.js" />
+    <None Include="wwwroot\scripts\locations\Locations_Svc.js" />
+    <None Include="wwwroot\scripts\rotaterator.js" />
+    <None Include="wwwroot\scripts\ZAGFramework-plugins-after.js" />
+    <None Include="wwwroot\scripts\ZAGFramework-plugins-before.js" />
+    <None Include="wwwroot\scss\base.scss" />
+    <None Include="wwwroot\scss\Components\_Alert.scss" />
+    <None Include="wwwroot\scss\Components\_AuxiliaryNav.scss" />
+    <None Include="wwwroot\scss\Components\_Banner.scss" />
+    <None Include="wwwroot\scss\Components\_Breadcrumb.scss" />
+    <None Include="wwwroot\scss\Components\_CategoryNav.scss" />
+    <None Include="wwwroot\scss\Components\_Community.scss" />
+    <None Include="wwwroot\scss\Components\_ComparisonChart.scss" />
+    <None Include="wwwroot\scss\Components\_CookieNotice.scss" />
+    <None Include="wwwroot\scss\Components\_CrossPromo.scss" />
+    <None Include="wwwroot\scss\Components\_CTABand.scss" />
+    <None Include="wwwroot\scss\Components\_Features.scss" />
+    <None Include="wwwroot\scss\Components\_FooterNav.scss" />
+    <None Include="wwwroot\scss\Components\_HamburgerNav.scss" />
+    <None Include="wwwroot\scss\Components\_InternalNav.scss" />
+    <None Include="wwwroot\scss\Components\_Intro.scss" />
+    <None Include="wwwroot\scss\Components\_LatestPosts.scss" />
+    <None Include="wwwroot\scss\Components\_LocationDetails.scss" />
+    <None Include="wwwroot\scss\Components\_Login.scss" />
+    <None Include="wwwroot\scss\Components\_Masthead.scss" />
+    <None Include="wwwroot\scss\Components\_PositioningText.scss" />
+    <None Include="wwwroot\scss\Components\_PrimaryNav.scss" />
+    <None Include="wwwroot\scss\Components\_ProductsServices.scss" />
+    <None Include="wwwroot\scss\Components\_PromoBand.scss" />
+    <None Include="wwwroot\scss\Components\_Resources.scss" />
+    <None Include="wwwroot\scss\Components\_Search.scss" />
+    <None Include="wwwroot\scss\Components\_SectionNav.scss" />
+    <None Include="wwwroot\scss\Pages\_Landing.scss" />
+    <None Include="wwwroot\scss\_accordion.scss" />
+    <None Include="wwwroot\scss\_animations.scss" />
+    <None Include="wwwroot\scss\_buttons.scss" />
+    <None Include="wwwroot\scss\_footer.scss" />
+    <None Include="wwwroot\scss\_forms.scss" />
+    <None Include="wwwroot\scss\_general.scss" />
+    <None Include="wwwroot\scss\_header.scss" />
+    <None Include="wwwroot\scss\_mixins.scss" />
+    <None Include="wwwroot\scss\_modal.scss" />
+    <None Include="wwwroot\scss\_pagination.scss" />
+    <None Include="wwwroot\scss\_tables.scss" />
+    <None Include="wwwroot\scss\_tabs.scss" />
+    <None Include="wwwroot\scss\_typography.scss" />
+    <None Include="wwwroot\scss\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Custom\Custom.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Modules\" />
+  </ItemGroup>
+
+</Project>
+

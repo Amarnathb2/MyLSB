@@ -1,0 +1,18 @@
+﻿@model LandingPageContent
+
+<div class="landing__main">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 1419 925" preserveAspectRatio="xMinYMin slice"><path d="M1419,170,0,0V925H1419Z" fill="#f1f9f8" fill-rule="evenodd" /></svg>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <vc:partials path="@Model.NodeAliasPath" get-container="false" />
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <div class="landing-form" id="landingForm">
+                    @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.LandingPageContentFormIntro))
+                    <editable-area area-identifier="@("editableArea-" + Model.NodeGUID)" area-options-allowed-widgets="new[] { SystemComponentIdentifiers.FORM_WIDGET_IDENTIFIER }" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

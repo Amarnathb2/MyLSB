@@ -1,0 +1,66 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.kentico-form {
+    margin: 0;
+
+    &.kentico-form-loaded {
+
+        .form-group {
+
+            .zag-validation-errors {
+                display: none !important;
+            }
+        }
+    }
+
+    &.kentico-form-submitted {
+
+        .form-group {
+
+            .form-control {
+
+                &.zag-validation-invalid {
+                    color: $danger;
+                    border-color: $danger;
+                }
+            }
+        }
+    }
+
+    .form-group {
+        .zag-validation-error-angular {
+            color: $danger;
+            margin: .5rem 0;
+        }
+
+        ul.zag-validation-errors {
+            display: none;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            font-size: $font-size-base;
+            color: $danger;
+
+            > li {
+                display: none;
+                margin: .25rem 0;
+
+                &::before {
+                    content: none;
+                }
+            }
+
+            &.zag-validation-errors-center {
+                text-align: center;
+            }
+        }
+
+        .explanation-text {
+            margin: .25rem 0;
+            font-size: $font-size-base;
+        }
+    }
+}

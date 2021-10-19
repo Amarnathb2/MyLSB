@@ -1,0 +1,57 @@
+﻿@model HamburgerNavViewModel
+
+<nav class="hamburger-nav" id="hamburgerNav" aria-label="Hamburger">
+    <button type="button" class="hamburger-nav__toggle" id="hamburgerNavToggle" aria-expanded="false">
+        <span class="fas fa-bars" aria-hidden="true"></span>
+        <span class="fas fa-times" aria-hidden="true"></span>
+        <span class="sr-only">Navigation menu</span>
+    </button>
+    <div class="hamburger-nav__menu">
+        <div class="container">
+            @if (Model.AuxiliaryNavItems.Any())
+            {
+                <ul class="hamburger-nav__auxiliary-nav">
+                    @foreach (var link in Model.AuxiliaryNavItems)
+                    {
+                        <li>
+                            <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>@Html.Raw(link.Text)@Html.Raw(link.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
+                        </li>
+                    }
+                </ul>
+            }
+            @if (Model.MenuItems.Any())
+            {
+                <ul class="hamburger-nav__level-1">
+                    @foreach (var level1Item in Model.MenuItems)
+                    {
+                        <li class="hamburger-nav__level-1-item @Html.Raw(level1Item.Children.Any() ? "hamburger-nav__level-1-item--has-children" : "")">
+                            <button type="button" aria-haspopup="true" aria-expanded="false" id="hamburgerNav_@level1Item.NodeID">@Html.Raw(level1Item.Text)</button>
+                            @if (level1Item.Children.Any())
+                            {
+                                <ul class="hamburger-nav__level-2 list-unstyled" aria-labelledby="hamburgerNav_@level1Item.NodeID">
+                                    @foreach (var level2Item in level1Item.Children.Where(x => x.ClassName == PageGroup.CLASS_NAME))
+                                    {
+                                        <li class="hamburger-nav__level-2-item hamburger-nav__level-2-item--has-children">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" id="hamburgerNav_@level2Item.NodeID">@Html.Raw(level2Item.Text)</button>
+                                            @if (level2Item.Children.Any())
+                                            {
+                                                <ul class="hamburger-nav__level-3 list-unstyled" aria-labelledby="hamburgerNav_@level2Item.NodeID">
+                                                    @foreach (var level3Item in level2Item.Children)
+                                                    {
+                                                        <li class="hamburger-nav__level-3-item">
+                                                            <a href="@Url.Content(level3Item.Url)" @Html.Raw(level3Item.NewTab ? "target=\"_blank\"" : "")>@Html.Raw(level3Item.Text)@Html.Raw(level3Item.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</nav>

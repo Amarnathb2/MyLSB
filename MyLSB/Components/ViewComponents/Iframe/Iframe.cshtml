@@ -1,0 +1,11 @@
+﻿@model Iframe
+
+<div class="embed-responsive @Html.Raw(Model.IframeHeight >= 0 ? "embed-responsive-16by9" : "")" @Html.Raw(Model.IframeHeight > 0 ? $" style=\"height: {Model.IframeHeight}px\"" : "") id="iframe_@(Model.NodeID)">
+    <iframe title="@Html.Raw(Model.IframeTitle)" class="embed-responsive-item" src="@Url.Content(Model.IframeSrc)"></iframe>
+</div>
+@if (!String.IsNullOrEmpty(Model.IframeTranscript))
+{
+    <div class="my-3">
+        <a href="@Model.IframeTranscript" target="_blank" aria-label="Transcript of @Html.Raw(Model.IframeTitle)">Transcript</a>
+    </div>
+}

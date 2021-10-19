@@ -1,0 +1,15 @@
+﻿@model PageDefaultViewModel 
+@{
+    Layout = "~/Views/Pages/_Layout.cshtml";
+
+    var cacheEnabled = !Context.Kentico().Preview().Enabled;
+    var partialsCacheKey = new[]
+    {
+        $"node|{SiteContext.CurrentSiteName}|{Model.PartialsPath}|childnodes"
+    };
+}
+
+<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
+    <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+    <vc:partials path="@Model.PartialsPath" get-container="false" />
+</cache>

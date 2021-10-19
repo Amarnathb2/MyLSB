@@ -1,0 +1,154 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+
+.site-footer {
+    background: $light;
+    padding: 3.5rem 0;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.4rem;
+        padding: 8.5rem 0 6rem;
+        text-align: left;
+    }
+
+    a {
+        font-weight: $font-weight-bold;
+    }
+
+    &__contact {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.4rem;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            font-size: 1.8rem;
+            justify-content: space-between;
+        }
+
+        &-heading {
+            @extend h3;
+
+            font-weight: $font-weight-extrabold;
+            margin-bottom: 1.5rem !important;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2.8rem;
+                margin-bottom: 2.5rem !important;
+                width: 100%;
+            }
+        }
+
+        > a,
+        > div {
+            display: inline-block;
+            margin: .25rem auto;
+
+            @include media-breakpoint-up(lg) {
+                margin: 0;
+            }
+        }
+
+        &-social {
+            > a {
+                display: inline-block;
+                margin: 0 .3rem;
+                transition: transform .25s ease-in-out;
+
+                @include media-breakpoint-up(lg) {
+                    margin: 0 .7rem;
+                }
+
+                @include hover-focus {
+                    transform: translateY(-.3rem);
+                }
+            }
+        }
+    }
+
+    &__routing {
+        @include media-breakpoint-up(lg) {
+            margin: 4rem 0 6.5rem;
+        }
+
+        li {
+            margin-top: 2rem;
+
+            @include media-breakpoint-up(lg) {
+                margin: 0;
+            }
+
+            strong {
+                display: block;
+
+                @include media-breakpoint-up(lg) {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    small {
+        font-size: 1.2rem;
+        font-weight: $font-weight-semibold;
+
+        a {
+            color: inherit;
+            font-weight: inherit;
+        }
+    }
+
+    &__seo {
+        &-heading {
+            @include media-breakpoint-up(lg) {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    &__disclosure {
+        font-size: 1.2rem;
+    }
+
+    &__emblems {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 2.5rem;
+
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 0;
+        }
+
+        .privileged {
+            display: inline-block;
+
+            > img {
+                height: 4.8rem;
+                width: 4.8rem;
+            }
+        }
+
+        .ehl {
+            height: 5.1rem;
+            margin: 0 2rem;
+            width: 4.3rem;
+
+            @include media-breakpoint-up(lg) {
+                margin: 0 1rem;
+            }
+        }
+
+        .fdic {
+            height: 3.7rem;
+            width: 6rem;
+        }
+    }
+}

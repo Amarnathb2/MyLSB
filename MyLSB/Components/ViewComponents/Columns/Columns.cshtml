@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Column>
+
+<div class="row">
+    @foreach (var column in Model)
+    {
+        <div class="@column.ColumnWidth" id="column_@(column.NodeID)">
+            <vc:partials path="@column.NodeAliasPath" get-container="false" />
+        </div>
+    }
+</div>

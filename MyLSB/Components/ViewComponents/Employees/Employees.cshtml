@@ -1,0 +1,59 @@
+﻿@model EmployeesViewModel
+
+<div class="employees" id="employees_@(Model.NodeID)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                @if (!String.IsNullOrEmpty(Model.Heading))
+                {
+                    <h3>@Html.Raw(Model.Heading)</h3>
+                }
+                <div class="row">
+                    @foreach (var employee in Model.Employees)
+                    {
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="employee">
+                                @if (!employee.EmployeeDisableFullBio)
+                                {
+                                    @:<a href="@DocumentURLProvider.GetUrl(employee)" tabindex="-1">
+                                }
+                                <img src="@Url.Content(employee.EmployeePhoto)" alt="@Html.Raw(employee.EmployeeName)" class="employee__photo" />
+                                <h4 class="employee__name">@Html.Raw(employee.EmployeeName)</h4>
+                                @if (!employee.EmployeeDisableFullBio)
+                                {
+                                    @:</a>
+                                }
+                                @if (!String.IsNullOrEmpty(employee.EmployeeTitle))
+                                {
+                                    <div class="employee__title">@Html.Raw(employee.EmployeeTitle)</div>
+                                }
+                                @if (!String.IsNullOrEmpty(employee.EmployeeSpecialty))
+                                {
+                                    <div class="employee__specialty">@Html.Raw(employee.EmployeeSpecialty)</div>
+                                }
+                                @if (!String.IsNullOrEmpty(employee.EmployeeNMLS))
+                                {
+                                    <div class="employee__nmls">NMLS# @Html.Raw(employee.EmployeeNMLS)</div>
+                                }
+                                <div class="employee__contact">
+                                    @if (!String.IsNullOrEmpty(employee.EmployeeOfficePhone))
+                                    {
+                                        <span class="employee__phone"><span class="fas fa-phone" aria-hidden="true"></span> <a href="@(CustomHelpers.TelLink(employee.EmployeeOfficePhone))">@Html.Raw(employee.EmployeeOfficePhone)</a></span>
+                                    }
+                                    @if (!String.IsNullOrEmpty(employee.EmployeeCity) && !String.IsNullOrEmpty(employee.EmployeeState))
+                                    {
+                                        <span class="employee__location">@Html.Raw(employee.EmployeeCity), @Html.Raw(employee.EmployeeState)</span>
+                                    }
+                                </div>
+                                @if (!employee.EmployeeDisableFullBio)
+                                {
+                                    @:<a href="@DocumentURLProvider.GetUrl(employee)" class="employee__bio-link">View more <span class="sr-only">about @Html.Raw(employee.EmployeeName)</span></a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

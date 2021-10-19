@@ -1,0 +1,115 @@
+﻿@model JsonTablePickerModel
+
+@if (Model.ColumnNames.Any() && Model.Rows.Any())
+{
+    <div class="comparison" id="table_@(Model.NodeID)">
+        <div class="container">
+            @if (!String.IsNullOrEmpty(Model.Vc.Title))
+            {
+                <h2>@Html.Raw(Model.Vc.Title)</h2>
+            }
+
+            @if (!String.IsNullOrEmpty(Model.Vc.Text))
+            {
+                @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.Vc.Text))
+            }
+            <div class="comparison__table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                @foreach (string ColumnName in Model.ColumnNames)
+                                {
+                                    if (!String.IsNullOrEmpty(ColumnName))
+                                    {
+                                        <th scope="col">@Html.Kentico().ResolveUrls(ColumnName)</th>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (List<string> Row in Model.Rows)
+                            {
+                                <tr>
+                                    @if (!Model.Vc.TableFirstColumn)
+                                    {
+                                        foreach (string Cell in Row)
+                                        {
+                                            <td>@Html.Kentico().ResolveUrls(Cell)</td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (string Cell in Row.Take(1))
+                                        {
+                                            <th scope="row">@Html.Kentico().ResolveUrls(Cell)</th>
+                                        }
+                                        foreach (string Cell in Row.Skip(1))
+                                        {
+                                            <td>@Html.Kentico().ResolveUrls(Cell)</td>
+                                        }
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <img src="~/images/triangle-br-bg-2.svg" class="comparison__table-decoration" alt="" aria-hidden="true" />
+                </div>
+            </div>
+            <div class="comparison__cards">
+                @for (int i = 0; i < Model.ColumnNames.Count(); i++)
+                {
+                    if (!String.IsNullOrEmpty(Model.ColumnNames.ElementAt(i)))
+                    {
+                        <div class="comparison__card">
+                            <div id="comparisonCardHeading_@(Model.NodeID)_@i" class="comparison__card-heading">
+                                @Html.Kentico().ResolveUrls(Model.ColumnNames.ElementAt(i))
+                            </div>
+
+                            @if (Model.Vc.TableFirstColumn)
+                            {
+                                <div class="comparison__card-summary">
+                                    @Html.Kentico().ResolveUrls(Model.Rows.ElementAt(0).ElementAt(i))
+                                </div>
+                            }
+
+                            @if (Model.Rows.Count() > 1)
+                            {
+                                <div class="comparison__features" id="comparisonCardFeatures_@(Model.NodeID)_@i">
+                                    <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
+                                        <dt>@Html.Raw(Model.Rows.ElementAt(1).ElementAt(0))</dt>
+                                        <dd>@Html.Raw(Model.Rows.ElementAt(1).ElementAt(i))</dd>
+                                    </dl>
+                                </div>
+                            }
+
+                            @if (Model.Rows.Count() > 2)
+                            {
+                                <div id="comparisonCardFeaturesCollapse_@(Model.NodeID)_@i" class="collapse comparison__collapse" data-parent="#comparisonCardFeatures_@(Model.NodeID)_@i">
+                                    <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
+                                        @foreach (var row in Model.Rows.Skip(2))
+                                        {
+                                            <dt>@Html.Raw(row.ElementAt(0))</dt>
+                                            <dd>@Html.Raw(row.ElementAt(i))</dd>
+                                        }
+                                    </dl>
+                                </div>
+                                <div class="comparison__features-btn-wrap">
+                                    <button class="btn btn-link comparison__features-btn collapsed" type="button" data-toggle="collapse" data-target="#comparisonCardFeaturesCollapse_@(Model.NodeID)_@i" aria-expanded="false" aria-controls="comparisonCardFeaturesCollapse_@(Model.NodeID)_@i">
+                                        <span class="comparison__features-btn-more">View all features</span>
+                                        <span class="comparison__features-btn-less">View less features</span>
+                                    </button>
+                                </div>
+                            }
+                            <img src="~/images/triangle-br-bg.svg" class="comparison__card-decoration" alt="" aria-hidden="true" />
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+}

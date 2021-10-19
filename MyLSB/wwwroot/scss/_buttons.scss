@@ -1,0 +1,104 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+.btn {
+    margin: 5px 0;
+
+    &-primary,
+    &-secondary,
+    &-tertiary {
+        display: inline-block;
+        font-weight: $font-weight-bold;
+        max-width: 29rem;
+        min-width: 10.6rem;
+        text-align: center;
+        text-decoration: none;
+
+        &:focus,
+        &:active:focus {
+            outline-offset: -4px;
+        }
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            text-shadow: none;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.6rem;
+            min-width: 15.8rem;
+            padding: .85rem $btn-padding-x;
+        }
+    }
+
+    &-primary {
+        color: #0a4e56;
+        background: $bright-green;
+        border-color: $bright-green;
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            background: $white;
+            border-color: $primary;
+            color: $primary;
+        }
+    }
+
+    &-secondary {
+        color: $white;
+        background: $secondary;
+        border-color: $secondary;
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            background: white;
+            color: $secondary;
+            border-color: $secondary;
+        }
+    }
+
+    &-tertiary {
+        background: $white;
+        border-color: $secondary;
+        color: $secondary;
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            background: $primary;
+            border-color: $white;
+            color: $white;
+        }
+    }
+
+    &-dropdown {
+        @extend .custom-select;
+        background-color: transparent;
+        max-width: 29rem;
+        text-align: left;
+        width: 100%;
+
+        &:focus {
+            background-color: $white;
+        }
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.dropdown.show {
+    .btn-dropdown {
+        background-color: $white;
+    }
+}

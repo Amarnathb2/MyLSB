@@ -1,0 +1,26 @@
+﻿@model CommunityViewModel
+
+<section class="community" aria-labelledby="communityHeading" style="background-image: url(@Url.Content(Model.Image))">
+    <div class="container">
+        <h2 class="community__heading" id="communityHeading">@Html.Raw(Model.Heading)</h2>
+        <div class="community__sub">
+            @Html.Raw(Model.Text)
+        </div>
+        <a href="@Url.Content(Model.Button.Url)" class="btn btn-secondary" @Html.Raw(Model.Button.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(Model.Button.AriaLabel) ? $"aria-label=\"{Model.Button.AriaLabel}\"" : "")>
+            @Html.Raw(Model.Button.Text)@Html.Raw(Model.Button.NewTab ? "<span class=\"sr-only\"> (opens in a new tab)</span>" : "")
+        </a>
+        <div class="community__stats staggered-animation-container">
+            @for (int i = 0; i < Model.Statistics.Count(); i++)
+            {
+                var stat = Model.Statistics.ElementAt(i);
+
+                <div class="stat staggered-animation" data-os-animation="animate__slideInUp" data-os-animation-delay="@(i * .3)s">
+                    <img src="~/images/icons/boom.svg" alt="" aria-hidden="true" class="stat__icon" />
+                    <div class="stat__value @(stat.StatisticIsCurrency ? "stat__currency" : "")" data-start-val="@stat.StatisticStartValue" data-end-val="@stat.StatisticEndValue" aria-hidden="true"></div>
+                    <span class="sr-only">@(stat.StatisticIsCurrency ? "$" : "")@String.Format("{0:n0}", stat.StatisticEndValue)</span>
+                    <div class="stat__caption">@stat.StatisticName</div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

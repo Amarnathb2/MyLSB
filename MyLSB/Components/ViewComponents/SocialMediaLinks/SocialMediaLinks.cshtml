@@ -1,0 +1,13 @@
+﻿@model IEnumerable<LinkViewModel>
+
+@if (Model.Any())
+{
+    <div class="site-footer__contact-social">
+        @foreach (var link in Model)
+        {
+            <a href="@Url.Content(link.Url)" @Html.Raw(link.NewTab ? "target=\"_blank\"" : "") @Html.Raw(!String.IsNullOrEmpty(link.AriaLabel) ? $"aria-label=\"{link.AriaLabel}\"" : "")>
+                <span class="@link.IconClass" aria-hidden="true"></span><span class="sr-only"> @Html.Raw(link.Text)@Html.Raw(link.NewTab ? " (opens in a new tab)" : "")</span>
+            </a>
+        }
+    </div>
+}

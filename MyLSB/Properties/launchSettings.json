@@ -1,0 +1,23 @@
+﻿{
+  "iisSettings": {
+    "iis": {
+      "applicationUrl": "https://mylsb.local.zagclients.net"
+    },
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "https://mylsb.local.zagclients.net",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "Local IIS": {
+      "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "https://mylsb.local.zagclients.net",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

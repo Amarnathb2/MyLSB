@@ -1,0 +1,82 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "mixins";
+
+.modal {
+    color: $white;
+
+    @include media-breakpoint-up(lg) {
+        height: auto;
+        top: 12rem;
+    }
+
+/*    &-dialog {
+        max-width: 50rem;
+    }*/
+
+    &-content {
+        background: $secondary;
+        background-clip: border-box;
+        padding: 3.5rem 4.4rem;
+    }
+
+    &-header {
+        border-bottom: 1px solid $primary;
+        padding-left: 0;
+    }
+
+    &-title {
+        color: $white;
+        font-size: 2rem;
+        font-weight: $font-weight-extrabold;
+    }
+
+    &-body {
+        font-size: 1.4rem;
+        padding: 1rem 0;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-footer {
+        border-top: none;
+        justify-content: flex-start;
+
+        .btn {
+            border-color: $white;
+
+            & + .btn {
+                margin-left: $grid-gutter-width/2;
+            }
+        }
+    }
+
+    .close {
+        color: $white;
+        display: flex;
+        font-size: 1.6rem;
+        font-weight: $font-weight-semibold;
+        justify-content: center;
+        opacity: 1;
+        position: absolute;
+        top: 1.5rem;
+        right: 1rem;
+
+        .fa-times-circle {
+            padding-right: 5px;
+        }
+
+        span:last-child {
+            margin-left: 0.4rem;
+        }
+
+        &:not(:disabled):not(.disabled):hover,
+        &:not(:disabled):not(.disabled):focus {
+            opacity: 1;
+            text-decoration: underline;
+        }
+    }
+}
