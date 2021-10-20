@@ -1,6 +1,6 @@
 ﻿@model AccordionViewModel
 
-<div class="accordion" id="accordion_@Model.NodeID">
+<div class="accordion" id="accordion_@Model.NodeID" role="tablist">
     @foreach (var panel in Model.Panels)
     {
         <div class="card">
