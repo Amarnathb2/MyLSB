@@ -27,7 +27,8 @@
 
         @include hover-focus {
             color: $primary;
-            outline-offset: -2px;
+            outline: 2px solid;
+            outline-offset: -6px;
 
             > div {
                 color: $secondary;
