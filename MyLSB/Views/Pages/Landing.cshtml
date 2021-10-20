@@ -20,10 +20,12 @@
     </div>
 </header>
 <main id="mainContent" class="landing">
-    <cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
-        <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
-        <vc:partials path="@Model.PartialsPath" get-container="false" />
-    </cache>
+    @*<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
+            <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+            <vc:partials path="@Model.PartialsPath" get-container="false" />
+        </cache>*@
+    <vc:partials path="@Model.PartialsPath" get-container="false" />
+
 </main>
 <footer class="landing-footer">
     <div class="container d-flex flex-column align-items-center flex-lg-row justify-content-lg-between">

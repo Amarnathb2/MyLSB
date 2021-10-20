@@ -2,17 +2,17 @@
 @{
     Layout = "~/Views/Pages/_Layout.cshtml";
 
-    var cacheEnabled = !Context.Kentico().Preview().Enabled;
-    var partialsCacheKey = new[]
-    {
-        $"nodeid|{Model.NodeID}"
-    };
+    //var cacheEnabled = !Context.Kentico().Preview().Enabled;
+    //var partialsCacheKey = new[]
+    //{
+    //    $"nodeid|{Model.NodeID}"
+    //};
 
     string Address = !String.IsNullOrEmpty(Model.Address2) ? Model.Address1 + "<br />" + Model.Address2 : Model.Address1;
 }
 
-<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
-    <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+@*<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
+    <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />*@
     @if (Model.ShowWealthManagementLogo)
     {
         <div class="intro">
@@ -89,4 +89,4 @@
     </header>
 
     <vc:partials path="@Model.PartialsPath" get-container="false" />
-</cache>
+@*</cache>*@

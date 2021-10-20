@@ -31,21 +31,32 @@ namespace MyLSB.Repository
 
         public IEnumerable<TreeNode> GetPartials(string nodeAliasPath)
         {
-            return repositoryCacheHelper.CachePages(() =>
-            {
-                return DocumentHelper.GetDocuments()
-                    .Path(nodeAliasPath, PathTypeEnum.Children)
-                    .OnCurrentSite()
-                    .NestingLevel(1)
-                    // Get Type-specific columns for the subclasses returned.
-                    .WithCoupledColumns()
-                    .OrderByAscending("NodeOrder");
+            //return repositoryCacheHelper.CachePages(() =>
+            //{
+            //    return DocumentHelper.GetDocuments()
+            //        .Path(nodeAliasPath, PathTypeEnum.Children)
+            //        .OnCurrentSite()
+            //        .NestingLevel(1)
+            //        // Get Type-specific columns for the subclasses returned.
+            //        .WithCoupledColumns()
+            //        .OrderByAscending("NodeOrder");
 
-            }, $"{nameof(PartialsRepository)}|{nameof(GetPartials)}|{nodeAliasPath}", new[]
-            {
-                $"node|{SiteContext.CurrentSiteName}|{nodeAliasPath}",
-                $"node|{SiteContext.CurrentSiteName}|{nodeAliasPath}|childnodes"
-            }) ?? Enumerable.Empty<TreeNode>();
+            //}, $"{nameof(PartialsRepository)}|{nameof(GetPartials)}|{nodeAliasPath}", new[]
+            //{
+            //    $"node|{SiteContext.CurrentSiteName}|{nodeAliasPath}",
+            //    $"node|{SiteContext.CurrentSiteName}|{nodeAliasPath}|childnodes"
+            //}) ?? Enumerable.Empty<TreeNode>();
+
+            return pageRetriever.RetrieveMultiple(
+                multiDocumentQuery => multiDocumentQuery
+                    .Path(nodeAliasPath, PathTypeEnum.Children)
+                    .NestingLevel(1)
+                    .WithCoupledColumns()
+                    .OrderByAscending("NodeOrder"),
+                cache => cache
+                    .Key($"{nameof(PartialsRepository)}|{nameof(GetPartials)}|{nodeAliasPath}")
+                    .Dependencies((_, builder) => builder.PagePath(nodeAliasPath, PathTypeEnum.Children))
+            );
         }
 
         public Partials GetPartialsContainer(string nodeAliasPath)

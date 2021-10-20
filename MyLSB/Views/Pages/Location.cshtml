@@ -9,7 +9,8 @@
     };
 }
 
-<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
-    <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
-    <vc:partials path="@Model.PartialsPath" get-container="false" />
-</cache>
+@*<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
+        <cache-dependency cache-keys="@partialsCacheKey" enabled="@cacheEnabled" />
+        <vc:partials path="@Model.PartialsPath" get-container="false" />
+    </cache>*@
+<vc:partials path="@Model.PartialsPath" get-container="false" />
