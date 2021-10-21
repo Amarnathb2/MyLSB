@@ -33,25 +33,34 @@ namespace MyLSB.Controllers
 
         public ActionResult Redirect()
         {
-            string Path = RequestContext.URL.PathAndQuery.TrimEnd('/');
+            string Path = RequestContext.URL.AbsolutePath.TrimEnd('/');
+            string Query = RequestContext.URL.Query;
             int Site = SiteContext.CurrentSiteID;
 
             DataSet Ds = URLRedirection.RedirectionTableInfoProvider.GetRedirectionTables(Path, Site);
-            string DestUrl = ValidationHelper.GetString(Ds.Tables[0].Rows[0]["RedirectionTargetURL"], "/");
 
-            // Not an absolute URL? Build one.
-            if (!DestUrl.StartsWith("http"))
+            if (!DataHelper.DataSourceIsEmpty(Ds))
             {
-                DestUrl = URLHelper.ResolveUrl("~" + DestUrl);
-            }
+                string DestUrl = ValidationHelper.GetString(Ds.Tables[0].Rows[0]["RedirectionTargetURL"], "/") + Query;
 
-            if (ValidationHelper.GetString(Ds.Tables[0].Rows[0]["RedirectionType"], "301") == "301")
-            {
-                return new RedirectResult(DestUrl, true);
+                // Not an absolute URL? Build one.
+                if (!DestUrl.StartsWith("http"))
+                {
+                    DestUrl = URLHelper.ResolveUrl("~" + DestUrl);
+                }
+
+                if (ValidationHelper.GetString(Ds.Tables[0].Rows[0]["RedirectionType"], "301") == "301")
+                {
+                    return new RedirectResult(DestUrl, true);
+                }
+                else
+                {
+                    return new RedirectResult(DestUrl, false);
+                }
             }
             else
             {
-                return new RedirectResult(DestUrl, false);
+                return new RedirectResult("/Page-Not-Found?Page=" + Path, false);
             }
         }
     }
