@@ -5,7 +5,7 @@
         <ul class="nav nav-tabs nav-justified tab-collapse" id="tabs_@Model.NodeID" role="tablist">
             @foreach (var panel in Model.Panels)
             {
-                <li class="nav-item">
+                <li class="nav-item" role="presentation">
                     <a class="nav-link @(panel == Model.Panels.First() ? "active" : "")" id="tab_@panel.NodeID" data-toggle="tab" href="#panel_@panel.NodeID" role="tab" aria-controls="panel_@panel.NodeID" aria-selected="@((panel == Model.Panels.First()).ToString().ToLower())">
                         @Html.Raw(panel.PanelName)
                     </a>

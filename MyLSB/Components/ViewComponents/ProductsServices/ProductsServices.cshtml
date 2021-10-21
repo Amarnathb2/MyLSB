@@ -12,7 +12,7 @@
                         {
                             var tab = Model.Tabs.ElementAt(i);
 
-                            <li class="nav-item"><a class="nav-link @(i == 0 ? "active" : "")" id="productsServicesTab_@tab.NodeID" data-toggle="tab" href="#productsServicesPanel_@tab.NodeID" role="tab" aria-controls="productsServicesPanel_@tab.NodeID" aria-selected="@(i == 0 ? "true" : "false")"><img class="products-services__icon" src="@Url.Content(tab.Icon)" alt="" aria-hidden="true" />@Html.Raw(tab.Name)</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link @(i == 0 ? "active" : "")" id="productsServicesTab_@tab.NodeID" data-toggle="tab" href="#productsServicesPanel_@tab.NodeID" role="tab" aria-controls="productsServicesPanel_@tab.NodeID" aria-selected="@(i == 0 ? "true" : "false")"><img class="products-services__icon" src="@Url.Content(tab.Icon)" alt="" aria-hidden="true" />@Html.Raw(tab.Name)</a></li>
                         }
                     </ul>
                     <div id="productsServicesContent_@(Model.NodeID)" class="tab-content" role="tablist">
