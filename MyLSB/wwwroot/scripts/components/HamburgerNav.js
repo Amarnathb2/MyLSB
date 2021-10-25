@@ -49,7 +49,11 @@ App.HamburgerNav = (function ($) {
             }
         });
 
-        App.$window.on('enter-lg enter-xl', closeMenu);
+        App.$window.on('enter-lg enter-xl', function () {
+            if (_isOpen) {
+                closeMenu();
+            }
+        });
     }
 
     function updateFocus($item, i) {
