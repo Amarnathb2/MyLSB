@@ -49,11 +49,7 @@ App.HamburgerNav = (function ($) {
             }
         });
 
-        App.$window.on('enter-lg enter-xl', function () {
-            if (_isOpen) {
-                closeMenu();
-            }
-        });
+        App.$window.on('enter-lg enter-xl', closeMenu);
     }
 
     function updateFocus($item, i) {
@@ -95,7 +91,11 @@ App.HamburgerNav = (function ($) {
         App.addOverlay();
     }
 
-    function closeMenu() {     
+    function closeMenu() {
+        if (!_isOpen) {
+            return;
+        }
+
         $toggle
             .removeClass('hamburger-nav__toggle--open')
             .attr('aria-expanded', 'false');
