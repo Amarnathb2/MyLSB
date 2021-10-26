@@ -91,7 +91,11 @@ App.HamburgerNav = (function ($) {
         App.addOverlay();
     }
 
-    function closeMenu() {     
+    function closeMenu() {
+        if (!_isOpen) {
+            return;
+        }
+
         $toggle
             .removeClass('hamburger-nav__toggle--open')
             .attr('aria-expanded', 'false');
