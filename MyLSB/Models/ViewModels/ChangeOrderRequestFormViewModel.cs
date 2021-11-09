@@ -29,6 +29,7 @@ namespace MyLSB.Models.ViewModels
             {
                 return new List<SelectListItem>
                 {
+                    new SelectListItem { Selected = true, Text = "Select One", Value = ""},
                     new SelectListItem { Selected = false, Text = "Adel", Value = "csa-adel@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Allison", Value = "csa-allison@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Ankeny", Value = "csa-ankeny@mylsb.com"},
@@ -36,7 +37,7 @@ namespace MyLSB.Models.ViewModels
                     new SelectListItem { Selected = false, Text = "Cedar Falls Industrial Park", Value = "csa-cfip@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Cedar Falls Main Street", Value = "csa-cfdt@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Clive", Value = "csa-clive@mylsb.com"},
-                    new SelectListItem { Selected = false, Text = "Des Moines", Value = "csa-ingersoll@mylsb.com"},
+                    new SelectListItem { Selected = false, Text = "Des Moines- Ingersoll", Value = "csa-ingersoll@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Garwin", Value = "csa-garwin@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Greene", Value = "csa-greene@mylsb.com"},
                     new SelectListItem { Selected = false, Text = "Grinnell", Value = "csa-grinnell@mylsb.com"},
