@@ -1,0 +1,55 @@
+﻿.five9-frame {
+    .five9-frame-minimized {
+        position: fixed;
+        right: 3%;
+
+        .five9-chat-button {
+            background: #1a7668 !important;
+            width: 70px;
+            height: 100%;
+            border-radius: 0;
+            padding: 10px 5px;
+
+            &:hover, &:focus {
+                background: #115e67 !important;
+            }
+
+            .five9-icon {
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .five9-header {
+            margin-top: -80px;
+        }
+
+        .five9-text {
+            display: block;
+            font-family: 'Open Sans';
+            font-weight: 700;
+            font-size: 14px;
+        }
+    }
+
+    .five9-frame-full {
+        width: 100%;
+
+        .five9-chat-button {
+            width: 100%;
+            background: #1a7668 !important;
+            padding: 10px 12px 0 12px;
+        }
+
+        #five9-minimize-icon {
+            position: absolute;
+            right: 30px;
+        }
+
+        #five9-popout-button {
+            position: absolute;
+            right: 5px;
+        }
+    }
+}

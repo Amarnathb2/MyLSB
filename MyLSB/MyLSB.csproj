@@ -130,6 +130,7 @@
 
   <ItemGroup>
     <Folder Include="Modules\" />
+    <Folder Include="wwwroot\lib\chat\" />
   </ItemGroup>
 
 </Project>
