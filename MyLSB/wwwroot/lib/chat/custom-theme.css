@@ -422,8 +422,8 @@ h1.ui-title {
     background: none;
     color: #fff !important
 }
-.ui-content{
-    top:80px;
+#connecting-page .ui-content {
+    top: 80px;
 }
 .ui-content > h2 {
     color: #292F33 !important
