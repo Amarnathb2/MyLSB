@@ -425,6 +425,9 @@ h1.ui-title {
 #information-page .ui-content {
     top: 80px;
 }
+#connecting-page .ui-content {
+    top: 80px;
+}
 .ui-content > h2 {
     color: #292F33 !important
 }
