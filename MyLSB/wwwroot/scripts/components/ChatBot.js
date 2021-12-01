@@ -14,7 +14,14 @@ App.ChatBot = (function ($) {
     }
     function loadAfterTime() {
         $('#five9-maximize-button').attr('tabindex', '0');
-        $('#five9-maximize-button').attr('aria-label', 'chat');      
+        $('#five9-maximize-button').attr('aria-label', 'chat');
+
+        var chatButton = document.getElementById('five9-maximize-button');
+        chatButton.addEventListener('keypress', function (e) {
+            if (e.keyCode == 13) {
+                $('#five9-maximize-button').trigger('click');
+            }
+        });
     }
     function checkContainerdiv1() {
         if ($('#five9-maximize-button').is(':visible')) {
