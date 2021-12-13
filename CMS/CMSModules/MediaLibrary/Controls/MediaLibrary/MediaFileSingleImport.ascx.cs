@@ -292,6 +292,11 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileSing
                 }
             }
         }
+        catch (XmlMaliciousContentException ex)
+        {
+            ErrorOccurred = true;
+            lblErrorNew.Text = ex.Message;
+        }
         catch (Exception ex)
         {
             ErrorOccurred = true;
