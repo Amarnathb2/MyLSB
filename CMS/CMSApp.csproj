@@ -3912,12 +3912,10 @@
     <Content Include="CMSWebParts\Text\Link.ascx" />
     <Content Include="CMSWebParts\DashBoard\documents.ascx" />
     <Content Include="Old_App_WebReferences\WS\WebService.disco" />
-    <Content Include="App_Data\Dictionaries\en-GB.dic" />
     <Content Include="App_Data\Dictionaries\en-US.dic" />
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
-    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
