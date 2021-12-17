@@ -542,6 +542,10 @@
       <HintPath>..\Lib\CMS.Base.Web.UI.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="CMS.ComputerVision.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\Lib\CMS.ComputerVision.Azure.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="CMS.DataProtection, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.DataProtection.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -869,6 +873,10 @@
     <Reference Include="CMS.WorkflowEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.WorkflowEngine.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.7.0.0\lib\net461\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

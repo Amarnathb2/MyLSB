@@ -147,6 +147,18 @@
             </summary>
             <param name="message">Message</param>
         </member>
+        <member name="T:CMS.MediaLibrary.XmlMaliciousContentException">
+            <summary>
+            XML media file contains potentially malicous content exception.
+            </summary>
+        </member>
+        <member name="M:CMS.MediaLibrary.XmlMaliciousContentException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes an instance of <see cref="T:CMS.MediaLibrary.XmlMaliciousContentException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">Inner exception.</param>
+        </member>
         <member name="T:CMS.MediaLibrary.FileBinaryDataSyncManager">
             <summary>
             Provides methods for updating and getting physical files of <see cref="T:CMS.MediaLibrary.MediaFileInfo" />. 

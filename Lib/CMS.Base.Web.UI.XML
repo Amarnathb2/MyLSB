@@ -5988,6 +5988,11 @@
             Name of the selected item.
             </summary>
         </member>
+        <member name="P:CMS.Base.Web.UI.MediaItem.Description">
+            <summary>
+            Description of the selected item.
+            </summary>
+        </member>
         <member name="P:CMS.Base.Web.UI.MediaItem.HistoryID">
             <summary>
             ID of the item object history.
