@@ -73,30 +73,67 @@
                             @if (Model.Vc.TableFirstColumn)
                             {
                                 <div class="comparison__card-summary">
-                                    @Html.Kentico().ResolveUrls(Model.Rows.ElementAt(0).ElementAt(i))
+
+                                    @if (Model.Rows.ElementAt(1).ElementAt(0) == Model.Rows.ElementAt(1).ElementAt(i) && i == 0)
+                                    {
+                                        <div class="comparison__card-firstcol">
+                                            @Html.Kentico().ResolveUrls(Model.Rows.ElementAt(0).ElementAt(i))
+                                        </div>
+                                    }
+                                    else
+                                    {
+
+                                        <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
+                                            <dt>@Html.Raw(Model.Rows.ElementAt(0).ElementAt(0))</dt>
+                                            <dd>@Html.Raw(Model.Rows.ElementAt(0).ElementAt(i))</dd>
+                                        </dl>
+                                    }
                                 </div>
                             }
 
                             @if (Model.Rows.Count() > 1)
                             {
                                 <div class="comparison__features" id="comparisonCardFeatures_@(Model.NodeID)_@i">
-                                    <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
-                                        <dt>@Html.Raw(Model.Rows.ElementAt(1).ElementAt(0))</dt>
-                                        <dd>@Html.Raw(Model.Rows.ElementAt(1).ElementAt(i))</dd>
-                                    </dl>
+                                    @if (Model.Rows.ElementAt(1).ElementAt(0) == Model.Rows.ElementAt(1).ElementAt(i) && i == 0)
+                                    {
+                                        <div class="comparison__card-firstcol">
+                                            @Html.Kentico().ResolveUrls(Model.Rows.ElementAt(1).ElementAt(0))
+                                        </div>
+                                    }
+                                    else
+                                    {
+
+                                        <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
+                                            <dt>@Html.Raw(Model.Rows.ElementAt(1).ElementAt(0))</dt>
+                                            <dd>@Html.Raw(Model.Rows.ElementAt(1).ElementAt(i))</dd>
+                                        </dl>
+                                    }
                                 </div>
                             }
 
                             @if (Model.Rows.Count() > 2)
                             {
                                 <div id="comparisonCardFeaturesCollapse_@(Model.NodeID)_@i" class="collapse comparison__collapse" data-parent="#comparisonCardFeatures_@(Model.NodeID)_@i">
-                                    <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
+                                    @if (Model.Rows.ElementAt(1).ElementAt(0) == Model.Rows.ElementAt(1).ElementAt(i) && i == 0)
+                                    {
                                         @foreach (var row in Model.Rows.Skip(2))
                                         {
-                                            <dt>@Html.Raw(row.ElementAt(0))</dt>
-                                            <dd>@Html.Raw(row.ElementAt(i))</dd>
+                                            <div class="comparison__card-firstcol">
+                                                @Html.Kentico().ResolveUrls(row.ElementAt(0))
+                                            </div>
                                         }
-                                    </dl>
+                                    }
+                                    else
+                                    {
+                                        <dl aria-labelledby="comparisonCardHeading_@(Model.NodeID)_@i">
+                                            @foreach (var row in Model.Rows.Skip(2))
+                                            {
+                                                <dt>@Html.Raw(row.ElementAt(0))</dt>
+                                                <dd>@Html.Raw(row.ElementAt(i))</dd>
+                                            }
+                                        </dl>
+                                    }
+
                                 </div>
                                 <div class="comparison__features-btn-wrap">
                                     <button class="btn btn-link comparison__features-btn collapsed" type="button" data-toggle="collapse" data-target="#comparisonCardFeaturesCollapse_@(Model.NodeID)_@i" aria-expanded="false" aria-controls="comparisonCardFeaturesCollapse_@(Model.NodeID)_@i">

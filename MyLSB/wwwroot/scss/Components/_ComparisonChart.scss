@@ -105,6 +105,12 @@
             margin: 0;
         }
 
+        &-firstcol {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: $font-weight-extrabold;
+        }
+
         dt {
             font-weight: $font-weight-extrabold;
         }
