@@ -114,6 +114,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Number of Posts.
+		/// </summary>
+		[DatabaseField]
+		public int LatestBlogPostsCount
+		{
+			get
+			{
+				return ValidationHelper.GetInteger(GetValue("LatestBlogPostsCount"), 3);
+			}
+			set
+			{
+				SetValue("LatestBlogPostsCount", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Text.
 		/// </summary>
 		[DatabaseField]
@@ -276,6 +293,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.LatestBlogPostsImage = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Number of Posts.
+			/// </summary>
+			public int Count
+			{
+				get
+				{
+					return mInstance.LatestBlogPostsCount;
+				}
+				set
+				{
+					mInstance.LatestBlogPostsCount = value;
 				}
 			}
 

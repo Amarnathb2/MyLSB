@@ -250,6 +250,57 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Blog Posts API Url.
+		/// </summary>
+		[DatabaseField]
+		public string BlogPostsAPIUrl
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("BlogPostsAPIUrl"), @"https://api.hubapi.com/cms/v3/blogs/posts");
+			}
+			set
+			{
+				SetValue("BlogPostsAPIUrl", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Blog Tags API Url.
+		/// </summary>
+		[DatabaseField]
+		public string BlogTagsAPIUrl
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("BlogTagsAPIUrl"), @"https://api.hubapi.com/cms/v3/blogs/tags");
+			}
+			set
+			{
+				SetValue("BlogTagsAPIUrl", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Blogs API Key.
+		/// </summary>
+		[DatabaseField]
+		public string BlogsAPIKey
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("BlogsAPIKey"), @"53026761-e9d3-4706-a72c-bf91a6156387");
+			}
+			set
+			{
+				SetValue("BlogsAPIKey", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Gets an object that provides extended API for working with Settings fields.
 		/// </summary>
 		[RegisterProperty]
@@ -484,6 +535,54 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.SpeedbumpWhitelist = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Blog Posts API Url.
+			/// </summary>
+			public string BlogPostsAPIUrl
+			{
+				get
+				{
+					return mInstance.BlogPostsAPIUrl;
+				}
+				set
+				{
+					mInstance.BlogPostsAPIUrl = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Blog Tags API Url.
+			/// </summary>
+			public string BlogTagsAPIUrl
+			{
+				get
+				{
+					return mInstance.BlogTagsAPIUrl;
+				}
+				set
+				{
+					mInstance.BlogTagsAPIUrl = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Blogs API Key.
+			/// </summary>
+			public string BlogsAPIKey
+			{
+				get
+				{
+					return mInstance.BlogsAPIKey;
+				}
+				set
+				{
+					mInstance.BlogsAPIKey = value;
 				}
 			}
 		}

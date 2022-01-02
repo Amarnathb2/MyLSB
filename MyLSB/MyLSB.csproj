@@ -22,6 +22,7 @@
     <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
     <PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.55" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
     <PackageReference Include="SimpleMvcSitemap" Version="4.0.1" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
   </ItemGroup>
@@ -121,7 +122,6 @@
     <ProjectReference Include="..\Custom\Custom.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\" />
     <Folder Include="wwwroot\lib\chat\" />
   </ItemGroup>
 </Project>
