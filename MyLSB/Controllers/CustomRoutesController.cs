@@ -107,7 +107,8 @@ namespace MyLSB.Controllers
                 return URLRedirection.RedirectionTableInfoProvider.GetRedirectionTables(Site).Select(r => r.RedirectionOriginalURL.ToLower().TrimEnd('/')).ToList();
 
             }, new CacheSettings(10, $"{nameof(RedirectConstraint)}|{SiteContext.CurrentSiteName}|{Path}"));
-
+            
+            Path = Path.Replace(" ", "%20");
 
             if (OriginalUrls.Contains(Path))
             {
