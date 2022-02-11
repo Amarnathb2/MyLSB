@@ -33,6 +33,7 @@ namespace MyLSB.Controllers
 
                 newFormItem.SetValue("NameOfBusiness", obj.NameOfBusiness);
                 newFormItem.SetValue("NameOfRequestingIndividual", obj.NameOfRequestingIndividual);
+                newFormItem.SetValue("PhoneNumber", obj.PhoneNumber);
                 newFormItem.SetValue("LastFourOfAccountNumber", obj.LastFourOfAccountNumber);
                 newFormItem.SetValue("Funding", obj.Funding);
                 newFormItem.SetValue("BankLocationForPickup", obj.BankLocationForPickup);

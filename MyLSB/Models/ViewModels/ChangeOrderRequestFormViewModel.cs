@@ -56,6 +56,8 @@ namespace MyLSB.Models.ViewModels
 
         [Display(Name = "Name of Requesting Individual")]
         public string NameOfRequestingIndividual { get; set; }
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
 
         [Display(Name = "Last Four of Account Number")]
         public string LastFourOfAccountNumber { get; set; }
