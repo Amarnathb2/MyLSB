@@ -19,6 +19,7 @@ namespace MyLSB
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddSingleton<AlertRepository>();
+            services.AddSingleton<BannerRepository>();
             services.AddSingleton<NavigationRepository>();
             services.AddSingleton<LinkRepository>();
             services.AddSingleton<PageRepository>();

@@ -1,0 +1,163 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.banner-carousel {
+
+    &__parent {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient( 189deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) calc(66% - 1px), rgba(#1faa96, .3) 66%, rgba(#1faa96, .3) 100%);
+            padding: 2rem 0 2.4rem;
+        }
+    }
+
+    &__slide {
+        > .container {
+            position: relative;
+
+            @include media-breakpoint-down(md) {
+                max-width: none;
+                padding: 0;
+            }
+        }
+    }
+
+    &__img {
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            height: 55.5rem;
+            transform: translateX(18rem);
+            width: auto;
+        }
+
+        @include media-breakpoint-up(xl) {
+            transform: translateX(0);
+        }
+    }
+
+    &__content {
+        @include media-breakpoint-up(lg) {
+            left: -6rem;
+            position: absolute;
+            top: 50%;
+            width: 61.5rem;
+        }
+
+        &-inner {
+            background: $primary;
+            color: $white;
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+
+            @include media-breakpoint-up(lg) {
+                padding: 2.5rem 7.5rem;
+                text-align: left;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &__heading {
+        color: $white;
+        font-size: 2.6rem;
+        font-weight: $font-weight-extrabold;
+        line-height: 1.1538;
+        margin-bottom: 1.5rem;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 5.5rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__sub {
+        margin-bottom: 1.5rem;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__decoration {
+        height: 6rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            top: -2rem;
+            height: 15.3rem;
+            right: -11rem;
+        }
+    }
+
+
+    &-controls {
+        position: relative;
+
+        button {
+            background-color: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.75);
+            display: block;
+            font-size: 20px;
+            line-height: 1;
+            outline: none;
+            padding: 0;
+            width: 20px;
+            height: 32px;
+
+            &:focus,
+            &:hover {
+                transform: scale(1.3);
+            }
+
+            &.play,
+            &.pause {
+                font-size: 13px;
+
+                &:focus {
+                    border: #ffffff dotted 1px;
+                }
+            }
+
+            &.prev,
+            &.next {
+                > .fa {
+                    vertical-align: top;
+                }
+
+                &:focus {
+                    border: #ffffff dotted 1px;
+                }
+            }
+        }
+
+        ul {
+            font-size: 0;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            top: -40px;
+            background-color: #4c6165;
+
+            @include media-breakpoint-down(xs) {
+                right: 60px;
+            }
+            &.list-inline{
+                 > li{
+                     display:inline-block;
+                 }
+            }
+            li {
+                margin: 0;
+                padding: 0;
+                vertical-align: top;
+            }
+        }
+    }
+}
