@@ -48,6 +48,7 @@
 @import "../lib/animate.css/animate.css";
 @import "../lib/flickity/flickity.css";
 @import "../lib/odometer.js/themes/odometer-theme-default.css";
+@import "../lib/slick/slick.scss";
 
 //-----------------------------------------
 //   Custom Styles
@@ -106,6 +107,7 @@ $fa-font-path: "/fonts/fontawesome-pro/webfonts";
 @import "Components/_CategoryNav.scss";
 @import "Components/_SectionNav.scss";
 @import "Components/_Banner.scss";
+@import "Components/_BannerCarousel.scss";
 @import "Components/_PositioningText.scss";
 @import "Components/_ProductsServices.scss";
 @import "Components/_LatestPosts.scss";
