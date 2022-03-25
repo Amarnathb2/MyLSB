@@ -94,7 +94,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Pennies, new { @class = "form-control coin", @type = "number", @step = ".50" })
+                                        @Html.TextBoxFor(m => m.Pennies, new { @class = "form-control coin", @type = "number", @min = "0", @step = ".50" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -103,7 +103,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Nickles, new { @class = "form-control coin", @type = "number", @step = "2" })
+                                        @Html.TextBoxFor(m => m.Nickles, new { @class = "form-control coin", @type = "number", @min = "0", @step = "2" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -112,7 +112,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Dimes, new { @class = "form-control coin", @type = "number", @step = "5" })
+                                        @Html.TextBoxFor(m => m.Dimes, new { @class = "form-control coin", @type = "number", @min = "0", @step = "5" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -121,7 +121,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Quarters, new { @class = "form-control coin", @type = "number", @step = "10" })
+                                        @Html.TextBoxFor(m => m.Quarters, new { @class = "form-control coin", @type = "number", @min = "0", @step = "10" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -130,7 +130,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Halves, new { @class = "form-control coin", @type = "number", @step = "10" })
+                                        @Html.TextBoxFor(m => m.Halves, new { @class = "form-control coin", @type = "number", @min = "0", @step = "10" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -139,7 +139,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.DollarCoins, new { @class = "form-control coin", @type = "number", @step = "25" })
+                                        @Html.TextBoxFor(m => m.DollarCoins, new { @class = "form-control coin", @type = "number", @min = "0", @step = "25" })
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Dollars, new { @class = "form-control currency", @type = "number", @step = "1" })
+                                        @Html.TextBoxFor(m => m.Dollars, new { @class = "form-control currency", @type = "number", @min = "0", @step = "1" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -159,7 +159,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Fives, new { @class = "form-control currency", @type = "number", @step = "5" })
+                                        @Html.TextBoxFor(m => m.Fives, new { @class = "form-control currency", @type = "number", @min = "0", @step = "5" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -168,7 +168,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Tens, new { @class = "form-control currency", @type = "number", @step = "10" })
+                                        @Html.TextBoxFor(m => m.Tens, new { @class = "form-control currency", @type = "number", @min = "0", @step = "10" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -177,7 +177,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Twenties, new { @class = "form-control currency", @type = "number", @step = "20" })
+                                        @Html.TextBoxFor(m => m.Twenties, new { @class = "form-control currency", @type = "number", @min = "0", @step = "20" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -186,7 +186,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Fifties, new { @class = "form-control currency", @type = "number", @step = "50" })
+                                        @Html.TextBoxFor(m => m.Fifties, new { @class = "form-control currency", @type = "number", @min = "0", @step = "50" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -195,7 +195,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        @Html.TextBoxFor(m => m.Hundreds, new { @class = "form-control currency", @type = "number", @step = "100" })
+                                        @Html.TextBoxFor(m => m.Hundreds, new { @class = "form-control currency", @type = "number", @min = "0", @step = "100" })
                                     </div>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@
 
 App.ChangeOrderRequestForm = (function ($) {
     "use strict";
-
+  
     var $changeOrderRequestForm = $("#change-order-request-form form.needs-validation");
     var $coinFields = $changeOrderRequestForm.find(".coin");
     var $currencyFields = $changeOrderRequestForm.find(".currency");
@@ -28,7 +28,16 @@ App.ChangeOrderRequestForm = (function ($) {
                 }, false);
             });
         });
+         //disable cut,copy,paste
+        $('.coin, .currency').bind('copy paste cut', function (e) {
+            e.preventDefault();
+        });
 
+        //Prevent -ve and +ve signs
+        $(".coin, .currency").keypress(function (e) {
+            if (e.charCode == 43 || e.charCode == 45)
+                e.preventDefault();
+        })
         $coinFields.on("change", updateTotalCoin);
         $currencyFields.on("change", updateTotalCurrency);
 
