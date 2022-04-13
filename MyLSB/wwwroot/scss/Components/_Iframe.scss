@@ -1,0 +1,34 @@
+﻿@import "../lib/twitter-bootstrap/scss/variables";
+@import "../variables";
+@import "../lib/twitter-bootstrap/scss/mixins";
+@import "../mixins";
+
+.iframe-show-bg {
+    position: relative;
+
+    .background-shape {
+        background: linear-gradient( 175deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) calc(20% - 1px), $light 20%, $light 100%);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient( 175deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) calc(26% - 1px), $light 26%, $light 100%);
+        }
+    }
+
+    .foreground-shape {
+        height: 6rem;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            height: 15.3rem;
+        }
+    }
+}

@@ -63,6 +63,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Background Design.
+		/// </summary>
+		[DatabaseField]
+		public string IframeBackgroundDesign
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("IframeBackgroundDesign"), @"");
+			}
+			set
+			{
+				SetValue("IframeBackgroundDesign", value);
+			}
+		}
+
+
+		/// <summary>
 		/// IframeName.
 		/// </summary>
 		[DatabaseField]
@@ -194,6 +211,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.IframeID = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Background Design.
+			/// </summary>
+			public string BackgroundDesign
+			{
+				get
+				{
+					return mInstance.IframeBackgroundDesign;
+				}
+				set
+				{
+					mInstance.IframeBackgroundDesign = value;
 				}
 			}
 
