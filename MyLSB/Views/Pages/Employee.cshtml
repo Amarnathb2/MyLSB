@@ -9,6 +9,7 @@
     //};
 
     string Address = !String.IsNullOrEmpty(Model.Address2) ? Model.Address1 + "<br />" + Model.Address2 : Model.Address1;
+    string AddressSecondary = !String.IsNullOrEmpty(Model.Address2Secondary) ? Model.Address1Secondary + "<br />" + Model.Address2Secondary : Model.Address1Secondary;
 }
 
 @*<cache expires-after="@TimeSpan.FromMinutes(60)" enabled="@cacheEnabled" vary-by="@Model.NodeAliasPath">
@@ -45,9 +46,26 @@
                                     <div class="employee__nmls">NMLS# @Html.Raw(Model.NMLS)</div>
                                 }
                                 <div class="employee__address">
-                                    <div>@Html.Raw(Address)</div>
-                                    <div>@Html.Raw(Model.City)@(!String.IsNullOrEmpty(Model.State) ? "," : "") @Html.Raw(Model.State) @Html.Raw(Model.Zip)</div>
+                                    @if (!String.IsNullOrEmpty(Address))
+                                    {
+                                        <div>@Html.Raw(Address)</div>
+                                    }
+                                    @if (!String.IsNullOrEmpty(Model.City))
+                                    {
+                                        <div>@Html.Raw(Model.City)@(!String.IsNullOrEmpty(Model.State) ? "," : "") @Html.Raw(Model.State) @Html.Raw(Model.Zip)</div>
+                                    }
                                 </div>
+                                @if (!string.IsNullOrEmpty(AddressSecondary) || !String.IsNullOrEmpty(Model.CitySecondary))
+                                {
+                                    <div class="employee__address">
+                                        @if (!String.IsNullOrEmpty(AddressSecondary)) {
+                                            <div>@Html.Raw(AddressSecondary)</div>
+                                        }
+                                        @if (!String.IsNullOrEmpty(Model.CitySecondary)) {
+                                            <div>@Html.Raw(Model.CitySecondary)@(!String.IsNullOrEmpty(Model.StateSecondary) ? "," : "") @Html.Raw(Model.StateSecondary) @Html.Raw(Model.ZipSecondary)</div>
+                                        }
+                                    </div>
+                                }
                                 @if (!String.IsNullOrEmpty(Model.OfficePhone))
                                 {
                                     <div class="employee__office">Office: <a href="@CustomHelpers.TelLink(Model.OfficePhone)">@Html.Raw(Model.OfficePhone)</a></div>

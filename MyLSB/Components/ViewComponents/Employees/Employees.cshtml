@@ -18,7 +18,7 @@
                                     @:<a href="@DocumentURLProvider.GetUrl(employee)" tabindex="-1">
                                 }
                                 <img src="@Url.Content(employee.EmployeePhoto)" alt="@Html.Raw(employee.EmployeeName)" class="employee__photo" />
-                                <h4 class="employee__name">@Html.Raw(employee.EmployeeName)</h4>
+                                <h4 class="employee__name">@Html.Raw(!String.IsNullOrEmpty(employee.EmployeeDisplayName) ? employee.EmployeeDisplayName : employee.EmployeeName)</h4>
                                 @if (!employee.EmployeeDisableFullBio)
                                 {
                                     @:</a>
@@ -36,13 +36,40 @@
                                     <div class="employee__nmls">NMLS# @Html.Raw(employee.EmployeeNMLS)</div>
                                 }
                                 <div class="employee__contact">
-                                    @if (!String.IsNullOrEmpty(employee.EmployeeOfficePhone))
+                                    @if (!String.IsNullOrEmpty(employee.EmployeeOfficePhone) || !String.IsNullOrEmpty(employee.EmployeeMobilePhone))
                                     {
-                                        <span class="employee__phone"><span class="fas fa-phone" aria-hidden="true"></span> <a href="@(CustomHelpers.TelLink(employee.EmployeeOfficePhone))">@Html.Raw(employee.EmployeeOfficePhone)</a></span>
+                                        <span class="employee__phone">
+                                            @if (!String.IsNullOrEmpty(employee.EmployeeOfficePhone) && String.IsNullOrEmpty(employee.EmployeeMobilePhone))
+                                            {
+                                                <span class="fas fa-phone" aria-hidden="true"></span> <a href="@(CustomHelpers.TelLink(employee.EmployeeOfficePhone))">@Html.Raw(employee.EmployeeOfficePhone)</a>
+                                            }
+                                            else if (!String.IsNullOrEmpty(employee.EmployeeMobilePhone) && String.IsNullOrEmpty(employee.EmployeeOfficePhone))
+                                            {
+                                                <span class="fas fa-phone" aria-hidden="true"></span> <a href="@(CustomHelpers.TelLink(employee.EmployeeMobilePhone))">@Html.Raw(employee.EmployeeMobilePhone)</a>
+                                            }
+                                            else if (!String.IsNullOrEmpty(employee.EmployeeOfficePhone) && !String.IsNullOrEmpty(employee.EmployeeMobilePhone))
+                                            {
+                                                if (employee.EmployeePrimaryPhone == "mobile")
+                                                {
+                                                    <span class="fas fa-phone" aria-hidden="true"></span> <a href="@(CustomHelpers.TelLink(employee.EmployeeMobilePhone))">@Html.Raw(employee.EmployeeMobilePhone)</a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="fas fa-phone" aria-hidden="true"></span> <a href="@(CustomHelpers.TelLink(employee.EmployeeOfficePhone))">@Html.Raw(employee.EmployeeOfficePhone)</a>
+                                                }
+                                            }
+                                        </span>
                                     }
+
                                     @if (!String.IsNullOrEmpty(employee.EmployeeCity) && !String.IsNullOrEmpty(employee.EmployeeState))
                                     {
-                                        <span class="employee__location">@Html.Raw(employee.EmployeeCity), @Html.Raw(employee.EmployeeState)</span>
+                                        <div class="employee__location">
+                                            <span>@Html.Raw(employee.EmployeeCity), @Html.Raw(employee.EmployeeState)</span>
+                                            @if (!String.IsNullOrEmpty(employee.EmployeeCitySecondary) && !String.IsNullOrEmpty(employee.EmployeeStateSecondary))
+                                            {
+                                                <span>@Html.Raw(employee.EmployeeCitySecondary), @Html.Raw(employee.EmployeeStateSecondary)</span>
+                                            }
+                                        </div>
                                     }
                                 </div>
                                 @if (!employee.EmployeeDisableFullBio)

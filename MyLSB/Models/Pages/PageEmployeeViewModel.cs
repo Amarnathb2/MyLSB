@@ -21,6 +21,11 @@ namespace MyLSB.Models.Pages
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
+        public string Address1Secondary { get; set; }
+        public string Address2Secondary { get; set; }
+        public string CitySecondary { get; set; }
+        public string StateSecondary { get; set; }
+        public string ZipSecondary { get; set; }
         public string OfficePhone { get; set; }
         public string MobilePhone { get; set; }
         public string Fax { get; set; }
@@ -31,7 +36,7 @@ namespace MyLSB.Models.Pages
 
         public PageEmployeeViewModel(PageEmployee page, Settings settings, PageRepository pageRepository, PartialsRepository partialsRepository) : base(page, settings, pageRepository, partialsRepository)
         {
-            Name = page.EmployeeName;
+            Name = !String.IsNullOrEmpty(page.EmployeeDisplayName) ? page.EmployeeDisplayName : page.EmployeeName;
             Designations = page.EmployeeDesignations;
             Title = page.EmployeeTitle;
             Specialty = page.EmployeeSpecialty;
@@ -44,6 +49,11 @@ namespace MyLSB.Models.Pages
             City = page.EmployeeCity;
             State = page.EmployeeState;
             Zip = page.EmployeeZip;
+            Address1Secondary = page.EmployeeAddress1Secondary;
+            Address2Secondary = page.EmployeeAddress2Secondary;
+            CitySecondary = page.EmployeeCitySecondary;
+            StateSecondary = page.EmployeeStateSecondary;
+            ZipSecondary = page.EmployeeZipSecondary;
             OfficePhone = page.EmployeeOfficePhone;
             MobilePhone = page.EmployeeMobilePhone;
             Fax = page.EmployeeFax;

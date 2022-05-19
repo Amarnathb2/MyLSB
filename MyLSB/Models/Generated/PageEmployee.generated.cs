@@ -80,6 +80,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Employee Display Name.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeDisplayName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeDisplayName"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeDisplayName", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Disable full bio page.
 		/// </summary>
 		[DatabaseField]
@@ -318,6 +335,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Primary phone.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeePrimaryPhone
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeePrimaryPhone"), @"office");
+			}
+			set
+			{
+				SetValue("EmployeePrimaryPhone", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Fax.
 		/// </summary>
 		[DatabaseField]
@@ -330,6 +364,91 @@ namespace CMS.DocumentEngine.Types.Custom
 			set
 			{
 				SetValue("EmployeeFax", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Secondary Address 1.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeAddress1Secondary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeAddress1Secondary"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeAddress1Secondary", value);
+			}
+		}
+
+
+		/// <summary>
+		/// EmployeeAddress2Secondary.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeAddress2Secondary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeAddress2Secondary"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeAddress2Secondary", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Secondary City.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeCitySecondary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeCitySecondary"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeCitySecondary", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Secondary State.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeStateSecondary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeStateSecondary"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeStateSecondary", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Secondary ZIP code.
+		/// </summary>
+		[DatabaseField]
+		public string EmployeeZipSecondary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("EmployeeZipSecondary"), @"");
+			}
+			set
+			{
+				SetValue("EmployeeZipSecondary", value);
 			}
 		}
 
@@ -533,6 +652,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.EmployeeName = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Employee Display Name.
+			/// </summary>
+			public string EmployeeDisplayName
+			{
+				get
+				{
+					return mInstance.EmployeeDisplayName;
+				}
+				set
+				{
+					mInstance.EmployeeDisplayName = value;
 				}
 			}
 
@@ -762,6 +897,22 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
+			/// Primary phone.
+			/// </summary>
+			public string EmployeePrimaryPhone
+			{
+				get
+				{
+					return mInstance.EmployeePrimaryPhone;
+				}
+				set
+				{
+					mInstance.EmployeePrimaryPhone = value;
+				}
+			}
+
+
+			/// <summary>
 			/// Fax.
 			/// </summary>
 			public string EmployeeFax
@@ -773,6 +924,86 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.EmployeeFax = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Secondary Address 1.
+			/// </summary>
+			public string EmployeeAddress1Secondary
+			{
+				get
+				{
+					return mInstance.EmployeeAddress1Secondary;
+				}
+				set
+				{
+					mInstance.EmployeeAddress1Secondary = value;
+				}
+			}
+
+
+			/// <summary>
+			/// EmployeeAddress2Secondary.
+			/// </summary>
+			public string EmployeeAddress2Secondary
+			{
+				get
+				{
+					return mInstance.EmployeeAddress2Secondary;
+				}
+				set
+				{
+					mInstance.EmployeeAddress2Secondary = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Secondary City.
+			/// </summary>
+			public string EmployeeCitySecondary
+			{
+				get
+				{
+					return mInstance.EmployeeCitySecondary;
+				}
+				set
+				{
+					mInstance.EmployeeCitySecondary = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Secondary State.
+			/// </summary>
+			public string EmployeeStateSecondary
+			{
+				get
+				{
+					return mInstance.EmployeeStateSecondary;
+				}
+				set
+				{
+					mInstance.EmployeeStateSecondary = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Secondary ZIP code.
+			/// </summary>
+			public string EmployeeZipSecondary
+			{
+				get
+				{
+					return mInstance.EmployeeZipSecondary;
+				}
+				set
+				{
+					mInstance.EmployeeZipSecondary = value;
 				}
 			}
 
