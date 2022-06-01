@@ -52,10 +52,20 @@
             margin: 0 0 .5rem;            
         }
 
-        &__phone + .employee__location::before {
-            content: '|';
-            display: inline-block;
-            margin: 0 .5rem;
+        .employee__location {
+            > span {
+                &::after {
+                    content: '|';
+                    display: inline-block;
+                    margin: 0 .25rem 0 .5rem;
+                }
+
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
         }
 
         &__bio-link {
