@@ -1,6 +1,6 @@
 ﻿@model Iframe
 
-<div class="embed-responsive @Html.Raw(Model.IframeHeight >= 0 ? "embed-responsive-16by9" : "")" @Html.Raw(Model.IframeHeight > 0 ? $" style=\"height: {Model.IframeHeight}px\"" : "") id="iframe_@(Model.NodeID)">
+<div class="embed-responsive @Html.Raw(Model.IframeHeight >= 0 ? "embed-responsive-16by9" : "")" style=" @Html.Raw(Model.IframeHeight >= 0 ? $"height: {Model.IframeHeight}px; " : "") @Html.Raw(Model.IframeWidth >= 0 ? $"width: {Model.IframeWidth}px; max-width:100%;" : "")" id="iframe_@(Model.NodeID)">
     <iframe title="@Html.Raw(Model.IframeTitle)" class="embed-responsive-item" src="@Url.Content(Model.IframeSrc)"></iframe>
 </div>
 @if (!String.IsNullOrEmpty(Model.IframeTranscript))
