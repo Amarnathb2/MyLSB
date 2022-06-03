@@ -182,6 +182,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Trust disclosure.
+		/// </summary>
+		[DatabaseField]
+		public string FooterTrustDisclosure
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FooterTrustDisclosure"), @"");
+			}
+			set
+			{
+				SetValue("FooterTrustDisclosure", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Cookie notice.
 		/// </summary>
 		[DatabaseField]
@@ -471,6 +488,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.FooterInsuranceDisclosure = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Trust disclosure.
+			/// </summary>
+			public string FooterTrustDisclosure
+			{
+				get
+				{
+					return mInstance.FooterTrustDisclosure;
+				}
+				set
+				{
+					mInstance.FooterTrustDisclosure = value;
 				}
 			}
 

@@ -69,10 +69,15 @@
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <vc:footer-nav />
-                @if (Model.ShowInsuranceDisclosure)
+                @if (Model.ShowInsuranceDisclosure || Model.ShowTrustDisclosure)
                 {
                     <div class="site-footer__disclosure">
-                        @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.InsuranceDisclosure))
+                        @if (Model.ShowInsuranceDisclosure) {
+                            @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.InsuranceDisclosure))
+                        }
+                        @if (Model.ShowTrustDisclosure) {
+                            @Html.Kentico().ResolveUrls(MacroResolver.Resolve(Model.TrustDisclosure))
+                        }
                     </div>
                 }
                 <div class="d-lg-flex justify-content-between align-items-center">

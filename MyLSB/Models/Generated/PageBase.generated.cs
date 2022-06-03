@@ -97,7 +97,7 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
-		/// Show insurance disclosure.
+		/// Insurance disclosure.
 		/// </summary>
 		[DatabaseField]
 		public bool ShowInsuranceDisclosure
@@ -114,7 +114,24 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
-		/// Show footer emblems.
+		/// Trust disclosure.
+		/// </summary>
+		[DatabaseField]
+		public bool ShowTrustDisclosure
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("ShowTrustDisclosure"), false);
+			}
+			set
+			{
+				SetValue("ShowTrustDisclosure", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Footer emblems.
 		/// </summary>
 		[DatabaseField]
 		public bool ShowFooterEmblems
@@ -316,7 +333,7 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
-			/// Show insurance disclosure.
+			/// Insurance disclosure.
 			/// </summary>
 			public bool ShowInsuranceDisclosure
 			{
@@ -332,7 +349,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
-			/// Show footer emblems.
+			/// Trust disclosure.
+			/// </summary>
+			public bool ShowTrustDisclosure
+			{
+				get
+				{
+					return mInstance.ShowTrustDisclosure;
+				}
+				set
+				{
+					mInstance.ShowTrustDisclosure = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Footer emblems.
 			/// </summary>
 			public bool ShowFooterEmblems
 			{

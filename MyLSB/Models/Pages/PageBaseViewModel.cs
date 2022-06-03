@@ -26,6 +26,7 @@ namespace MyLSB.Models.Pages
         public string BodyClass { get; set; }
         public bool NoIndex { get; set; }
         public bool ShowInsuranceDisclosure { get; set; }
+        public bool ShowTrustDisclosure { get; set; }
         public bool ShowFooterEmblems { get; set; }
         public string PartialsPath { get; set; }
 
@@ -36,6 +37,7 @@ namespace MyLSB.Models.Pages
         public string PrivilegedStatusUrl { get; set; }
 
         public string InsuranceDisclosure { get; set; }
+        public string TrustDisclosure { get; set; }
 
         public PageBaseViewModel(TreeNode node, Settings settings, PageRepository pageRepository, PartialsRepository partialsRepository)
         {
@@ -53,6 +55,7 @@ namespace MyLSB.Models.Pages
             Schema = node.GetStringValue("Schema", "");
             NoIndex = node.GetBooleanValue("NoIndex", false);
             ShowInsuranceDisclosure = node.GetBooleanValue("ShowInsuranceDisclosure", false);
+            ShowTrustDisclosure = node.GetBooleanValue("ShowTrustDisclosure", false);
             ShowFooterEmblems = node.GetBooleanValue("ShowFooterEmblems", true);
             PartialsPath = partialsRepository.GetPartialsContainerPath(node);
 
@@ -65,6 +68,7 @@ namespace MyLSB.Models.Pages
                 .Replace(" ", "");
             PrivilegedStatusUrl = settings.FooterPrivilegedStatusUrl;
             InsuranceDisclosure = settings.FooterInsuranceDisclosure;
+            TrustDisclosure = settings.FooterTrustDisclosure;
         }
     }
 }
