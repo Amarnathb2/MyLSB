@@ -131,6 +131,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// Width.
+		/// </summary>
+		[DatabaseField]
+		public int IframeWidth
+		{
+			get
+			{
+				return ValidationHelper.GetInteger(GetValue("IframeWidth"), 0);
+			}
+			set
+			{
+				SetValue("IframeWidth", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Transcript.
 		/// </summary>
 		[DatabaseField]
@@ -143,6 +160,23 @@ namespace CMS.DocumentEngine.Types.Custom
 			set
 			{
 				SetValue("IframeTranscript", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Background Design.
+		/// </summary>
+		[DatabaseField]
+		public string IframeBackgroundDesign
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("IframeBackgroundDesign"), @"");
+			}
+			set
+			{
+				SetValue("IframeBackgroundDesign", value);
 			}
 		}
 
@@ -263,6 +297,22 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 			/// <summary>
+			/// Width.
+			/// </summary>
+			public int Width
+			{
+				get
+				{
+					return mInstance.IframeWidth;
+				}
+				set
+				{
+					mInstance.IframeWidth = value;
+				}
+			}
+
+
+			/// <summary>
 			/// Transcript.
 			/// </summary>
 			public string Transcript
@@ -274,6 +324,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.IframeTranscript = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Background Design.
+			/// </summary>
+			public string BackgroundDesign
+			{
+				get
+				{
+					return mInstance.IframeBackgroundDesign;
+				}
+				set
+				{
+					mInstance.IframeBackgroundDesign = value;
 				}
 			}
 		}
