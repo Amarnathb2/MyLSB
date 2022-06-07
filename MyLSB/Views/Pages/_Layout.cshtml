@@ -82,7 +82,7 @@
                 }
                 <div class="d-lg-flex justify-content-between align-items-center">
                     <small>
-                        &copy; Lincoln Savings Bank @(DateTime.Now.Year) | NMLS #480330<br />
+                        &copy; Lincoln Savings Bank @(DateTime.Now.Year) @Html.Raw(!Model.HideNMLSNumber ? "| NMLS #480330" : "")<br />
                         Website by <a href="https://www.zaginteractive.com" target="_blank">ZAG Interactive</a> | <a href="/sitemap">Sitemap</a>
                     </small>
                     @if (Model.ShowFooterEmblems)

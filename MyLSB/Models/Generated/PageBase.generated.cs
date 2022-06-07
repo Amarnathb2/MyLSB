@@ -148,6 +148,23 @@ namespace CMS.DocumentEngine.Types.Custom
 
 
 		/// <summary>
+		/// NMLS Number.
+		/// </summary>
+		[DatabaseField]
+		public bool HideNMLSNumber
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("HideNMLSNumber"), false);
+			}
+			set
+			{
+				SetValue("HideNMLSNumber", value);
+			}
+		}
+
+
+		/// <summary>
 		/// JSON.
 		/// </summary>
 		[DatabaseField]
@@ -376,6 +393,22 @@ namespace CMS.DocumentEngine.Types.Custom
 				set
 				{
 					mInstance.ShowFooterEmblems = value;
+				}
+			}
+
+
+			/// <summary>
+			/// NMLS Number.
+			/// </summary>
+			public bool HideNMLSNumber
+			{
+				get
+				{
+					return mInstance.HideNMLSNumber;
+				}
+				set
+				{
+					mInstance.HideNMLSNumber = value;
 				}
 			}
 

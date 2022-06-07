@@ -28,6 +28,7 @@ namespace MyLSB.Models.Pages
         public bool ShowInsuranceDisclosure { get; set; }
         public bool ShowTrustDisclosure { get; set; }
         public bool ShowFooterEmblems { get; set; }
+        public bool HideNMLSNumber { get; set; }
         public string PartialsPath { get; set; }
 
         //Settings
@@ -57,6 +58,7 @@ namespace MyLSB.Models.Pages
             ShowInsuranceDisclosure = node.GetBooleanValue("ShowInsuranceDisclosure", false);
             ShowTrustDisclosure = node.GetBooleanValue("ShowTrustDisclosure", false);
             ShowFooterEmblems = node.GetBooleanValue("ShowFooterEmblems", true);
+            HideNMLSNumber = node.GetBooleanValue("HideNMLSNumber", false);
             PartialsPath = partialsRepository.GetPartialsContainerPath(node);
 
             ContactPageUrl = settings.ContactPageUrl;
