@@ -466,6 +466,10 @@
       <HintPath>..\packages\Azure.AI.TextAnalytics.5.0.0\lib\netstandard2.0\Azure.AI.TextAnalytics.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.7.0.0\lib\net461\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DotNetOpenAuth">
       <HintPath>..\Lib\DotNetOpenAuth.dll</HintPath>
     </Reference>
@@ -873,10 +877,6 @@
     <Reference Include="CMS.WorkflowEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.WorkflowEngine.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\packages\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.7.0.0\lib\net461\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1531,8 +1531,11 @@
     <Content Include="CMSModules\Ecommerce\Pages\Tools\Products\Product_Edit_Tags.aspx" />
     <Content Include="CMSModules\EmailTemplates\FormControls\EmailTemplateTypeSelector.ascx" />
     <Content Include="CMSModules\EmailTemplates\Pages\SendDraft.aspx" />
+    <Content Include="CMSModules\ImportExport\Controls\ExportSettingsPanel.ascx" />
     <Content Include="CMSModules\ImportExport\Controls\Export\cms_resource.ascx" />
     <Content Include="CMSModules\ImportExport\Controls\Import\ma_automationaction.ascx" />
+    <Content Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileUsage.ascx" />
+    <Content Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileUsageDialog.aspx" />
     <Content Include="CMSModules\Modules\Controls\NuGetPackages\ExportModule.ascx" />
     <Content Include="CMSModules\Newsletters\Controls\RecipientContactGroups.ascx" />
     <Content Include="CMSModules\Newsletters\Controls\IssueLinks.ascx" />
@@ -3401,6 +3404,34 @@
     <Content Include="CMSWebParts\Viewers\DateTime.ascx" />
     <Content Include="CMSWebParts\Viewers\DateTime_files\DateTime.js" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Brew-Bar.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Cauca-Farmer.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Cherries.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Region.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Shop.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Coffee-Triangle.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Colombia-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Kona-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Robusta.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\St-Helena-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Thailand-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\CoffeeGallery\Work-And-Coffee.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
+    <Content Include="DancingGoatCore\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\banner-default.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\banner2.png" />
+    <Content Include="DancingGoatCore\media\Graphics\colombia-coffee.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\default-image-product.png" />
+    <Content Include="DancingGoatCore\media\Graphics\hero-bg.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\hero-bg3.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\hero_image.jpg" />
+    <Content Include="DancingGoatCore\media\Graphics\Logos\logo-dancing-goat.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\aerobie.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\chemex.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Espro.png" />
+    <Content Include="DancingGoatCore\media\Graphics\Manufacturers\Hario.png" />
     <Content Include="Global.asax" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
@@ -3912,10 +3943,12 @@
     <Content Include="CMSWebParts\Text\Link.ascx" />
     <Content Include="CMSWebParts\DashBoard\documents.ascx" />
     <Content Include="Old_App_WebReferences\WS\WebService.disco" />
+    <Content Include="App_Data\Dictionaries\en-GB.dic" />
     <Content Include="App_Data\Dictionaries\en-US.dic" />
     <Content Include="App_Themes\Default\CMSDesk.skin" />
     <Content Include="App_Themes\Default\DesignMode.skin" />
     <Content Include="CMSAdminControls\ModalCalendar\Themes\Web.config" />
+    <Content Include="App_Data\Templates\BlankSite\Template.zip" />
     <Content Include="App_Themes\Default\Images\Images.zip" />
     <Content Include="App_Data\Install\SQL.zip" />
     <Content Include="App_Themes\Default\Bootstrap\alerts.less" />
@@ -4917,6 +4950,13 @@
     <Compile Include="CMSModules\EmailTemplates\Pages\SendDraft.aspx.designer.cs">
       <DependentUpon>SendDraft.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CMSModules\ImportExport\Controls\ExportSettingsPanel.ascx.cs">
+      <DependentUpon>ExportSettingsPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\ImportExport\Controls\ExportSettingsPanel.ascx.designer.cs">
+      <DependentUpon>ExportSettingsPanel.ascx</DependentUpon>
+    </Compile>
     <Compile Include="CMSModules\ImportExport\Controls\Export\cms_resource.ascx.cs">
       <DependentUpon>cms_resource.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4930,6 +4970,20 @@
     </Compile>
     <Compile Include="CMSModules\ImportExport\Controls\Import\ma_automationaction.ascx.designer.cs">
       <DependentUpon>ma_automationaction.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileUsage.ascx.cs">
+      <DependentUpon>MediaFileUsage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileUsage.ascx.designer.cs">
+      <DependentUpon>MediaFileUsage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileUsageDialog.aspx.cs">
+      <DependentUpon>MediaFileUsageDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileUsageDialog.aspx.designer.cs">
+      <DependentUpon>MediaFileUsageDialog.aspx</DependentUpon>
     </Compile>
     <Compile Include="CMSModules\Modules\Controls\NuGetPackages\ExportModule.ascx.cs">
       <DependentUpon>ExportModule.ascx</DependentUpon>
@@ -14388,6 +14442,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CMSScripts\Custom\" />
+    <Folder Include="CMSScripts\WebComponents\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Custom\Custom.csproj">

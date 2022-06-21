@@ -9257,6 +9257,11 @@
             Gets the current UI element object.
             </summary>
         </member>
+        <member name="P:CMS.UIControls.CMSUIPage.UILayoutKey">
+            <summary>
+            Gets key for persisting UI layout dimensions.
+            </summary>
+        </member>
         <member name="M:CMS.UIControls.CMSUIPage.OnPreInit(System.EventArgs)">
             <summary>
             PreInit event handler.
@@ -10575,6 +10580,11 @@
         <member name="P:CMS.UIControls.UILayout.Slidable">
             <summary>
             When closed, can a pane 'slide open' over adjacent panes?
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UILayout.MaxSize">
+            <summary>
+            Gets or sets maximum allowed layout size.
             </summary>
         </member>
         <member name="P:CMS.UIControls.UILayout.OnShowStartScript">

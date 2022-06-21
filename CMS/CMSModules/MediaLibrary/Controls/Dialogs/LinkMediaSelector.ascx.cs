@@ -75,6 +75,12 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
         }
     }
 
+
+    /// <summary>
+    /// Key to retrieve layout width.
+    /// </summary>
+    public string UILayoutKey { get; internal set; }
+
     #endregion
 
 
@@ -390,6 +396,27 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
             ShowError(GetString("dialogs.libraries.nolibrary"));
         }
 
+        var source = QueryHelper.GetString("source", string.Empty);
+        if (!RequestHelper.IsPostBack() && !RequestHelper.IsCallback() && !String.Equals("docattachments", source, StringComparison.OrdinalIgnoreCase))
+        {
+            var width = UILayoutHelper.GetLayoutWidth(UILayoutKey);
+            if (width.HasValue)
+            {
+                pnlLeftContent.Attributes["style"] = $"width: {width}px";
+                pnlTreeArea.Attributes["style"] = $"width: {width}px";
+                pnlRightContent.Attributes["style"] = $"margin-left: {width}px";
+                resizer.Attributes["style"] = $"left: {width}px";
+            }
+
+            var collapsed = UILayoutHelper.IsVerticalResizerCollapsed(UILayoutKey);
+            if (collapsed == true)
+            {
+                var existingClass = resizerV.Attributes["class"];
+                existingClass += " ResizerDown";
+                resizerV.Attributes["class"] = existingClass;
+            }
+        }
+
         base.OnPreRender(e);
     }
 
@@ -398,6 +425,9 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
     {
         if (!StopProcessing)
         {
+            ScriptHelper.RegisterJQuery(Page);
+            ScriptHelper.RegisterJQueryUI(Page);
+
             SetupControls();
 
             SetupProperties();
@@ -1174,33 +1204,41 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
             string path = (dialogConfig.ContainsColumn("media.path") ? (string)dialogConfig["media.path"] : string.Empty);
             string siteName = (dialogConfig.ContainsColumn("media.sitename") ? (string)dialogConfig["media.sitename"] : string.Empty);
 
-            // Set user dialogs configuration only if all sites available in selector or selected site is equal to users
-            if ((librarySelector.Sites == AvailableSitesEnum.All) || (librarySelector.SelectedSiteName == siteName))
+            // Set user dialogs configuration only if all sites available in selector or selected site is equal to users.
+            if (librarySelector.Sites != AvailableSitesEnum.All && librarySelector.SelectedSiteName != siteName)
             {
-                if ((libraryName != string.Empty) && (siteName != string.Empty))
+                return;
+            }
+
+            // Set user dialogs configuration only if all libraries available in selector or selected library is equal to users.
+            if (librarySelector.GlobalLibraries != AvailableLibrariesEnum.All && librarySelector.GlobalLibraryName != libraryName)
+            {
+                return;
+            }
+
+            if (libraryName != string.Empty && siteName != string.Empty)
+            {
+                MediaLibraryInfo mli = MediaLibraryInfo.Provider.Get(libraryName, SiteInfoProvider.GetSiteID(siteName));
+                if (mli != null)
                 {
-                    MediaLibraryInfo mli = MediaLibraryInfo.Provider.Get(libraryName, SiteInfoProvider.GetSiteID(siteName));
-                    if (mli != null)
-                    {
-                        librarySelector.SelectedSiteName = siteName;
-                        librarySelector.SelectedLibraryID = mli.LibraryID;
-                    }
+                    librarySelector.SelectedSiteName = siteName;
+                    librarySelector.SelectedLibraryID = mli.LibraryID;
+                }
+            }
+
+            if (path != string.Empty)
+            {
+                FolderPath = path;
+
+                if (StartingPath != string.Empty)
+                {
+                    path = GetFilePath(path);
                 }
 
-                if (path != string.Empty)
-                {
-                    FolderPath = path;
+                folderTree.PathToSelect = path;
 
-                    if (StartingPath != string.Empty)
-                    {
-                        path = GetFilePath(path);
-                    }
-
-                    folderTree.PathToSelect = path;
-
-                    // Save value to request
-                    RequestStockHelper.AddToStorage(LINK_MEDIA_SELECTOR_STORAGE_KEY, "FolderPath", FolderPath);
-                }
+                // Save value to request
+                RequestStockHelper.AddToStorage(LINK_MEDIA_SELECTOR_STORAGE_KEY, "FolderPath", FolderPath);
             }
         }
     }
