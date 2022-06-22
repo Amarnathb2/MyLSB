@@ -2361,6 +2361,12 @@
             </summary>
             <param name="htmlPage">Source code of html page</param>
         </member>
+        <member name="M:CMS.Newsletters.EmailQueueManager.GetPageEncoding(System.Byte[])">
+            <summary>
+            Extracts the encoding from the content.
+            </summary>
+            <param name="pageContent">HTTP response content</param>
+        </member>
         <member name="M:CMS.Newsletters.EmailQueueManager.GetIssueTextFromURL(System.String)">
             <summary>
             Returns source code of html page specified by newsletterDynamicURL.

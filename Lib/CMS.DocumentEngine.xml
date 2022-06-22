@@ -6081,10 +6081,6 @@
         <member name="M:CMS.DocumentEngine.DocumentHelper.IsSearchTaskCreationAllowed(CMS.DocumentEngine.TreeNode)">
             <summary>
             Returns true if the search task for given node should be created.
-            Returns true if
-             - search is allowed on general level AND
-             - search is allowed for document type of given node
-             - published version for given node exists AND
             </summary>
             <param name="node">Node to check</param>
         </member>
@@ -6155,7 +6151,7 @@
             Return name of site that is assigned to the node.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.DocumentHelper.UpdateSearchIndexIfAllowed(CMS.DocumentEngine.TreeNode)">
+        <member name="M:CMS.DocumentEngine.DocumentHelper.LogSearchTask(CMS.DocumentEngine.TreeNode)">
             <summary>
             Updates search index if search task for given node should be created.
             </summary>
@@ -7984,7 +7980,7 @@
         </member>
         <member name="M:CMS.DocumentEngine.TreeNode.ChangeNodeDocumentType(CMS.DocumentEngine.TreeNode,System.String)">
             <summary>
-            Ensures changing the underlying database structure of a given document to its document type. 
+            Ensures changing the underlying database structure of a given document to its document type.
             Changes only the published data of the document type (CMS_Document and coupled data). Fills missing values with the data from given document node.
             </summary>
             <param name="node">Document node to change with new data</param>
@@ -8010,7 +8006,7 @@
             Copies the node data to the destination node according to the settings.
             </summary>
             <param name="destNode">Destination node</param>
-            <param name="settings">Copy settings</param> 
+            <param name="settings">Copy settings</param>
         </member>
         <member name="M:CMS.DocumentEngine.TreeNode.LoadInheritedValues(System.String[],System.Boolean)">
             <summary>
@@ -8254,7 +8250,7 @@
             Gets the parametrized query to get siblings of the document. Uses best matching culture and filters out all culture versions of the current document.
             </summary>
             <remarks>
-            The culture is taken preferably from the current node instance or default culture of the site or any other existing culture version. 
+            The culture is taken preferably from the current node instance or default culture of the site or any other existing culture version.
             </remarks>
             <param name="parameters">Parameters for the data retrieval</param>
         </member>
@@ -8295,7 +8291,7 @@
         <member name="M:CMS.DocumentEngine.TreeNode.GetSearchFields(CMS.DataEngine.ISearchIndexInfo,CMS.DataEngine.ISearchFields)">
             <summary>
             Returns search fields collection. When existing collection is passed as argument, fields will be added to that collection.
-            When collection is not passed, new collection will be created and return. 
+            When collection is not passed, new collection will be created and return.
             Collection will contain field values only when collection with StoreValues property set to true is passed to the method.
             When method creates new collection, it is created with StoreValues property set to false.
             </summary>
@@ -8306,7 +8302,7 @@
             <summary>
             Returns document with dependence on current object type and index.
             </summary>
-            <param name="index">Search index info</param>        
+            <param name="index">Search index info</param>
         </member>
         <member name="M:CMS.DocumentEngine.TreeNode.EnsureConsistency">
             <summary>
@@ -12219,8 +12215,9 @@
         </member>
         <member name="P:CMS.DocumentEngine.PageResolvers.ContentResolver">
             <summary>
-            Macro resolver for resolving macros inside the content of current page.
+            Returns new instance of macro resolver for resolving macros inside the content of current page.
             </summary>
+            <remarks>Culture for resolving is based on the current culture.</remarks>
         </member>
         <member name="T:CMS.DocumentEngine.PageRoutingEnums">
             <summary>
@@ -12555,6 +12552,12 @@
             Indexer for document category
             </summary>
         </member>
+        <member name="M:CMS.DocumentEngine.DocumentCategorySearchIndexer.IsTaskProcessingAllowed(CMS.Search.SearchTaskInfo)">
+            <summary>
+            Indicates if task processing is allowed for given task.
+            </summary>
+            <param name="sti">Search task to process.</param>
+        </member>
         <member name="M:CMS.DocumentEngine.DocumentCategorySearchIndexer.ExecuteProcessTask(CMS.Search.SearchTaskInfo)">
             <summary>
             Indexes the document category
@@ -12614,6 +12617,12 @@
             Executes the search index update task
             </summary>
             <param name="sti">Search task</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.DocumentSearchIndexer.IsTaskProcessingAllowed(CMS.Search.SearchTaskInfo)">
+            <summary>
+            Indicates if task processing is allowed for given task.
+            </summary>
+            <param name="sti">Search task to process.</param>
         </member>
         <member name="M:CMS.DocumentEngine.DocumentSearchIndexer.SelectSearchDocument(System.Int32)">
             <summary>
@@ -16321,6 +16330,21 @@
             </summary>
             <param name="site">Site.</param>
         </member>
+        <member name="M:CMS.DocumentEngine.Routing.PageRoutingHelper.GetPageUrlPath(CMS.Base.IDataContainer,System.String)">
+            <summary>
+            Gets the <see cref="T:CMS.DocumentEngine.Routing.Internal.PageUrlPath"/> from given data container.
+            </summary>
+            <param name="container">Data container with partial page data.</param>
+            <param name="cultureCode">If specified, the path for a culture version defined by the culture code is returned instead the one in the data container.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.Routing.PageRoutingHelper.GetPageUrlPathQueryInternal(System.Int32,System.String,System.String)">
+            <summary>
+            Gets the parametrized query for page URL path retrieval.
+            </summary>
+            <param name="nodeId">Page node ID.</param>
+            <param name="cultureCode">Culture code of the page.</param>
+            <param name="customCultureCode">Custom culture code.</param>
+        </member>
         <member name="T:CMS.DocumentEngine.Routing.PageRoutingModeEnum">
             <summary>
             Enumeration representing the page routing mode.
@@ -16600,13 +16624,6 @@
             </summary>
             <param name="page">Page.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.Routing.TreeNodeRoutingExtensions.GetPageUrlPathQueryInternal(CMS.Base.ITreeNode,System.String)">
-            <summary>
-            Gets the parametrized query for page URL path retrieval.
-            </summary>
-            <param name="page">Page.</param>
-            <param name="customCultureCode">Custom culture code.</param>
-        </member>
         <member name="T:CMS.DocumentEngine.Search.CrawlerSearchContentProvider">
             <summary>
             Encapsulates functionality that is responsible for downloading a content of the particular 
@@ -16823,6 +16840,12 @@
             </summary>
             <param name="page">Page.</param>
             <param name="changedColumns">List of changed columns.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.SearchExtensions.GetCreationDate(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Returns date of creation for given page.
+            </summary>
+            <param name="page">Page.</param>
         </member>
         <member name="T:CMS.DocumentEngine.AclInfo">
             <summary>

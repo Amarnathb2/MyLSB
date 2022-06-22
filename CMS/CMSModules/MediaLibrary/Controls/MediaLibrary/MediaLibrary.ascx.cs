@@ -22,7 +22,7 @@ using CMS.UIControls;
 public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaLibrary : CMSAdminItemsControl
 {
     #region "Variables"
-
+    
     private bool wasLoaded;
     private bool copyMoveInProgress;
 
@@ -587,6 +587,12 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaLibrary 
         }
     }
 
+
+    /// <summary>
+    /// Key to retrieve layout width.
+    /// </summary>
+    public string UILayoutKey { get; internal set; }
+
     #endregion
 
 
@@ -678,12 +684,35 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaLibrary 
             }
         }
 
+        if (!RequestHelper.IsPostBack() && !RequestHelper.IsCallback())
+        {
+            var width = UILayoutHelper.GetLayoutWidth(UILayoutKey);
+            if (width.HasValue)
+            {
+                pnlLeftContent.Attributes["style"] = $"width: {width}px";
+                pnlTreeArea.Attributes["style"] = $"width: {width}px";
+                pnlRightContent.Attributes["style"] = $"margin-left: {width}px";
+                resizer.Attributes["style"] = $"left: {width}px";
+            }
+
+            var collapsed = UILayoutHelper.IsVerticalResizerCollapsed(UILayoutKey);
+            if (collapsed == true)
+            {
+                var existingClass = resizerV.Attributes["class"];
+                existingClass += " ResizerDown";
+                resizerV.Attributes["class"] = existingClass;
+            }
+        }
+
         base.OnPreRender(e);
     }
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        ScriptHelper.RegisterJQuery(Page);
+        ScriptHelper.RegisterJQueryUI(Page);
+
         if (!StopProcessing)
         {
             InitializeDesignScripts();

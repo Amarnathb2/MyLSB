@@ -14,6 +14,7 @@ using CMS.Globalization;
 using CMS.Helpers;
 using CMS.IO;
 using CMS.MediaLibrary;
+using CMS.MediaLibrary.Internal;
 using CMS.Membership;
 using CMS.SiteProvider;
 using CMS.Synchronization;
@@ -264,7 +265,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
 
             string fileName = AttachmentHelper.GetFullFileName(FileInfo.FileName, FileInfo.FileExtension);
             string permanentUrl = MediaFileURLProvider.GetMediaFileUrl(FileInfo.FileGUID, fileName);
-            permanentUrl = URLHelper.UpdateParameterInUrl(permanentUrl, "preview", "1");            
+            permanentUrl = URLHelper.UpdateParameterInUrl(permanentUrl, "preview", "1");
 
             lblPreviewPermaLink.Text = GetFileLinkHtml(permanentUrl, LibraryInfo.LibrarySiteID);
 
@@ -289,10 +290,70 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
         pnlUpdatePreviewDetails.Update();
 
         // Refresh versions tab if selected and reload was forced
-        if (mForceReload && (pnlTabs.SelectedTabIndex == tabVersions.Index))
+        if (mForceReload && IsVersionsTabSelected())
         {
             ScriptHelper.RegisterStartupScript(this, typeof(string), "ReloadVersionsTab", "$cmsj(\"#" + objectVersionList.RefreshButton.ClientID + "\").click();", true);
         }
+
+        // Load Usage tab data if tab is preselected
+        if (IsUsageTabSelected())
+        {
+            var usages = FileInfo != null
+                ? Service.Resolve<IMediaFileUsageRetriever>().Get(FileInfo)
+                : Enumerable.Empty<IMediaFileUsageSearchResult>();
+
+            lblUsageInfoMessage.Text = usages.Any()
+                ? GetString("medialibrary.dependencytracker.infomessage")
+                : GetString("medialibrary.dependencytracker.nodatafound");
+
+            fileUsage.Setup(usages);
+        }
+    }
+
+
+    private bool IsUsageTabSelected()
+    {
+        var index = pnlTabs.SelectedTabIndex;
+        if (!tabCustomFields.Visible)
+        {
+            index++;
+        }
+
+        if (!tabVersions.Visible)
+        {
+            index++;
+        }
+
+        return index == tabUsage.Index;
+    }
+
+
+    private int GetClientUsageTabIndex()
+    {
+        var index = 3;
+        if (tabCustomFields.Visible)
+        {
+            index++;
+        }
+
+        if (tabVersions.Visible)
+        {
+            index++;
+        }
+
+        return index;
+    }
+
+
+    private bool IsVersionsTabSelected()
+    {
+        var index = pnlTabs.SelectedTabIndex;
+        if (!tabCustomFields.Visible)
+        {
+            index++;
+        }
+
+        return index == tabVersions.Index;
     }
 
 
@@ -330,15 +391,23 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
         }
 
         fileUplPreview.StopProcessing = StopProcessing;
+
+        // Load Usage tab data if tab selected
+        pnlTabs.OnClientTabClick = $"if($cmsj('#{pnlTabs.ClientID}_SelectedTab').val() === '{GetClientUsageTabIndex()}') {{ $cmsj('#{btnUsageLoad.ClientID}').click(); }}";
+
+        btnShowUsageDialog.ToolTip = GetString("medialibrary.dependencytracker.opendialogtooltip");
+        var usageDialogUrl = "~/CMSModules/MediaLibrary/Controls/MediaLibrary/MediaFileUsageDialog.aspx?fileid=" + FileID;
+        usageDialogUrl = URLHelper.AddParameterToUrl(usageDialogUrl, "hash", QueryHelper.GetHash(usageDialogUrl, false));
+        btnShowUsageDialog.OnClientClick = "modalDialog('" + UrlResolver.ResolveUrl(usageDialogUrl) + "', 'MediaFileUsage', 1200, '75%'); return true;";
     }
 
 
     #region "Public methods"
 
-    /// <summary>
-    /// Reloads controls content.
-    /// </summary>
-    public void ReLoadUserControl()
+        /// <summary>
+        /// Reloads controls content.
+        /// </summary>
+        public void ReLoadUserControl()
     {
         ReLoadUserControl(true);
     }
@@ -812,6 +881,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
         tabEdit.HeaderText = GetString("general.edit");
         tabCustomFields.HeaderText = GetString("general.customfields");
         tabVersions.HeaderText = GetString("objectversioning.tabtitle");
+        tabUsage.HeaderText = GetString("general.usage");
 
         DisplayCustomFields();
 
